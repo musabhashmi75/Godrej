@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_LAP_Eligibility_Basis_Rental_Income'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_LAP_Eligibility_Basis_Rental_Income</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("");
+print("++++> Entering function :: fn_LAP_Eligibility_Basis_Rental_Income");
+
+aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+
+try{
+  
+  netAnnualAllApplicants  is a real initially 0;
+  totalObligation is a real initially 0;
+  totalInstallmentAmount is a real initially 0;
+  // Applicant in message.request.application.applicants
+  for each BlazeApplicant  in  BTCommonVar.termInput.blazeApplication.blazeApplicantArray
+  do {    
+    aBlazeApplicant is some BlazeApplicant initially it as a BlazeApplicant;  
+    
+    print("----> aBlazeApplicant.applicantAdditionalDetails.additionalDetail.netAnnual :: " aBlazeApplicant.applicantAdditionalDetails.additionalDetail.netAnnual);
+
+    netAnnualAllApplicants = netAnnualAllApplicants + aBlazeApplicant.applicantAdditionalDetails.additionalDetail.netAnnual;  
+//added by Ankit for consider for EMI 
+    for each BankingDetails in aBlazeApplicant.bankingDetails
+    do {      
+      for each ExternalLiabilities in it.externalLiabilities
+      do{
+        if (it.installmentAmount.amount<>unknown and it.emiConsideredForFoir = true) then {
+          print("----> Ankit added it.emiConsideredForFoir :: " it.emiConsideredForFoir);
+        totalInstallmentAmount = totalInstallmentAmount + it.installmentAmount.amount;
+           print("----> it.installmentAmount.amount :: " it.installmentAmount.amount);
+        }
+      }     
+    }  
+    //totalObligation = totalObligation + totalInstallmentAmount;  commenetd by Ankit 
+    totalObligation =   totalInstallmentAmount;
+  }
+  print("----> totalObligation :: " totalObligation);
+
+  // Rental Income
+  print("----> aBlazeApplication.applicationAdditionalDetails.other.eligibilityMethod :: " aBlazeApplication.applicationAdditionalDetails.other.eligibilityMethod);
+  if(aBlazeApplication.applicationAdditionalDetails.other.eligibilityMethod <> unknown 
+     and aBlazeApplication.applicationAdditionalDetails.other.eligibilityMethod <>"" 
+     and aBlazeApplication.applicationAdditionalDetails.other.eligibilityMethod = (ignoring case)"RENTAL INCOME") then {    
+    LAP_LTV_Matrix_Table_03_Instance(aBlazeApplication);
+    LAP_SENP_Rental_FOIR_Offer_Matrix_Instance(aBlazeApplication);
+  }
+  print("----> aBlazeApplication.ltv :: " aBlazeApplication.ltv);
+  print("----> aBlazeApplication.foir :: " aBlazeApplication.foir);
+
+  eligibleLoanAmountLtv is a real initially 0;
+  print("----> aBlazeApplication.tvApproval.finalValuationAmount.finalValAmount as a real :: " aBlazeApplication.tvApproval.finalValuationAmount.finalValAmount as a real);
+  if(aBlazeApplication.tvApproval.finalValuationAmount.finalValAmount as a real <> unknown and aBlazeApplication.tvApproval.finalValuationAmount.finalValAmount as a real <> 0 and aBlazeApplication.ltv <> unknown) then {
+    eligibleLoanAmountLtv = aBlazeApplication.tvApproval.finalValuationAmount.finalValAmount as a real * (aBlazeApplication.ltv/100);
+  } else {
+    eligibleLoanAmountLtv = unknown;
+  }
+
+  if(eligibleLoanAmountLtv = unknown) then {
+    aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLOELIGLTV = 0;
+  } else {
+    aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLOELIGLTV = eligibleLoanAmountLtv;
+  }  
+  print("----> eligibleLoanAmountLtv :: " eligibleLoanAmountLtv);
+  print("----> aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLOELIGLTV :: " aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLOELIGLTV);
+  
+  incomeAvailableForLoan  is a real initially 0;
+  print("----> netAnnualAllApplicants :: " netAnnualAllApplicants);
+  netAnnualAllApplicants = netAnnualAllApplicants/12; //added by Ankit for divide by 12
+  print("----> netAnnualAllApplicants monthly :: " netAnnualAllApplicants);
+  if(netAnnualAllApplicants <> unknown and aBlazeApplication.foir <> unknown) then {
+    incomeAvailableForLoan = (netAnnualAllApplicants*(aBlazeApplication.foir/100)) - totalObligation;
+  }
+  print("----> incomeAvailableForLoan :: " incomeAvailableForLoan);
+
+  // baseRate, tenor
+  baseRate is a real initially 0;
+  tenor is a real initially 0;
+  if(aBlazeApplication.loanBasicDetail.paymentDetails.baseRate as a real <> unknown 
+     and aBlazeApplication.loanBasicDetail.paymentDetails.numberOfInstallments as a real <> unknown) then {
+    baseRate = aBlazeApplication.loanBasicDetail.paymentDetails.baseRate as a real;
+    tenor = aBlazeApplication.loanBasicDetail.paymentDetails.numberOfInstallments as a real;
+  }
+
+  print("----> baseRate :: " baseRate);
+  print("----> tenor :: " tenor);
+
+  multiplier is a real initially 0;
+  divisor is a real initially 0;
+  rate is a real initially 0;
+  ratePerMonth is a real initially 0;
+
+  ratePerMonth = baseRate/(12*100);
+
+  rate = 1 + ratePerMonth;
+  if(tenor >=180)then{
+  multiplier = math().power(rate, 180);
+  }
+else if(tenor <180)then {
+  multiplier = math().power(rate, tenor);
+}
+  divisor = multiplier - 1;
+
+  print("----> multiplier :: " multiplier);
+  print("----> divisor :: " divisor);
+  print("----> ratePerMonth :: " ratePerMonth);
+
+  emiPerLakh is a real initially 0;
+  if(divisor <> 0) then {
+    emiPerLakh = (100000 * ratePerMonth * multiplier) / divisor;
+  }
+  print("----> emiPerLakh :: " emiPerLakh);
+
+
+  eligibleLoanAmountFoir is a real initially 0;
+  if(emiPerLakh<>unknown and incomeAvailableForLoan<>unknown and emiPerLakh <> 0) then {
+    eligibleLoanAmountFoir = (incomeAvailableForLoan/emiPerLakh)*100000;
+  }
+  aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLOELIGINC = eligibleLoanAmountFoir;
+  print("----> eligibleLoanAmountFoir :: " eligibleLoanAmountFoir);
+  print("----> aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLOELIGINC :: " aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLOELIGINC);
+
+  maxLoanAmount  is a real initially 0;
+  
+  if (eligibleLoanAmountFoir <> unknown) then {
+    maxLoanAmount = eligibleLoanAmountFoir;
+  } 
+  if((eligibleLoanAmountLtv <> unknown and eligibleLoanAmountFoir <> unknown) and (eligibleLoanAmountLtv < eligibleLoanAmountFoir)) then{
+    maxLoanAmount = eligibleLoanAmountLtv;
+  } 
+  print("----> maxLoanAmount :: " maxLoanAmount);
+
+  aBlazeApplication.applicationAdditionalDetails.finalOffer.LOANAMTOFFR = maxLoanAmount;
+  print("----> aBlazeApplication.applicationAdditionalDetails.finalOffer.LOANAMTOFFR :: " aBlazeApplication.applicationAdditionalDetails.finalOffer.LOANAMTOFFR);
+
+  print("++++> Exiting function :: fn_LAP_Eligibility_Basis_Rental_Income");
+  print("");
+
+}catch an Exception with {
+  aBlazeApplication.fn_LAP_EligibilityBasisRentalIncomeException = true;  
+  print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");  
+}
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='OmneQf'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_Eligibility_Basis_Rental_Income1</value>
+ </instance>
+</instantiation>

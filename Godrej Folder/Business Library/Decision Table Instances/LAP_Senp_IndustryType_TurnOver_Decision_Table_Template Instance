@@ -1,0 +1,775 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='EXrJptxU9xUuOKOI2fRvqZTyiL4' name='SENP_IndustryType_TurnOver_Instance'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+ </instance>
+ <instance ref='rulesetName'>
+  <value>SENP_IndustryType_TurnOver_Instance</value>
+ </instance>
+ <instance-list ref='cases'>
+  <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Decision Table Case Template' id='MXYs22'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='FPTEym'>
+     <instance ref='CELL GROUP NAME'>
+      <value>industryType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='GXnypg'>
+       <instance ref='value'>
+        <value>TRADING</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='7JX8pM'>
+     <instance ref='CELL GROUP NAME'>
+      <value>businessTurnOver</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='TwOWCI'>
+       <instance ref='value'>
+        <value>50000000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='55s4qG'>
+     <instance ref='CELL GROUP NAME'>
+      <value>senpIndustryTypeTurnOver</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='QZVmVd'>
+       <instance ref='value'>
+        <value>TRAD_GT_5CR</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Decision Table Case Template' id='MIR5DZ'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='MMBsgg'>
+     <instance ref='CELL GROUP NAME'>
+      <value>industryType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='2WXWxl'>
+       <instance ref='value'>
+        <value>TRADING</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='5jJ0MS'>
+     <instance ref='CELL GROUP NAME'>
+      <value>businessTurnOver</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range' id='KLgLOI'>
+       <instance ref='value1'>
+        <value>20000000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>50000000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='Kk13yt'>
+     <instance ref='CELL GROUP NAME'>
+      <value>senpIndustryTypeTurnOver</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='Q6qg1L'>
+       <instance ref='value'>
+        <value>TRAD_BT_2CR-5CR</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>9 Jul, 2021 3:34 PM</value>
+   </instance>
+  </item>
+  <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Decision Table Case Template' id='HCSJFi'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='OuLeDl'>
+     <instance ref='CELL GROUP NAME'>
+      <value>industryType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='JdC96g'>
+       <instance ref='value'>
+        <value>TRADING</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='9g3ENs'>
+     <instance ref='CELL GROUP NAME'>
+      <value>businessTurnOver</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than' id='GkrD7F'>
+       <instance ref='value'>
+        <value>20000000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='JhJgLc'>
+     <instance ref='CELL GROUP NAME'>
+      <value>senpIndustryTypeTurnOver</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='Ubvgm1'>
+       <instance ref='value'>
+        <value>TRAD_LT_2CR</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>9 Jul, 2021 3:34 PM</value>
+   </instance>
+  </item>
+  <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Decision Table Case Template' id='57oTYw'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='QDBAgG'>
+     <instance ref='CELL GROUP NAME'>
+      <value>industryType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='ATg4p2'>
+       <instance ref='value'>
+        <value>MANUFACTURING</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='JjvGNd'>
+     <instance ref='CELL GROUP NAME'>
+      <value>businessTurnOver</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='8mWo3k'>
+       <instance ref='value'>
+        <value>20000000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='O0NAnO'>
+     <instance ref='CELL GROUP NAME'>
+      <value>senpIndustryTypeTurnOver</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='FIFiJZ'>
+       <instance ref='value'>
+        <value>MANUFTCR_GT_2CR</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule4</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>9 Jul, 2021 3:34 PM</value>
+   </instance>
+  </item>
+  <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Decision Table Case Template' id='ES8nZo'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='JuOdnG'>
+     <instance ref='CELL GROUP NAME'>
+      <value>industryType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='4z0ZSO'>
+       <instance ref='value'>
+        <value>MANUFACTURING</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='67oKkt'>
+     <instance ref='CELL GROUP NAME'>
+      <value>businessTurnOver</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range' id='5FPglC'>
+       <instance ref='value1'>
+        <value>10000000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>20000000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='GkUypP'>
+     <instance ref='CELL GROUP NAME'>
+      <value>senpIndustryTypeTurnOver</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='G2LFNs'>
+       <instance ref='value'>
+        <value>MANUFTCR_BT_1CR-2CR</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule5</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>5</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>20 Jul, 2021 12:34 PM</value>
+   </instance>
+  </item>
+  <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Decision Table Case Template' id='5WVepF'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='JhNRcQ'>
+     <instance ref='CELL GROUP NAME'>
+      <value>industryType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='S1VQIP'>
+       <instance ref='value'>
+        <value>MANUFACTURING</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='J6l0Vg'>
+     <instance ref='CELL GROUP NAME'>
+      <value>businessTurnOver</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than' id='NtGaIJ'>
+       <instance ref='value'>
+        <value>10000000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='O0IBiG'>
+     <instance ref='CELL GROUP NAME'>
+      <value>senpIndustryTypeTurnOver</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='Ikh18w'>
+       <instance ref='value'>
+        <value>MANUFTCR_LT_1CR</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule6</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>20 Jul, 2021 12:34 PM</value>
+   </instance>
+  </item>
+  <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Decision Table Case Template' id='MoaW7D'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='R2oNZ6'>
+     <instance ref='CELL GROUP NAME'>
+      <value>industryType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='ZLlkYp'>
+       <instance ref='value'>
+        <value>SERVICES</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='9anImw'>
+     <instance ref='CELL GROUP NAME'>
+      <value>businessTurnOver</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='L9NeGM'>
+       <instance ref='value'>
+        <value>10000000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='I0xbkM'>
+     <instance ref='CELL GROUP NAME'>
+      <value>senpIndustryTypeTurnOver</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='8wHlx2'>
+       <instance ref='value'>
+        <value>SER_PRVDR_GT_1CR</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>20 Jul, 2021 12:34 PM</value>
+   </instance>
+  </item>
+  <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Decision Table Case Template' id='TF4JB0'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='HFxxKn'>
+     <instance ref='CELL GROUP NAME'>
+      <value>industryType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='HVxkOk'>
+       <instance ref='value'>
+        <value>SERVICES</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='IhPnX8'>
+     <instance ref='CELL GROUP NAME'>
+      <value>businessTurnOver</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range' id='Fp8q5R'>
+       <instance ref='value1'>
+        <value>5000000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>10000000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='KNJSIQ'>
+     <instance ref='CELL GROUP NAME'>
+      <value>senpIndustryTypeTurnOver</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='5iui79'>
+       <instance ref='value'>
+        <value>SER_PRVDR_BT_50L-1CR</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule8</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>8</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>20 Jul, 2021 12:34 PM</value>
+   </instance>
+  </item>
+  <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Decision Table Case Template' id='85RLGm'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='1mm9Su'>
+     <instance ref='CELL GROUP NAME'>
+      <value>industryType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='5wFoS0'>
+       <instance ref='value'>
+        <value>SERVICES</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='4Dn9Di'>
+     <instance ref='CELL GROUP NAME'>
+      <value>businessTurnOver</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than' id='82Iv0X'>
+       <instance ref='value'>
+        <value>5000000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Template' id='A8oEl5'>
+     <instance ref='CELL GROUP NAME'>
+      <value>senpIndustryTypeTurnOver</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='OewamZ'>
+       <instance ref='value'>
+        <value>SER_PRVDR_LT_50L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule9</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>9</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>20 Jul, 2021 12:34 PM</value>
+   </instance>
+  </item>
+ </instance-list>
+ <instance ref='editingInfo'>
+  <instance ref='rowCondValueCount'>
+   <value>0</value>
+  </instance>
+  <instance ref='colCondValueCount'>
+   <value>0</value>
+  </instance>
+  <instance ref='isNewInstance'>
+   <value>false</value>
+  </instance>
+ </instance>
+ <instance ref='casesInfo'>
+  <instance-list ref='condition cells'>
+   <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Group Info Template' id='1ez5H8'>
+    <instance ref='name'>
+     <value>industryType</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>natureOfBusiness</value>
+    </instance>
+    <instance ref='property'>
+     <value>currentApplicant.natureOfBusiness</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Group Info Template' id='4Gcv7K'>
+    <instance ref='name'>
+     <value>businessTurnOver</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>TurnOver</value>
+    </instance>
+    <instance ref='property'>
+     <value>currentApplicant.applicantAdditionalDetails.senpLatestYearEligibility.turnover</value>
+    </instance>
+    <instance ref='type'>
+     <value>real</value>
+    </instance>
+   </item>
+  </instance-list>
+  <instance-list ref='action cells'>
+   <item template='EXrJptxU9xUuOKOI2fRvqZTyiL4.Cell Group Info Template' id='SVkE6f'>
+    <instance ref='name'>
+     <value>senpIndustryTypeTurnOver</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>senpIndustryTypeTurnOver</value>
+    </instance>
+    <instance ref='property'>
+     <value>currentApplicant.senpIndustryTypeTurnOver</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

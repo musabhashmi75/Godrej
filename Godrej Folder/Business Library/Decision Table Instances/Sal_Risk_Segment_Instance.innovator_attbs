@@ -1,0 +1,16 @@
+#Extended attributes for Innovator file-based repository (directory: 'Sal_Risk_Segment_Instance')
+#Wed Nov 10 10:18:33 IST 2021
+contentType=Instance
+guid=7Nk7q5IrlJK31Ki4wpRDeCGyENG
+innovatorDisplayName=Sal_Risk_Segment_Instance
+innovatorTemplateRef=BR6Pz5Mz05ft2U7fEmiPxwTafN4
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

@@ -1,0 +1,15 @@
+#Extended attributes for Eclipse file-based repository (directory: 'XML Business Object Model1')
+#Thu Aug 25 06:28:15 UTC 2022
+contentType=Fixed
+guid=XZPE0qlPnfuPXkzditK4ncUgcop
+innovatorDisplayName=GHF_BOM_30-11-2021_07-53_pm
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=XML BOM
+target=SRL
+type=Business Object Model

@@ -1,0 +1,18 @@
+#Extended attributes for Innovator file-based repository (directory: 'BL_Credit_to_Loan_Ratio')
+#Fri Nov 18 09:31:50 UTC 2022
+contentType=Instance
+guid=H92D2VABQpwzhzb1fibkhZz23V6
+innovatorDisplayName=BL_Credit_to_Loan_Ratio
+innovatorItemCreationId=admin
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=6wJBDnNMEpPfdP4wizmesDxkko8
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

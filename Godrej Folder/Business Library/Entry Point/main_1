@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='main_1'>
+ <ide-name>main</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='Pk22CkYR12jQ1diuBSxYPG7wutE'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Function Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='Pk22CkYR12jQ1diuBSxYPG7wutE'>
+   <name>main</name>
+   <body>print("");<template:br/><![CDATA[print("++++> Entering function :: main");]]><template:br/>////try{<template:br/>// debug<template:br/>message is some Message initially a Message;<template:br/><template:br/><![CDATA[print("----> Calling function :: fn_EntryPoint");]]><template:br/><template:br/>// Windows_k<template:br/>message = fn_EntryPoint(Message.readMessage("C:\\GHF_Requests\\Bug Requests\\ye_meri_req.xml"));<template:br/>message.write("C:\\GHF_Requests\\Bug Requests\\mera_response.xml");<template:br/>// Windows_others<template:br/><template:br/>//message = fn_EntryPoint(Message.readMessage("D:\\GHF_Requests\\GHF_SampleRequest.xml"));<template:br/><template:br/>print("");<template:br/><![CDATA[print("++++> Exiting function :: main");]]><template:br/>//return "Looks Like Success";<template:br/>//}<template:br/>//catch an Exception with {<template:br/>//  return evaluationException().message;<template:br/>//  }</body>
+  </function></template:content>
+</template>

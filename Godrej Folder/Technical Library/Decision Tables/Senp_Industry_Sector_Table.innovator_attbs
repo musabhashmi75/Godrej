@@ -1,0 +1,15 @@
+#Extended attributes for Eclipse file-based repository (directory: 'Senp_Industry_Sector_Table')
+#Tue Sep 21 18:31:36 IST 2021
+contentType=Template
+guid=BnGWdsKAlhPsLGwahU2WJuxlP2G
+innovatorDisplayName=Industry_SubSector
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

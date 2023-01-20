@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='BlazePaymentHistory'>
+ <ide-name>BlazePaymentHistory</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1RaoORulMMLlNlYZXj9utiAR34f' name='SRL Class' id='1pQZXcUhXJsgGBHiEqG2nRETPZT'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Class Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><class managementPropertiesRef='1pQZXcUhXJsgGBHiEqG2nRETPZT'>
+   <name>BlazePaymentHistory</name>
+   <type>object</type>
+   <properties>
+    <property>
+     <name>year</name>
+     <type>integer</type>
+    </property>
+    <property>
+     <name>months</name>
+     <type>integer</type>
+    </property>
+    <property>
+     <name>daysPastDue</name>
+     <type>integer</type>
+    </property>
+    <property>
+     <name>assetClassification</name>
+     <type>string</type>
+    </property>
+    <property>
+     <name>paymentDate</name>
+     <type>date</type>
+    </property>
+    <property>
+     <name>monthSinceAppDate</name>
+     <type>integer</type>
+    </property>
+    <property>
+     <name>monthSinceCurrDate</name>
+     <type>integer</type>
+    </property>
+    <property>
+     <name>dpdBucket</name>
+     <type>integer</type>
+    </property>
+    <property>
+     <name>REP_DATE</name>
+     <type>date</type>
+    </property>
+    <property>
+     <name>Date_Diff_Disb_Rep</name>
+     <type>integer</type>
+    </property>
+    <property>
+     <name>MS_REP</name>
+     <type>integer</type>
+    </property>
+    <property>
+     <name>DELQ</name>
+     <type>integer</type>
+    </property>
+    <property>
+     <name>NUM_UPDATES_24M</name>
+     <type>integer</type>
+    </property>
+   </properties>
+  </class></template:content>
+</template>

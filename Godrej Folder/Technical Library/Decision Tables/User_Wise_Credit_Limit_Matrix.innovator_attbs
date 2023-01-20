@@ -1,0 +1,15 @@
+#Extended attributes for Eclipse file-based repository (directory: 'User_Wise_Credit_Limit_Matrix')
+#Mon Nov 22 12:14:51 IST 2021
+contentType=Template
+guid=6il55s2CCeu4vZNLfhdIymPJwMH
+innovatorDisplayName=User_Wise_Credit_Limit_Matrix
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

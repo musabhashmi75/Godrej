@@ -1,0 +1,15 @@
+#Extended attributes for Eclipse file-based repository (directory: 'Salaried Risk Score Model Template')
+#Wed Jan 05 15:56:56 IST 2022
+contentType=Template
+guid=6dLeOiAaFjQXkYY5JoMzmSYhsuQ
+innovatorDisplayName=Sal_Risk_Score_Card
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Score Model
+target=SRL
+type=SRL Ruleset

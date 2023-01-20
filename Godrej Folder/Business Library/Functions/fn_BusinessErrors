@@ -1,0 +1,308 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_BusinessErrors'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_BusinessErrors</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("");
+print("++++> Entering function :: fn_BusinessErrors");
+
+termInput is some BlazeRoot initially a BlazeRoot;
+print("----> termInput :: "termInput);
+
+print("----> Number of applicants :: "message.request.application.applicants.count);
+
+aBlazeApplicantArr is some array of BlazeApplicant initially an array of BlazeApplicant;
+
+BTCommonVar.termInput = termInput;
+BTCommonVar.termInput.blazeApplication  = message.request.application as a BlazeApplication;
+
+print("----> BTCommonVar.termInput.blazeApplication :: "BTCommonVar.termInput.blazeApplication);
+print("----> message.invocation.serviceexecute :: " message.invocation.serviceexecute);
+print("----> message.invocation.applicationNumber :: " message.invocation.applicationNumber);
+print("----> message.invocation.decisionService :: " message.invocation.decisionService);
+print("----> message.invocation.decisionPointAction :: " message.invocation.decisionPointAction);
+print("----> message.invocation.decisionPoint :: " message.invocation.decisionPoint);
+
+serviceexecute is a string initially message.invocation.serviceexecute;
+applicationNumber is a string initially message.invocation.applicationNumber;
+decisionService is a string initially message.invocation.decisionService;
+decisionPointAction is a string initially message.invocation.decisionPointAction;
+decisionPoint is a string initially message.invocation.decisionPoint;
+
+aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+
+// default values for Exception flags
+aBlazeApplication.fn_ApplicationRiskScoreCardsException = false;
+aBlazeApplication.fn_CibilBureauDerivedVariablesException = false;
+aBlazeApplication.fn_CibilBureauReportParserException = false;
+aBlazeApplication.fn_BusinessErrorsException = false;
+
+aBlazeApplication.fn_CalculateAgeException = false;
+aBlazeApplication.fn_CalculatedVariablesException = false;
+aBlazeApplication.fn_ConditionalMandatoryErrorsException = false;
+aBlazeApplication.fn_DefaultValuesException = false;
+
+aBlazeApplication.fn_DefinitionsException = false;
+aBlazeApplication.fn_ExperianScoreCardsException = false;
+aBlazeApplication.fn_HardStopDeviationsException = false;
+aBlazeApplication.fn_HL_DeviationsException = false;
+
+aBlazeApplication.fn_HL_EligibilityBasisABBException = false;
+aBlazeApplication.fn_HL_EligibilityBasisFoirException = false;
+aBlazeApplication.fn_HL_EligibilityBasisLTVException = false;
+aBlazeApplication.fn_HL_EligibilityCalculationException = false;
+
+aBlazeApplication.fn_HL_EligibileLoanAmountProgramException = false;
+aBlazeApplication.fn_HL_EligibileLoanAmountSalariedException = false;
+aBlazeApplication.fn_HL_EligibileLoanAmountSenpException = false;
+aBlazeApplication.fn_HL_EligibileLoanAmountSepException = false;
+
+aBlazeApplication.fn_HL_NetMonthlyIncomeEligibilityException = false;
+aBlazeApplication.fn_LAP_DeviationsException = false;
+aBlazeApplication.fn_LAP_EligibilityBasisABBException = false;
+aBlazeApplication.fn_LAP_EligibilityBasisFoirException = false;
+
+aBlazeApplication.fn_LAP_EligibilityBasisLTVException = false;
+aBlazeApplication.fn_LAP_EligibilityBasisRentalIncomeException = false;
+aBlazeApplication.fn_LAP_EligibilityCalculationException = false;
+aBlazeApplication.fn_LAP_EligibileLoanAmountProgramException = false;
+
+aBlazeApplication.fn_LAP_EligibileLoanAmountSalariedException = false;
+aBlazeApplication.fn_LAP_EligibileLoanAmountSenpException = false;
+aBlazeApplication.fn_LAP_EligibileLoanAmountSepException = false;
+aBlazeApplication.fn_LAP_NetMonthlyIncomeEligibilityException = false;
+
+aBlazeApplication.fn_SetErrorInResponseException = false;
+aBlazeApplication.fn_DecimalNumberPrecisionException = false;
+
+businessErrorFlag is a boolean initially false;
+
+errType is a string initially "";
+errId is a string initially "";
+errName is a string initially "";
+errAction is a string initially "";
+errCode is a string initially "";
+errText is a string initially "";
+
+//serviceexecute
+try {
+if(serviceexecute is equal to unknown or serviceexecute="")
+then{
+    print("**Error :: ###>> service execute is mandatory <<###");
+  businessErrorFlag = true;
+   errType = "HardStop";
+   errText = "service execute is mandatory";
+   errId = "ERROBJ005";
+   errName = errId;
+    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+   }
+
+// decisionPoint
+if(decisionPoint is equal to unknown or decisionPoint="")
+  then {
+    print("**Error :: ###>> Invalid Decision Point <<###");
+    businessErrorFlag = true;
+    errType = "HardStop";
+    errText = "Invalid Decision Point in Invocation";
+    errId = "ERROBJ003";
+    errName = errId;
+    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+  }
+
+// decisionService
+if(decisionService is equal to unknown or decisionService="")
+  then {
+    print("**Error :: ###>> Invalid Decision Service <<###");
+    businessErrorFlag = true;
+    errType = "HardStop";
+    errText = "Invalid Decision Service in Invocation";
+    errId = "ERROBJ002";
+    errName = errId;
+    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+  }
+
+// decisionPointAction
+if(decisionPointAction is equal to unknown or decisionPointAction="")
+  then {
+    print("**Error :: ###>> Invalid Decision Point Action <<###");
+    businessErrorFlag = true;
+    errType = "HardStop";
+    errText = "Invalid Decision Point Action in Invocation";
+    errId = "ERROBJ004";
+    errName = errId;
+    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+  }
+
+//applicationNumber
+if(applicationNumber is equal to unknown or applicationNumber="")
+  then {
+    print("**Error :: ###>> Application Number is Mandatory <<###");
+    businessErrorFlag = true;
+    errType = "HardStop";
+    errText = "Application Number is Mandatory";
+    errId = "ERROBJ001";
+    errName = errId;
+    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+  }
+
+// Function_Mapping_Matrix_Instance
+aBlazeApplication.softstopHardstopCheck=true;
+aBlazeApplication.calculatedVariablesCheck=true;
+aBlazeApplication.deviationsCheck=true;
+aBlazeApplication.eligibilityCheck=true;
+aBlazeApplication.riskScoreCardCheck=true;
+aBlazeApplication.experianScoreCardCheck=true;
+
+if(applicationNumber<>unknown and decisionService<>unknown and decisionPointAction<>unknown and decisionPoint<>unknown and applicationNumber<>"" and decisionService<>"" and decisionPointAction<>"" and decisionPoint<>"")
+  then {
+    Function_Mapping_Matrix_Instance(decisionService, decisionPointAction, decisionPoint, aBlazeApplication);
+    print("----> Function_Mapping_Matrix_Instance called... :: "); 
+  }
+print("");  
+print("----> aBlazeApplication.softstopHardstopCheck :: " aBlazeApplication.softstopHardstopCheck);  
+print("----> aBlazeApplication.calculatedVariablesCheck :: " aBlazeApplication.calculatedVariablesCheck);
+print("----> aBlazeApplication.deviationsCheck :: " aBlazeApplication.deviationsCheck);
+print("----> aBlazeApplication.eligibilityCheck :: " aBlazeApplication.eligibilityCheck);
+print("----> aBlazeApplication.riskScoreCardCheck :: " aBlazeApplication.riskScoreCardCheck);
+print("----> aBlazeApplication.experianScoreCardCheck :: " aBlazeApplication.experianScoreCardCheck);
+print("");
+
+for each Applicant in message.request.application.applicants
+do  { 
+  aBlazeApplicant is some BlazeApplicant initially it as a BlazeApplicant;  
+  
+  //Corporate Customer to be residntial by default
+  print("aBlazeApplicant.customerCategory :: "aBlazeApplicant.customerCategory);
+   if(aBlazeApplicant.customerCategory =(ignoring case)"CORP")then{
+     aBlazeApplicant.residentialStatus ="RESIDENT";
+      print(" aBlazeApplicant.residentialStatus ::"  aBlazeApplicant.residentialStatus);
+   }
+  
+  // Corporate flag
+  aBlazeApplicant.corporateFlag = false;
+  if(aBlazeApplicant.customerCategory<>unknown and aBlazeApplicant.customerCategory=(ignoring case) "CORP")  then  {
+    aBlazeApplicant.employmentType="SENP";
+    aBlazeApplicant.corporateFlag = true;
+  }
+  if(aBlazeApplicant.employmentType <> unknown) then {
+    aBlazeApplicant.employmentType = portable().toUpperCase(aBlazeApplicant.employmentType);
+  }
+  print("----> aBlazeApplicant.employmentType :: " aBlazeApplicant.employmentType);  
+  print("----> aBlazeApplicant.corporateFlag :: " aBlazeApplicant.corporateFlag);
+  
+  print("----> BlazeApplicant's dateOfBirth :: " aBlazeApplicant.dateOfBirth);  
+  if(aBlazeApplicant.customerCategory<>unknown and aBlazeApplicant.customerCategory<>(ignoring case) "CORP" 
+  and (aBlazeApplicant.dateOfBirth = unknown or aBlazeApplicant.dateOfBirth=null or aBlazeApplicant.dateOfBirth="")) then {
+    print("**Error :: ###>> Date of birth is Mandatory <<###");
+    businessErrorFlag = true;
+    errType = "HardStop";
+    errText = "Date of birth is Mandatory";
+    errId = "ERROBJ006";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+  }
+  
+  print("----> BlazeApplicant's dateOfIncorporation :: " it.dateOfIncorporation);
+  if(aBlazeApplicant.customerCategory<>unknown and aBlazeApplicant.customerCategory=(ignoring case) "CORP" 
+  and (aBlazeApplicant.dateOfIncorporation = unknown or aBlazeApplicant.dateOfIncorporation = null or aBlazeApplicant.dateOfIncorporation=""))  then {
+    print("**Error :: ###>> Date of Incorporation is Mandatory <<###");
+    businessErrorFlag = true;
+    errType = "HardStop";
+    errText = "Date of Incorporation is Mandatory";
+    errId = "ERROBJ197";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+  }
+  
+  
+
+  aBlazeApplicantArr.append(aBlazeApplicant);
+}
+
+BTCommonVar.termInput.blazeApplication.businessErrorsFlag = businessErrorFlag;
+BTCommonVar.termInput.blazeApplication.blazeApplicantArray =  aBlazeApplicantArr;
+
+print("---->  aBlazeApplication.businessErrorsFlag :: " aBlazeApplication.businessErrorsFlag);
+
+  print("++++> Exiting function :: fn_BusinessErrors");
+  print("");
+  
+} catch an Exception with {
+  aBlazeApplication.fn_BusinessErrorsException= true;  
+  print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");  
+}]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='HIkdHB'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_BusinessErrors1</value>
+ </instance>
+</instantiation>

@@ -1,0 +1,18 @@
+#Extended attributes for Innovator file-based repository (directory: 'SENP_Experience_Segmentation')
+#Tue Jan 10 12:00:54 UTC 2023
+contentType=Instance
+guid=BhV8Y3BmaGOwe05Gft1GTpawciK
+innovatorDisplayName=SENP_Experience_Segmentation
+innovatorItemCreationId=admin
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=6wJBDnNMEpPfdP4wizmesDxkko8
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

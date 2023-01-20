@@ -1,0 +1,17 @@
+#Extended attributes for Innovator file-based repository (directory: 'Senp_Industry_Sector_Table Instance')
+#Mon Jan 02 06:06:37 UTC 2023
+contentType=Instance
+guid=Upaekzszvn1j3P1b3J6Wg4Brvei
+innovatorDisplayName=Industry_SubSector_Instance
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=BnGWdsKAlhPsLGwahU2WJuxlP2G
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

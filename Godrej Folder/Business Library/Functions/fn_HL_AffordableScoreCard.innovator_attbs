@@ -1,0 +1,20 @@
+#Extended attributes for Innovator file-based repository (directory: 'fn_HL_AffordableScoreCard')
+#Thu Aug 18 11:10:15 UTC 2022
+contentType=Instance
+guid=S3uej7fXX8FtxJvXZe7fq8pUWq2
+innovatorDisplayName=fn_HL_AffordableScoreCard
+innovatorItemCreationId=admin
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=Q8jH6kHdOYIZ1uG0WKXqvvejqv0
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+managementProperty.Test\ Case=
+managementProperty.Test\ Role=None
+subType=None
+target=SRL
+type=SRL Function

@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='main1'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>main1</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("");
+print("++++> Entering function :: main");
+////try{
+// debug
+message is some Message initially a Message;
+
+print("----> Calling function :: fn_EntryPoint");
+
+// Windows_k
+message = fn_EntryPoint(Message.readMessage("C:\\GHF_Requests\\Bug Requests\\bug2.xml"));
+message.write("C:\\GHF_Requests\\Bug Requests\\GHF_Resp_"message.invocation.decisionPoint"_"message.invocation.applicationNumber".xml");
+// Windows_others
+//message = fn_EntryPoint(Message.readMessage("D:\\GHF_Requests\\GHF_SampleRequest.xml"));
+
+print("");
+print("++++> Exiting function :: main");
+//return "Looks Like Success";
+//}
+//catch an Exception with {
+//  return evaluationException().message;
+//  }]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+  </instance-list>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>main1</value>
+ </instance>
+</instantiation>

@@ -1,0 +1,15 @@
+#Extended attributes for Eclipse file-based repository (directory: 'SE_Pincode_Ranking')
+#Sat Aug 14 13:31:30 IST 2021
+contentType=Template
+guid=6661pKoFSEvmfYbsCayMOmzrp69
+innovatorDisplayName=SE_Pincode_Ranking
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

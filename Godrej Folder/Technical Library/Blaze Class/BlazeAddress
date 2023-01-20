@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='BlazeAddress'>
+ <ide-name>BlazeAddress</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1RaoORulMMLlNlYZXj9utiAR34f' name='SRL Class' id='CFYAbYJ7WbrED7rpZWPsoBnHTHH'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Class Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><class managementPropertiesRef='CFYAbYJ7WbrED7rpZWPsoBnHTHH'>
+   <name>BlazeAddress</name>
+   <type>AddressDetails</type>
+  </class></template:content>
+</template>

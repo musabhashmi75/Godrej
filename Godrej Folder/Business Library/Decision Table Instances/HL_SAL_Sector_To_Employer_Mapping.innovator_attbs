@@ -1,0 +1,18 @@
+#Extended attributes for Innovator file-based repository (directory: 'HL_SAL_Sector_To_Employer_Mapping')
+#Mon Oct 03 07:31:53 UTC 2022
+contentType=Instance
+guid=AMyTeQP7MnHeiVceVK5r8rKe7oY
+innovatorDisplayName=HL_SAL_Sector_To_Employer_Mapping
+innovatorItemCreationId=admin
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=6wJBDnNMEpPfdP4wizmesDxkko8
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

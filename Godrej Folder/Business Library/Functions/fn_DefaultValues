@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_DefaultValues'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_DefaultValues1</value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_DefaultValues</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("");
+print("++++> Entering function :: fn_DefaultValues");
+
+aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+
+productCode is a string;
+productCode = message.invocation.decisionService;
+
+try {
+    
+  if(aBlazeApplication.businessErrorsFlag = false) then {
+    print("");
+    print("---->  Before :: ");
+    print("---->  psl :: " aBlazeApplication.applicationAdditionalDetails.other.psl);
+    print("---->  pep :: " aBlazeApplication.applicationAdditionalDetails.other.pep);
+    print("---->  borrowerType :: " aBlazeApplication.applicationAdditionalDetails.other.borrowerType);
+    print("---->  propertyIdentified :: " aBlazeApplication.applicationAdditionalDetails.other.propertyIdentified);
+    print("---->  riskCategorization :: " aBlazeApplication.applicationAdditionalDetails.other.riskCategorization);
+    print("---->  eligibilityMethod :: " aBlazeApplication.applicationAdditionalDetails.other.eligibilityMethod);
+    print("---->  sblMet :: " aBlazeApplication.applicationAdditionalDetails.other.sblMet);
+    print("---->  stageOfConstruction :: " aBlazeApplication.applicationAdditionalDetails.other.stageOfConstruction);
+    print("---->  creExposure :: " aBlazeApplication.applicationAdditionalDetails.other.creExposure);
+    print("");
+
+    // Default values
+    if(aBlazeApplication.applicationAdditionalDetails.other.psl=unknown or aBlazeApplication.applicationAdditionalDetails.other.psl="") then {
+      aBlazeApplication.applicationAdditionalDetails.other.psl="NO";
+    }
+    if(aBlazeApplication.applicationAdditionalDetails.other.pep=unknown or aBlazeApplication.applicationAdditionalDetails.other.pep="") then {
+      aBlazeApplication.applicationAdditionalDetails.other.pep="No";
+    }
+    if(aBlazeApplication.applicationAdditionalDetails.other.borrowerType=unknown) then {
+      aBlazeApplication.applicationAdditionalDetails.other.borrowerType="";
+    }
+    if((productCode=(ignoring case)"HL") 
+       and (aBlazeApplication.applicationAdditionalDetails.other.propertyIdentified=unknown or aBlazeApplication.applicationAdditionalDetails.other.propertyIdentified="")) then {
+      aBlazeApplication.applicationAdditionalDetails.other.propertyIdentified="NO";
+    }
+    if((productCode=(ignoring case)"LP" or productCode=(ignoring case)"HT" or productCode=(ignoring case)"LT" or productCode=(ignoring case)"NRP") 
+    and (aBlazeApplication.applicationAdditionalDetails.other.propertyIdentified=unknown or aBlazeApplication.applicationAdditionalDetails.other.propertyIdentified="")) then {
+      aBlazeApplication.applicationAdditionalDetails.other.propertyIdentified="YES";
+    }
+    if(aBlazeApplication.applicationAdditionalDetails.other.riskCategorization=unknown or aBlazeApplication.applicationAdditionalDetails.other.riskCategorization="") then {
+      aBlazeApplication.applicationAdditionalDetails.other.riskCategorization="Low";
+    }
+    if(aBlazeApplication.applicationAdditionalDetails.other.eligibilityMethod=unknown) then {
+      aBlazeApplication.applicationAdditionalDetails.other.eligibilityMethod="";
+    }
+    if(aBlazeApplication.applicationAdditionalDetails.other.sblMet=unknown or aBlazeApplication.applicationAdditionalDetails.other.sblMet="") then {
+      aBlazeApplication.applicationAdditionalDetails.other.sblMet="SBL Met";
+    }
+    if(aBlazeApplication.applicationAdditionalDetails.other.gblMet=unknown or aBlazeApplication.applicationAdditionalDetails.other.gblMet="") then {
+      aBlazeApplication.applicationAdditionalDetails.other.gblMet="GBL Met";
+    }
+    if(aBlazeApplication.applicationAdditionalDetails.other.stageOfConstruction=unknown) then {
+      aBlazeApplication.applicationAdditionalDetails.other.stageOfConstruction="";
+    }
+    if(aBlazeApplication.applicationAdditionalDetails.other.creExposure=unknown or aBlazeApplication.applicationAdditionalDetails.other.creExposure="") then {
+      aBlazeApplication.applicationAdditionalDetails.other.creExposure="NON CRE";
+    }
+
+    print("");
+    print("---->  After :: ");
+    print("---->  psl :: " aBlazeApplication.applicationAdditionalDetails.other.psl);
+    print("---->  pep :: " aBlazeApplication.applicationAdditionalDetails.other.pep);
+    print("---->  borrowerType :: " aBlazeApplication.applicationAdditionalDetails.other.borrowerType);
+    print("---->  propertyIdentified :: " aBlazeApplication.applicationAdditionalDetails.other.propertyIdentified);
+    print("---->  riskCategorization :: " aBlazeApplication.applicationAdditionalDetails.other.riskCategorization);
+    print("---->  eligibilityMethod :: " aBlazeApplication.applicationAdditionalDetails.other.eligibilityMethod);
+    print("---->  sblMet :: " aBlazeApplication.applicationAdditionalDetails.other.sblMet);
+    print("---->  stageOfConstruction :: " aBlazeApplication.applicationAdditionalDetails.other.stageOfConstruction);
+    print("---->  creExposure :: " aBlazeApplication.applicationAdditionalDetails.other.creExposure);
+    print("");
+    
+    //------------------------------------ aBlazeApplication's initial values start -------------------------------------------
+    aBlazeApplication.finalMonthlyIncomeAllApplicant =0;
+    aBlazeApplication.maxSalRelatedIncome=0;
+    
+    aBlazeApplication.eligibleLoanAmountFoir = 0;
+    aBlazeApplication.eligibleLoanAmountAbb = 0;
+    aBlazeApplication.eligibleLoanAmountLtv = 0;
+
+    //aBlazeApplication.applicationAdditionalDetails.finalOffer.additionalLtv = 0;
+    aBlazeApplication.applicationAdditionalDetails.finalOffer.LOANAMTOFFR = 0;
+    aBlazeApplication.applicationAdditionalDetails.finalOffer.ROINTR = 0;
+    aBlazeApplication.applicationAdditionalDetails.finalOffer.LOANTENU = 0;   
+    
+    aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLOELIGINC = 0;    
+    aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLOELIGLTV = 0;
+    aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLTV = 0;
+    aBlazeApplication.applicationAdditionalDetails.finalOffer.EMIFINOFF = 0; 
+    
+    aBlazeApplication.applicationAdditionalDetails.finalOffer.FINALFOIR = 0;
+    aBlazeApplication.applicationAdditionalDetails.finalOffer.FINALLTV = 0;
+    
+    //------------------------------------ aBlazeApplication's initial values end ---------------------------------------------
+    
+
+    //------------------------------------ aBlazeApplicant's initial values start ----------------------------------------------
+    for each BlazeApplicant in BTCommonVar.termInput.blazeApplication.blazeApplicantArray
+    do {
+      aBlazeApplicant is some BlazeApplicant initially it as a BlazeApplicant;
+
+      // noOfSecAccounts
+      aBlazeApplicant.noOfSecAccounts = 0;
+      
+      // bureauScore
+      aBlazeApplicant.bureauScore  =  0;
+      
+      // used in salaried Experian Scorecard
+      aBlazeApplicant.maxMOBSecured = 0;
+      aBlazeApplicant.maxMOBonSecInYears = 0;
+
+      //  isNtc used in Thin Segment Experian Scorecard
+      aBlazeApplicant.isNtc  =  false;        
+
+      // used in all Bureau Rules
+      aBlazeApplicant.isCcSettledRemarkAbove30K  =  false;   
+
+      // cc account variables used in bureau deviations
+      aBlazeApplicant.isCcAccWoffSettOverdueAb30kBynd24M  =  false;
+      aBlazeApplicant.isCcAccWoffSettOverdueAb0InL24M  =  false;
+      aBlazeApplicant.isCcAccOverdueAb30kInL24M  =  false;
+
+      // non-cc account variables used in bureau deviations
+      aBlazeApplicant.isNonCcAccWoffSettDpdAb90everInL24M  =  false;
+
+      // dpd variables
+      aBlazeApplicant.isCcAccDpdEqualOrAbove30InL24M  =  false;
+      aBlazeApplicant.isNonCcAccDpdBelow30InL24M  =  false;
+      aBlazeApplicant.isCcAccDpdEqualOrAbove30Bynd24M  =  false;
+      aBlazeApplicant.isNonCcAccDpdEqualOrAbove30Bynd24M  =  false;
+
+      // cc-account total overdue of all account
+      aBlazeApplicant.isCcSettledRemarkTotalAbove30K = false;
+
+      // used in all Salaried Experian Scorecard
+      aBlazeApplicant.nbr_HL_le25L_tot_accts=0;
+      aBlazeApplicant.nbr_HL_gt25L_tot_accts=0;
+      aBlazeApplicant.nbr_PL_tot_accts=0;
+      aBlazeApplicant.nbr_CL_le25_tot_accts=0;
+      aBlazeApplicant.nbr_CL_gt25_tot_accts=0;
+
+      aBlazeApplicant.nbr_TW_tot_accts=0;
+      aBlazeApplicant.nbr_AL_tot_accts=0;
+      aBlazeApplicant.nbr_CC_le1L_tot_accts=0;
+      aBlazeApplicant.nbr_CC_gt1L_tot_accts=0;    
+
+      aBlazeApplicant.twNoOfAccCountInL36M=0;
+      aBlazeApplicant.glNoOfAccCountInL36M=0;
+      aBlazeApplicant.clNoOfAccCountInL36M=0;
+      aBlazeApplicant.stplNoOfAccCountInL36M=0;  
+      aBlazeApplicant.plNoOfAccCountInL36M=0;
+
+      aBlazeApplicant.alNoOfAccCountInL36M=0;
+      aBlazeApplicant.lapNoOfAccCountInL36M=0;
+      aBlazeApplicant.ccNoOfAccCountInL36M=0;  
+      aBlazeApplicant.hlNoOfAccCountInL36M=0;   
+      aBlazeApplicant.othersNoOfAccCountInL36M=0;  
+
+      aBlazeApplicant.hlMaxMonthsInL36M=0;  
+      aBlazeApplicant.secureMinMonthsInL36M=100000;
+      aBlazeApplicant.noOfAccWithDPDAbove0InL36M=0;
+      aBlazeApplicant.noOfAccInL36M=0;
+
+      aBlazeApplicant.noOfDpdInL6m=0;      
+      aBlazeApplicant.noOfEnqInL6m=0;
+
+      aBlazeApplicant.noOfAccOpenedInL12m=0;
+      aBlazeApplicant.noOfDpdEqualOrAbove30CountInL12M=0;
+      aBlazeApplicant.maxDpdValueInL12m=0;
+      aBlazeApplicant.hlMaxDpdValueInL12m=-1;  
+
+      aBlazeApplicant.noOfUnSecureAccOpenedInL24m=0;
+
+      aBlazeApplicant.max_dpd_all=0;
+      aBlazeApplicant.max_dpd_sec=0;  
+
+      aBlazeApplicant.currAvgUtilizationOnAllAcc=0;
+      aBlazeApplicant.currUtilizationOnLiveCC=0;
+      aBlazeApplicant.currUtilizationOnLiveRegUnSecAcc=0;
+      aBlazeApplicant.percentageOfDelqAcc = 0;
+
+      aBlazeApplicant.noOfLiveAcc =  0;
+      aBlazeApplicant.noOfLiveCC =  0;
+      aBlazeApplicant.noOfLiveRegUnSecAcc =  0;
+
+      aBlazeApplicant.isSuitFiled  =  false;
+      aBlazeApplicant.isWriteOffOrSettled  =  false;
+
+      aBlazeApplicant.derogatoryRemarksInL12m = 0;      
+      
+      //Variable Created HL
+      if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.maxAbbEmiRatioAllowed is known and
+        aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.overrideAbbEmiRatio is known)then{
+      aBlazeApplicant.diffInPolicyAndAbbEmiRatio =aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.maxAbbEmiRatioAllowed-aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.overrideAbbEmiRatio as a real;
+      }
+    } 
+    //------------------------------------ aBlazeApplicant's initial values end ----------------------------------------------
+    
+  }
+  
+  print("++++> Exiting function :: fn_DefaultValues");
+  print("");
+    
+} catch an Exception with {
+  aBlazeApplication.fn_DefaultValuesException = true;  
+  print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");  
+}]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='Am7zku'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

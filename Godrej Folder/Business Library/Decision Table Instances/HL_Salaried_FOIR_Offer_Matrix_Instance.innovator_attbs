@@ -1,0 +1,17 @@
+#Extended attributes for Innovator file-based repository (directory: 'HL_Salaried_FOIR_Offer_Matrix_Instance')
+#Mon Jan 02 06:13:58 UTC 2023
+contentType=Instance
+guid=6QunJQ67M88jqetHnKGLYrJjy5x
+innovatorDisplayName=HL_Sal_FOIR_Offer_Matrix_Instance
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=HZzsnhljeRPMnsVnD7wN6BSZh2b
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

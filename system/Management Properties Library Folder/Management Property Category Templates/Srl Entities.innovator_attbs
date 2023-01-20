@@ -1,0 +1,7 @@
+#Extended attributes for Innovator file-based repository (directory: 'Srl Entities')
+#Thu Jun 24 16:01:05 IST 2021
+guid=1tAbcPksfJuw62XuArifCQdfpQM
+innovatorDisplayName=SrlEntitiesFolder
+isNameLocalized=true
+isSystemDirectory=true
+resourceBundle=com.blazesoft.template.repository.properties.strings

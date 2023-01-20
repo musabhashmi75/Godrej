@@ -1,0 +1,1000 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='NCjTRnRJID1cMnZtAurjdmIvcLe' name='LAP_Sal_FOIR_Offer_Matrix_Instance'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+ </instance>
+ <instance ref='rulesetName'>
+  <value>LAP_Sal_FOIR_Offer_Matrix_Instance</value>
+ </instance>
+ <instance-list ref='cases'>
+  <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Decision Table Case Template' id='G50RUb'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='YOQQ8S'>
+     <instance ref='CELL GROUP NAME'>
+      <value>customerRiskSegment</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='Yjbnqv'>
+       <instance ref='value'>
+        <value>Market</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='LOKpxD'>
+     <instance ref='CELL GROUP NAME'>
+      <value>netAnnualSalaryOfAllApplicants</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than' id='NHLMHB'>
+       <instance ref='value'>
+        <value>875000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='Bgdb2t'>
+     <instance ref='CELL GROUP NAME'>
+      <value>foir</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='47r5Nt'>
+       <instance ref='value'>
+        <value>55</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Decision Table Case Template' id='Ot3DNS'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='j7bzW9'>
+     <instance ref='CELL GROUP NAME'>
+      <value>customerRiskSegment</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='B6WqMc'>
+       <instance ref='value'>
+        <value>Market</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='TTYOLl'>
+     <instance ref='CELL GROUP NAME'>
+      <value>netAnnualSalaryOfAllApplicants</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='H5j0mx'>
+       <instance ref='value1'>
+        <value>875000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>3600000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='9aSfpE'>
+     <instance ref='CELL GROUP NAME'>
+      <value>foir</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='8NpI6T'>
+       <instance ref='value'>
+        <value>70</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>15 Jul, 2021 6:47 PM</value>
+   </instance>
+  </item>
+  <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Decision Table Case Template' id='Xl3Ldo'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='T5s0wp'>
+     <instance ref='CELL GROUP NAME'>
+      <value>customerRiskSegment</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='KkjKlM'>
+       <instance ref='value'>
+        <value>Market</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='aADm0g'>
+     <instance ref='CELL GROUP NAME'>
+      <value>netAnnualSalaryOfAllApplicants</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='6aAQ1N'>
+       <instance ref='value'>
+        <value>3600000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='Ln8YSj'>
+     <instance ref='CELL GROUP NAME'>
+      <value>foir</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='QyUkKE'>
+       <instance ref='value'>
+        <value>70</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>15 Jul, 2021 6:47 PM</value>
+   </instance>
+  </item>
+  <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Decision Table Case Template' id='8Ljoje'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='Etfut7'>
+     <instance ref='CELL GROUP NAME'>
+      <value>customerRiskSegment</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='aGVhGg'>
+       <instance ref='value'>
+        <value>Market Plus</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='ZfHmdt'>
+     <instance ref='CELL GROUP NAME'>
+      <value>netAnnualSalaryOfAllApplicants</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than' id='4ag0di'>
+       <instance ref='value'>
+        <value>875000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='4CrluJ'>
+     <instance ref='CELL GROUP NAME'>
+      <value>foir</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='9DexwB'>
+       <instance ref='value'>
+        <value>60</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule4</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>15 Jul, 2021 6:47 PM</value>
+   </instance>
+  </item>
+  <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Decision Table Case Template' id='Ga4iLy'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='Npkncr'>
+     <instance ref='CELL GROUP NAME'>
+      <value>customerRiskSegment</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='QBXDes'>
+       <instance ref='value'>
+        <value>Market Plus</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='3nZ6nR'>
+     <instance ref='CELL GROUP NAME'>
+      <value>netAnnualSalaryOfAllApplicants</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='98qWh1'>
+       <instance ref='value1'>
+        <value>875000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>3600000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='XdCsd6'>
+     <instance ref='CELL GROUP NAME'>
+      <value>foir</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='LtSD96'>
+       <instance ref='value'>
+        <value>70</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule5</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>5</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>15 Jul, 2021 7:02 PM</value>
+   </instance>
+  </item>
+  <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Decision Table Case Template' id='AimpW6'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='PxwGHl'>
+     <instance ref='CELL GROUP NAME'>
+      <value>customerRiskSegment</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='22OPaK'>
+       <instance ref='value'>
+        <value>Market Plus</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='PK1NNM'>
+     <instance ref='CELL GROUP NAME'>
+      <value>netAnnualSalaryOfAllApplicants</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='3s7yoN'>
+       <instance ref='value'>
+        <value>3600000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='Wu7PNC'>
+     <instance ref='CELL GROUP NAME'>
+      <value>foir</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='PTtWwC'>
+       <instance ref='value'>
+        <value>75</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule6</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>15 Jul, 2021 7:02 PM</value>
+   </instance>
+  </item>
+  <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Decision Table Case Template' id='8DKjEf'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='VuZgnD'>
+     <instance ref='CELL GROUP NAME'>
+      <value>customerRiskSegment</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='6Vg8I7'>
+       <instance ref='value'>
+        <value>Plus Plus</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='8HXj7B'>
+     <instance ref='CELL GROUP NAME'>
+      <value>netAnnualSalaryOfAllApplicants</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than' id='Ae2puD'>
+       <instance ref='value'>
+        <value>875000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='y2n7TR'>
+     <instance ref='CELL GROUP NAME'>
+      <value>foir</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='LPYBlW'>
+       <instance ref='value'>
+        <value>65</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>15 Jul, 2021 7:02 PM</value>
+   </instance>
+  </item>
+  <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Decision Table Case Template' id='T36hSM'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='PQsN1Y'>
+     <instance ref='CELL GROUP NAME'>
+      <value>customerRiskSegment</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='4flv07'>
+       <instance ref='value'>
+        <value>Plus Plus</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='FrtXnj'>
+     <instance ref='CELL GROUP NAME'>
+      <value>netAnnualSalaryOfAllApplicants</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='3Gw4fO'>
+       <instance ref='value1'>
+        <value>875000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>3600000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='WCTTt5'>
+     <instance ref='CELL GROUP NAME'>
+      <value>foir</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='2qvzOm'>
+       <instance ref='value'>
+        <value>75</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule8</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>8</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>15 Jul, 2021 7:02 PM</value>
+   </instance>
+  </item>
+  <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Decision Table Case Template' id='YsDwDS'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='V6CiPq'>
+     <instance ref='CELL GROUP NAME'>
+      <value>customerRiskSegment</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='Ql4TuL'>
+       <instance ref='value'>
+        <value>Plus Plus</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='FS2T8Q'>
+     <instance ref='CELL GROUP NAME'>
+      <value>netAnnualSalaryOfAllApplicants</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='7flDuy'>
+       <instance ref='value'>
+        <value>3600000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='XHAGt8'>
+     <instance ref='CELL GROUP NAME'>
+      <value>foir</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='BVPOr9'>
+       <instance ref='value'>
+        <value>75</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule9</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>9</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>15 Jul, 2021 7:02 PM</value>
+   </instance>
+  </item>
+  <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Decision Table Case Template' id='W0hSuT'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='8sj7Oa'>
+     <instance ref='CELL GROUP NAME'>
+      <value>customerRiskSegment</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='T0xRXN'>
+       <instance ref='value'>
+        <value>Below Cut-Off</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='6mIgaU'>
+     <instance ref='CELL GROUP NAME'>
+      <value>netAnnualSalaryOfAllApplicants</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than' id='Up9k24'>
+       <instance ref='value'>
+        <value>875000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='FeDrz5'>
+     <instance ref='CELL GROUP NAME'>
+      <value>foir</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='HGg4Cg'>
+       <instance ref='value'>
+        <value>55</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule10</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>10</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>15 Jul, 2021 7:02 PM</value>
+   </instance>
+  </item>
+  <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Decision Table Case Template' id='3dss6t'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='GE6pmT'>
+     <instance ref='CELL GROUP NAME'>
+      <value>customerRiskSegment</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='PVWOWZ'>
+       <instance ref='value'>
+        <value>Below Cut-Off</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='XHkr14'>
+     <instance ref='CELL GROUP NAME'>
+      <value>netAnnualSalaryOfAllApplicants</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='JrBJ88'>
+       <instance ref='value1'>
+        <value>875000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>3600000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='1aq5MY'>
+     <instance ref='CELL GROUP NAME'>
+      <value>foir</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='MXA3Px'>
+       <instance ref='value'>
+        <value>70</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule11</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>11</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>15 Jul, 2021 7:02 PM</value>
+   </instance>
+  </item>
+  <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Decision Table Case Template' id='VYS5OO'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='XAElYr'>
+     <instance ref='CELL GROUP NAME'>
+      <value>customerRiskSegment</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='IXjILB'>
+       <instance ref='value'>
+        <value>Below Cut-Off</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='YMLUt7'>
+     <instance ref='CELL GROUP NAME'>
+      <value>netAnnualSalaryOfAllApplicants</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='H0IA7K'>
+       <instance ref='value'>
+        <value>3600000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Template' id='JXX2cV'>
+     <instance ref='CELL GROUP NAME'>
+      <value>foir</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='TXXpBe'>
+       <instance ref='value'>
+        <value>70</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule12</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>12</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>15 Jul, 2021 7:02 PM</value>
+   </instance>
+  </item>
+ </instance-list>
+ <instance ref='editingInfo'>
+  <instance ref='rowCondValueCount'>
+   <value>0</value>
+  </instance>
+  <instance ref='colCondValueCount'>
+   <value>0</value>
+  </instance>
+  <instance ref='isNewInstance'>
+   <value>false</value>
+  </instance>
+ </instance>
+ <instance ref='casesInfo'>
+  <instance-list ref='condition cells'>
+   <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Group Info Template' id='DWvoEk'>
+    <instance ref='name'>
+     <value>customerRiskSegment</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>customerRiskSegment</value>
+    </instance>
+    <instance ref='property'>
+     <value>customerRiskSegment</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Group Info Template' id='I2vUr5'>
+    <instance ref='name'>
+     <value>netAnnualSalaryOfAllApplicants</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>netAnnualSalaryOfAllApplicants</value>
+    </instance>
+    <instance ref='property'>
+     <value>netAnnualSalaryOfAllApplicants</value>
+    </instance>
+    <instance ref='type'>
+     <value>real</value>
+    </instance>
+   </item>
+  </instance-list>
+  <instance-list ref='action cells'>
+   <item template='NCjTRnRJID1cMnZtAurjdmIvcLe.Cell Group Info Template' id='1fxpO5'>
+    <instance ref='name'>
+     <value>foir</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>foir</value>
+    </instance>
+    <instance ref='property'>
+     <value>currentApplication.foir</value>
+    </instance>
+    <instance ref='type'>
+     <value>integer</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

@@ -1,0 +1,19 @@
+#Extended attributes for Innovator file-based repository (directory: 'fn_LAP_Eligibility_Basis_ABB1')
+#Thu Jan 19 07:19:21 UTC 2023
+contentType=Instance
+guid=1sZbNQXbdOtss3vp3XEoX7Vxoyk
+innovatorDisplayName=fn_HL_Eligibility_Basis_ABB
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=Q8jH6kHdOYIZ1uG0WKXqvvejqv0
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+managementProperty.Test\ Case=
+managementProperty.Test\ Role=None
+subType=None
+target=SRL
+type=SRL Function

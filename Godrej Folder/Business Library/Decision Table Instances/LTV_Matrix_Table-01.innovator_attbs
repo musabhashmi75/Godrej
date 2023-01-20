@@ -1,0 +1,17 @@
+#Extended attributes for Innovator file-based repository (directory: 'LTV_Matrix_Table-01')
+#Tue Dec 27 10:00:49 UTC 2022
+contentType=Instance
+guid=W18iZHPDd04e8r8EQu1u2pMWwx7
+innovatorDisplayName=LAP_LTV_Matrix_Table_01_Instance
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=y7RC3b17KRPzMJ5K1XkfN3Emt6
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

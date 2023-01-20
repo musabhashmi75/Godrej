@@ -1,0 +1,16 @@
+#Extended attributes for Innovator file-based repository (directory: 'LAP_Senp_IndustryType_TurnOver_Decision_Table_Template Instance')
+#Wed Feb 02 13:35:49 IST 2022
+contentType=Instance
+guid=AKfWI8lCGyuxQwVlMRCN5ZtNalg
+innovatorDisplayName=SENP_IndustryType_TurnOver_Instance
+innovatorTemplateRef=EXrJptxU9xUuOKOI2fRvqZTyiL4
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

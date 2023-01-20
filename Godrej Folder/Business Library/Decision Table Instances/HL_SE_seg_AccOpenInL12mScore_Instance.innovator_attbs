@@ -1,0 +1,17 @@
+#Extended attributes for Innovator file-based repository (directory: 'HL_SE_seg_AccOpenInL12mScore_Instance')
+#Tue Mar 08 19:29:40 UTC 2022
+contentType=Instance
+guid=M8laWSYSVToT8eTQzhkrBUnltU0
+innovatorDisplayName=HL_SE_seg_AccOpenInL12mScore_Instance
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=CtiAUF5SGAYv4Pz1pvUSyM8wNov
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

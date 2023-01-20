@@ -1,0 +1,495 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_BL_Conditional_Mandatory_Checks'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>BL_fn_Conditional_Mandatory_Checks1</value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_BL_Conditional_Mandatory_Checks</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("");
+        print("++++> Entering function :: BL_Conditional_Mandatory_Errors");
+
+        aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+
+        errType is a string initially "";
+        errId is a string initially "";
+        errName is a string initially "";
+        errAction is a string initially "";
+        errCode is a string initially "";
+        errText is a string initially "";
+
+        try {
+//------------------------------------------Variable Declarations starts--------------------------------------------------
+
+
+        otherPsl is a string initially message.request.application.applicationAdditionalDetails.other.psl;
+        otherPep is a string initially message.request.application.applicationAdditionalDetails.other.psl;
+        otherBuffer4 is a string initially message.request.application.applicationAdditionalDetails.other.buffer4;
+        otherBuffer5 is a string initially message.request.application.applicationAdditionalDetails.other.buffer5;
+        totalMonthlyOblBankSurMethod is a string initially message.request.application.applicationAdditionalDetails.other.creExposure;
+        otherBuffer16 is a string initially message.request.application.applicationAdditionalDetails.other.buffer16;
+        monthlyAvgBankBal12m is a  string initially message.request.application.applicationAdditionalDetails.other.stageOfConstruction;
+        otherGBIMet is a string initially message.request.application.applicationAdditionalDetails.other.gblMet;
+        greatestIndividualContribution is a string initially message.request.application.applicationAdditionalDetails.other.buffer17;
+        totalMonthlyOblGSTMethod is a string initially message.request.application.applicationAdditionalDetails.other.buffer15;
+        eligibilityMethod is a string initially message.request.application.applicationAdditionalDetails.other.endusageoffunds;
+        otherBType is a string initially message.request.application.applicationAdditionalDetails.other.borrowerType;
+        otherLType is a string initially message.request.application.applicationAdditionalDetails.other.lendingType;
+        otherPropertyIdentified is a string initially message.request.application.applicationAdditionalDetails.other.propertyIdentified;
+        otherRiskCategorisation is a string initially message.request.application.applicationAdditionalDetails.other.riskCategorization;
+        otherCinNo is a string initially message.request.application.applicationAdditionalDetails.other.cinNo;
+        otherFinalFoirPercentage is a string initially message.request.application.applicationAdditionalDetails.other.finalFoirPercentage;
+        otherFinalLtvPercentage is a string initially message.request.application.applicationAdditionalDetails.other.finalLtvPercentage;
+        otherFinalLoanAmount is a string initially message.request.application.applicationAdditionalDetails.other.finalLoanAmount;
+        otherEligibilityMethod is a string initially message.request.application.applicationAdditionalDetails.other.eligibilityMethod;
+        otherSBIMet is a string initially message.request.application.applicationAdditionalDetails.other.sblMet;
+        otherBuffer21 is a string initially message.request.application.applicationAdditionalDetails.other.buffer21;
+    //  otherBuffer19 is a string initially message.request.application.applicationAdditionalDetails.other.buffer19;
+        otherBuffer6 is a string initially message.request.application.applicationAdditionalDetails.other.buffer6;
+        otherBuffer7 is a string initially message.request.application.applicationAdditionalDetails.other.buffer7;
+        otherBuffer8 is a string initially message.request.application.applicationAdditionalDetails.other.buffer8;
+        otherBuffer9 is a string initially message.request.application.applicationAdditionalDetails.other.buffer9;
+        otherBuffer10 is a string initially message.request.application.applicationAdditionalDetails.other.buffer10;
+        otherBuffer12 is a string initially message.request.application.applicationAdditionalDetails.other.buffer12;
+        otherBuffer13 is a string initially message.request.application.applicationAdditionalDetails.other.buffer13;
+        otherBuffer14 is a string initially message.request.application.applicationAdditionalDetails.other.buffer14;
+        otherBuffer25 is a string initially message.request.application.applicationAdditionalDetails.other.buffer25;
+        otherBuffer18 is a string initially message.request.application.applicationAdditionalDetails.other.buffer18;
+    //  otherBuffer20 is a string initially message.request.application.applicationAdditionalDetails.other.buffer20;
+        additionalBuffer10 is a string initially message.request.application.applicationAdditionalDetails.buffer10;
+
+        loanReference is a string initially aBlazeApplication.loanBasicDetail.loanReference;
+        additionalLtv is a real initially aBlazeApplication.applicationAdditionalDetails.finalOffer.additionalLtv;
+        channelPartnerCode is a string initially aBlazeApplication.applicationAdditionalDetails.sourcingDetail.channelPartnerCode;
+
+        rentalIncomeProgram is a string initially aBlazeApplication.applicationAdditionalDetails.other.rentalIncomeProgram;
+        btLoanStartDate is a date initially aBlazeApplication.applicationAdditionalDetails.balanceTransfer.btLoanStartDate;
+
+        queryCategory is a real initially aBlazeApplication.queryManagement.queryCategory;
+        assignedRole is a string initially aBlazeApplication.queryManagement.assignedRole;
+        queryDescription is a string initially aBlazeApplication.queryManagement.queryDescription;
+        division is a string initially aBlazeApplication.loanBasicDetail.division;
+
+        productCategory is a string initially aBlazeApplication.loanBasicDetail.productCategory;
+        numberOfInstallments is a real initially aBlazeApplication.loanBasicDetail.paymentDetails.numberOfInstallments;
+        interestRateType is a string initially aBlazeApplication.loanBasicDetail.paymentDetails.interestRateType;
+        baseRate is a string initially aBlazeApplication.loanBasicDetail.paymentDetails.baseRate;
+
+        fixedRate is a real initially aBlazeApplication.loanBasicDetail.paymentDetails.fixedRate;
+        actualInterestRate is a real initially aBlazeApplication.loanBasicDetail.paymentDetails.actualInterestRate;
+        scheduleMethod is a string initially aBlazeApplication.loanBasicDetail.paymentDetails.scheduleMethod;
+        interestFrequency is a string initially aBlazeApplication.loanBasicDetail.paymentDetails.interestFrequency;
+
+        interestReviewFrequency is a string initially aBlazeApplication.loanBasicDetail.paymentDetails.interestReviewFrequency;
+        paymentFrequency is a real initially aBlazeApplication.loanBasicDetail.paymentDetails.paymentFrequency;
+        nextInterestFreqDate is a date initially aBlazeApplication.loanBasicDetail.paymentDetails.nextInterestFreqDate;
+
+        nextInterestReviewFreqDate is a date initially aBlazeApplication.loanBasicDetail.paymentDetails.nextInterestReviewFreqDate;
+        nextPaymentFreqDate is a date initially aBlazeApplication.loanBasicDetail.paymentDetails.nextPaymentFreqDate;
+        maturityDate is a date initially aBlazeApplication.loanBasicDetail.paymentDetails.maturityDate;
+
+//-------------------------------------------Variable Declarations ends---------------------------------------------------
+
+//-----------------------------------------Application Level Errors Starts------------------------------------------------
+
+        print("----> Number of applicants :: "message.request.application.applicants.count);
+        if(message.request.application.applicants.count =0)then {
+        print("**Error :: ###>> No Applicants <<###");
+        errType = "CONDMAND ";
+        errText = "No Applicants";
+        errId = "ERROBJ001";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(totalMonthlyOblBankSurMethod is equal to unknown or totalMonthlyOblBankSurMethod="")  then {
+        print("**Error :: ###>>Total Monthly Obligation Banking Surrogate Method is mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Total Monthly Obligation Banking Surrogate Method";
+        errId = "ERROBJ014";
+        errName = errId;
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherBuffer16 is equal to unknown or otherBuffer16="")  then {
+        print("**Error :: ###>> Gbl Met is mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Total Annual Obligation is Mandatory";
+        errId = "ERROBJ132";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(monthlyAvgBankBal12m is equal to unknown or monthlyAvgBankBal12m="")  then {
+        print("**Error :: ###>> Monthly Average Bank Balance Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Monthly Average Bank Balance Mandatory";
+        errId = "ERROBJ114";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherPsl is equal to unknown or otherPsl="")  then {
+        print("**Error :: ###>> Turnover Latest year is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Turnover Latest year is Mandatory";
+        errId = "ERROBJ141";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherPep is equal to unknown or otherPep="")  then {
+        print("**Error :: ###>> Gross Profit Latest year is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Gross Profit Latest year is Mandatory";
+        errId = "ERROBJ142";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherBuffer4 is equal to unknown or otherBuffer4="")  then {
+        print("**Error :: ###>> Turnover Previous year is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Turnover Previous year is Mandatory";
+        errId = "ERROBJ143";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherBuffer5 is equal to unknown or otherBuffer5="")  then {
+        print("**Error :: ###>> GrossProfit Previous year is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Gross Profit Previous year is Mandatory";
+        errId = "ERROBJ144";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherGBIMet is equal to unknown or otherGBIMet="")  then {
+        print("**Error :: ###>> Sum of Business Credit for 12 months is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Sum of Business Credit for 12 months is Mandatory";
+        errId = "ERROBJ115";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(greatestIndividualContribution is equal to unknown or greatestIndividualContribution ="")  then {
+        print("**Error :: ###>>greatestIndividualContribution is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "greatestIndividualContribution is Mandatory";
+        errId = "ERROBJ116";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(eligibilityMethod is equal to unknown or eligibilityMethod ="")  then {
+        print("**Error :: ###>>Latest Year Non Operating Income is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Latest Year Non Operating Income is Mandatory ";
+        errId = "ERROBJ117";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherBType is equal to unknown or otherBType ="")  then {
+        print("**Error :: ###>> Latest Year PAT is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Latest Year PAT is Mandatory";
+        errId = "ERROBJ118";
+        errName = errId;
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherLType is equal to unknown or otherLType ="")  then {
+        print("**Error :: ###>> Latest Year Depriciation is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Latest Year Depriciation is Mandatory";
+        errId = "ERROBJ119";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherPropertyIdentified is equal to unknown or otherPropertyIdentified ="")  then {
+        print("**Error :: ###>> Latest Year Salary Paid Partner is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Latest Year Salary Paid Partner is Mandatory";
+        errId = "ERROBJ120";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherRiskCategorisation is equal to unknown or otherRiskCategorisation ="")  then {
+        print("**Error :: ###>> Latest Year Interest Paid to Partner is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Latest Year Interest Paid to Partner is Mandatory";
+        errId = "ERROBJ121";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherFinalFoirPercentage is equal to unknown or otherFinalFoirPercentage ="")  then {
+        print("**Error :: ###>> Latest Year Non Operating Expense is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Latest Year Non Operating Expense is Mandatory";
+        errId = "ERROBJ122";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherCinNo is equal to unknown or otherCinNo ="")  then {
+        print("**Error :: ###>> Latest Year Direct Renumeration is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Latest Year Direct Renumeration is Mandatory";
+        errId = "ERROBJ123";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherFinalLtvPercentage is equal to unknown or otherFinalLtvPercentage ="")  then {
+        print("**Error :: ###>> Latest Year Other Income is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Error :: ###>> Latest Year Other Income is Mandatory";
+        errId = "ERROBJ124";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherFinalLoanAmount is equal to unknown or otherFinalLoanAmount ="")  then {
+        print("**Error :: ###>> Latest Year Other Expense is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Latest Year Other Expense is Mandatory";
+        errId = "ERROBJ125";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherBuffer21 is equal to unknown or otherBuffer21 ="")  then {
+        print("**Error :: ###>> Latest Year ITR Filling Date is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Latest Year ITR Filling Date is Mandatory";
+        errId = "ERROBJ126";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherEligibilityMethod is equal to unknown or otherEligibilityMethod ="")  then {
+        print("**Error :: ###>> Latest Year Non Operating Income is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Latest Year Non Operating Income is Mandatory";
+        errId = "ERROBJ127";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherSBIMet is equal to unknown or otherSBIMet ="")  then {
+        print("**Error :: ###>> Latest Year Turnover as per GST is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Latest Year Turnover as per GST is Mandatory";
+        errId = "ERROBJ128";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+    //    if(otherBuffer19 is equal to unknown or otherBuffer19 ="")  then {
+    //    print("**Error :: ###>> Latest Year Type of Financials is Mandatory <<###");
+    //    errType = "CONDMAND ";
+    //    errText = "Latest Year Type of Financials is Mandatory";
+    //    errId = "ERROBJ129";
+    //    errName = errId;
+
+    //    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+    //    }
+        if(otherBuffer6 is equal to unknown or otherBuffer6 ="")  then {
+        print("**Error :: ###>> Previous Year PAT is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Previous Year PAT is Mandatory";
+        errId = "ERROBJ130";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherBuffer7 is equal to unknown or otherBuffer7 ="")  then {
+        print("**Error :: ###>> Previous Year Depriciation is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Previous Year Depriciation is Mandatory";
+        errId = "ERROBJ130";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherBuffer8 is equal to unknown or otherBuffer8 ="")  then {
+        print("**Error :: ###>> Previous Year Salary Paid to Partner is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Previous Year Salary Paid to Partner is Mandatory";
+        errId = "ERROBJ130";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherBuffer9 is equal to unknown or otherBuffer9 ="")  then {
+        print("**Error :: ###>> Previous Year Interest Paid to Partner is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Previous Year Interest Paid to Partner is Mandatory";
+        errId = "ERROBJ131";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherBuffer10 is equal to unknown or otherBuffer10 ="")  then {
+        print("**Error :: ###>> Previous Year Direct Renumeration is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Previous Year Direct Renumeration is Mandatory";
+        errId = "ERROBJ132";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherBuffer12 is equal to unknown or otherBuffer12 ="")  then {
+        print("**Error :: ###>> Previous Year Non Operating Expense is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Previous Year Non Operating Expense is Mandatory";
+        errId = "ERROBJ133";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherBuffer13 is equal to unknown or otherBuffer13 ="")  then {
+        print("**Error :: ###>> Previous Year Other Income  is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Previous Year Other Income is Mandatory";
+        errId = "ERROBJ134";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherBuffer14 is equal to unknown or otherBuffer14 ="")  then {
+        print("**Error :: ###>> Previous Year Other Expense is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Previous Year Other Expense is Mandatory";
+        errId = "ERROBJ135";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherBuffer25 is equal to unknown or otherBuffer25 ="")  then {
+        print("**Error :: ###>> Previous Year Non Operating Income is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Previous Year Non Operating Income is Mandatory";
+        errId = "ERROBJ136";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(additionalBuffer10 is equal to unknown or additionalBuffer10 ="")  then {
+        print("**Error :: ###>> Previous Year Turnover as per GST is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Previous Year Turonver as per GST is Mandatory";
+        errId = "ERROBJ137";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        if(otherBuffer18 is equal to unknown or otherBuffer18 ="")  then {
+        print("**Error :: ###>> Previous Year ITR Filling Date is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Previous Year ITR Filling Date is Mandatory";
+        errId = "ERROBJ138";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+     //   if(otherBuffer20 is equal to unknown or otherBuffer20 ="")  then {
+     //   print("**Error :: ###>> Previous Year Type of Financials is Mandatory <<###");
+     //  errType = "CONDMAND ";
+     //   errText = "Previous Year Type of Financials is Mandatory";
+     //   errId = "ERROBJ139";
+     //   errName = errId;
+
+     //   fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+     //   }
+        if(totalMonthlyOblGSTMethod is equal to unknown or totalMonthlyOblGSTMethod ="")  then {
+        print("**Error :: ###>> Total Monthly Obligation GST method is Mandatory <<###");
+        errType = "CONDMAND ";
+        errText = "Total Monthly Obligation GST method is Mandatory";
+        errId = "ERROBJ140";
+        errName = errId;
+
+        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+
+//-----------------------------------------Application Level Errors ends------------------------------------------------
+
+        print("++++> Exiting function :: fn_BL_Conditional_Mandatory_Errors");
+        print("");
+
+        }catch an Exception with {
+        aBlazeApplication.fn_BL_ConditionalMandatoryErrorsException = true;
+        print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");
+        }
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='YcXGdh'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

@@ -1,0 +1,16 @@
+#Extended attributes for Eclipse file-based repository (directory: 'LAP_Salaried_FOIR_Offer_Matrix_Decision_Table_Template Instance')
+#Wed Sep 01 12:00:24 IST 2021
+contentType=Instance
+guid=DIt4W5gEmxkPwyCwpRUHvYxmBGo
+innovatorDisplayName=LAP_Sal_FOIR_Offer_Matrix_Instance
+innovatorTemplateRef=NCjTRnRJID1cMnZtAurjdmIvcLe
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

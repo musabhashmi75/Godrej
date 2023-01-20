@@ -1,0 +1,16 @@
+#Extended attributes for Eclipse file-based repository (directory: 'Cibil_Check_Account_Type_Instance')
+#Tue Feb 08 19:13:18 IST 2022
+contentType=Instance
+guid=En9Xi8zDdjDtFvppZoJc5igiG5T
+innovatorDisplayName=Cibil_Check_Account_Type_Instance
+innovatorTemplateRef=5NfFIDv7CEka8QvIPq86mU2A4Ap
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

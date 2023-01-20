@@ -1,0 +1,15 @@
+#Extended attributes for Eclipse file-based repository (directory: 'BlazePaymentHistory')
+#Fri Dec 23 11:07:47 UTC 2022
+contentType=Fixed
+guid=kBtzWBoCE5fXsvEh0ZjoEaTfEU
+innovatorDisplayName=BlazePaymentHistory
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=None
+target=SRL
+type=SRL Class

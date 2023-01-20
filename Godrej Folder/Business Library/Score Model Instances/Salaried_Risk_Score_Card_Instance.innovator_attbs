@@ -1,0 +1,17 @@
+#Extended attributes for Innovator file-based repository (directory: 'Salaried_Risk_Score_Card_Instance')
+#Thu Apr 07 11:24:01 UTC 2022
+contentType=Instance
+guid=DurADtOo7KEhs2FxpNjvy3OfSTG
+innovatorDisplayName=Salaried_Risk_Score_Card_Instance
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=6dLeOiAaFjQXkYY5JoMzmSYhsuQ
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Score Model
+target=SRL
+type=SRL Ruleset

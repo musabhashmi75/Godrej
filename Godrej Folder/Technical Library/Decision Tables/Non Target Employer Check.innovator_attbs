@@ -1,0 +1,15 @@
+#Extended attributes for Eclipse file-based repository (directory: 'Non Target Employer Check')
+#Fri Aug 27 17:12:21 IST 2021
+contentType=Template
+guid=2pWCCiLgpCkTKOHWL5GcgVa5EM5
+innovatorDisplayName=Non_Target_Employer_Check
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

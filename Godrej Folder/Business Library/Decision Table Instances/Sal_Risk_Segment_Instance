@@ -1,0 +1,316 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='BR6Pz5Mz05ft2U7fEmiPxwTafN4' name='Sal_Risk_Segment_Instance'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+ </instance>
+ <instance ref='rulesetName'>
+  <value>Sal_Risk_Segment_Instance</value>
+ </instance>
+ <instance-list ref='cases'>
+  <item template='BR6Pz5Mz05ft2U7fEmiPxwTafN4.Decision Table Case Template' id='OfdE24'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='BR6Pz5Mz05ft2U7fEmiPxwTafN4.Cell Template' id='Fgc2RW'>
+     <instance ref='CELL GROUP NAME'>
+      <value>riskScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than' id='W5syRF'>
+       <instance ref='value'>
+        <value>45</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='BR6Pz5Mz05ft2U7fEmiPxwTafN4.Cell Template' id='NaggmC'>
+     <instance ref='CELL GROUP NAME'>
+      <value>customerRiskSegment</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='F6cDAM'>
+       <instance ref='value'>
+        <value>Below Cut-Off</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>9 Sep, 2021 5:55 PM</value>
+   </instance>
+  </item>
+  <item template='BR6Pz5Mz05ft2U7fEmiPxwTafN4.Decision Table Case Template' id='9ddRDF'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='BR6Pz5Mz05ft2U7fEmiPxwTafN4.Cell Template' id='XX5uAl'>
+     <instance ref='CELL GROUP NAME'>
+      <value>riskScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='7e8EHe'>
+       <instance ref='value1'>
+        <value>45</value>
+       </instance>
+       <instance ref='value2'>
+        <value>50</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='BR6Pz5Mz05ft2U7fEmiPxwTafN4.Cell Template' id='Xv2zaq'>
+     <instance ref='CELL GROUP NAME'>
+      <value>customerRiskSegment</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='DtkG5I'>
+       <instance ref='value'>
+        <value>Market</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>9 Sep, 2021 5:55 PM</value>
+   </instance>
+  </item>
+  <item template='BR6Pz5Mz05ft2U7fEmiPxwTafN4.Decision Table Case Template' id='6051Si'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='BR6Pz5Mz05ft2U7fEmiPxwTafN4.Cell Template' id='Hza1u2'>
+     <instance ref='CELL GROUP NAME'>
+      <value>riskScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='earylu'>
+       <instance ref='value1'>
+        <value>50</value>
+       </instance>
+       <instance ref='value2'>
+        <value>70</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='BR6Pz5Mz05ft2U7fEmiPxwTafN4.Cell Template' id='3xqXmY'>
+     <instance ref='CELL GROUP NAME'>
+      <value>customerRiskSegment</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='RmIprQ'>
+       <instance ref='value'>
+        <value>Market Plus</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>9 Sep, 2021 5:55 PM</value>
+   </instance>
+  </item>
+  <item template='BR6Pz5Mz05ft2U7fEmiPxwTafN4.Decision Table Case Template' id='Pts6w6'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='BR6Pz5Mz05ft2U7fEmiPxwTafN4.Cell Template' id='PiTS2y'>
+     <instance ref='CELL GROUP NAME'>
+      <value>riskScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='aMYHDo'>
+       <instance ref='value'>
+        <value>70</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='BR6Pz5Mz05ft2U7fEmiPxwTafN4.Cell Template' id='YiyaHN'>
+     <instance ref='CELL GROUP NAME'>
+      <value>customerRiskSegment</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='27bCLD'>
+       <instance ref='value'>
+        <value>Plus Plus</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule4</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>9 Sep, 2021 5:55 PM</value>
+   </instance>
+  </item>
+ </instance-list>
+ <instance ref='editingInfo'>
+  <instance ref='rowCondValueCount'>
+   <value>0</value>
+  </instance>
+  <instance ref='colCondValueCount'>
+   <value>0</value>
+  </instance>
+  <instance ref='isNewInstance'>
+   <value>false</value>
+  </instance>
+ </instance>
+ <instance ref='casesInfo'>
+  <instance-list ref='condition cells'>
+   <item template='BR6Pz5Mz05ft2U7fEmiPxwTafN4.Cell Group Info Template' id='EdcY5m'>
+    <instance ref='name'>
+     <value>riskScore</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>riskScore</value>
+    </instance>
+    <instance ref='property'>
+     <value>aBlazeApplicant.riskScore</value>
+    </instance>
+    <instance ref='type'>
+     <value>real</value>
+    </instance>
+   </item>
+  </instance-list>
+  <instance-list ref='action cells'>
+   <item template='BR6Pz5Mz05ft2U7fEmiPxwTafN4.Cell Group Info Template' id='LBWoiR'>
+    <instance ref='name'>
+     <value>customerRiskSegment</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>customerRiskSegment</value>
+    </instance>
+    <instance ref='property'>
+     <value>aBlazeApplicant.customerRiskSegment</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

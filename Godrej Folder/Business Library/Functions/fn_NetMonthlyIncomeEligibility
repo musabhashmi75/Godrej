@@ -1,0 +1,201 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_LAP_NetMonthlyIncomeEligibility'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_LAP_NetMonthlyIncomeEligibility</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("");
+print("++++> Entering function :: fn_LAP_NetMonthlyIncomeEligibility");
+
+aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+
+print("----> incomeProgramUsed :: " incomeProgramUsed);
+print("----> eligibleIncomeCashProfit :: " eligibleIncomeCashProfit);
+print("----> eligibleIncomeGrossMargin :: " eligibleIncomeGrossMargin);
+print("----> eligibleIncomeIndustryMargin :: " eligibleIncomeIndustryMargin);
+
+try{
+// Total Other Income
+totalOtherIncome is a real initially 0;
+eligibleIncome is a real initially 0;
+print("----> aBlazeApplicant.applicantAdditionalDetails.customerSelfEmployedProfesional.rentalIncome :: " aBlazeApplicant.applicantAdditionalDetails.customerSelfEmployedProfesional.rentalIncome);
+print("----> aBlazeApplicant.applicantAdditionalDetails.customerSelfEmployedProfesional.otherIncome :: " aBlazeApplicant.applicantAdditionalDetails.customerSelfEmployedProfesional.otherIncome);
+if(aBlazeApplicant.applicantAdditionalDetails.customerSelfEmployedProfesional.rentalIncome <> unknown 
+   and aBlazeApplicant.applicantAdditionalDetails.customerSelfEmployedProfesional.otherIncome <> unknown) then {
+  totalOtherIncome = aBlazeApplicant.applicantAdditionalDetails.customerSelfEmployedProfesional.rentalIncome 
+  + aBlazeApplicant.applicantAdditionalDetails.customerSelfEmployedProfesional.otherIncome;
+}
+print("----> totalOtherIncome (Applicant's rental + other) :: " totalOtherIncome);
+  print("---->aBlazeApplicant.applicantAdditionalDetails.buffer5 ::"aBlazeApplicant.applicantAdditionalDetails.buffer5);
+		if((aBlazeApplicant.applicantAdditionalDetails.buffer5 =unavailable
+            or aBlazeApplicant.applicantAdditionalDetails.buffer5 =unknown
+            or aBlazeApplicant.applicantAdditionalDetails.buffer5 =""
+        	or aBlazeApplicant.applicantAdditionalDetails.buffer5 =(ignoring case)"NO"
+   			or aBlazeApplicant.applicantAdditionalDetails.buffer5="#")
+        	and (
+   			aBlazeApplicant.applicantAdditionalDetails.associatedCompanies.associatedCompanyName2 =unavailable
+   			or aBlazeApplicant.applicantAdditionalDetails.associatedCompanies.associatedCompanyName2 =unknown
+  		    or aBlazeApplicant.applicantAdditionalDetails.associatedCompanies.associatedCompanyName2 =""
+   			or aBlazeApplicant.applicantAdditionalDetails.associatedCompanies.associatedCompanyName2 ="NO"
+  			or aBlazeApplicant.applicantAdditionalDetails.associatedCompanies.associatedCompanyName2 ="#")
+			)then{
+if(incomeProgramUsed <> unknown and incomeProgramUsed = (ignoring case) "CASH PROFIT" and eligibleIncomeCashProfit <> unknown) then{
+  eligibleIncome = eligibleIncomeCashProfit;
+  
+  if(totalOtherIncome<> unknown and (totalOtherIncome > eligibleIncomeCashProfit)) then{
+    totalOtherIncome = eligibleIncomeCashProfit;
+  }
+  print("----> eligibleIncome  Cash Profit :: " eligibleIncome);
+  print("----> totalOtherIncome Cash Profit :: " totalOtherIncome);
+} else if(incomeProgramUsed <> unknown and  incomeProgramUsed = (ignoring case) "GROSS MARGIN" and eligibleIncomeGrossMargin <> unknown) then{  
+  eligibleIncome = eligibleIncomeGrossMargin;
+  if(totalOtherIncome<> unknown and (totalOtherIncome > eligibleIncomeGrossMargin)) then{
+    totalOtherIncome = eligibleIncomeGrossMargin;
+  }
+}else if(incomeProgramUsed <> unknown and incomeProgramUsed = (ignoring case) "INDUSTRY MARGIN" and eligibleIncomeIndustryMargin <> unknown) then{
+  eligibleIncome = eligibleIncomeIndustryMargin;
+  if(totalOtherIncome<> unknown and (totalOtherIncome > eligibleIncomeIndustryMargin)) then{
+    totalOtherIncome = eligibleIncomeIndustryMargin;
+  }
+  print("----> eligibleIncome Industry Margin :: " eligibleIncome);
+  print("----> totalOtherIncome Industry Margin :: " totalOtherIncome);  
+}else if(incomeProgramUsed <> unknown and  incomeProgramUsed = (ignoring case) "DIRECTOR RENUMERATION" and aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.annulisedSalaryDirector <> unknown) then{
+  eligibleIncome = aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.annulisedSalaryDirector;
+  if(totalOtherIncome<> unknown and (totalOtherIncome > aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.annulisedSalaryDirector)) then{
+    totalOtherIncome = aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.annulisedSalaryDirector;
+  }
+  print("----> eligibleIncome Director Renumeration :: " eligibleIncome);
+  print("----> totalOtherIncome Director Renumeration :: " totalOtherIncome);
+}
+} 
+ if(incomeProgramUsed <> unknown and (incomeProgramUsed = (ignoring case) "BANKING SURROGATE" or incomeProgramUsed = (ignoring case) "LOW LTV")
+and aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.avgMonthlyBalancePerfios <> unknown) then{
+  eligibleIncome = aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.avgMonthlyBalancePerfios;
+  print("----> eligibleIncome Banking Surrogate or Low LTV :: " eligibleIncome);
+}
+
+print("----> eligibleIncome final :: " eligibleIncome);
+print("----> totalOtherIncome final :: " totalOtherIncome);
+  
+
+netMonthlyIncomeEligibility is a real initially 0;
+if(incomeProgramUsed <> unknown and (incomeProgramUsed = (ignoring case) "BANKING SURROGATE" or incomeProgramUsed = (ignoring case) "LOW LTV") and eligibleIncome <> unknown)then{
+  netMonthlyIncomeEligibility = eligibleIncome;
+  print("----> netMonthlyIncomeEligibility if Banking Surrogate or Low LTV :: " netMonthlyIncomeEligibility);
+} else if(eligibleIncome <> unknown and totalOtherIncome <> unknown) then {
+  netMonthlyIncomeEligibility = eligibleIncome + totalOtherIncome;
+  print("----> netMonthlyIncomeEligibility :: " netMonthlyIncomeEligibility);
+} 
+
+aBlazeApplicant.netMonthlyIncomeEligibility = netMonthlyIncomeEligibility/12;
+print("----> aBlazeApplicant.netMonthlyIncomeEligibility after dividing by 12 :: " aBlazeApplicant.netMonthlyIncomeEligibility);
+
+  print("++++> Exiting function :: fn_LAP_NetMonthlyIncomeEligibility");
+  print("");
+
+}catch an Exception with {
+  aBlazeApplication.fn_LAP_NetMonthlyIncomeEligibilityException = true;  
+  print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");  
+}
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='USbz6I'>
+    <instance ref='ParameterNameVH'>
+     <value>aBlazeApplicant</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeApplicant</value>
+    </instance>
+   </item>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='AIPWs0'>
+    <instance ref='ParameterNameVH'>
+     <value>incomeProgramUsed</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='6jyqK8'>
+    <instance ref='ParameterNameVH'>
+     <value>eligibleIncomeCashProfit</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>real</value>
+    </instance>
+   </item>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='hWFzNZ'>
+    <instance ref='ParameterNameVH'>
+     <value>eligibleIncomeGrossMargin</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>real</value>
+    </instance>
+   </item>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='EJs1A6'>
+    <instance ref='ParameterNameVH'>
+     <value>eligibleIncomeIndustryMargin</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>real</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_NetMonthlyIncomeEligibility1</value>
+ </instance>
+</instantiation>

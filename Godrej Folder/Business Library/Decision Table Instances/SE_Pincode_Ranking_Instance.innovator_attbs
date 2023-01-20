@@ -1,0 +1,16 @@
+#Extended attributes for Innovator file-based repository (directory: 'SE_Pincode_Ranking_Instance')
+#Sat Aug 14 13:34:52 IST 2021
+contentType=Instance
+guid=MW7hZlIWuTme3sNnrHPlQsC7A0t
+innovatorDisplayName=SE_Pincode_Ranking_Instance
+innovatorTemplateRef=6661pKoFSEvmfYbsCayMOmzrp69
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='X5bsduxzxVOWZt17D1911hAaUgY' name='LAP_LTV_Matrix_Table_03_Instance'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+ </instance>
+ <instance ref='rulesetName'>
+  <value>LAP_LTV_Matrix_Table_03_Instance</value>
+ </instance>
+ <instance-list ref='cases'>
+  <item template='X5bsduxzxVOWZt17D1911hAaUgY.Decision Table Case Template' id='SkCify'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='X5bsduxzxVOWZt17D1911hAaUgY.Cell Template' id='lE68I8'>
+     <instance ref='CELL GROUP NAME'>
+      <value>finalProgram</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='8q5Oer'>
+       <instance ref='value'>
+        <value>RENTAL INCOME</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='X5bsduxzxVOWZt17D1911hAaUgY.Cell Template' id='CTDWcu'>
+     <instance ref='CELL GROUP NAME'>
+      <value>maxLtv</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='zKhMEs'>
+       <instance ref='value'>
+        <value>60</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+ </instance-list>
+ <instance ref='editingInfo'>
+  <instance ref='rowCondValueCount'>
+   <value>0</value>
+  </instance>
+  <instance ref='colCondValueCount'>
+   <value>0</value>
+  </instance>
+  <instance ref='isNewInstance'>
+   <value>false</value>
+  </instance>
+ </instance>
+ <instance ref='casesInfo'>
+  <instance-list ref='condition cells'>
+   <item template='X5bsduxzxVOWZt17D1911hAaUgY.Cell Group Info Template' id='BIYjnR'>
+    <instance ref='name'>
+     <value>finalProgram</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>finalProgram</value>
+    </instance>
+    <instance ref='property'>
+     <value>aBlazeApplication.applicationAdditionalDetails.other.eligibilityMethod</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+  </instance-list>
+  <instance-list ref='action cells'>
+   <item template='X5bsduxzxVOWZt17D1911hAaUgY.Cell Group Info Template' id='Tmmt3f'>
+    <instance ref='name'>
+     <value>maxLtv</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>maxLtv</value>
+    </instance>
+    <instance ref='property'>
+     <value>aBlazeApplication.ltv</value>
+    </instance>
+    <instance ref='type'>
+     <value>integer</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

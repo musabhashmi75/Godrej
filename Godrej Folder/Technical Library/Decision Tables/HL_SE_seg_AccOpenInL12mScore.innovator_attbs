@@ -1,0 +1,15 @@
+#Extended attributes for Eclipse file-based repository (directory: 'HL_SE_seg_AccOpenInL12mScore')
+#Mon Feb 07 16:18:45 IST 2022
+contentType=Template
+guid=CtiAUF5SGAYv4Pz1pvUSyM8wNov
+innovatorDisplayName=HL_SE_seg_AccOpenInL12mScore
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

@@ -1,0 +1,17 @@
+#Extended attributes for Innovator file-based repository (directory: 'Thin_Segment_Experian_Score_Card_Instance')
+#Tue Feb 15 13:44:11 IST 2022
+contentType=Instance
+guid=aDhmFtRWhJOSky2T3ldehioIPiH
+innovatorDisplayName=Thin_Segment_Experian_Score_Card_Instance
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=AagLyVq1v90xaVFPDFc5byologv
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Score Model
+target=SRL
+type=SRL Ruleset

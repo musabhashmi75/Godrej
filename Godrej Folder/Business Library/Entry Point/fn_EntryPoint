@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_EntryPoint'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_EntryPoint</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>Message</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("----> Entering function :: fn_EntryPoint");
+
+message1 is some Message initially a Message.
+
+entryTime is a timestamp initially calendar().currentTimestamp(true);
+print("----> Application In Time :: "entryTime);
+print(""calendar().currentDate());
+today is a string initially calendar().currentDate() as a string;
+currTime is a string initially calendar().currentTime(false) as a string;
+today = today.replace("-","_").replace("-","_");
+currTime = currTime.replace(":","_").replace(":","_").replace(":","_");
+
+
+exitTime is a timestamp initially calendar().currentTimestamp(true);
+print("---->Application Out time :: "exitTime);
+respTime is a duration;
+respTime = exitTime.subtractInMilliseconds(entryTime);
+print("----> Application resp time :: "respTime);
+print("----> message :: "message);
+print("----> Decision Service = "message.invocation.decisionService);
+print("----> Calling function :: Godrej_Decision_Flow");
+message1=Godrej_Decision_Flow(message);
+// Local 1 -- Windows_k
+//message1.write("E:\\GHF_Responses\\GHF_Resp_"message1.invocation.decisionPoint"_"message1.invocation.applicationNumber"_"today"_"currTime"_"respTime".xml");
+
+// Local 2 -- Windows_others
+//message1.write("D:\\GHF_Responses\\GHF_Resp_"message1.invocation.decisionPoint"_"message1.invocation.applicationNumber"_"today"_"currTime"_"respTime".xml");
+
+// Local 3 -- Linux
+//message1.write("//home//rdp//GHF_Responses//GHF_Resp_"message1.invocation.decisionPoint"_"message1.invocation.applicationNumber"_"today"_"currTime"_"respTime".xml");
+
+print("----> Error :: "message.invocation.error.stackTrace).
+print("----> Exiting function :: fn_EntryPoint");
+return message1. ]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='OV12ms'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_EntryPoint1</value>
+ </instance>
+</instantiation>

@@ -1,0 +1,20 @@
+#Extended attributes for Innovator file-based repository (directory: 'BL_fn_Conditional_Mandatory_Checks')
+#Fri Dec 23 12:43:01 UTC 2022
+contentType=Instance
+guid=2FKCHZwvl55ezSI3qyntYR9nQBA
+innovatorDisplayName=fn_BL_Conditional_Mandatory_Checks
+innovatorItemCreationId=admin
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=Q8jH6kHdOYIZ1uG0WKXqvvejqv0
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+managementProperty.Test\ Case=
+managementProperty.Test\ Role=None
+subType=None
+target=SRL
+type=SRL Function

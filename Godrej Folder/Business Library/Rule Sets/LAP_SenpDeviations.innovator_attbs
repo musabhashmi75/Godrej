@@ -1,0 +1,19 @@
+#Extended attributes for Innovator file-based repository (directory: 'LAP_SenpDeviations')
+#Fri Sep 16 19:06:05 UTC 2022
+contentType=Instance
+guid=Or3FoJFPHMkzAKASsDd0e8QtBZZ
+innovatorDisplayName=LAP_SenpDeviations
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=QzixEYa1EHH8Jr6Fk8nhguBcZtu
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+managementProperty.Test\ Case=
+managementProperty.Test\ Role=None
+subType=None
+target=SRL
+type=SRL Ruleset

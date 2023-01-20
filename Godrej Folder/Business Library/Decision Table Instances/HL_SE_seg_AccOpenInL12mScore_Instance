@@ -1,0 +1,1619 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='CtiAUF5SGAYv4Pz1pvUSyM8wNov' name='HL_SE_seg_AccOpenInL12mScore_Instance'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+ </instance>
+ <instance ref='rulesetName'>
+  <value>HL_SE_seg_AccOpenInL12mScore_Instance</value>
+ </instance>
+ <instance-list ref='cases'>
+  <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Decision Table Case Template' id='UePtdb'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='KjfNui'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfAccOpenedInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='1G2V2I'>
+       <instance ref='value'>
+        <value>0</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='3AgvPY'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfUnSecureAccOpenedInL24m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='7SlCZi'>
+       <instance ref='value'>
+        <value>0</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='3hA2NM'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accOpenedScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='SspUdy'>
+       <instance ref='value'>
+        <value>1</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Decision Table Case Template' id='Urcs8J'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='G4ICD2'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfAccOpenedInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='GJKzK8'>
+       <instance ref='value'>
+        <value>0</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='GuxNOi'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfUnSecureAccOpenedInL24m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='7JY8Ms'>
+       <instance ref='value'>
+        <value>1</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='Ha7Iwz'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accOpenedScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='J7Gb5S'>
+       <instance ref='value'>
+        <value>2</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>5 Aug, 2021 6:28 PM</value>
+   </instance>
+  </item>
+  <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Decision Table Case Template' id='KbcMVc'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='H7WBhA'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfAccOpenedInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='3XU2xA'>
+       <instance ref='value'>
+        <value>0</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='QX4awS'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfUnSecureAccOpenedInL24m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude include range' id='93Mjur'>
+       <instance ref='value1'>
+        <value>1</value>
+       </instance>
+       <instance ref='value2'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='NqB970'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accOpenedScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='REUQYR'>
+       <instance ref='value'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>5 Aug, 2021 6:28 PM</value>
+   </instance>
+  </item>
+  <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Decision Table Case Template' id='MFKvcH'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='SYFpe8'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfAccOpenedInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='oXnEBM'>
+       <instance ref='value'>
+        <value>0</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='aQxMk0'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfUnSecureAccOpenedInL24m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude range' id='834ez0'>
+       <instance ref='value1'>
+        <value>3</value>
+       </instance>
+       <instance ref='value2'>
+        <value>5</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='TSaQXI'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accOpenedScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='1Viy9Z'>
+       <instance ref='value'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule4</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>5 Aug, 2021 6:28 PM</value>
+   </instance>
+  </item>
+  <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Decision Table Case Template' id='AIOh1K'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='9eHc0T'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfAccOpenedInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='WbVA0J'>
+       <instance ref='value'>
+        <value>0</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='KRHJwm'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfUnSecureAccOpenedInL24m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='Fq6s9q'>
+       <instance ref='value'>
+        <value>5</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='4UPcUm'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accOpenedScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='QrkZpY'>
+       <instance ref='value'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule5</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>5</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>5 Aug, 2021 6:28 PM</value>
+   </instance>
+  </item>
+  <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Decision Table Case Template' id='JoMGt5'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='IwFz1R'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfAccOpenedInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='C20uT8'>
+       <instance ref='value'>
+        <value>1</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='3UF6Nc'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfUnSecureAccOpenedInL24m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='HFaif4'>
+       <instance ref='value'>
+        <value>0</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='JXpRck'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accOpenedScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='OSPUWC'>
+       <instance ref='value'>
+        <value>2</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule6</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>5 Aug, 2021 6:28 PM</value>
+   </instance>
+  </item>
+  <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Decision Table Case Template' id='L7mdrD'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='JBqQFu'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfAccOpenedInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='VxpUxq'>
+       <instance ref='value'>
+        <value>1</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='nH8hbM'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfUnSecureAccOpenedInL24m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='R7XtCQ'>
+       <instance ref='value'>
+        <value>1</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='CrVD5p'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accOpenedScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='3rOec1'>
+       <instance ref='value'>
+        <value>2</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>5 Aug, 2021 6:28 PM</value>
+   </instance>
+  </item>
+  <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Decision Table Case Template' id='Xx17si'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='BME6ab'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfAccOpenedInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='4kmF35'>
+       <instance ref='value'>
+        <value>1</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='GSbywV'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfUnSecureAccOpenedInL24m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude include range' id='UAQIuo'>
+       <instance ref='value1'>
+        <value>1</value>
+       </instance>
+       <instance ref='value2'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='3ie9Ac'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accOpenedScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='BgMcPl'>
+       <instance ref='value'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule8</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>8</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>5 Aug, 2021 6:28 PM</value>
+   </instance>
+  </item>
+  <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Decision Table Case Template' id='KmfP2T'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='WDYv6z'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfAccOpenedInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='6gEBUl'>
+       <instance ref='value'>
+        <value>1</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='XpXQL6'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfUnSecureAccOpenedInL24m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude range' id='Ly34Zf'>
+       <instance ref='value1'>
+        <value>3</value>
+       </instance>
+       <instance ref='value2'>
+        <value>5</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='SRzhVu'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accOpenedScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='5ZNE4B'>
+       <instance ref='value'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule9</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>9</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>5 Aug, 2021 6:28 PM</value>
+   </instance>
+  </item>
+  <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Decision Table Case Template' id='CG1tC5'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='7LRTSV'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfAccOpenedInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='Ka703N'>
+       <instance ref='value'>
+        <value>1</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='ZiItVR'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfUnSecureAccOpenedInL24m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='QCoZ3L'>
+       <instance ref='value'>
+        <value>5</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='Zhe3N5'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accOpenedScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='JpkRRb'>
+       <instance ref='value'>
+        <value>4</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule10</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>10</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>5 Aug, 2021 6:28 PM</value>
+   </instance>
+  </item>
+  <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Decision Table Case Template' id='SOkyHN'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='ZCWfvZ'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfAccOpenedInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude range' id='Fxx4XD'>
+       <instance ref='value1'>
+        <value>1</value>
+       </instance>
+       <instance ref='value2'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='FdiQpd'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfUnSecureAccOpenedInL24m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='BQBMSV'>
+       <instance ref='value'>
+        <value>0</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='9NDTB0'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accOpenedScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='P6xCQb'>
+       <instance ref='value'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule11</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>11</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>5 Aug, 2021 6:28 PM</value>
+   </instance>
+  </item>
+  <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Decision Table Case Template' id='KHrxug'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='WTmjvS'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfAccOpenedInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude range' id='RIBl4E'>
+       <instance ref='value1'>
+        <value>1</value>
+       </instance>
+       <instance ref='value2'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='9KJce6'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfUnSecureAccOpenedInL24m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='3OoPTq'>
+       <instance ref='value'>
+        <value>1</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='88apbG'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accOpenedScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='UwG5bO'>
+       <instance ref='value'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule12</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>12</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>5 Aug, 2021 6:28 PM</value>
+   </instance>
+  </item>
+  <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Decision Table Case Template' id='FTHlPQ'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='ToXQFP'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfAccOpenedInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude range' id='COO5y4'>
+       <instance ref='value1'>
+        <value>1</value>
+       </instance>
+       <instance ref='value2'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='2hKdH0'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfUnSecureAccOpenedInL24m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude range' id='4CWWkl'>
+       <instance ref='value1'>
+        <value>1</value>
+       </instance>
+       <instance ref='value2'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='LZSnvx'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accOpenedScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='1GaXS5'>
+       <instance ref='value'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule13</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>13</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>5 Aug, 2021 6:28 PM</value>
+   </instance>
+  </item>
+  <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Decision Table Case Template' id='Dhl8W3'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='9H4s19'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfAccOpenedInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude range' id='IxS8ez'>
+       <instance ref='value1'>
+        <value>1</value>
+       </instance>
+       <instance ref='value2'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='911sat'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfUnSecureAccOpenedInL24m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude range' id='Abb0FZ'>
+       <instance ref='value1'>
+        <value>3</value>
+       </instance>
+       <instance ref='value2'>
+        <value>5</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='RPA7Bu'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accOpenedScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='Edb5F8'>
+       <instance ref='value'>
+        <value>4</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule14</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>14</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>5 Aug, 2021 6:28 PM</value>
+   </instance>
+  </item>
+  <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Decision Table Case Template' id='HLiOEr'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='5cc6ei'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfAccOpenedInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude range' id='76nbRB'>
+       <instance ref='value1'>
+        <value>1</value>
+       </instance>
+       <instance ref='value2'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='AWCdso'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfUnSecureAccOpenedInL24m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='2PRatS'>
+       <instance ref='value'>
+        <value>5</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='UYTjRn'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accOpenedScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='LXMYOj'>
+       <instance ref='value'>
+        <value>4</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule15</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>15</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>5 Aug, 2021 6:28 PM</value>
+   </instance>
+  </item>
+  <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Decision Table Case Template' id='W4LDvQ'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='PKQdgl'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfAccOpenedInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='2OQuW1'>
+       <instance ref='value'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='aD4TWM'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfUnSecureAccOpenedInL24m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='6sQ9SM'>
+       <instance ref='value'>
+        <value>0</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='QljTkv'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accOpenedScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='1GDgHb'>
+       <instance ref='value'>
+        <value>4</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule16</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>16</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>5 Aug, 2021 6:28 PM</value>
+   </instance>
+  </item>
+  <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Decision Table Case Template' id='QaBRJq'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='ATSccy'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfAccOpenedInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='N1BXpI'>
+       <instance ref='value'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='6oWB9L'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfUnSecureAccOpenedInL24m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='67AL3b'>
+       <instance ref='value'>
+        <value>1</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='AVB9q4'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accOpenedScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='SyzdWK'>
+       <instance ref='value'>
+        <value>4</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule17</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>17</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>5 Aug, 2021 6:28 PM</value>
+   </instance>
+  </item>
+  <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Decision Table Case Template' id='5jKr3N'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='CQB907'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfAccOpenedInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='3BtuEc'>
+       <instance ref='value'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='4nmG85'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfUnSecureAccOpenedInL24m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude range' id='PRn4mk'>
+       <instance ref='value1'>
+        <value>1</value>
+       </instance>
+       <instance ref='value2'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='H04YY7'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accOpenedScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='9Dj7CM'>
+       <instance ref='value'>
+        <value>4</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule18</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>18</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>5 Aug, 2021 6:28 PM</value>
+   </instance>
+  </item>
+  <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Decision Table Case Template' id='WHT3dk'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='QLEdBZ'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfAccOpenedInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='QlOq0L'>
+       <instance ref='value'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='XdZzqp'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfUnSecureAccOpenedInL24m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude range' id='2Ffn89'>
+       <instance ref='value1'>
+        <value>3</value>
+       </instance>
+       <instance ref='value2'>
+        <value>5</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='Ky2oAY'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accOpenedScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='EVAmip'>
+       <instance ref='value'>
+        <value>4</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule19</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>19</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>5 Aug, 2021 6:28 PM</value>
+   </instance>
+  </item>
+  <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Decision Table Case Template' id='aH4lir'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='H35wII'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfAccOpenedInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='Vu96Oq'>
+       <instance ref='value'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='KrxaFr'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfUnSecureAccOpenedInL24m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='Anxlz7'>
+       <instance ref='value'>
+        <value>5</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Template' id='ZteFta'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accOpenedScore</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='a1RVTM'>
+       <instance ref='value'>
+        <value>4</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule20</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>20</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>5 Aug, 2021 6:28 PM</value>
+   </instance>
+  </item>
+ </instance-list>
+ <instance ref='editingInfo'>
+  <instance ref='rowCondValueCount'>
+   <value>0</value>
+  </instance>
+  <instance ref='colCondValueCount'>
+   <value>0</value>
+  </instance>
+  <instance ref='isNewInstance'>
+   <value>false</value>
+  </instance>
+ </instance>
+ <instance ref='casesInfo'>
+  <instance-list ref='condition cells'>
+   <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Group Info Template' id='BD5md1'>
+    <instance ref='name'>
+     <value>noOfAccOpenedInL12m</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>noOfAccOpenedInL12m</value>
+    </instance>
+    <instance ref='property'>
+     <value>aBlazeApplicant.noOfAccOpenedInL12m</value>
+    </instance>
+    <instance ref='type'>
+     <value>integer</value>
+    </instance>
+   </item>
+   <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Group Info Template' id='GioG4J'>
+    <instance ref='name'>
+     <value>noOfUnSecureAccOpenedInL24m</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>noOfUnSecureAccOpenedInL24m</value>
+    </instance>
+    <instance ref='property'>
+     <value>aBlazeApplicant.noOfUnSecureAccOpenedInL24m</value>
+    </instance>
+    <instance ref='type'>
+     <value>integer</value>
+    </instance>
+   </item>
+  </instance-list>
+  <instance-list ref='action cells'>
+   <item template='CtiAUF5SGAYv4Pz1pvUSyM8wNov.Cell Group Info Template' id='6Q8ZyW'>
+    <instance ref='name'>
+     <value>accOpenedScore</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>accOpenedScore</value>
+    </instance>
+    <instance ref='property'>
+     <value>aBlazeApplicant.accOpenedScore</value>
+    </instance>
+    <instance ref='type'>
+     <value>integer</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

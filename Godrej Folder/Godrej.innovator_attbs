@@ -1,0 +1,16 @@
+#Extended attributes for Eclipse file-based repository (directory: 'Godrej')
+#Mon Dec 19 05:13:09 UTC 2022
+contentType=Fixed
+guid=1ce5crhZ5kINQL3QExg3TVDIENp
+innovatorDisplayName=Godrej
+innovatorTemplateRef=ProjectEntityTemplate
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=None
+target=Repository
+type=Project

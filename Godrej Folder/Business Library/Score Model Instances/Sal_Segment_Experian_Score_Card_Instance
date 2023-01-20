@@ -1,0 +1,2130 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='B8dyIhsROCdpjh7YO1OJxOEQ2yg' name='Sal_Segment_Experian_Score_Card_Instance'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+ </instance>
+ <instance ref='rulesetName'>
+  <value>Sal_Segment_Experian_Score_Card_Instance</value>
+ </instance>
+ <instance-list ref='cases'>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='FyHXiS'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='L6fxjj'>
+     <instance ref='CELL GROUP NAME'>
+      <value>hlMaxDpdValueEver</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='JHgNlv'>
+       <instance ref='value'>
+        <value>A. 0 DPD on SEC</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>99</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>A. 0 DPD on SEC</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>hlMaxDpdValueEver</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>maxDelinquencyInLife</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>maxDelinquencyInLife_0_A__0_DPD_on_SEC</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='KUPm0s'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='JBMJu5'>
+     <instance ref='CELL GROUP NAME'>
+      <value>hlMaxDpdValueEver</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='J0KUgo'>
+       <instance ref='value'>
+        <value>B. 0 DPD on UNSEC</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>93</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>B. 0 DPD on UNSEC</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>hlMaxDpdValueEver</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>maxDelinquencyInLife</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>maxDelinquencyInLife_1_B__0_DPD_on_UNSEC</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='2MXaKp'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='1cwNzj'>
+     <instance ref='CELL GROUP NAME'>
+      <value>hlMaxDpdValueEver</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='KhzFeP'>
+       <instance ref='value'>
+        <value>C. 29 DPD</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>78</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>C. 29 DPD</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>hlMaxDpdValueEver</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>maxDelinquencyInLife</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>maxDelinquencyInLife_2_C__29_DPD</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='BpQic2'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='N60utK'>
+     <instance ref='CELL GROUP NAME'>
+      <value>hlMaxDpdValueEver</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='MrIObu'>
+       <instance ref='value'>
+        <value>GE 30 DPD</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>60</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>GE 30 DPD</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>hlMaxDpdValueEver</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>maxDelinquencyInLife</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>maxDelinquencyInLife_3_GE_30_DPD</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='QvCg1x'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='T7xglA'>
+     <instance ref='CELL GROUP NAME'>
+      <value>product_holding</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='KToA4h'>
+       <instance ref='value'>
+        <value>TW, CL LE 25K and Others</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>70</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>TW, CL LE 25K and Others</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>product_holding</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>product_holding</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>product_holding_0_TW__CL_LE_25K_and_Others</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='GtuqV5'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='CP3imz'>
+     <instance ref='CELL GROUP NAME'>
+      <value>product_holding</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='FmKbUQ'>
+       <instance ref='value'>
+        <value>PL or CL GT 25K</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>78</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>PL or CL GT 25K</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>product_holding</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>product_holding</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>product_holding_1_PL_or_CL_GT_25K</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='1YYIGU'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='96Mjok'>
+     <instance ref='CELL GROUP NAME'>
+      <value>product_holding</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='VBSyNy'>
+       <instance ref='value'>
+        <value>AL, CC LE 1L or HL le 25L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>90</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>AL,  CC  LE  1L  or  HL  le  25L</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>product_holding</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>product_holding</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>product_holding_2_AL___CC__LE__1L__or__HL__le__25L</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='ElIgVk'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='Wjg9zW'>
+     <instance ref='CELL GROUP NAME'>
+      <value>product_holding</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='AMleNq'>
+       <instance ref='value'>
+        <value>HL GT 25L or CC GT 1L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>94</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>HL  GT  25L  or  CC  GT  1L</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>product_holding</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>product_holding</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>product_holding_3_HL__GT__25L__or__CC__GT__1L</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='5wWTPk'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='9L9QOw'>
+     <instance ref='CELL GROUP NAME'>
+      <value>currAvgUtilizationOnLiveCC</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='JlYQnr'>
+       <instance ref='value'>
+        <value>A.NO LIVE</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>80</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>A.NO LIVE</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>currAvgUtilizationOnLiveCC</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>currAvgUtilizationOnLiveCCSegment</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>currAvgUtilizationOnLiveCCSegment_0_A_NO_LIVE</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='MhDvVP'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='FS13ZS'>
+     <instance ref='CELL GROUP NAME'>
+      <value>currAvgUtilizationOnLiveCC</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='YPKaqT'>
+       <instance ref='value'>
+        <value>B. LE 15%</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>92</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>B. LE 15%</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>currAvgUtilizationOnLiveCC</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>currAvgUtilizationOnLiveCCSegment</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>currAvgUtilizationOnLiveCCSegment_1_B__LE_15_</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='YIXbxY'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='XEki5X'>
+     <instance ref='CELL GROUP NAME'>
+      <value>currAvgUtilizationOnLiveCC</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='OsVc2J'>
+       <instance ref='value'>
+        <value>C. LE 40%</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>83</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>C. LE 40%</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>currAvgUtilizationOnLiveCC</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>currAvgUtilizationOnLiveCCSegment</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>currAvgUtilizationOnLiveCCSegment_2_C__LE_40_</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='Jy2tkf'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='A1eWHR'>
+     <instance ref='CELL GROUP NAME'>
+      <value>currAvgUtilizationOnLiveCC</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='PJO17N'>
+       <instance ref='value'>
+        <value>D. GT 40%</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>66</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>D. GT 40%</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>currAvgUtilizationOnLiveCC</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>currAvgUtilizationOnLiveCCSegment</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>currAvgUtilizationOnLiveCCSegment_3_D__GT_40_</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='RcsqZj'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='aE3nZ8'>
+     <instance ref='CELL GROUP NAME'>
+      <value>salGeoRanking</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='J03sYn'>
+       <instance ref='value'>
+        <value>1. Less than 2</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>90</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>1. Less than 2</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>salGeoRanking</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>salGeoRanking</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>salGeoRanking_0_1__Less_than_2</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='WCxuDd'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='CSAUPq'>
+     <instance ref='CELL GROUP NAME'>
+      <value>salGeoRanking</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='RgzWSK'>
+       <instance ref='value'>
+        <value>2. GE 2 and LT 5</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>78</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>2. GE 2 and LT 5</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>salGeoRanking</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>salGeoRanking</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>salGeoRanking_1_2__GE_2_and_LT_5</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='GQ318q'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='QukyGn'>
+     <instance ref='CELL GROUP NAME'>
+      <value>salGeoRanking</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='Mp0BUN'>
+       <instance ref='value'>
+        <value>3. GE 5</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>61</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>3. GE 5</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>salGeoRanking</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>salGeoRanking</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>salGeoRanking_2_3__GE_5</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='LBPB3n'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='XUdiZr'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfAccOpenedInL12m</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than' id='Bvmay7'>
+       <instance ref='value'>
+        <value>1</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>86</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>LT_1</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>noOfAccOpenedInL12m</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>noOfAccOpenedInL12m</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>noOfAccOpenedInL12m_0_LT_1</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='EvK9d3'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='8Cs25B'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfAccOpenedInL12m</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='iyJhxi'>
+       <instance ref='value1'>
+        <value>1</value>
+       </instance>
+       <instance ref='value2'>
+        <value>2</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>81</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>GE_1_LT_2</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>noOfAccOpenedInL12m</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>noOfAccOpenedInL12m</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>noOfAccOpenedInL12m_1_GE_1_LT_2</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='DgBuGi'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='Qrr8SH'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfAccOpenedInL12m</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='FqXyBo'>
+       <instance ref='value'>
+        <value>2</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>73</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>GE_2</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>noOfAccOpenedInL12m</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>noOfAccOpenedInL12m</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>noOfAccOpenedInL12m_2_GE_2</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='PHTHYA'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='Mgpg5V'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfEnqInL6m</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='IHAky7'>
+       <instance ref='value'>
+        <value>0</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>5</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>84</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Zero</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>noOfEnqInL6m</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>noOfEnqInL6m</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>noOfEnqInL6m_0_Zero</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='BP9kur'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='Z0y2Ws'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfEnqInL6m</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='PSXIv8'>
+       <instance ref='value'>
+        <value>1</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>5</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>84</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>One</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>noOfEnqInL6m</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>noOfEnqInL6m</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>noOfEnqInL6m_1_One</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='EPnDtI'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='TJdp1g'>
+     <instance ref='CELL GROUP NAME'>
+      <value>noOfEnqInL6m</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='Rp6bXG'>
+       <instance ref='value'>
+        <value>2</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>5</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>68</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>GE_2</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>noOfEnqInL6m</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>noOfEnqInL6m</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>noOfEnqInL6m_2_GE_2</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='4eUE5i'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='Cuo9k7'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Score_Model_Condition_Group1</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='UtB5UJ'>
+       <instance ref='value'>
+        <value>A.NO LIVE</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>82</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>A.NO LIVE</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>Score_Model_Condition_Group1</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>currAvgUtilizationOnAllAccSalSegment</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>currAvgUtilizationOnAllAccSalSegment_0_A_NO_LIVE</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='HlZu2H'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='Cl3Ky6'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Score_Model_Condition_Group1</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='1jkWhI'>
+       <instance ref='value'>
+        <value>B. LE 15%</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>86</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>B. LE 15%</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>Score_Model_Condition_Group1</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>currAvgUtilizationOnAllAccSalSegment</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>currAvgUtilizationOnAllAccSalSegment_1_B__LE_15_</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='Lpp4Af'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='WxPgUJ'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Score_Model_Condition_Group1</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='GHQL6D'>
+       <instance ref='value'>
+        <value>C. LE 45%</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>84</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>C. LE 45%</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>Score_Model_Condition_Group1</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>currAvgUtilizationOnAllAccSalSegment</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>currAvgUtilizationOnAllAccSalSegment_2_C__LE_45_</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='ID4yuq'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='XWiQk8'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Score_Model_Condition_Group1</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='1EWt7m'>
+       <instance ref='value'>
+        <value>D. GT 45%</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>78</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>D. GT 45%</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>Score_Model_Condition_Group1</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>currAvgUtilizationOnAllAccSalSegment</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>currAvgUtilizationOnAllAccSalSegment_3_D__GT_45_</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='HXYgsW'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='FcY6Ps'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Score_Model_Condition_Group2</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='ITpzJC'>
+       <instance ref='value'>
+        <value>0</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>78</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>ZERO</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>Score_Model_Condition_Group2</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>maxMOBonSec</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>maxMOBonSec_0_ZERO</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='Gg3G8W'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='MxVPgd'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Score_Model_Condition_Group2</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude include range' id='VzSIYK'>
+       <instance ref='value1'>
+        <value>0</value>
+       </instance>
+       <instance ref='value2'>
+        <value>3.5</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>77</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>GT_0_LE_3.5</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>Score_Model_Condition_Group2</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>maxMOBonSec</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>maxMOBonSec_1_GT_0_LE_3_5</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='1Koc6u'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='1Qbt4U'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Score_Model_Condition_Group2</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude include range' id='T2X7Ml'>
+       <instance ref='value1'>
+        <value>3.5</value>
+       </instance>
+       <instance ref='value2'>
+        <value>5.5</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>86</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>GT_3.5_LE_5.5</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>Score_Model_Condition_Group2</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>maxMOBonSec</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>maxMOBonSec_2_GT_3_5_LE_5_5</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_MetaphorRuleTemplate' id='OInrlt'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Template' id='CMlJSQ'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Score_Model_Condition_Group2</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='Ac10uF'>
+       <instance ref='value'>
+        <value>5.5</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>95</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>GT_5.5</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>Score_Model_Condition_Group2</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>maxMOBonSec</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>maxMOBonSec_3_GT_5_5</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+ </instance-list>
+ <instance-list ref='__ND_ScoredCharacteristicInitializersVH'>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_ScoredCharacteristicInitializerTemplate' id='CvBDCU'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>99.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>0.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>hlMaxDpdValueEver</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>maxDelinquencyInLife</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_ScoredCharacteristicInitializerTemplate' id='GZrKy5'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>94.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>0.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>product_holding</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>product_holding</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_ScoredCharacteristicInitializerTemplate' id='1qXPmb'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>92.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>0.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>currAvgUtilizationOnLiveCC</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>currUtilizationOnLiveCCSegment</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_ScoredCharacteristicInitializerTemplate' id='VHTiBn'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>90.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>0.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>salGeoRanking</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>secGeoRiskRanking</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_ScoredCharacteristicInitializerTemplate' id='6VgKnE'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>86.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>0.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>noOfAccOpenedInL12m</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>noOfAccOpenedInL12m</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_ScoredCharacteristicInitializerTemplate' id='RK01DD'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>5</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>84.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>0.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>noOfEnqInL6m</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>noOfEnqInL6m</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_ScoredCharacteristicInitializerTemplate' id='UKsyi6'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>86.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>0.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>Score_Model_Condition_Group1</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>currAvgUtilizationOnAllAccSalSegment</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.__ND_ScoredCharacteristicInitializerTemplate' id='NN2CH4'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>95.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>0.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>Score_Model_Condition_Group2</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>maxMOBonSecInYears</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+ </instance-list>
+ <instance ref='__ND_ScoredCharacteristicCountVH'>
+  <value>8</value>
+ </instance>
+ <instance ref='casesInfo'>
+  <instance-list ref='condition cells'>
+   <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Group Info Template' id='JukbLp'>
+    <instance ref='name'>
+     <value>hlMaxDpdValueEver</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>maxDelinquencyInLife</value>
+    </instance>
+    <instance ref='property'>
+     <value>aBlazeApplicant.maxDelinquencyInLife</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Group Info Template' id='Aisd86'>
+    <instance ref='name'>
+     <value>product_holding</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>product_holding</value>
+    </instance>
+    <instance ref='property'>
+     <value>aBlazeApplicant.product_holding</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Group Info Template' id='2Jwm66'>
+    <instance ref='name'>
+     <value>currAvgUtilizationOnLiveCC</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>currUtilizationOnLiveCCSegment</value>
+    </instance>
+    <instance ref='property'>
+     <value>aBlazeApplicant.currUtilizationOnLiveCCSegment</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Group Info Template' id='GYap04'>
+    <instance ref='name'>
+     <value>salGeoRanking</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>secGeoRiskRanking</value>
+    </instance>
+    <instance ref='property'>
+     <value>aBlazeApplicant.secGeoRiskRanking</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Group Info Template' id='65Tg3h'>
+    <instance ref='name'>
+     <value>noOfAccOpenedInL12m</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>noOfAccOpenedInL12m</value>
+    </instance>
+    <instance ref='property'>
+     <value>aBlazeApplicant.noOfAccOpenedInL12m</value>
+    </instance>
+    <instance ref='type'>
+     <value>integer</value>
+    </instance>
+   </item>
+   <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Group Info Template' id='2SeWD9'>
+    <instance ref='name'>
+     <value>noOfEnqInL6m</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>noOfEnqInL6m</value>
+    </instance>
+    <instance ref='property'>
+     <value>aBlazeApplicant.noOfEnqInL6m</value>
+    </instance>
+    <instance ref='type'>
+     <value>integer</value>
+    </instance>
+   </item>
+   <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Group Info Template' id='JciMmk'>
+    <instance ref='name'>
+     <value>Score_Model_Condition_Group1</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>currAvgUtilizationOnAllAccSalSegment</value>
+    </instance>
+    <instance ref='property'>
+     <value>aBlazeApplicant.currAvgUtilizationOnAllAccSalSegment</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='B8dyIhsROCdpjh7YO1OJxOEQ2yg.Cell Group Info Template' id='J5maqS'>
+    <instance ref='name'>
+     <value>Score_Model_Condition_Group2</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>maxMOBonSecInYears</value>
+    </instance>
+    <instance ref='property'>
+     <value>aBlazeApplicant.maxMOBonSecInYears</value>
+    </instance>
+    <instance ref='type'>
+     <value>real</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='editingInfo'>
+ </instance>
+</instantiation>

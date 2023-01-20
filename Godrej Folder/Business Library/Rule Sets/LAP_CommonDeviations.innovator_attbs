@@ -1,0 +1,19 @@
+#Extended attributes for Innovator file-based repository (directory: 'LAP_CommonDeviations')
+#Mon Nov 14 13:08:13 UTC 2022
+contentType=Instance
+guid=YrQSW8ZNb1H0YklXB3p3v5b88Mg
+innovatorDisplayName=LAP_CommonDeviations
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=QzixEYa1EHH8Jr6Fk8nhguBcZtu
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+managementProperty.Test\ Case=
+managementProperty.Test\ Role=None
+subType=None
+target=SRL
+type=SRL Ruleset

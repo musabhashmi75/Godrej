@@ -1,0 +1,573 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_HandleException'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_HandleException1</value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_HandleException</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("");
+print("++++> Entering function :: fn_HandleException");
+errType is a string initially "";
+errId is a string initially "";
+errName is a string initially "";
+errAction is a string initially "";
+errCode is a string initially "";
+errText is a string initially "";
+aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+
+//------------------------------------------------------------------------------------------LAP HL Exception Starts--------------------------------------------------------------------------------------------------------
+if(message.invocation.decisionService <>"BL")then{
+
+print("----> aBlazeApplication.fn_ApplicationRiskScoreCardsException :: "aBlazeApplication.fn_ApplicationRiskScoreCardsException);
+if(aBlazeApplication.fn_ApplicationRiskScoreCardsException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_ApplicationRiskScoreCards <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_ApplicationRiskScoreCards check logs for more info";
+    errId = "EXCEPTION_001";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_CibilBureauDerivedVariablesException :: "aBlazeApplication.fn_CibilBureauDerivedVariablesException);
+if(aBlazeApplication.fn_CibilBureauDerivedVariablesException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_CibilBureauDerivedVariables <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_CibilBureauDerivedVariables check logs for more info";
+    errId = "EXCEPTION_002";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_CibilBureauReportParserException :: "aBlazeApplication.fn_CibilBureauReportParserException);
+if(aBlazeApplication.fn_CibilBureauReportParserException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_CibilBureauReportParser <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_CibilBureauReportParser check logs for more info";
+    errId = "EXCEPTION_003";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_BusinessErrorsException :: "aBlazeApplication.fn_BusinessErrorsException);
+if(aBlazeApplication.fn_BusinessErrorsException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_BusinessErrors <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_BusinessErrors check logs for more info";
+    errId = "EXCEPTION_004";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_CalculateAgeException :: "aBlazeApplication.fn_CalculateAgeException);
+if(aBlazeApplication.fn_CalculateAgeException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_CalculateAge <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_CalculateAge check logs for more info";
+    errId = "EXCEPTION_005";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_CalculatedVariablesException :: "aBlazeApplication.fn_CalculatedVariablesException);
+if(aBlazeApplication.fn_CalculatedVariablesException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_CalculatedVariables <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_CalculatedVariables check logs for more info";
+    errId = "EXCEPTION_006";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_ConditionalMandatoryErrorsException :: "aBlazeApplication.fn_ConditionalMandatoryErrorsException);
+if(aBlazeApplication.fn_ConditionalMandatoryErrorsException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_ConditionalMandatoryErrors <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_ConditionalMandatoryErrors check logs for more info";
+    errId = "EXCEPTION_007";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_DefaultValuesException :: "aBlazeApplication.fn_DefaultValuesException);
+if(aBlazeApplication.fn_DefaultValuesException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_DefaultValues <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_DefaultValues check logs for more info";
+    errId = "EXCEPTION_008";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_DefinitionsException :: "aBlazeApplication.fn_DefinitionsException);
+if(aBlazeApplication.fn_DefinitionsException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_Definitions <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_Definitions check logs for more info";
+    errId = "EXCEPTION_009";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_ExperianScoreCardsException :: "aBlazeApplication.fn_ExperianScoreCardsException);
+if(aBlazeApplication.fn_ExperianScoreCardsException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_ExperianScoreCards <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_ExperianScoreCards check logs for more info";
+    errId = "EXCEPTION_010";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_HardStopDeviationsException :: "aBlazeApplication.fn_HardStopDeviationsException);
+if(aBlazeApplication.fn_HardStopDeviationsException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_HardStopDeviations <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_HardStopDeviations check logs for more info";
+    errId = "EXCEPTION_011";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_HL_DeviationsException :: "aBlazeApplication.fn_HL_DeviationsException);
+if(aBlazeApplication.fn_HL_DeviationsException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_HL_Deviations <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_HL_Deviations check logs for more info";
+    errId = "EXCEPTION_012";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_HL_EligibilityBasisABBException :: "aBlazeApplication.fn_HL_EligibilityBasisABBException);
+if(aBlazeApplication.fn_HL_EligibilityBasisABBException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_HL_EligibilityBasisABB <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_HL_EligibilityBasisABB check logs for more info";
+    errId = "EXCEPTION_013";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_HL_EligibilityBasisFoirException :: "aBlazeApplication.fn_HL_EligibilityBasisFoirException);
+if(aBlazeApplication.fn_HL_EligibilityBasisFoirException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_HL_EligibilityBasisFoir <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_HL_EligibilityBasisFoir check logs for more info";
+    errId = "EXCEPTION_014";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_HL_EligibilityBasisLTVException :: "aBlazeApplication.fn_HL_EligibilityBasisLTVException);
+if(aBlazeApplication.fn_HL_EligibilityBasisLTVException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_HL_EligibilityBasisLTV <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_HL_EligibilityBasisLTV check logs for more info";
+    errId = "EXCEPTION_015";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_HL_EligibilityCalculationException :: "aBlazeApplication.fn_HL_EligibilityCalculationException);
+if(aBlazeApplication.fn_HL_EligibilityCalculationException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_HL_EligibilityCalculation <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_HL_EligibilityCalculation check logs for more info";
+    errId = "EXCEPTION_016";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_HL_EligibileLoanAmountProgramException :: "aBlazeApplication.fn_HL_EligibileLoanAmountProgramException);
+if(aBlazeApplication.fn_HL_EligibileLoanAmountProgramException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_HL_EligibileLoanAmountProgram <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_HL_EligibileLoanAmountProgram check logs for more info";
+    errId = "EXCEPTION_017";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_HL_EligibileLoanAmountSalariedException :: "aBlazeApplication.fn_HL_EligibileLoanAmountSalariedException);
+if(aBlazeApplication.fn_HL_EligibileLoanAmountSalariedException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_HL_EligibileLoanAmountSalaried <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_HL_EligibileLoanAmountSalaried check logs for more info";
+    errId = "EXCEPTION_018";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_HL_EligibileLoanAmountSenpException :: "aBlazeApplication.fn_HL_EligibileLoanAmountSenpException);
+if(aBlazeApplication.fn_HL_EligibileLoanAmountSenpException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_HL_EligibileLoanAmountSenp <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_HL_EligibileLoanAmountSenp check logs for more info";
+    errId = "EXCEPTION_019";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_HL_EligibileLoanAmountSepException :: "aBlazeApplication.fn_HL_EligibileLoanAmountSepException);
+if(aBlazeApplication.fn_HL_EligibileLoanAmountSepException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_HL_EligibileLoanAmountSep <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_HL_EligibileLoanAmountSep check logs for more info";
+    errId = "EXCEPTION_020";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_HL_NetMonthlyIncomeEligibilityException :: "aBlazeApplication.fn_HL_NetMonthlyIncomeEligibilityException);
+if(aBlazeApplication.fn_HL_NetMonthlyIncomeEligibilityException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_HL_NetMonthlyIncomeEligibility <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_HL_NetMonthlyIncomeEligibility check logs for more info";
+    errId = "EXCEPTION_021";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_LAP_DeviationsException :: "aBlazeApplication.fn_LAP_DeviationsException);
+if(aBlazeApplication.fn_LAP_DeviationsException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_LAP_Deviations <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_LAP_Deviations check logs for more info";
+    errId = "EXCEPTION_022";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_LAP_EligibilityBasisABBException :: "aBlazeApplication.fn_LAP_EligibilityBasisABBException);
+if(aBlazeApplication.fn_LAP_EligibilityBasisABBException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_LAP_EligibilityBasisABB <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_LAP_EligibilityBasisABB check logs for more info";
+    errId = "EXCEPTION_023";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_LAP_EligibilityBasisFoirException :: "aBlazeApplication.fn_LAP_EligibilityBasisFoirException);
+if(aBlazeApplication.fn_LAP_EligibilityBasisFoirException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_LAP_EligibilityBasisFoir <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_LAP_EligibilityBasisFoir check logs for more info";
+    errId = "EXCEPTION_024";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_LAP_EligibilityBasisLTVException :: "aBlazeApplication.fn_LAP_EligibilityBasisLTVException);
+if(aBlazeApplication.fn_LAP_EligibilityBasisLTVException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_LAP_EligibilityBasisLTV <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_LAP_EligibilityBasisLTV check logs for more info";
+    errId = "EXCEPTION_025";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_LAP_EligibilityBasisRentalIncomeException :: "aBlazeApplication.fn_LAP_EligibilityBasisRentalIncomeException);
+if(aBlazeApplication.fn_LAP_EligibilityBasisRentalIncomeException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_LAP_EligibilityBasisRentalIncome <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_LAP_EligibilityBasisRentalIncome check logs for more info";
+    errId = "EXCEPTION_026";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_LAP_EligibilityCalculationException :: "aBlazeApplication.fn_LAP_EligibilityCalculationException);
+if(aBlazeApplication.fn_LAP_EligibilityCalculationException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_LAP_EligibilityCalculation <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_LAP_EligibilityCalculation check logs for more info";
+    errId = "EXCEPTION_027";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_LAP_EligibileLoanAmountProgramException :: "aBlazeApplication.fn_LAP_EligibileLoanAmountProgramException);
+if(aBlazeApplication.fn_LAP_EligibileLoanAmountProgramException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_LAP_EligibileLoanAmountProgram <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_LAP_EligibileLoanAmountProgram check logs for more info";
+    errId = "EXCEPTION_028";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_LAP_EligibileLoanAmountSalariedException :: "aBlazeApplication.fn_LAP_EligibileLoanAmountSalariedException);
+if(aBlazeApplication.fn_LAP_EligibileLoanAmountSalariedException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_LAP_EligibileLoanAmountSalaried <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_LAP_EligibileLoanAmountSalaried check logs for more info";
+    errId = "EXCEPTION_029";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_LAP_EligibileLoanAmountSenpException :: "aBlazeApplication.fn_LAP_EligibileLoanAmountSenpException);
+if(aBlazeApplication.fn_LAP_EligibileLoanAmountSenpException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_LAP_EligibileLoanAmountSenp <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_LAP_EligibileLoanAmountSenp check logs for more info";
+    errId = "EXCEPTION_030";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_LAP_EligibileLoanAmountSepException :: "aBlazeApplication.fn_LAP_EligibileLoanAmountSepException);
+if(aBlazeApplication.fn_LAP_EligibileLoanAmountSepException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_LAP_EligibileLoanAmountSep <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_LAP_EligibileLoanAmountSep check logs for more info";
+    errId = "EXCEPTION_031";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_LAP_NetMonthlyIncomeEligibilityException :: "aBlazeApplication.fn_LAP_NetMonthlyIncomeEligibilityException);
+if(aBlazeApplication.fn_LAP_NetMonthlyIncomeEligibilityException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_LAP_NetMonthlyIncomeEligibility <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_LAP_NetMonthlyIncomeEligibility check logs for more info";
+    errId = "EXCEPTION_032";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_SetErrorInResponseException :: "aBlazeApplication.fn_SetErrorInResponseException);
+if(aBlazeApplication.fn_SetErrorInResponseException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_SetErrorInResponse <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_SetErrorInResponse check logs for more info";
+    errId = "EXCEPTION_033";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+print("----> aBlazeApplication.fn_DecimalNumberPrecisionException :: "aBlazeApplication.fn_DecimalNumberPrecisionException);
+if(aBlazeApplication.fn_DecimalNumberPrecisionException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_DecimalNumberPrecision <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_DecimalNumberPrecision check logs for more info";
+    errId = "EXCEPTION_034";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+  
+//------------------------------------------------------------------------------------------LAP HL Exception Ends--------------------------------------------------------------------------------------------------------
+  
+//----------------------------------------------------------------------------------------------BL Exception Starts--------------------------------------------------------------------------------------------------------
+  
+}
+else if(message.invocation.decisionService = "BL")then {
+	
+	//BL Business Errors Exception
+  print("----> aBlazeApplication.fn_BL_BusinessErrorsException :: "aBlazeApplication.fn_BusinessErrorsException);
+if(aBlazeApplication.fn_BL_BusinessErrorsException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_BL_BusinessErrors <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_BL_BusinessErrors check logs for more info";
+    errId = "EXCEPTION_011";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+	//BL Conditional Mandatory Errors Exception
+print("----> aBlazeApplication.fn_BL_ConditionalMandatoryErrorsException :: "aBlazeApplication.fn_BL_ConditionalMandatoryErrorsException);
+if(aBlazeApplication.fn_BL_ConditionalMandatoryErrorsException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_BL_ConditionalMandatoryErrors <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_BL_ConditionalMandatoryErrors check logs for more info";
+    errId = "EXCEPTION_012";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+	//BL Default Values Exception
+print("----> aBlazeApplication.fn_BL_DefaultValuesException :: "aBlazeApplication.fn_BL_DefaultValuesException);
+if(aBlazeApplication.fn_BL_DefaultValuesException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_BL_DefaultValuesException <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_BL_DefaultValuesException check logs for more info";
+    errId = "EXCEPTION_013";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+	//BL Bureau Report Parser Exception
+print("----> aBlazeApplication.fn_BL_BureauReportParserException :: "aBlazeApplication.fn_BL_BureauReportParserException);
+if(aBlazeApplication.fn_BL_BureauReportParserException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_CibilBureauReportParserException <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_BL_BureauReportParserException check logs for more info";
+    errId = "EXCEPTION_014";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+	//BL Bureau Derived Variables
+  print("----> aBlazeApplication.fn_BL_BureauDerivedVariablesException :: "aBlazeApplication.fn_BL_BureauDerivedVariablesException);
+if(aBlazeApplication.fn_BL_BureauDerivedVariablesException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_BL_BureauDerivedVariablesException <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_BL_BureauDerivedVariablesException check logs for more info";
+    errId = "EXCEPTION_015";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+	//BL Judgemental Scorecard Exception
+	  print("----> aBlazeApplication.fn_BL_JudgementalScorecardException :: "aBlazeApplication.fn_BL_JudgementalScorecardException);
+if(aBlazeApplication.fn_BL_JudgementalScorecardException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_BL_JudgementalScorecardException <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_BL_JudgementalScorecardException check logs for more info";
+    errId = "EXCEPTION_016";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+	//BL Eligibility Calculation Exception
+	  print("----> aBlazeApplication.fn_BL_EligibilityCalculationException :: "aBlazeApplication.fn_BL_EligibilityCalculationException);
+if(aBlazeApplication.fn_BL_EligibilityCalculationException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_BL_EligibilityCalculationException <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_BL_EligibilityCalculationException check logs for more info";
+    errId = "EXCEPTION_017";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+	//BL Eligibility Calculation Exception
+	  print("----> aBlazeApplication.fn_BL_ApplicationDeviationException :: "aBlazeApplication.fn_BL_ApplicationDeviationException);
+if(aBlazeApplication.fn_BL_ApplicationDeviationException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_BL_ApplicationDeviationException <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_BL_ApplicationDeviationException check logs for more info";
+    errId = "EXCEPTION_018";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+  
+    	//BL Bureau Report Parser Exception
+	  print("----> aBlazeApplication.fn_BL_DefinitionsException :: "aBlazeApplication.fn_BL_DefinitionsException);
+if(aBlazeApplication.fn_BL_DefinitionsException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_BL_DefinitionsException <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_BL_DefinitionsException check logs for more info";
+    errId = "EXCEPTION_019";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+	
+      	//BL CRIF Scoredcard Exception
+	  print("----> aBlazeApplication.fn_BL_CRIF_ScoreCardException :: "aBlazeApplication.fn_BL_CRIF_ScoreCardException);
+if(aBlazeApplication.fn_BL_CRIF_ScoreCardException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_BL_CRIF_ScoreCardException <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_BL_CRIF_ScoreCardException check logs for more info";
+    errId = "EXCEPTION_020";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+  
+	//BL Calculate Age Exception
+print("----> aBlazeApplication.fn_CalculateAgeException :: "aBlazeApplication.fn_CalculateAgeException);
+if(aBlazeApplication.fn_CalculateAgeException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_CalculateAge <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_CalculateAge check logs for more info";
+    errId = "EXCEPTION_001";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+	//BL Calulated Variable Exception
+print("----> aBlazeApplication.fn_CalculatedVariablesException :: "aBlazeApplication.fn_CalculatedVariablesException);
+if(aBlazeApplication.fn_CalculatedVariablesException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_CalculatedVariables <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_CalculatedVariables check logs for more info";
+    errId = "EXCEPTION_002";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+}
+//--------------------------------------------------------------------------------------------------BL Exception Ends--------------------------------------------------------------------------------------------------------
+
+print("++++> Exiting function :: fn_HandleException");
+print("");
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='aDbMXe'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

@@ -1,0 +1,20 @@
+#Extended attributes for Innovator file-based repository (directory: 'fn_Error_Check_Conditional_Mandatory')
+#Tue Apr 12 11:54:35 UTC 2022
+contentType=Instance
+guid=Td2LutWsdBwYUWgTGSXLJD0llQG
+innovatorDisplayName=fn_Conditional_Mandatory_Errors
+innovatorItemCreationId=admin
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=Q8jH6kHdOYIZ1uG0WKXqvvejqv0
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+managementProperty.Test\ Case=
+managementProperty.Test\ Role=None
+subType=None
+target=SRL
+type=SRL Function

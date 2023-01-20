@@ -1,0 +1,19 @@
+#Extended attributes for Innovator file-based repository (directory: 'HL_ApplicationDeviations')
+#Wed Jan 04 06:14:14 UTC 2023
+contentType=Instance
+guid=Eu5C2fSt8LSlnY0J7i89N1lOAdU
+innovatorDisplayName=HL_ApplicationDeviations
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=QzixEYa1EHH8Jr6Fk8nhguBcZtu
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+managementProperty.Test\ Case=
+managementProperty.Test\ Role=None
+subType=None
+target=SRL
+type=SRL Ruleset

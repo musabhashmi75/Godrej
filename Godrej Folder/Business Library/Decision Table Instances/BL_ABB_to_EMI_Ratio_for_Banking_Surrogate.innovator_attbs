@@ -1,0 +1,18 @@
+#Extended attributes for Innovator file-based repository (directory: 'BL_ABB_to_EMI_Ratio_for_Banking_Surrogate')
+#Sat Nov 12 08:42:05 UTC 2022
+contentType=Instance
+guid=EBJoOBpZLVbdHwCDcJmTIMlJqr0
+innovatorDisplayName=BL_ABB_to_EMI_Ratio_for_Banking_Surrogate
+innovatorItemCreationId=admin
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=6wJBDnNMEpPfdP4wizmesDxkko8
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

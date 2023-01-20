@@ -1,0 +1,538 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='QzixEYa1EHH8Jr6Fk8nhguBcZtu' name='HL_BureauDeviations'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='styleSheet'>
+ </instance>
+ <instance ref='rulesetMetadata'>
+  <instance ref='instanceName'>
+   <value></value>
+  </instance>
+  <instance ref='UniqueInstanceNameVH'>
+   <value>HL_BureauDeviations1</value>
+  </instance>
+  <instance ref='name'>
+   <value>HL_BureauDeviations</value>
+  </instance>
+  <instance ref='comment'>
+   <value></value>
+  </instance>
+ </instance>
+ <instance ref='rulesetInitialization'>
+  <instance-list ref='newEntity'>
+   <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.New local entity template' id='9iibM3'>
+    <instance ref='styleSheet'>
+    </instance>
+    <instance ref='comment'>
+     <value></value>
+    </instance>
+    <instance ref='entity'>
+     <value>Variable</value>
+    </instance>
+    <instance ref='name'>
+     <value>entity2</value>
+    </instance>
+    <instance ref='entitySrlType'>
+     <value>boolean</value>
+    </instance>
+    <instance ref='entityTemplateList'>
+     <value>QzixEYa1EHH8Jr6Fk8nhguBcZtu.New variable</value>
+    </instance>
+    <instance-selection ref='entityTemplate'>
+     <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.New variable' id='TOh6DA'>
+      <instance ref='__ENTITY_PROPERTIES__VH__'>
+      </instance>
+      <instance ref='initialValue'>
+       <value></value>
+      </instance>
+     </item>
+    </instance-selection>
+   </item>
+   <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.New local entity template' id='MRlKK2'>
+    <instance ref='styleSheet'>
+    </instance>
+    <instance ref='comment'>
+     <value></value>
+    </instance>
+    <instance ref='entity'>
+     <value>Variable</value>
+    </instance>
+    <instance ref='name'>
+     <value>entity1</value>
+    </instance>
+    <instance ref='entitySrlType'>
+     <value>boolean</value>
+    </instance>
+    <instance ref='entityTemplateList'>
+     <value>QzixEYa1EHH8Jr6Fk8nhguBcZtu.New variable</value>
+    </instance>
+    <instance-selection ref='entityTemplate'>
+     <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.New variable' id='JOd5Hw'>
+      <instance ref='__ENTITY_PROPERTIES__VH__'>
+      </instance>
+      <instance ref='initialValue'>
+       <value></value>
+      </instance>
+     </item>
+    </instance-selection>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='initializationRule'>
+  <instance ref='__ENTITY_PROPERTIES__VH__'>
+  </instance>
+  <instance ref='initializationAction'>
+   <value></value>
+  </instance>
+ </instance>
+ <instance-list ref='newRules'>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='QRIXTv'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>rule1</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"boolean","elements":[{"valueType":"boolean","name":"isCcAccWoffSettOverdueAb30kBynd24M","fqName":"aBlazeApplicant.isCcAccWoffSettOverdueAb30kBynd24M","externalType":"boolean","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"boolean","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"boolean","elements":[{"valueType":"boolean","instValue":"true","voType":"boolean","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='MC5IHK'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>HAA_B1</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Credit Bureau Score less than 750 and greater than equal to 700 for SEP/SENP borrowers who contributes to income</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[],"subGroups":[{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"\"SEP\"","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"\"SENP\"","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"or","__meta_klass":"ConditionGroup"},{"exprs":[{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"bureauScore","fqName":"aBlazeApplicant.bureauScore","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"700","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"bureauScore","fqName":"aBlazeApplicant.bureauScore","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"750","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"}],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>//responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+//responseDeviation.ruleId="HAA_B1";
+//responseDeviation.ruleName="HAA_B1";
+//responseDeviation.ruleDescription="Credit Bureau Score less than 750 and greater than equal to 700 for SEP/SENP borrowers who contributes to income";
+//responseDeviation.ruleAction="DEVIATION";
+//responseDeviation.ruleCategory="Bureau";
+//responseDeviation.reasonText="Credit Bureau Score less than 750 and greater than equal to 700 for SEP/SENP borrowers who contributes to income";
+//responseDeviation.approvalLevel="L2";
+//responseDeviation.deviationType="Higher authority approval";
+//responseDeviation.ruleLevel="";
+//responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+//responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+//responseDeviation.accountNo="";
+//responseDeviation.recommendationText="";
+
+//message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='Bv7nkN'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>DEV_B1</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Credit Bureau Score less than 700 for any applicant / co-applicant who contributes to income</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"bureauScore","fqName":"aBlazeApplicant.bureauScore","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"700","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>//responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+//responseDeviation.ruleId="DEV_B1";
+//responseDeviation.ruleName="DEV_B1";
+//responseDeviation.ruleDescription="Credit Bureau Score less than 700 for any applicant / co-applicant who contributes to income";
+//responseDeviation.ruleAction="DEVIATION";
+//responseDeviation.ruleCategory="Bureau";
+//responseDeviation.reasonText="Credit Bureau Score less than 700 for any applicant / co-applicant who contributes to income";
+//responseDeviation.approvalLevel="L3,CREDIT_HEAD_POLICY";
+//responseDeviation.deviationType="Higher authority approval";
+//responseDeviation.ruleLevel="";
+//responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+//responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+//responseDeviation.accountNo="";
+//responseDeviation.recommendationText="";
+
+//message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='W0CkUD'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>HAA_B4_5</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value><![CDATA[Non-Credit Card tradelines with DPD<30 within 24 months]]></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"boolean","elements":[{"valueType":"boolean","name":"isNonCcAccDpdBelow30InL24M","fqName":"aBlazeApplicant.isNonCcAccDpdBelow30InL24M","externalType":"boolean","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"boolean","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"boolean","elements":[{"valueType":"boolean","instValue":"true","voType":"boolean","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value><![CDATA[//responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+//responseDeviation.ruleId="HAA_B4_5";
+//responseDeviation.ruleName="HAA_B4_5";
+//responseDeviation.ruleDescription="Non-Credit Card tradelines with DPD<30 within 24 months";
+//responseDeviation.ruleAction="DEVIATION";
+//responseDeviation.ruleCategory="Bureau";
+//responseDeviation.reasonText="Non-Credit Card tradelines with DPD<30 within 24 months";
+//responseDeviation.approvalLevel="L2";
+//responseDeviation.deviationType="Higher authority approval";
+//responseDeviation.ruleLevel="";
+//responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+//responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+//responseDeviation.accountNo="";
+//responseDeviation.recommendationText="";
+
+//message.response.responseDeviations.append(responseDeviation);]]></value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='UDjSxZ'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>HAA_B4_4</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value><![CDATA[Non-Credit Card tradelines with Overdue of DPD >= 30 beyond 24 months]]></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"boolean","elements":[{"valueType":"boolean","name":"isNonCcAccDpdEqualOrAbove30Bynd24M","fqName":"aBlazeApplicant.isNonCcAccDpdEqualOrAbove30Bynd24M","externalType":"boolean","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"boolean","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"boolean","elements":[{"valueType":"boolean","instValue":"true","voType":"boolean","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value><![CDATA[//responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+//responseDeviation.ruleId="HAA_B4_4";
+//responseDeviation.ruleName="HAA_B4_4";
+//responseDeviation.ruleDescription="Non-Credit Card tradelines with Overdue of DPD >= 30 beyond 24 months";
+//responseDeviation.ruleAction="DEVIATION";
+//responseDeviation.ruleCategory="Bureau";
+//responseDeviation.reasonText="Non-Credit Card tradelines with Overdue of DPD >= 30 beyond 24 months";
+//responseDeviation.approvalLevel="L2";
+//responseDeviation.deviationType="Higher authority approval";
+//responseDeviation.ruleLevel="";
+//responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+//responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+//responseDeviation.accountNo="";
+//responseDeviation.recommendationText="";
+
+//message.response.responseDeviations.append(responseDeviation);]]></value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='LZeYOm'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>HAA_B4_3</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Credit card overdue/written-off/settled (or SF, WD, SWD, WO, WWO, SWW) within 24 months</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"boolean","elements":[{"valueType":"boolean","name":"isCcAccWoffSettOverdueAb0InL24M","fqName":"aBlazeApplicant.isCcAccWoffSettOverdueAb0InL24M","externalType":"boolean","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"boolean","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"boolean","elements":[{"valueType":"boolean","instValue":"true","voType":"boolean","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>//responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+//responseDeviation.ruleId="HAA_B4_3";
+//responseDeviation.ruleName="HAA_B4_3";
+//responseDeviation.ruleDescription="Credit card overdue/written-off/settled (or SF, WD, SWD, WO, WWO, SWW) within 24 months";
+//responseDeviation.ruleAction="DEVIATION";
+//responseDeviation.ruleCategory="Bureau";
+//responseDeviation.reasonText="Credit card overdue/written-off/settled (or SF, WD, SWD, WO, WWO, SWW) within 24 months";
+//responseDeviation.approvalLevel="L2";
+//responseDeviation.deviationType="Higher authority approval";
+//responseDeviation.ruleLevel="";
+//responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+//responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+//responseDeviation.accountNo="";
+//responseDeviation.recommendationText="";
+
+//message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='4dzNqC'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>HAA_B3_2</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Credit card overdue/written-off/settled (or SF, WD, SWD, WO, WWO, SWW) above 30k beyond 24 months</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"boolean","elements":[{"valueType":"boolean","name":"isCcAccWoffSettOverdueAb30kBynd24M","fqName":"aBlazeApplicant.isCcAccWoffSettOverdueAb30kBynd24M","externalType":"boolean","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"boolean","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"boolean","elements":[{"valueType":"boolean","instValue":"true","voType":"boolean","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>//responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+//responseDeviation.ruleId="HAA_B3_2";
+//responseDeviation.ruleName="HAA_B3_2";
+//responseDeviation.ruleDescription="Credit card overdue/written-off/settled (or SF, WD, SWD, WO, WWO, SWW) above 30k beyond 24 months";
+//responseDeviation.ruleAction="DEVIATION";
+//responseDeviation.ruleCategory="Bureau";
+//responseDeviation.reasonText="Credit card overdue/written-off/settled (or SF, WD, SWD, WO, WWO, SWW) above 30k beyond 24 months";
+//responseDeviation.approvalLevel="L2";
+//responseDeviation.deviationType="Higher authority approval";
+//responseDeviation.ruleLevel="";
+//responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+//responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+//responseDeviation.accountNo="";
+//responseDeviation.recommendationText="";
+
+//message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='B7TfpE'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>HAA_B4_2</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Non-Credit card tradelines, ever 90 DPD/written-off/settled (or SF, WD, SWD, WO, WWO, SWW, SUB, SMA, DBT, LSS) in last 24 months</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"boolean","elements":[{"valueType":"boolean","name":"isNonCcAccWoffSettDpdAb90everInL24M","fqName":"aBlazeApplicant.isNonCcAccWoffSettDpdAb90everInL24M","externalType":"boolean","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"boolean","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"boolean","elements":[{"valueType":"boolean","instValue":"true","voType":"boolean","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>//responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+//responseDeviation.ruleId="HAA_B4_2";
+//responseDeviation.ruleName="HAA_B4_2";
+//responseDeviation.ruleDescription="Non-Credit card tradelines, ever 90 DPD/written-off/settled (or SF, WD, SWD, WO, WWO, SWW, SUB, SMA, DBT, LSS) in last 24 months";
+//responseDeviation.ruleAction="DEVIATION";
+//responseDeviation.ruleCategory="Bureau";
+//responseDeviation.reasonText="Non-Credit card tradelines, ever 90 DPD/written-off/settled (or SF, WD, SWD, WO, WWO, SWW, SUB, SMA, DBT, LSS) in last 24 months";
+//responseDeviation.approvalLevel="L3";
+//responseDeviation.deviationType="Higher authority approval";
+//responseDeviation.ruleLevel="";
+//responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+//responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+//responseDeviation.accountNo="";
+//responseDeviation.recommendationText="";
+
+//message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='YM1EhL'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>HAA_B4_1</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value><![CDATA[Non-Credit Card tradelines with DPD>=30 within 24 months]]></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"boolean","elements":[{"valueType":"boolean","name":"isNonCcAccDpdEqualOrAbove30InL24M","fqName":"aBlazeApplicant.isNonCcAccDpdEqualOrAbove30InL24M","externalType":"boolean","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"boolean","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"boolean","elements":[{"valueType":"boolean","instValue":"true","voType":"boolean","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value><![CDATA[//responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+//responseDeviation.ruleId="HAA_B4_1";
+//responseDeviation.ruleName="HAA_B4_1";
+//responseDeviation.ruleDescription="Non-Credit Card tradelines with DPD>=30 within 24 months";
+//responseDeviation.ruleAction="DEVIATION";
+//responseDeviation.ruleCategory="Bureau";
+//responseDeviation.reasonText="Non-Credit Card tradelines with DPD>=30 within 24 months";
+//responseDeviation.approvalLevel="L3";
+//responseDeviation.deviationType="Higher authority approval";
+//responseDeviation.ruleLevel="";
+//responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+//responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+//responseDeviation.accountNo="";
+//responseDeviation.recommendationText="";
+
+//message.response.responseDeviations.append(responseDeviation);]]></value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='3pg3AZ'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>HAA_B3_1</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value><![CDATA[Credit Cards with Overdue of > 30k OR DPD >= 30 within 24 months]]></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"boolean","elements":[{"valueType":"boolean","name":"isCcAccOverdueAb30kInL24M","fqName":"aBlazeApplicant.isCcAccOverdueAb30kInL24M","externalType":"boolean","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"boolean","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"boolean","elements":[{"valueType":"boolean","instValue":"true","voType":"boolean","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"boolean","elements":[{"valueType":"boolean","name":"isCcAccDpdEqualOrAbove30InL24M","fqName":"aBlazeApplicant.isCcAccDpdEqualOrAbove30InL24M","externalType":"boolean","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"boolean","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"boolean","elements":[{"valueType":"boolean","instValue":"true","voType":"boolean","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"or","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value><![CDATA[//responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+//responseDeviation.ruleId="HAA_B3_1";
+//responseDeviation.ruleName="HAA_B3_1";
+//responseDeviation.ruleDescription="Credit Cards with Overdue of > 30k OR DPD >= 30 within 24 months";
+//responseDeviation.ruleAction="DEVIATION";
+//responseDeviation.ruleCategory="Bureau";
+//responseDeviation.reasonText="Credit Cards with Overdue of > 30k OR DPD >= 30 within 24 months";
+//responseDeviation.approvalLevel="L3";
+//responseDeviation.deviationType="Higher authority approval";
+//responseDeviation.ruleLevel="";
+//responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+//responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+//responseDeviation.accountNo="";
+//responseDeviation.recommendationText="";
+
+//message.response.responseDeviations.append(responseDeviation);]]></value>
+   </instance>
+  </item>
+ </instance-list>
+ <instance ref='rulesetParameters'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='PCeTxW'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='MJUMFX'>
+    <instance ref='ParameterNameVH'>
+     <value>aBlazeApplicant</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeApplicant</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='rulesetReturnType'>
+  <value>void</value>
+ </instance>
+</instantiation>

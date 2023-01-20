@@ -1,0 +1,15 @@
+#Extended attributes for Eclipse file-based repository (directory: 'Function_Mapping_Matrix')
+#Thu Nov 18 17:48:21 IST 2021
+contentType=Template
+guid=7Mc1jehiV8FILwHRvlFrUb5Yp1B
+innovatorDisplayName=Function_Mapping_Matrix
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

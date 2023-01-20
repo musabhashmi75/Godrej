@@ -1,0 +1,664 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_CalculatedVariables'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_CalculatedVariables</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("");
+print("++++> Entering function :: fn_CalculatedVariables");
+
+// message.response.calculatedVariables
+calculatedVariablesArray is some array of CalculatedVariable initially an array of CalculatedVariable;
+aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+
+productCode is a string;
+productCode = message.invocation.decisionService;
+
+applicationNumber is a string;
+applicationNumber = message.invocation.applicationNumber;
+print("--------> Version :: "message.request.application.applicants[0].creditBureauReports[0].CreditReport.Header.Version);
+referenceNumber is a string;
+referenceNumber =aBlazeApplication.loanBasicDetail.loanReference;
+print("--------> ReferenceNumber :: "referenceNumber);
+
+precision is an integer initially 2;
+print("----> precision :: " precision);
+print("----> aBlazeApplication.businessErrorsFlag :: " aBlazeApplication.businessErrorsFlag);
+try {
+if(aBlazeApplication.businessErrorsFlag = false) then {  
+  print("----> aBlazeApplication.calculatedVariablesCheck :: " aBlazeApplication.calculatedVariablesCheck);
+   if(aBlazeApplication.calculatedVariablesCheck is equal to true) then {
+  if(message.invocation.decisionService =(ignoring case)"BL")then{
+    
+  //-----------------------------------BL CalculatedVariables starts---------------------------------------------------
+    print("----->aBlazeApplication.buffer4 :: "aBlazeApplication.applicationAdditionalDetails.buffer4);
+       calculatedVariable32 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable32.fieldName = "Turnover_Stability";
+      calculatedVariable32.fieldType = "String";    
+      calculatedVariable32.productCode = productCode; 
+      calculatedVariable32.entityId = applicationNumber;
+      calculatedVariable32.entityType = "Application";
+      calculatedVariable32.purpose = "AutoPopulate";
+	  if(message.request.application.applicationAdditionalDetails.buffer4 is known and message.request.application.applicationAdditionalDetails.buffer4 <>"") then {
+      value is some BigDecimal initially BigDecimal.newInstance(message.request.application.applicationAdditionalDetails.buffer4 as a real);
+      calculatedVariable32.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);     
+      }else{
+      calculatedVariable32.fieldValue = "-1";
+      }
+      print("----> message.request.application.applicationAdditionalDetails.buffer4 :: " message.request.application.applicationAdditionalDetails.buffer4);
+      calculatedVariablesArray.append(calculatedVariable32);
+	
+      calculatedVariable33 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable33.fieldName = "Gross_Profit_Ratio";
+      calculatedVariable33.fieldType = "Double";
+      calculatedVariable33.productCode = productCode; 
+      calculatedVariable33.entityId = applicationNumber;
+      calculatedVariable33.entityType = "Application";
+      calculatedVariable33.purpose = "AutoPopulate";
+      if(message.request.application.applicationAdditionalDetails.buffer5 is known and message.request.application.applicationAdditionalDetails.buffer5 <>"") then {
+      value is some BigDecimal initially BigDecimal.newInstance(message.request.application.applicationAdditionalDetails.buffer5 as a real);
+      calculatedVariable33.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);     
+      }else{
+      calculatedVariable33.fieldValue = "-1";
+      }
+      print("----> message.request.application.applicationAdditionalDetails.buffer5 :: " message.request.application.applicationAdditionalDetails.buffer5);
+    calculatedVariablesArray.append(calculatedVariable33);
+    
+      calculatedVariable34 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable34.fieldName = "PAT_Ratio";
+      calculatedVariable34.fieldType = "Double";
+      calculatedVariable34.productCode = productCode; 
+      calculatedVariable34.entityId = applicationNumber;
+      calculatedVariable34.entityType = "Application";
+      calculatedVariable34.purpose = "AutoPopulate";
+	  if(message.request.application.applicationAdditionalDetails.buffer6 is known and message.request.application.applicationAdditionalDetails.buffer6 <>"") then {
+      value is some BigDecimal initially BigDecimal.newInstance(message.request.application.applicationAdditionalDetails.buffer6 as a real);
+      calculatedVariable34.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);     
+      }else{
+      calculatedVariable34.fieldValue = "-1";
+      }
+      print("----> message.request.application.applicationAdditionalDetails.buffer6 :: " message.request.application.applicationAdditionalDetails.buffer6);
+    calculatedVariablesArray.append(calculatedVariable34);
+    
+     calculatedVariable35 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable35.fieldName = "Turnover GST Ratio";
+      calculatedVariable35.fieldType = "Double";
+      calculatedVariable35.productCode = productCode; 
+      calculatedVariable35.entityId = applicationNumber;
+      calculatedVariable35.entityType = "Application";
+      calculatedVariable35.purpose = "AutoPopulate";
+	  if(message.request.application.applicationAdditionalDetails.buffer7 is known and message.request.application.applicationAdditionalDetails.buffer7 <>"") then {
+      value is some BigDecimal initially BigDecimal.newInstance(message.request.application.applicationAdditionalDetails.buffer7 as a real);
+      calculatedVariable35.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);     
+      }else{
+      calculatedVariable35.fieldValue = "-1";
+      }
+      print("----> message.request.application.applicationAdditionalDetails.buffer7:: " message.request.application.applicationAdditionalDetails.buffer7);
+    calculatedVariablesArray.append(calculatedVariable35);
+	
+	  calculatedVariable36 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable36.fieldName = "STPSTATUS";
+      calculatedVariable36.fieldType = "String";
+      calculatedVariable36.productCode = productCode; 
+      calculatedVariable36.entityId = applicationNumber;
+      calculatedVariable36.entityType = "Application";
+      calculatedVariable36.purpose = "AutoPopulate";
+      calculatedVariable36.fieldValue ="";
+    calculatedVariablesArray.append(calculatedVariable36);
+    
+     //----------------------------------------------------BL Calculated Variables Ends --------------------------------------------------
+  }
+   else{ 
+         if(aBlazeApplication.applicationAdditionalDetails.buffer4 = (ignoring case)"GREENCHANNEL")then{
+       calculatedVariable32 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable32.fieldName = "Green - Channel";
+      calculatedVariable32.fieldType = "String";    
+      calculatedVariable32.productCode = productCode; 
+      calculatedVariable32.entityId = applicationNumber;
+      calculatedVariable32.entityType =  portable().concat("FINANCEMAIN#TEMP#applicationno#String#",portable().concat(referenceNumber, portable().concat("#GC", referenceNumber)));
+      calculatedVariable32.purpose = "AutoPopulate";
+     calculatedVariable32.fieldValue = portable().concat("GC", referenceNumber);
+      message.request.application.loanBasicDetail.applicationNo =calculatedVariable32.fieldValue;
+      calculatedVariablesArray.append(calculatedVariable32);
+    }
+    // ----------------------------------------------------applicant level variables starts---------------------------------------------------
+    for  each  BlazeApplicant  in  BTCommonVar.termInput.blazeApplication.blazeApplicantArray
+    do{ 
+      aBlazeApplicant  is  some  BlazeApplicant  initially  it  as  a  BlazeApplicant;
+      
+      customerCIF is a string;
+      customerCIF = aBlazeApplicant.customerCif as a string;
+      
+      applicantType is a string;
+      applicantType = aBlazeApplicant.applicantType;
+      // Added by Ankit for nine point scorecard category 
+      //aBlazeApplicant.applicantAdditionalDetails.buffer3
+      calculatedVariable31 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable31.fieldName = "NINEPOINTCATEGORY";
+      calculatedVariable31.fieldType = "Double";    
+      calculatedVariable31.productCode = productCode; 
+      calculatedVariable31.entityId = customerCIF;
+      calculatedVariable31.entityType = applicantType;
+      calculatedVariable31.purpose = "AutoPopulate";
+      print("----> aBlazeApplicant.applicantAdditionalDetails.buffer2 :: " aBlazeApplicant.applicantAdditionalDetails.buffer2);
+       //Added by kajal as per gaurav
+    //  debug();    
+     // aBlazeApplicant.riskScore=  aBlazeApplicant.experianScore;
+      Nine_SALAPP_Experian_RiskSegment(aBlazeApplicant);
+      print("----> aBlazeApplicant.applicantAdditionalDetails.buffer4 :: " aBlazeApplicant.applicantAdditionalDetails.buffer4);
+      print("Score ---> " aBlazeApplicant.experianScore);
+      print("customerRiskSegment--->"aBlazeApplicant.applicantAdditionalDetails.buffer4);
+      if (aBlazeApplicant.applicantAdditionalDetails.buffer4<> unknown and aBlazeApplicant.applicantAdditionalDetails.buffer2 <> unknown) then {																																		   
+         cardName is a string initially "";
+         cardName = portable().concat(aBlazeApplicant.applicantAdditionalDetails.buffer2, "_");
+        if (aBlazeApplicant.customerRiskSegment<> unknown)then{
+         calculatedVariable31.fieldValue=  portable().concat(cardName, aBlazeApplicant.applicantAdditionalDetails.buffer4);
+        print("Field Value ---> "calculatedVariable31.fieldValue);
+        }        
+      }
+      else {
+        calculatedVariable31.fieldValue = "-1";
+     }
+      calculatedVariablesArray.append(calculatedVariable31);
+
+      //end by Ankit for 9 point scorecard category 
+      //added by Ankit for risk category 
+       // aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.MAXFOIRSENP
+      calculatedVariable27 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable27.fieldName = "RISKCATEGORIZATION";
+      calculatedVariable27.fieldType = "Double";    
+      calculatedVariable27.productCode = productCode; 
+      calculatedVariable27.entityId = customerCIF;
+      calculatedVariable27.entityType = applicantType;
+      calculatedVariable27.purpose = "AutoPopulate";
+       print("----> aBlazeApplicant.applicantAdditionalDetails.buffer2 :: " aBlazeApplicant.applicantAdditionalDetails.buffer2);
+      if(aBlazeApplicant.applicantAdditionalDetails.buffer2 <> unknown) then {
+      //  value  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplicant.applicantAdditionalDetails.sepEligibility.MAXFOIRSEP);
+        calculatedVariable27.fieldValue = aBlazeApplicant.applicantAdditionalDetails.buffer2;
+      } else {
+        calculatedVariable27.fieldValue = "-1";
+      }
+      calculatedVariablesArray.append(calculatedVariable27);
+
+      
+      //end by Ankit for risk category 
+      
+        // aBlazeApplicant.applicantAdditionalDetails.MAXABBALLWED-Ankit
+      
+      // aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.MAXFOIRSENP
+      calculatedVariable26 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable26.fieldName = "MAXFOIRSEP";
+      calculatedVariable26.fieldType = "Double";    
+      calculatedVariable26.productCode = productCode; 
+      calculatedVariable26.entityId = customerCIF;
+      calculatedVariable26.entityType = applicantType;
+      calculatedVariable26.purpose = "AutoPopulate";
+       print("----> Ankit cal variable aBlazeApplicant.applicantAdditionalDetails.sepEligibility.MAXFOIRSEP :: " aBlazeApplicant.applicantAdditionalDetails.sepEligibility.MAXFOIRSEP);
+      if(aBlazeApplicant.applicantAdditionalDetails.sepEligibility.MAXFOIRSEP <> unknown) then {
+        value  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplicant.applicantAdditionalDetails.sepEligibility.MAXFOIRSEP);
+        calculatedVariable26.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);  
+      } else {
+        calculatedVariable26.fieldValue = "-1";
+      }
+      calculatedVariablesArray.append(calculatedVariable26);
+
+      
+      
+      calculatedVariable25 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable25.fieldName = "MAXABBEMIRATIOALWD";
+      calculatedVariable25.fieldType = "Double";    
+      calculatedVariable25.productCode = productCode; 
+      calculatedVariable25.entityId = customerCIF;
+      calculatedVariable25.entityType = applicantType;
+      calculatedVariable25.purpose = "AutoPopulate";
+     if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.maxAbbEmiRatioAllowed <> unknown) then {
+        value  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.maxAbbEmiRatioAllowed);
+        calculatedVariable25.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);
+      } else {
+        calculatedVariable25.fieldValue = "-1";
+      }
+      calculatedVariablesArray.append(calculatedVariable25);
+      
+      
+      // aBlazeApplicant.applicantAdditionalDetails.GROWPER
+      calculatedVariable1 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable1.fieldName = "GROWPER";
+      calculatedVariable1.fieldType = "Double";    
+      calculatedVariable1.productCode = productCode; 
+      calculatedVariable1.entityId = customerCIF;
+      calculatedVariable1.entityType = applicantType;
+      calculatedVariable1.purpose = "AutoPopulate";
+     if(aBlazeApplicant.applicantAdditionalDetails.GROWPER <> unknown) then {
+        value  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplicant.applicantAdditionalDetails.GROWPER);
+        calculatedVariable1.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);
+      } else {
+        calculatedVariable1.fieldValue = "-1";
+      }
+      calculatedVariablesArray.append(calculatedVariable1);
+    
+      // aBlazeApplicant.applicantAdditionalDetails.sepEligibility.GROWANNRC
+      calculatedVariable2 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable2.fieldName = "GROWANNRC";
+      calculatedVariable2.fieldType = "Double";    
+      calculatedVariable2.productCode = productCode; 
+      calculatedVariable2.entityId = customerCIF;
+      calculatedVariable2.entityType = applicantType;
+      calculatedVariable2.purpose = "AutoPopulate";
+      if(aBlazeApplicant.applicantAdditionalDetails.sepEligibility.GROWANNRC <> unknown) then {
+        value  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplicant.applicantAdditionalDetails.sepEligibility.GROWANNRC);
+        calculatedVariable2.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);
+      } else {
+        calculatedVariable2.fieldValue = "-1";
+      }
+      calculatedVariablesArray.append(calculatedVariable2);
+    
+      // aBlazeApplicant.applicantAdditionalDetails.sepEligibility.INCMG
+      calculatedVariable3 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable3.fieldName = "INCMG";
+      calculatedVariable3.fieldType = "Double";    
+      calculatedVariable3.productCode = productCode; 
+      calculatedVariable3.entityId = customerCIF;
+      calculatedVariable3.entityType = applicantType;
+      calculatedVariable3.purpose = "AutoPopulate";
+      if(aBlazeApplicant.applicantAdditionalDetails.sepEligibility.INCMG <> unknown) then {
+        value  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplicant.applicantAdditionalDetails.sepEligibility.INCMG);
+        calculatedVariable3.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);
+      } else {
+        calculatedVariable3.fieldValue = "-1";
+      }
+      calculatedVariablesArray.append(calculatedVariable3);
+      
+      // aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.CASHPROFLAST
+      calculatedVariable4 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable4.fieldName = "CASHPROFLAST";
+      calculatedVariable4.fieldType = "Double";    
+      calculatedVariable4.productCode = productCode;
+      calculatedVariable4.entityId = customerCIF;
+      calculatedVariable4.entityType = applicantType;
+      calculatedVariable4.purpose = "AutoPopulate";
+      if(aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.CASHPROFLAST <> unknown) then {
+        value  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.CASHPROFLAST);
+        calculatedVariable4.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);     
+      } else {
+        calculatedVariable4.fieldValue = "-1";
+      }
+      calculatedVariablesArray.append(calculatedVariable4);
+      
+      // aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.CASHPROFPREV
+      calculatedVariable5 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable5.fieldName = "CASHPROFPREV";
+      calculatedVariable5.fieldType = "Double";    
+      calculatedVariable5.productCode = productCode; 
+      calculatedVariable5.entityId = customerCIF;
+      calculatedVariable5.entityType = applicantType;
+      calculatedVariable5.purpose = "AutoPopulate";
+      if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.CASHPROFPREV <> unknown) then {
+        value  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.CASHPROFPREV);
+        calculatedVariable5.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);   
+      } else {
+        calculatedVariable5.fieldValue = "-1";
+      }
+      calculatedVariablesArray.append(calculatedVariable5);
+
+      // aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.TURNGROPER
+      calculatedVariable6 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable6.fieldName = "TURNGROPER";
+      calculatedVariable6.fieldType = "Double";    
+      calculatedVariable6.productCode = productCode; 
+      calculatedVariable6.entityId = customerCIF;
+      calculatedVariable6.entityType = applicantType;
+      calculatedVariable6.purpose = "AutoPopulate";
+      if(aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.TURNGROPER <> unknown) then {
+        value  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.TURNGROPER);
+        calculatedVariable6.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);   
+      } else {
+        calculatedVariable6.fieldValue = "-1";
+      }
+      calculatedVariablesArray.append(calculatedVariable6);
+    
+      // aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.GRPRGRPER
+      calculatedVariable7 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable7.fieldName = "GRPRGRPER";
+      calculatedVariable7.fieldType = "Double";    
+      calculatedVariable7.productCode = productCode; 
+      calculatedVariable7.entityId = customerCIF;
+      calculatedVariable7.entityType = applicantType;
+      calculatedVariable7.purpose = "AutoPopulate";
+      if(aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.GRPRGRPER <> unknown) then {
+        value  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.GRPRGRPER);
+        calculatedVariable7.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);   
+      } else {
+        calculatedVariable7.fieldValue = "-1";
+      }
+      calculatedVariablesArray.append(calculatedVariable7);
+     
+      // aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.CASFPRGPER
+      calculatedVariable8 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable8.fieldName = "CASFPRGPER";
+      calculatedVariable8.fieldType = "Double";    
+      calculatedVariable8.productCode = productCode; 
+      calculatedVariable8.entityId = customerCIF;
+      calculatedVariable8.entityType = applicantType;
+      calculatedVariable8.purpose = "AutoPopulate";
+      if(aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.CASFPRGPER <> unknown) then {
+        value  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.CASFPRGPER);        
+        calculatedVariable8.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);   
+      } else {
+        calculatedVariable8.fieldValue = "-1";
+      }
+      calculatedVariablesArray.append(calculatedVariable8);
+    
+      // aBlazeApplicant.customerRiskSegment
+      calculatedVariable9 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable9.fieldName = "SCORE_SEGMENTATION";
+      calculatedVariable9.fieldType = "String";    
+      calculatedVariable9.productCode = productCode; 
+      calculatedVariable9.entityId = customerCIF;
+      calculatedVariable9.entityType = applicantType;
+      calculatedVariable9.purpose = "AutoPopulate";
+      if(aBlazeApplicant.customerRiskSegment <> unknown) then {
+      calculatedVariable9.fieldValue = aBlazeApplicant.customerRiskSegment;
+      } else {
+      calculatedVariable9.fieldValue = "-";
+      }
+      calculatedVariablesArray.append(calculatedVariable9);
+
+      // aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.MAXFOIRSENP
+      calculatedVariable10 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable10.fieldName = "MAXFOIRSENP";
+      calculatedVariable10.fieldType = "Double";    
+      calculatedVariable10.productCode = productCode; 
+      calculatedVariable10.entityId = customerCIF;
+      calculatedVariable10.entityType = applicantType;
+      calculatedVariable10.purpose = "AutoPopulate";
+      if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.MAXFOIRSENP <> unknown) then {
+        value  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.MAXFOIRSENP);
+        calculatedVariable10.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);  
+      } else {
+        calculatedVariable10.fieldValue = "-1";
+      }
+      calculatedVariablesArray.append(calculatedVariable10);
+
+      // aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.MAXFOIRSAL
+      calculatedVariable11 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable11.fieldName = "MAXFOIRSAL";
+      calculatedVariable11.fieldType = "Double";    
+      calculatedVariable11.productCode = productCode;
+      calculatedVariable11.entityId = customerCIF;
+      calculatedVariable11.entityType = applicantType;
+      calculatedVariable11.purpose = "AutoPopulate";
+      if(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.MAXFOIRSAL <> unknown) then {
+        value  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.MAXFOIRSAL);
+        calculatedVariable11.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);  
+      } else {
+        calculatedVariable11.fieldValue = "-1";
+      }
+      calculatedVariablesArray.append(calculatedVariable11);      
+    } 
+    // ----------------------------------------------------applicant level variables ends---------------------------------------------------
+    
+       
+
+  // ------------------------------------------------------- Final offer variables -------------------------------------------------------------
+      // message.request.application.applicationAdditionalDetails.finalOffer.LOANAMTOFFR
+      calculatedVariable12 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable12.fieldName = "LOANAMTOFFR";
+      calculatedVariable12.fieldType = "Double";    
+      calculatedVariable12.productCode = productCode; 
+      calculatedVariable12.entityId = applicationNumber;
+      calculatedVariable12.entityType = "Application";
+      calculatedVariable12.purpose = "AutoPopulate";
+      if(aBlazeApplication.applicationAdditionalDetails.finalOffer.LOANAMTOFFR <> unknown) then {
+        value  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplication.applicationAdditionalDetails.finalOffer.LOANAMTOFFR);
+        calculatedVariable12.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);     
+      } else {
+        calculatedVariable12.fieldValue = "-1";
+      }
+      calculatedVariablesArray.append(calculatedVariable12);
+
+      // message.request.application.applicationAdditionalDetails.finalOffer.ROINTR
+      calculatedVariable13 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable13.fieldName = "ROINTR";
+      calculatedVariable13.fieldType = "Double";    
+      calculatedVariable13.productCode = productCode; 
+      calculatedVariable13.entityId = applicationNumber;
+      calculatedVariable13.entityType = "Application";
+      calculatedVariable13.purpose = "AutoPopulate";
+      if(aBlazeApplication.applicationAdditionalDetails.finalOffer.ROINTR <> unknown) then {
+        //value  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplication.loanBasicDetail.paymentDetails.baseRate as a real);
+        //calculatedVariable13.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);
+        calculatedVariable13.fieldValue =aBlazeApplication.loanBasicDetail.paymentDetails.baseRate;
+      } else {
+        calculatedVariable13.fieldValue = "-1";
+      }
+      calculatedVariablesArray.append(calculatedVariable13);
+    
+      // message.request.application.applicationAdditionalDetails.finalOffer.LOANTENU
+      calculatedVariable14 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable14.fieldName = "LOANTENU";
+      calculatedVariable14.fieldType = "Double";    
+      calculatedVariable14.productCode = productCode; 
+      calculatedVariable14.entityId = applicationNumber;
+      calculatedVariable14.entityType = "Application";
+      calculatedVariable14.purpose = "AutoPopulate";
+      if(aBlazeApplication.applicationAdditionalDetails.finalOffer.LOANTENU <> unknown) then {
+        value  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplication.applicationAdditionalDetails.finalOffer.LOANTENU);
+        calculatedVariable14.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);   
+      } else {
+        calculatedVariable14.fieldValue = "-1";
+      }
+      calculatedVariablesArray.append(calculatedVariable14);
+    
+      // message.request.application.applicationAdditionalDetails.finalOffer.MAXLOELIGINC
+      calculatedVariable15 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable15.fieldName = "MAXLOELIGINC";
+      calculatedVariable15.fieldType = "Double";    
+      calculatedVariable15.productCode = productCode; 
+      calculatedVariable15.entityId = applicationNumber;
+      calculatedVariable15.entityType = "Application";
+      calculatedVariable15.purpose = "AutoPopulate";
+      if(aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLOELIGINC <> unknown) then {
+        value  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLOELIGINC);
+        calculatedVariable15.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);    
+      } else {
+        calculatedVariable15.fieldValue = "-1";
+      }
+      calculatedVariablesArray.append(calculatedVariable15);
+    
+      // message.request.application.applicationAdditionalDetails.finalOffer.MAXLOELIGLTV
+      calculatedVariable16 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable16.fieldName = "MAXLOELIGLTV";
+      calculatedVariable16.fieldType = "Double";    
+      calculatedVariable16.productCode = productCode; 
+      calculatedVariable16.entityId = applicationNumber;
+      calculatedVariable16.entityType = "Application";
+      calculatedVariable16.purpose = "AutoPopulate";
+      if(aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLOELIGLTV <> unknown) then {
+        value  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLOELIGLTV);
+        calculatedVariable16.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);   
+      } else {
+        calculatedVariable16.fieldValue = "-1";
+      }
+      calculatedVariablesArray.append(calculatedVariable16);
+    
+      // message.request.application.applicationAdditionalDetails.finalOffer.MAXLTV
+      calculatedVariable17 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable17.fieldName = "MAXLTV";
+      calculatedVariable17.fieldType = "Double";    
+      calculatedVariable17.productCode = productCode; 
+      calculatedVariable17.entityId = applicationNumber;
+      calculatedVariable17.entityType = "Application";
+      calculatedVariable17.purpose = "AutoPopulate";
+      if(aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLTV <> unknown) then {
+        value  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLTV);
+        calculatedVariable17.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);     
+      } else {
+        calculatedVariable17.fieldValue = "-1";
+      }
+      calculatedVariablesArray.append(calculatedVariable17);
+    
+      // message.request.application.applicationAdditionalDetails.finalOffer.EMIFINOFF
+      calculatedVariable18 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable18.fieldName = "EMIFINOFF";
+      calculatedVariable18.fieldType = "Double";    
+      calculatedVariable18.productCode = productCode; 
+      calculatedVariable18.entityId = applicationNumber;
+      calculatedVariable18.entityType = "Application";
+      calculatedVariable18.purpose = "AutoPopulate";
+      if(aBlazeApplication.applicationAdditionalDetails.finalOffer.EMIFINOFF <> unknown) then {
+        value  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplication.applicationAdditionalDetails.finalOffer.EMIFINOFF);
+        calculatedVariable18.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);   
+      } else {
+        calculatedVariable18.fieldValue = "-1";
+      }
+      calculatedVariablesArray.append(calculatedVariable18);
+    
+      // message.request.application.applicationAdditionalDetails.finalOffer.FINALFOIR
+      calculatedVariable19 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable19.fieldName = "FINAL_FOIR";
+      calculatedVariable19.fieldType = "Double";    
+      calculatedVariable19.productCode = productCode;
+      calculatedVariable19.entityId = applicationNumber;
+      calculatedVariable19.entityType = "Application";
+      calculatedVariable19.purpose = "AutoPopulate";
+      if(aBlazeApplication.applicationAdditionalDetails.finalOffer.FINALFOIR <> unknown) then {
+        //added by Ankit
+        integer1 is an real ;
+    //integer2 is an integer initially 2.
+    //integer3 is an integer.
+   
+        value  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplication.applicationAdditionalDetails.finalOffer.FINALFOIR);
+           //     value1  is some Integer initially integer.newInstance(aBlazeApplication.applicationAdditionalDetails.finalOffer.FINALFOIR);
+             //   value1  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplication.applicationAdditionalDetails.finalOffer.FINALFOIR);
+         integer1 = math().round(aBlazeApplication.applicationAdditionalDetails.finalOffer.FINALFOIR as a real, -2);
+        calculatedVariable19.fieldValue = fn_DecimalNumberPrecision(integer1 as a string, precision);    
+      } else {
+        calculatedVariable19.fieldValue = "-1";
+      }
+      calculatedVariablesArray.append(calculatedVariable19);
+    
+      // message.request.application.applicationAdditionalDetails.finalOffer.FINALLTV
+      calculatedVariable20 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable20.fieldName = "FINAL_LTV";
+      calculatedVariable20.fieldType = "Double";    
+      calculatedVariable20.productCode = productCode; 
+      calculatedVariable20.entityId = applicationNumber;
+      calculatedVariable20.entityType = "Application";
+      calculatedVariable20.purpose = "AutoPopulate";
+      if(aBlazeApplication.applicationAdditionalDetails.finalOffer.FINALLTV <> unknown) then {
+        value  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplication.applicationAdditionalDetails.finalOffer.FINALLTV);
+        //calculatedVariable20.fieldValue = fn_DecimalNumberPrecision(value as a string, precision); 
+		calculatedVariable20.fieldValue = math().round(value,-2) as a string; 		
+      } else {
+        calculatedVariable20.fieldValue = "-1";
+      }
+      calculatedVariablesArray.append(calculatedVariable20);
+	//added by ankit for foreclosre and GC update 
+    calculatedVariable29 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable29.fieldName = "FORECLOSURECHARGES";
+      calculatedVariable29.fieldType = "Double";    
+      calculatedVariable29.productCode = productCode; 
+      calculatedVariable29.entityId = applicationNumber;
+      calculatedVariable29.entityType = "Application";
+      calculatedVariable29.purpose = "AutoPopulate";
+     calculatedVariable29.fieldValue = "4%";    
+      calculatedVariablesArray.append(calculatedVariable29);
+    
+     calculatedVariable30 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable30.fieldName = "GCNUM";
+      calculatedVariable30.fieldType = "Double";    
+      calculatedVariable30.productCode = productCode; 
+      calculatedVariable30.entityId = applicationNumber;
+      calculatedVariable30.entityType = "Application";
+      calculatedVariable30.purpose = "AutoPopulate";
+     calculatedVariable30.fieldValue = portable().concat("GC", applicationNumber);
+      calculatedVariablesArray.append(calculatedVariable30);
+   }
+    
+    
+    
+    //end by ankit 
+
+    print("----> calculatedVariablesArray count :: " calculatedVariablesArray.count);
+    if(calculatedVariablesArray <> unknown and calculatedVariablesArray <> null) then {
+      message.response.calculatedVariables = calculatedVariablesArray;
+    }
+  }
+}
+
+  print("++++> Exiting function :: fn_CalculatedVariables");
+  print("");
+  
+}catch an Exception with {
+  aBlazeApplication.fn_CalculatedVariablesException = true;  
+  print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");  
+}]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='I1ieZA'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_CalculatedVariables1</value>
+ </instance>
+</instantiation>

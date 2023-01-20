@@ -1,0 +1,818 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='QzixEYa1EHH8Jr6Fk8nhguBcZtu' name='HL_SalariedDeviations'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='styleSheet'>
+ </instance>
+ <instance ref='rulesetMetadata'>
+  <instance ref='instanceName'>
+   <value></value>
+  </instance>
+  <instance ref='UniqueInstanceNameVH'>
+   <value>HL_SalariedDeviations1</value>
+  </instance>
+  <instance ref='name'>
+   <value>HL_SalariedDeviations</value>
+  </instance>
+  <instance ref='comment'>
+   <value></value>
+  </instance>
+ </instance>
+ <instance ref='rulesetInitialization'>
+  <instance-list ref='newEntity'>
+  </instance-list>
+ </instance>
+ <instance ref='initializationRule'>
+  <instance ref='__ENTITY_PROPERTIES__VH__'>
+  </instance>
+  <instance ref='initializationAction'>
+   <value></value>
+  </instance>
+ </instance>
+ <instance-list ref='newRules'>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='Sl7ksB'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>FICO_HAA_ELE2</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Additional FOIR by 5% towards non-insurance for Salaried borrowers up to 87%</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[],"subGroups":[{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SALARIED","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"MAXFOIRSAL","fqName":"aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.MAXFOIRSAL","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"80","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"additionalFoir","fqName":"aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.additionalFoir","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"0","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"buffer2","fqName":"message.request.application.applicationAdditionalDetails.other.buffer2","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"NO","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"additionalFoir","fqName":"aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.additionalFoir","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"5","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SALARIED","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"MAXFOIRSAL","fqName":"aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.MAXFOIRSAL","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"85","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"additionalFoir","fqName":"aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.additionalFoir","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"0","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"buffer2","fqName":"message.request.application.applicationAdditionalDetails.other.buffer2","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"NO","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"additionalFoir","fqName":"aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.additionalFoir","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"2","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"}],"operator":"or","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="FICO_FOIR_DEV";
+responseDeviation.ruleName="FICO_FOIR_DEV";
+responseDeviation.ruleDescription="Additional FOIR by 5% towards non-insurance for Salaried borrowers up to 87%";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Eligibility";
+responseDeviation.reasonText="Additional FOIR by 5% towards non-insurance for Salaried borrowers up to 87%";
+responseDeviation.approvalLevel="L3,HL_CREDIT";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='VGz7Sm'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>FICO_FOIR_DEV</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Additional FOIR by 5% towards insurance for Salaried borrowers up to 87%</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[],"subGroups":[{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SALARIED","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"buffer2","fqName":"message.request.application.applicationAdditionalDetails.other.buffer2","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"YES","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"additionalFoir","fqName":"aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.additionalFoir","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"0","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"MAXFOIRSAL","fqName":"aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.MAXFOIRSAL","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"80","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"additionalFoir","fqName":"aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.additionalFoir","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"5","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SALARIED","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"buffer2","fqName":"message.request.application.applicationAdditionalDetails.other.buffer2","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"YES","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"additionalFoir","fqName":"aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.additionalFoir","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"0","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"MAXFOIRSAL","fqName":"aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.MAXFOIRSAL","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"85","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"additionalFoir","fqName":"aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.additionalFoir","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"2","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"}],"operator":"or","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="FICO_FOIR_DEV";
+responseDeviation.ruleName="FICO_FOIR_DEV";
+responseDeviation.ruleDescription="Additional FOIR by 5% towards insurance for Salaried borrowers up to 87%";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Eligibility";
+responseDeviation.reasonText="Additional FOIR by 5% towards insurance for Salaried borrowers up to 87%";
+responseDeviation.approvalLevel="L1,HL_CREDIT";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='Y2ANXB'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>FICO_HAA_ELE37</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>More than 50% Incentive / Bonus /allowances considered for eligibility for Salaried borrowers</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"buffer1","fqName":"aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.buffer1","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"50","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="FICO_HAA_ELE37";
+responseDeviation.ruleName="FICO_HAA_ELE37";
+responseDeviation.ruleDescription="More than 50% Incentive / Bonus /allowances considered for eligibility for Salaried borrowers";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Eligibility";
+responseDeviation.reasonText="More than 50% Incentive / Bonus /allowances considered for eligibility for Salaried borrowers";
+responseDeviation.approvalLevel="L3,HL_CREDIT";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='OvxWHs'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>FICO_HAA_ELE46</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Additional FOIR more than 5% for Salaried borrowers</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"additionalFoir","fqName":"aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.additionalFoir","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"5","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SALARIED","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="FICO_HAA_ELE46";
+responseDeviation.ruleName="FICO_HAA_ELE46";
+responseDeviation.ruleDescription="Additional FOIR more than 5% for Salaried borrowers";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Bureau";
+responseDeviation.reasonText="Additional FOIR more than 5% for Salaried borrowers";
+responseDeviation.approvalLevel="L7,HL_CREDIT";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='TKtoEt'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>FICO_MIN_QANOTM</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Minimum qualification norms not met</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SALARIED","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"qualification","fqName":"aBlazeApplicant.qualification","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"UG","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"qualification","fqName":"aBlazeApplicant.qualification","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"OTH","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"or","__meta_klass":"ConditionGroup"}],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="FICO_MIN_QANOTM";
+responseDeviation.ruleName="FICO_MIN_QANOTM";
+responseDeviation.ruleDescription="Minimum qualification norms not met";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Client Profile";
+responseDeviation.reasonText="Minimum qualification norms not met";
+responseDeviation.approvalLevel="L2,HL_CREDIT";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='IHqYCP'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>FICO_HAA_CP23</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Age on loan maturity considered above 63yrs up to 65 yrs for Salaried borrower</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SALARIED","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"ageAtMaturity","fqName":"aBlazeApplicant.ageAtMaturity","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"63","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"ageAtMaturity","fqName":"aBlazeApplicant.ageAtMaturity","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"65","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="FICO_HAA_CP23";
+responseDeviation.ruleName="FICO_HAA_CP23";
+responseDeviation.ruleDescription="Age on loan maturity considered above 63yrs up to 65 yrs for Salaried borrower";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Client Profile";
+responseDeviation.reasonText="Age on loan maturity considered above 63yrs up to 65 yrs for Salaried borrower";
+responseDeviation.approvalLevel="L2,HL_CREDIT";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='EnNAfk'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>FICO_HAA_CP30</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Work Experience Norms not met for Salaried</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[],"subGroups":[{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SALARIED","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"kycEmploymentType","externalType":"string","ancestry":{"members":[{"name":"aBlazeApplicant"},{"name":"kycDetails"},{"name":"employmentDetails","index":0},{"name":"kycEmploymentType"}],"__meta_klass":"PA"},"__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SAL-CONT","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"integer","elements":[{"valueType":"integer","name":"totalWorkExperience","fqName":"aBlazeApplicant.applicantAdditionalDetails.customerSalaried.totalWorkExperience","externalType":"integer","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"integer","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"5","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SALARIED","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"kycEmploymentType","externalType":"string","ancestry":{"members":[{"name":"aBlazeApplicant"},{"name":"kycDetails"},{"name":"employmentDetails","index":0},{"name":"kycEmploymentType"}],"__meta_klass":"PA"},"__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SAL-PERM","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"integer","elements":[{"valueType":"integer","name":"totalWorkExperience","fqName":"aBlazeApplicant.applicantAdditionalDetails.customerSalaried.totalWorkExperience","externalType":"integer","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"integer","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"2","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"}],"operator":"or","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="FICO_HAA_CP30";
+responseDeviation.ruleName="FICO_HAA_CP30";
+responseDeviation.ruleDescription="Work Experience Norms not met for Salaried";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Client Profile";
+responseDeviation.reasonText="Work Experience Norms not met for Salaried";
+responseDeviation.approvalLevel="L2,HL_CREDIT";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='KTvJ3Z'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>FICO_HAA_CP24</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Employees working in partnership, proprietorship firms(Excluding MNC, firms of reputed business grp)</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SALARIED","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"sector","fqName":"aBlazeApplicant.sector","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SAL6","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"sector","fqName":"aBlazeApplicant.sector","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SENP1","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"sector","fqName":"aBlazeApplicant.sector","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SENP2","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"or","__meta_klass":"ConditionGroup"}],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="FICO_HAA_CP24";
+responseDeviation.ruleName="FICO_HAA_CP24";
+responseDeviation.ruleDescription="Employees working in partnership, proprietorship firms";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Client Profile";
+responseDeviation.reasonText="Employees working in partnership, proprietorship firms";
+responseDeviation.approvalLevel="L3,HL_CREDIT";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='HVReh8'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>HAA_CP14</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Funding to salaried borrowers with Employer operating in negative / restricted sector</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"rag","fqName":"aBlazeApplicant.rag","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is contained in text","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"\"Red, Amber\"","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"boolean","elements":[{"valueType":"boolean","name":"isNonTargetEmployer","fqName":"aBlazeApplicant.isNonTargetEmployer","externalType":"boolean","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"boolean","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"boolean","elements":[{"valueType":"boolean","instValue":"true","voType":"boolean","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"or","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="HAA_CP14";
+responseDeviation.ruleName="HAA_CP14";
+responseDeviation.ruleDescription="Funding to salaried borrowers with Employer operating in negative / restricted sector";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Client Profile";
+responseDeviation.reasonText="Employer belongs to Red or Amber sub-sector OR belonging to Non Target Employer List";
+responseDeviation.approvalLevel="L3,CREDIT_HEAD_POLICY";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='EsAT78'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>HAA_SCO1</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Risk Scorecard score cut-off less than 45 for Salaried</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"riskScore","fqName":"aBlazeApplicant.riskScore","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"45","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="HAA_SCO1";
+responseDeviation.ruleName="HAA_SCO1";
+responseDeviation.ruleDescription="Risk Scorecard score cut-off less than 45 for Salaried";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Score";
+responseDeviation.reasonText="Risk Scorecard score cut-off less than 45 for Salaried";
+responseDeviation.approvalLevel="L3,CREDIT_HEAD_POLICY";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='X9DSye'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>HAA_PRO10</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Loans with no co-applicant/guarantor (Only for Salaried)</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"boolean","elements":[{"valueType":"boolean","name":"isSingleSalariedApplicant","fqName":"BTCommonVar.termInput.blazeApplication.isSingleSalariedApplicant","externalType":"boolean","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"boolean","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"boolean","elements":[{"valueType":"boolean","instValue":"true","voType":"boolean","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="HAA_PRO10";
+responseDeviation.ruleName="HAA_PRO10";
+responseDeviation.ruleDescription="Loans with no co-applicant/guarantor (Only for Salaried)";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Product Norms";
+responseDeviation.reasonText="Loans with no co-applicant/guarantor (Only for Salaried)";
+responseDeviation.approvalLevel="L2,HL_CREDIT_ACM";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='AOyB8m'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>HAA_ELE13_HL</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Incentive / Bonus / Non-fixed allowances to considered for eligibility for Salaried borrowers</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"totalVariableSalary","fqName":"aBlazeApplicant.totalVariableSalary","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"0","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="HAA_ELE13_HL";
+responseDeviation.ruleName="HAA_ELE13_HL";
+responseDeviation.ruleDescription="Incentive / Bonus / Non-fixed allowances to considered for eligibility for Salaried borrowers";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Eligibility";
+responseDeviation.reasonText="Incentive / Bonus / Non-fixed Allowances considered for loan";
+responseDeviation.approvalLevel="L2,HL_CREDIT_ACM";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='RmZQ4O'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>HAA_CP18</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Age less than norms</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"age","fqName":"aBlazeApplicant.age","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"21","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="HAA_CP18";
+responseDeviation.ruleName="HAA_CP18";
+responseDeviation.ruleDescription="Age less than norms";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Client Profile";
+responseDeviation.reasonText="Age less than 21";
+responseDeviation.approvalLevel="L1,HL_CRM_CENTRAL";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='2tnlBv'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>MIN_QANOTM</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Minimum Qualification norms not met</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"qualification","fqName":"aBlazeApplicant.qualification","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"\"UG\"","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="MIN_QANOTM";
+responseDeviation.ruleName="MIN_QANOTM";
+responseDeviation.ruleDescription="Minimum Qualification norms not met";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Client Profile";
+responseDeviation.reasonText="Minimum Qualification norms not met";
+responseDeviation.approvalLevel="L2,HL_CREDIT_ACM";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='Ad2Qox'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>HAA_CP6</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Total Eligible Income less than minimum income as per norms </value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[],"subGroups":[{"exprs":[],"disposeWhenEmpty":true,"subGroups":[{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"rentalIncomeProgram","fqName":"message.request.application.applicationAdditionalDetails.other.rentalIncomeProgram","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"No","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentStatus","fqName":"aBlazeApplicant.employmentStatus","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"\"SAL-PERM\"","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"totalSalaryRelatedIncome","fqName":"aBlazeApplicant.totalSalaryRelatedIncome","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"475000","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"rentalIncomeProgram","fqName":"message.request.application.applicationAdditionalDetails.other.rentalIncomeProgram","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"No","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentStatus","fqName":"aBlazeApplicant.employmentStatus","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"\"SAL-CONT\"","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"totalSalaryRelatedIncome","fqName":"aBlazeApplicant.totalSalaryRelatedIncome","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"600000","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"}],"operator":"or","__meta_klass":"ConditionGroup"},{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"rentalIncomeProgram","fqName":"message.request.application.applicationAdditionalDetails.other.rentalIncomeProgram","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"Yes","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"netAnnual","fqName":"aBlazeApplicant.applicantAdditionalDetails.additionalDetail.netAnnual","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"350000","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"}],"operator":"or","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="HAA_CP6";
+responseDeviation.ruleName="HAA_CP6";
+responseDeviation.ruleDescription="Total Eligible Income less than minimum income as per norms";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Product Norms";
+responseDeviation.reasonText="Eligible Income less than norms";
+responseDeviation.approvalLevel="L2,HL_CREDIT_ACM";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='G3bu9U'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>HAA_CP4</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Work Experience/ Business Continuity Norms not met</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"integer","elements":[{"valueType":"integer","name":"totalWorkExperience","fqName":"aBlazeApplicant.totalWorkExperience","externalType":"integer","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"integer","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"2","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="HAA_CP4";
+responseDeviation.ruleName="HAA_CP4";
+responseDeviation.ruleDescription="Work Experience/ Business Continuity Norms not met";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Client Profile";
+responseDeviation.reasonText="Work Experience/ Business Continuity Norms not met";
+responseDeviation.approvalLevel="L2,HL_CREDIT_ACM";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='H9gNIO'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>HAA_CP2</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value><![CDATA[Age on loan maturity considered upto 68yrs / 63yrs for Self-Employed & Salaried respectively]]></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"ageAtMaturity","fqName":"aBlazeApplicant.ageAtMaturity","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"60","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"ageAtMaturity","fqName":"aBlazeApplicant.ageAtMaturity","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"63","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value><![CDATA[responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="HAA_CP2";
+responseDeviation.ruleName="HAA_CP2";
+responseDeviation.ruleDescription="Age on loan maturity considered upto 68yrs / 63yrs for Self-Employed & Salaried respectively";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Client Profile";
+responseDeviation.reasonText="Age at maturity is not as per norms";
+responseDeviation.approvalLevel="L2,HL_CREDIT_ACM";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);]]></value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='Ch0XZ0'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>HAA_CP15</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value><![CDATA[Age on loan maturity considered above 68yrs / 63yrs for Self-Employed & Salaried respectively]]></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"ageAtMaturity","fqName":"aBlazeApplicant.ageAtMaturity","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"63","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value><![CDATA[responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="HAA_CP15";
+responseDeviation.ruleName="HAA_CP15";
+responseDeviation.ruleDescription="Age on loan maturity considered above 68yrs / 63yrs for Self-Employed & Salaried respectively";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Client Profile";
+responseDeviation.reasonText="Age at maturity is not as per norms";
+responseDeviation.approvalLevel="L4,CREDIT_CHIEF_RISK_OFFICER";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);]]></value>
+   </instance>
+  </item>
+ </instance-list>
+ <instance ref='rulesetParameters'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='aCgWPJ'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='XzKTHE'>
+    <instance ref='ParameterNameVH'>
+     <value>aBlazeApplicant</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeApplicant</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='rulesetReturnType'>
+  <value>void</value>
+ </instance>
+</instantiation>

@@ -1,0 +1,18 @@
+#Extended attributes for Innovator file-based repository (directory: 'BL_Multiplier_for_Income_Program')
+#Sat Nov 12 08:48:06 UTC 2022
+contentType=Instance
+guid=QvUBVDlHYfWrE29I7xq6U4GvoI7
+innovatorDisplayName=BL_Multiplier_for_Income_Program
+innovatorItemCreationId=admin
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=6wJBDnNMEpPfdP4wizmesDxkko8
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

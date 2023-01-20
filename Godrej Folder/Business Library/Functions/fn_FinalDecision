@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_FinalDecision'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_FinalDecision</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>Message</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("");
+print("++++> Entering function :: fn_FinalDecision");
+
+aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+
+message.response.systemDecision="HARDSTOP";
+message.response.systemDecisionDateTime = calendar().currentTimestamp(true);
+if(aBlazeApplication.businessErrorsFlag = false) then {
+message.response.systemDecision="APPROVE";
+
+print("----> FINAL DECISION START");
+print("----> Final :: ");
+print("----> Error Response Count :: "message.response.errorResponse.count);
+
+//message.response.deviations = aDeviationArr;
+//if(message.response.errorResponse.count > 0) then {
+//for each ErrorResponse in message.response.errorResponse such that( it <> null and it.errorId <> unknown and it.errorName <> unknown ) 
+//do  {
+//  it.errorCode = it.errorId;
+//  it.errorId = it.errorName;
+//}
+//  if(at least 1 ErrorResponse in message.response.errorResponse satisfies(errorAction = "HARDSTOP")) 
+//  then message.response.systemDecision = "HARDSTOP";
+  
+//  else if(every ErrorResponse in message.response.errorResponse satisfies(message.response.systemDecision <> "HARDSTOP" ))
+//  then message.response.systemDecision = "APPROVE";
+  
+//  if(message.response.systemDecision = "HARDSTOP") then {
+//    for each CalculatedVariable in message.response.calculatedVariables 
+//    do {
+//      message.response.calculatedVariables.clear();
+//      // it.fieldValue="0.0";
+//    }
+//  }
+//}
+  
+  if(message.response.responseDeviations.count > 0) then {
+    if(at least 1 ResponseDeviation in message.response.responseDeviations satisfies(ruleAction = "DEVIATION"))
+    then message.response.systemDecision = "DEVIATION"; 
+    
+    if(at least 1 ResponseDeviation in message.response.responseDeviations satisfies(ruleAction = "HARDSTOP")) 
+    then message.response.systemDecision = "HARDSTOP";   
+  }
+}
+
+
+print("----> Final System Decision :: "message.response.systemDecision);
+
+//---------------------------------------------------------Changes by Musab as per Altamash--------------------------------------------------------------------------------------
+//Removing null scorecard values
+tempScoreCardDetails is some array of ScoreCardDetail initially an array of ScoreCardDetail;
+for each ScoreCardDetail in message.response.scoreCardDetails do {
+  print("itterating through scorecardDetails "it.scorecardName);
+	if(it.characteristicCount >0 and it.scorecardName<>unknown) then {
+        print("success for  "it.scorecardName);
+		tempScoreCardDetails.append(it);
+	}
+}
+message.response.scoreCardDetails=tempScoreCardDetails;
+//--------------------------------------------------Musab's changes ends here for removing scorecard null tags-------------------------------------------------------------
+
+//print("Final approval Level :: "message.response.finalApprovalLevel);
+print("++++> Exiting function :: fn_FinalDecision");
+print("");
+
+return message;
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='TYKp6H'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='gezON0'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeApplication</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeApplication</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_FinalDecision1</value>
+ </instance>
+</instantiation>

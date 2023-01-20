@@ -1,0 +1,17 @@
+#Extended attributes for Innovator file-based repository (directory: 'Function_Mapping_Matrix_Instance')
+#Tue Nov 29 07:35:04 UTC 2022
+contentType=Instance
+guid=GUkZHPGjOuBSHKtm0EoTHbi1ZdT
+innovatorDisplayName=Function_Mapping_Matrix_Instance
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=7Mc1jehiV8FILwHRvlFrUb5Yp1B
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

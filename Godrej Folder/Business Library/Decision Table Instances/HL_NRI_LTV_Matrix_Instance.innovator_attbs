@@ -1,0 +1,17 @@
+#Extended attributes for Innovator file-based repository (directory: 'HL_NRI_LTV_Matrix_Instance')
+#Mon Jan 02 06:19:41 UTC 2023
+contentType=Instance
+guid=C9zS0Lmj9Y8hG3j8VXhVWdqrKid
+innovatorDisplayName=HL_NRI_LTV_Matrix_Instance
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=TMoQ9NRPS0aiw4cLcorZzGJrvVn
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

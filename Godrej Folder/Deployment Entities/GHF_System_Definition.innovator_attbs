@@ -1,0 +1,15 @@
+#Extended attributes for Eclipse file-based repository (directory: 'GHF_System_Definition')
+#Sun Aug 22 00:32:25 IST 2021
+contentType=Fixed
+guid=C61NnWzkX3zYPjsQAOTYbIOGS98
+innovatorDisplayName=GHF_System_Definition
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=System Definition
+target=Repository
+type=XML

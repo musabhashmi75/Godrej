@@ -1,0 +1,1061 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_BureauDerivedVariables'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_BureauDerivedVariables</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("");
+print("++++> Entering function :: fn_BureauDerivedVariables");
+blazeApplicantArr  is  some  array  of  BlazeApplicant  initially  an  array  of  BlazeApplicant;
+aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+
+applicationDate  is  a  date;
+applicationDate  =  message.invocation.applicationDate;
+try {
+  if(aBlazeApplication.businessErrorsFlag = false) then {
+
+    print("----> Number of Applicants :: " BTCommonVar.termInput.blazeApplication.blazeApplicantArray.count);
+    print("----> applicationDate :: " applicationDate);
+	today is a  date initially calendar().currentDate();
+    print("Today ::"today);
+    // aBlazeApplicant.secureMinMonthsInL36M=100000;
+    //print("----> aBlazeApplicant.secureMinMonthsInL36M default  :: " aBlazeApplicant.secureMinMonthsInL36M);
+
+    for  each  BlazeApplicant  in  BTCommonVar.termInput.blazeApplication.blazeApplicantArray such  that  (it  <>  unknown)
+	 
+    do  {
+		
+      aBlazeApplicant  is  some  BlazeApplicant  initially  it  as  a  BlazeApplicant;
+      if(it.creditBureauData  <>  unknown)then{
+	  
+      if(aBlazeApplicant.corporateFlag = false) then {
+		  
+        //  Applicant's  bureauScore        
+        print("----> aBlazeApplicant.creditBureauData.bureauScore  ::  "aBlazeApplicant.creditBureauData.burScore);
+        if(aBlazeApplicant.creditBureauData.burScore  is  not  unknown )  then  {
+          aBlazeApplicant.bureauScore  =  aBlazeApplicant.creditBureauData.burScore;       
+        }
+        print("----> Individual aBlazeApplicant.bureauScore  ::  "  aBlazeApplicant.bureauScore);
+        
+         //  isNtc used in Thin Segment Experian Scorecard        
+        if(aBlazeApplicant.bureauScore  is  not  unknown  and  aBlazeApplicant.bureauScore  is  equal  to  -1  )  then  {
+          aBlazeApplicant.isNtc  =  true;
+        } 
+        print("----> aBlazeApplicant.isNtc :: "aBlazeApplicant.isNtc);
+		
+		if(aBlazeApplicant.bureauScore is known and aBlazeApplicant.bureauScore = -1)
+		then{
+		aBlazeApplicant.derogatoryRemarksInL12m = 1;
+		print("----> Individual aBlazeApplicant.derogatoryRemarksInL12m :: "aBlazeApplicant.derogatoryRemarksInL12m);
+		}
+          
+        //--------------------Applicant  temporary  variables-----------------------
+        ccOverDueAmount  is  a  real  initially  0;
+        ccTotalOverDue  is  a  real  initially  0;
+        totalUtilizationAllLiveAccnt  is  a  real  initially  0;
+            
+        totalOSOnLiveCC  is  a  real  initially  0;
+        totalLoanAmtOnLiveCC  is  a  real  initially  0;
+       
+        totalOSOnLiveRegUnSecAcc  is  a  real  initially  0;
+        totalLoanAmtOnLiveRegUnSecAcc  is  a  real  initially  0;
+		
+		isSuitFiledAccount is a boolean initially false;
+	    isWriteOffOrSettledAccount is a boolean initially false;
+	    dateProcessed is a date;
+	    dateOfLastPayment is a date;
+        //----------------------------------------end-------------------------------------
+        
+        //------------------------------------------------------------------Account  iteration  begins----------------------------------------------------------------------------------
+		
+		for  each  BlazeAccountDetails  in  aBlazeApplicant.creditBureauData.blazeAccountDetailsArray  
+        do  {
+			Account  is  some  BlazeAccountDetails  initially  it  as  a  BlazeAccountDetails;
+			print("---->Account.amountOverdue ::"Account.amountOverdue);
+			print("---->ccTotalOverDue ::"ccTotalOverDue);
+			if(Account.isCreditCard)then{
+            ccTotalOverDue =ccTotalOverDue + Account.amountOverdue;
+			}
+			
+			print("---->ccTotalOverDue ::"ccTotalOverDue);
+		}
+		
+        for  each  BlazeAccountDetails  in  aBlazeApplicant.creditBureauData.blazeAccountDetailsArray  
+        do  {
+          Account  is  some  BlazeAccountDetails  initially  it  as  a  BlazeAccountDetails;          
+          
+          print("");
+          print("----> Account Initial Deatils :: Starts ");   
+
+          print("----> Account.blazeAccountType ::  " Account.blazeAccountType);
+
+          print("----> Account.accountOpenDate ::  " Account.accountOpenDate);
+          print("----> Account.dateClosed ::  " Account.dateClosed);
+          print("----> Account.currentDate ::  " Account.currentDate);
+          print("----> Account.lastPaymentDate ::  " Account.lastPaymentDate);
+
+          print("----> Account.suitFilledOrWilfulDefaultStatus ::  " Account.suitFilledOrWilfulDefaultStatus);
+          print("----> Account.writeOffoRSettledStatus ::  " Account.writeOffoRSettledStatus);
+
+          print("----> Account.isCreditCard ::  " Account.isCreditCard);
+          print("----> Account.isSecuredLoan ::  " Account.isSecuredLoan);           
+          print("----> Account.isRegular ::  " Account.isRegular);    
+          print("----> Account.isCommercial ::  " Account.isCommercial);
+
+          print("----> Account.currentBalance :: " Account.currentBalance);
+          print("----> Account.amountOverdue ::  " Account.amountOverdue);
+          print("----> Account.maxModifiedLimit :: " Account.maxModifiedLimit);
+                    
+          print("----> Account Initial Deatils :: Ends "); 
+          print(""); 
+          
+          if( Account.blazeAccountType is unknown)
+            then{
+            Account.blazeAccountType ="-";
+            print("---->account.blazeAccountType ::"Account.blazeAccountType);
+          }
+          
+          // aBlazeApplicant.noOfSecAccounts initial value to set  // need to set in default function          
+          if(Account.isSecuredLoan is equal to true) then {
+            aBlazeApplicant.noOfSecAccounts = aBlazeApplicant.noOfSecAccounts + 1;  
+          }
+          print("----> aBlazeApplicant.noOfSecAccounts ::  " aBlazeApplicant.noOfSecAccounts);          
+          
+          //  isSuitFiled           
+          if(Account.suitFilledOrWilfulDefaultStatus  is  contained  in  text  "01,02,03")  then  {
+            aBlazeApplicant.isSuitFiled  =  true;
+          }
+          print("----> aBlazeApplicant.isSuitFiled ::  " aBlazeApplicant.isSuitFiled);
+          
+          // isWriteOffOrSettled          
+          if(Account.writeOffoRSettledStatus  is  contained  in  text  "00,01,02,03,04,05,06,07,08,09,10")  then  {
+            aBlazeApplicant.isWriteOffOrSettled  =  true;
+          }
+          print("----> aBlazeApplicant.isWriteOffOrSettled ::  " aBlazeApplicant.isWriteOffOrSettled);
+
+          // isSettled
+          Account.isSettled = false;
+          if(Account.writeOffoRSettledStatus is  contained  in  text "03,04") then {
+            Account.isSettled = true;
+          }
+          print("----> Account.isSettled ::  " Account.isSettled);
+		  
+		  if(Account.suitFilledOrWilfulDefaultStatus  is  contained  in  text  "01,02,03")  then  {
+		    isSuitFiledAccount  =  true;
+          }
+	        if(Account.writeOffoRSettledStatus  is  contained  in  text  "00,01,02,03,04,06,08,09,10,11")  then{
+            isWriteOffOrSettledAccount  =  true;
+		  }
+          
+          // maxdpd and accountReportedInL36M
+          accountReportedInL36M is a boolean initially false;
+          if(aBlazeApplicant.isSuitFiled or aBlazeApplicant.isWriteOffOrSettled)  then  {
+            Account.maxdpd  =  180;
+          } else {
+            Account.maxdpd=0;  
+            for  each  BlazePaymentHistory  in    Account.blazePaymentHistoryArray
+            do{
+              PaymentHistory  is  some  BlazePaymentHistory  initially  it  as  a  BlazePaymentHistory;
+              print("----> PaymentHistory.daysPastDue ::  " PaymentHistory.daysPastDue);
+              print("----> PaymentHistory.paymentDate ::  " PaymentHistory.paymentDate);              
+              if(Account.currentDate.subtractInMonths(PaymentHistory.paymentDate).months <= 36) then {
+                if(PaymentHistory.daysPastDue  >  Account.maxdpd)  then  {
+                  Account.maxdpd=PaymentHistory.daysPastDue;
+                }
+                // set flag here for noOfReportedAccounts in L36M
+                accountReportedInL36M = true;
+              } 
+              if(Account.currentDate.subtractInMonths(PaymentHistory.paymentDate).months <= 12) then {
+                //  hlMaxDpdValueInL12m used in SE Experian Score Card -- added after discussion with Gaurav on 02-03-2022
+                if(Account.blazeAccountType  is  contained  in  text  "02")  then  {
+                  if(PaymentHistory.daysPastDue  >  aBlazeApplicant.hlMaxDpdValueInL12m)  then  {
+                    aBlazeApplicant.hlMaxDpdValueInL12m=PaymentHistory.daysPastDue;                            
+                  }                             
+                } 
+                //  maxDpdValueInL12m used in SE Experian Score Card -- added after discussion with Gaurav on 02-03-2022
+                if(PaymentHistory.daysPastDue  >  aBlazeApplicant.maxDpdValueInL12m)  then  {
+                  aBlazeApplicant.maxDpdValueInL12m=PaymentHistory.daysPastDue;
+                }
+              } 
+        }
+        }
+		Account.maxdpd=0;  
+          print("----> Account.maxdpd ::  " Account.maxdpd);
+          
+          // noOfAccWithDPDAbove0InL36M -- -- after discussion with Sanket Joshi 01-03-2022
+          if(Account.maxdpd <> unknown and Account.maxdpd > 0)  then  {
+            aBlazeApplicant.noOfAccWithDPDAbove0InL36M = aBlazeApplicant.noOfAccWithDPDAbove0InL36M + 1;
+          } 
+          
+           // noOfAccInL36M=0; -- -- after discussion with Sanket Joshi 01-03-2022
+          if(accountReportedInL36M is equal to true) then {
+            aBlazeApplicant.noOfAccInL36M = aBlazeApplicant.noOfAccInL36M + 1;
+          }
+          
+          // max_dpd_all      
+          if((aBlazeApplicant.max_dpd_all <> unknown  and Account.maxdpd <> unknown) and  (aBlazeApplicant.max_dpd_all < Account.maxdpd))  then  {
+            aBlazeApplicant.max_dpd_all=Account.maxdpd;
+          }
+          print("----> aBlazeApplicant.max_dpd_all ::  " aBlazeApplicant.max_dpd_all);
+        
+          // max_dpd_sec      
+          if(Account.isSecuredLoan = true and (aBlazeApplicant.max_dpd_sec <> unknown  and Account.maxdpd <> unknown) and (aBlazeApplicant.max_dpd_sec < Account.maxdpd))  then  {
+            aBlazeApplicant.max_dpd_sec=Account.maxdpd;
+          }
+          print("----> aBlazeApplicant.max_dpd_sec ::  " aBlazeApplicant.max_dpd_sec);
+          
+          //  isCcSettledRemarkAbove30K  -- Used in Deviation   Account.blazeAccountType  is  contained  in  text  "10,35,31,37"          
+          if(Account.isCreditCard = true and  Account.isSettled = true and Account.amountOverdue <> unknown
+            and  Account.amountOverdue  >  30000)  then  {
+            aBlazeApplicant.isCcSettledRemarkAbove30K  =  true;
+          }
+          print("----> aBlazeApplicant.isCcSettledRemarkAbove30K :: " aBlazeApplicant.isCcSettledRemarkAbove30K);  
+          
+          //  ccOverDueAmount
+
+          if(Account.isCreditCard = true and Account.isSettled = true)  then  {
+            ccOverDueAmount  =  ccOverDueAmount  +  Account.amountOverdue;
+          }
+		  
+																	  
+														
+									   
+																   
+		   
+														
+          print("------------------------------------Derog For Individual Account Starts-----------------------------------------");
+		  
+	if(aBlazeApplicant.bureauScore is known and aBlazeApplicant.bureauScore >0)then{	
+	
+	print("---->Header.DateProcessed ::"aBlazeApplicant.creditBureauReports[0].CreditReport.Header.DateProcessed);
+	if(aBlazeApplicant.creditBureauReports[0].CreditReport.Header.DateProcessed is known and aBlazeApplicant.creditBureauReports[0].CreditReport.Header.DateProcessed<> "")then{
+	dateProcessed =calendar().date(aBlazeApplicant.creditBureauReports[0].CreditReport.Header.DateProcessed,"ddMMyyyy");
+	}
+	print("---->dateProcessed ::"dateProcessed);
+	
+	print("---->Account.Account_NonSummary_Segment_Fields.DateOfLastPayment ::"Account.lastPaymentDate);
+	if(Account.lastPaymentDate is known)then{
+	dateOfLastPayment =Account.lastPaymentDate;
+	}
+	print("--->dateOfLastPayment ::"dateOfLastPayment);
+	
+									   
+	print("---->dateProcessed.subtractInMonths(dateOfLastPayment).months ::"dateProcessed.subtractInMonths(dateOfLastPayment).months);
+  
+	  
+	isPaidInL36M is a boolean initially false;
+	if(dateProcessed is known and dateOfLastPayment is known and dateProcessed.subtractInMonths(dateOfLastPayment).months<=36)then{
+	isPaidInL36M =true;
+	}
+	
+	print("---->isPaidInL36M ::"isPaidInL36M);
+	print("---->isSuitFiledAccount ::"isSuitFiledAccount);
+	print("---->Account.isCreditCard ::"Account.isCreditCard);
+	print("---->ccTotalOverDue ::"ccTotalOverDue);
+	print("---->isWriteOffOrSettledAccount ::"isWriteOffOrSettledAccount);
+	
+	if((isSuitFiledAccount and isPaidInL36M) or
+	(Account.isCreditCard and isWriteOffOrSettledAccount and ccTotalOverDue>=30000 and isPaidInL36M) or
+	(Account.isCreditCard =false and isWriteOffOrSettledAccount and isPaidInL36M))
+	then{
+	aBlazeApplicant.derogatoryRemarksInL12m = 1;
+	print("----> Individual aBlazeApplicant.derogatoryRemarksInL12m :: "aBlazeApplicant.derogatoryRemarksInL12m);
+	}
+	
+	for  each  BlazePaymentHistory  in    Account.blazePaymentHistoryArray
+	do{
+	PaymentHistory  is  some  BlazePaymentHistory  initially  it  as  a  BlazePaymentHistory;
+	
+	print("---->PaymentHistory.paymentDate ::"PaymentHistory.paymentDate);
+	print("---->Current Date ::"today);
+	print("---->Account.dateClosed ::"Account.dateClosed);
+	print("---->Account.isCreditCard ::"Account.isCreditCard);
+	print("---->PaymentHistory.daysPastDue ::"PaymentHistory.daysPastDue);
+	
+	if(PaymentHistory.paymentDate is known and today.subtractInMonths(PaymentHistory.paymentDate).months <= 12)then{
+	if(((Account.dateClosed  is unknown or today.subtractInMonths(Account.dateClosed).months<=12) and Account.isCreditCard =false and PaymentHistory.daysPastDue  >0) or 
+	(Account.dateClosed is unknown  and Account.isCreditCard and ccTotalOverDue>=30000 and PaymentHistory.daysPastDue  >=30))then{
+	aBlazeApplicant.derogatoryRemarksInL12m = 1;
+	print("----> Individual aBlazeApplicant.derogatoryRemarksInL12m :: "aBlazeApplicant.derogatoryRemarksInL12m);
+	}
+	}
+	}
+}
+          print("------------------------------------Derog For Individual Account ends-----------------------------------------");
+          
+          // variable used in Bureau Deviations
+          // logic by christina :
+          // if account is open then (currentDate - lastPaymentDate ) 
+          // else if account is Closed then (currentDate - closureDate )    
+          // CC Accounts          
+																		  
+           if(Account.isCreditCard is  equal  to  true) then {
+             if(Account.dateClosed = unknown and Account.lastPaymentDate <> unknown) then {
+               
+               // isCcAccWoffSettOverdueAb30kBynd24M
+               if(Account.currentDate.subtractInMonths(Account.lastPaymentDate).months > 24 
+                  and Account.amountOverdue>30000 and Account.isSettled = true) then {
+                 aBlazeApplicant.isCcAccWoffSettOverdueAb30kBynd24M=true;
+               }           
+               
+               // isCcAccWoffSettOverdueAb0In24M
+               if(Account.currentDate.subtractInMonths(Account.lastPaymentDate).months <= 24 
+                  and Account.amountOverdue>0 and Account.isSettled = true) then {
+                 aBlazeApplicant.isCcAccWoffSettOverdueAb0InL24M=true;
+               }
+               
+               // isCcAccOverdueAb30kInL24M -- added now
+               if(Account.currentDate.subtractInMonths(Account.lastPaymentDate).months <= 24 
+                  and Account.amountOverdue>30000) then {
+                  aBlazeApplicant.isCcAccOverdueAb30kInL24M=true;
+               }           
+             } else if(Account.dateClosed <> unknown) then {
+                          
+               // isCcAccWoffSettOverdueAb30kBynd24M
+               if(Account.currentDate.subtractInMonths(Account.dateClosed).months > 24 
+                  and Account.amountOverdue>30000 and Account.isSettled = true) then {
+                 aBlazeApplicant.isCcAccWoffSettOverdueAb30kBynd24M=true;
+               }           
+               
+               //isCcAccWoffSettOverdueAb0In24M
+               if(Account.currentDate.subtractInMonths(Account.dateClosed).months <= 24 
+                  and Account.amountOverdue>0 and Account.isSettled = true) then {
+                 aBlazeApplicant.isCcAccWoffSettOverdueAb0InL24M=true;
+               }           
+               
+               // isCcAccOverdueAb30kInL24M -- added now
+               if(Account.currentDate.subtractInMonths(Account.dateClosed).months <= 24 
+                  and Account.amountOverdue>30000) then {
+                  aBlazeApplicant.isCcAccOverdueAb30kInL24M=true;
+               }           
+             }
+             // CC accounts print statements
+             print("----> aBlazeApplicant.isCcAccWoffSettOverdueAb30kBynd24M ::  " aBlazeApplicant.isCcAccWoffSettOverdueAb30kBynd24M);
+             print("----> aBlazeApplicant.isCcAccWoffSettOverdueAb0InL24M ::  " aBlazeApplicant.isCcAccWoffSettOverdueAb0InL24M);
+             print("----> aBlazeApplicant.isCcAccOverdueAb30kInL24M ::  " aBlazeApplicant.isCcAccOverdueAb30kInL24M);
+           } else {
+             // Non-CC Accounts       
+             if(Account.dateClosed = unknown and Account.lastPaymentDate <> unknown) then {
+               
+               if(Account.currentDate.subtractInMonths(Account.lastPaymentDate).months <= 24 
+                  and Account.isSettled = true) then {           
+                 
+                 monthsCounterLocal  is  a  integer  initially  0;           
+                 // 90 dpd ever logic
+                 for  each  BlazePaymentHistory  in    Account.blazePaymentHistoryArray do {             
+                   PaymentHistory  is  some  BlazePaymentHistory  initially  it  as  a  BlazePaymentHistory;             
+                   // logic for months <=24
+                   if(monthsCounterLocal  <= 24) then { 
+                     if(PaymentHistory.daysPastDue  >= 90)  then  {
+                       aBlazeApplicant.isNonCcAccWoffSettDpdAb90everInL24M=true;
+                     }
+                   }
+                   monthsCounterLocal  =  monthsCounterLocal+1;
+                 }
+               }           
+             } else if(Account.dateClosed <> unknown) then {
+               if(Account.currentDate.subtractInMonths(Account.dateClosed).months <= 24    
+                  and Account.isSettled = true) then {
+                 
+                 monthsCounterLocal  is  a  integer  initially  0;
+                 // 90 dpd ever logic
+                 for  each  BlazePaymentHistory  in    Account.blazePaymentHistoryArray do {
+                   PaymentHistory  is  some  BlazePaymentHistory  initially  it  as  a  BlazePaymentHistory;
+                   // logic for months <=24
+                   if(monthsCounterLocal  <= 24) then { 
+                     if(PaymentHistory.daysPastDue  >= 90)  then  {
+                       aBlazeApplicant.isNonCcAccWoffSettDpdAb90everInL24M=true;
+                     }          
+                   }
+                   monthsCounterLocal  =  monthsCounterLocal+1;
+                 }
+               }
+             }
+             // Non-CC accounts print statements
+             print("----> aBlazeApplicant.isNonCcAccWoffSettDpdAb90everInL24M ::  " aBlazeApplicant.isNonCcAccWoffSettDpdAb90everInL24M);
+           }
+          
+          
+          
+          //  Live Account logic  --  Account.dateClosed  is  unknown 
+          if(Account.dateClosed  is  unknown)  then  {
+            //  logic  for  currentBalance  >  0  and  maxModifiedLimit  >  0
+            if((Account.currentBalance  <>  unknown  or  Account.currentBalance  >  0)  
+               and  (Account.maxModifiedLimit  <>  unknown  or  Account.maxModifiedLimit  >  0)  )  then  {        
+              
+              //  totalOSAllLiveAccnt  &  totalLoanAmtAllLiveAccnt  --  Used in Experian Score Card               
+              aBlazeApplicant.noOfLiveAcc = aBlazeApplicant.noOfLiveAcc+1;  
+              totalUtilizationAllLiveAccnt  =  totalUtilizationAllLiveAccnt  +  ((Account.currentBalance/Account.maxModifiedLimit)*100);
+              print("----> totalUtilizationAllLiveAccnt :: " totalUtilizationAllLiveAccnt);
+              
+              //  totalOSOnLiveCC  &  totalLoanAmtOnLiveCC
+              if(Account.isCreditCard is  equal  to  true  )  then  {                
+                aBlazeApplicant.noOfLiveCC = aBlazeApplicant.noOfLiveCC+1;
+                totalOSOnLiveCC  =  totalOSOnLiveCC  +  Account.currentBalance;
+                totalLoanAmtOnLiveCC  =  totalLoanAmtOnLiveCC  +  Account.maxModifiedLimit;
+                print("----> totalOSOnLiveCC :: " totalOSOnLiveCC);          
+                print("----> totalLoanAmtOnLiveCC :: " totalLoanAmtOnLiveCC);
+              }
+              //  totalOSOnLiveRegUnSecAcc  &  totalLoanAmtOnLiveRegUnSecAcc
+              if(Account.isSecuredLoan is  equal  to  false and Account.isRegular is  equal  to  true)  then  {
+                aBlazeApplicant.noOfLiveRegUnSecAcc = aBlazeApplicant.noOfLiveRegUnSecAcc+1;
+                totalOSOnLiveRegUnSecAcc  =  totalOSOnLiveRegUnSecAcc  +  Account.currentBalance;
+                totalLoanAmtOnLiveRegUnSecAcc  =  totalLoanAmtOnLiveRegUnSecAcc  +  Account.maxModifiedLimit;
+                
+              }                                            
+            }
+          }
+          
+          //  nbr_HL_le25L_tot_accts -- Housing Loan
+          if(Account.blazeAccountType  is  contained  in  text  "02"  and  Account.maxModifiedLimit  <=  2500000)  then  {
+            aBlazeApplicant.nbr_HL_le25L_tot_accts  =  aBlazeApplicant.nbr_HL_le25L_tot_accts  +  1;
+          }          
+          
+          //  nbr_HL_gt25L_tot_accts -- Housing Loan
+          if(Account.blazeAccountType  is  contained  in  text  "02"  and  Account.maxModifiedLimit  >  2500000)  then  {
+            aBlazeApplicant.nbr_HL_gt25L_tot_accts  =  aBlazeApplicant.nbr_HL_gt25L_tot_accts  +  1;
+          }
+          
+          //  nbr_PL_tot_accts -- Personal Loan
+          if(Account.blazeAccountType  is  contained  in  text  "05")  then  {
+            aBlazeApplicant.nbr_PL_tot_accts  =  aBlazeApplicant.nbr_PL_tot_accts  +  1;
+          }
+          
+          //  nbr_CL_le25_tot_accts -- Consumer Loan
+          if(Account.blazeAccountType  is  contained  in  text  "06"  and  Account.maxModifiedLimit  <=  25000)  then  {
+            aBlazeApplicant.nbr_CL_le25_tot_accts  =  aBlazeApplicant.nbr_CL_le25_tot_accts  +  1;
+          }
+          
+          //  nbr_CL_gt25_tot_accts --  Consumer Loan
+          if(Account.blazeAccountType  is  contained  in  text  "06"  and  Account.maxModifiedLimit  >  25000)  then  {
+            aBlazeApplicant.nbr_CL_gt25_tot_accts  =  aBlazeApplicant.nbr_CL_gt25_tot_accts  +  1;
+          }
+          
+          //  nbr_TW_tot_accts -- Two-Wheeler Loan
+          if(Account.blazeAccountType  is  contained  in  text  "13")  then  {
+            aBlazeApplicant.nbr_TW_tot_accts  =  aBlazeApplicant.nbr_TW_tot_accts  +  1;
+          }
+          
+          //  nbr_AL_tot_accts -- Auto Loan (Personal), Used Car Loan
+          if(Account.blazeAccountType  is  contained  in  text  "01,32")  then  {
+            aBlazeApplicant.nbr_AL_tot_accts  =  aBlazeApplicant.nbr_AL_tot_accts  +  1;
+          }
+          
+          //  nbr_CC_le1L_tot_accts -- Credit Card, Corporate Credit Card, Secured Credit Card, Loan on Credit Card i.e.  "10,35,31,37"
+          if(Account.isCreditCard = true and  Account.maxModifiedLimit  <=  100000)  then  {
+            aBlazeApplicant.nbr_CC_le1L_tot_accts  =  aBlazeApplicant.nbr_CC_le1L_tot_accts  +  1;
+          }
+          
+          //  nbr_CC_gt1L_tot_accts -- Credit Card, Corporate Credit Card, Secured Credit Card, Loan on Credit Card  i.e.  "10,35,31,37"
+          if(Account.isCreditCard = true and  Account.maxModifiedLimit  >  100000)  then  {
+            aBlazeApplicant.nbr_CC_gt1L_tot_accts  =  aBlazeApplicant.nbr_CC_gt1L_tot_accts  +  1;
+          }
+          
+          //  noOfAccOpenedInL12m Used in SE Experian Score Card
+          if(applicationDate.subtractInMonths(Account.accountOpenDate).months  <=  12)  then  {
+            aBlazeApplicant.noOfAccOpenedInL12m  =  aBlazeApplicant.noOfAccOpenedInL12m  +  1;
+          }
+          
+          //  noOfUnSecureAccOpenedInL24m  Used in SE Experian Score Card   -- changed           
+          if(applicationDate <> unknown  and Account.accountOpenDate <> unknown and 
+             applicationDate.subtractInMonths(Account.accountOpenDate).months  <=  24  and  Account.isSecuredLoan is equal to false)  then  {
+            aBlazeApplicant.noOfUnSecureAccOpenedInL24m  =  aBlazeApplicant.noOfUnSecureAccOpenedInL24m  +  1;
+          }
+
+          // Account.age
+          if(applicationDate <> unknown and Account.accountOpenDate <> unknown) then {
+            Account.age = applicationDate.subtractInMonths(Account.accountOpenDate).months;
+          }
+          print("----> Account.age in months :: " Account.age);
+
+          // maxMOBSecured -- used in salaried Experian Score Card
+          if(applicationDate <> unknown and Account.accountOpenDate <> unknown and Account.age <> unknown
+            and Account.isSecuredLoan = true and (aBlazeApplicant.maxMOBSecured < Account.age)) then {
+            aBlazeApplicant.maxMOBSecured = Account.age;
+          }
+
+
+          //  Accounts  opened  in  36  months -- applicationDate changed to Account.currentDate as discussed with Sanket on 02-03-2022       
+          mob is  an  integer  ;          
+          mobsec is  an  integer;
+          if(Account.currentDate <> unknown  and Account.accountOpenDate <> unknown and 
+             Account.currentDate.subtractInMonths(Account.accountOpenDate).months  <=  36  )  then  {
+            //  hlMaxMonthsInL36M
+            if  (Account.blazeAccountType  is  contained  in  text  "02")  then  {      
+              mob  =  Account.currentDate.subtractInMonths(Account.accountOpenDate).months;
+              if(mob  >  aBlazeApplicant.hlMaxMonthsInL36M)  then  {
+                aBlazeApplicant.hlMaxMonthsInL36M=mob;
+              }
+                if (aBlazeApplicant.hlMaxMonthsInL36M < 0) then
+                  {
+                    aBlazeApplicant.hlMaxMonthsInL36M =2; // changeed by Ankit on 8th April to correct negative scenario
+                  }
+              
+            }
+            
+            //  secureMinMonthsInL36M 
+            if  (Account.isSecuredLoan  is  equal  to  true)  then  {
+              mobsec  =  Account.currentDate.subtractInMonths(Account.accountOpenDate).months;
+              print("----> Ankit entered  Account.currentDate  :: "   Account.currentDate);
+              print("----> Ankit entered  Account.accountOpenDate  :: "   Account.accountOpenDate);
+              print("----> Ankit entered mobsec  :: "  mobsec);
+                print("----> Ankit entered mobsec before if  secureMinMonthsInL36M  :: "  aBlazeApplicant.secureMinMonthsInL36M);
+              if (mobsec  <  aBlazeApplicant.secureMinMonthsInL36M)  then {
+                   print("----> Ankit entered mobsec if inside  :: "  mobsec);
+                print("----> Ankit entered mobsec if inside secureMinMonthsInL36M  :: "  aBlazeApplicant.secureMinMonthsInL36M);
+                aBlazeApplicant.secureMinMonthsInL36M=mobsec;
+              }
+                print("----> Ankit entered secureMinMonthsInL36M  :: "  aBlazeApplicant.secureMinMonthsInL36M);
+                if (aBlazeApplicant.secureMinMonthsInL36M < 0) then
+                  {
+                    print("----> Ankit entered secureMinMonthsInL36M  inside negative condition :: "  aBlazeApplicant.secureMinMonthsInL36M);
+                    aBlazeApplicant.secureMinMonthsInL36M =2; // changeed by Ankit on 8th April to correct negative scenario
+                  }
+              print("----> Ankit entered secureMinMonthsInL36M  post negative condition :: "  aBlazeApplicant.secureMinMonthsInL36M);
+              
+            }
+            
+            //  twNoOfAccCountInL36M
+            if(Account.blazeAccountType  is  contained  in  text  "13")  then  {
+              print("----> Ankit entered 1  :: ");
+              aBlazeApplicant.twNoOfAccCountInL36M=aBlazeApplicant.twNoOfAccCountInL36M+1;
+            }
+            //  glNoOfAccCountInL36M
+            else if(Account.blazeAccountType  is  contained  in  text  "07")  then  {
+              print("----> Ankit entered 2  :: ");
+              aBlazeApplicant.glNoOfAccCountInL36M=aBlazeApplicant.glNoOfAccCountInL36M+1;
+            }
+            //  clNoOfAccCountInL36M
+            else if(Account.blazeAccountType  is  contained  in  text  "06")  then  {
+              print("----> Ankit entered 3  :: ");
+              aBlazeApplicant.clNoOfAccCountInL36M=aBlazeApplicant.clNoOfAccCountInL36M+1;
+            }
+            //  stplNoOfAccCountInL36M
+            else if(Account.blazeAccountType  is  contained  in  text  "05"  and  Account.sanctionOrOriginalLoanAmount  <=  50000)  then  {
+              print("----> Ankit entered 4  :: ");
+              aBlazeApplicant.stplNoOfAccCountInL36M = aBlazeApplicant.stplNoOfAccCountInL36M+1;
+            }
+            //  plNoOfAccCountInL36M
+            else if(Account.blazeAccountType  is  contained  in  text  "05")  then  {
+              print("----> Ankit entered 5  :: ");
+              aBlazeApplicant.plNoOfAccCountInL36M=aBlazeApplicant.plNoOfAccCountInL36M+1;
+            }
+            //  alNoOfAccCountInL36M
+            else if(Account.blazeAccountType  is  contained  in  text  "01,32")  then  {
+              print("----> Ankit entered 6  :: ");
+              aBlazeApplicant.alNoOfAccCountInL36M=aBlazeApplicant.alNoOfAccCountInL36M+1;
+            }
+            //  lapNoOfAccCountInL36M
+            else if(Account.blazeAccountType  is  contained  in  text  "03")  then  {
+              print("----> Ankit entered 7  :: ");
+              aBlazeApplicant.lapNoOfAccCountInL36M=aBlazeApplicant.lapNoOfAccCountInL36M+1;
+            }
+            //  ccNoOfAccCountInL36M Account.blazeAccountType  is  contained  in  text  "10,35,31,37"
+            else if(Account.isCreditCard = true)  then  {
+              print("----> Ankit entered 8  :: ");
+              aBlazeApplicant.ccNoOfAccCountInL36M=aBlazeApplicant.ccNoOfAccCountInL36M+1;
+            }
+            //  hlNoOfAccCountInL36M
+            else if(Account.blazeAccountType  is  contained  in  text  "02")  then  {
+              print("----> Ankit entered 9  :: ");
+              aBlazeApplicant.hlNoOfAccCountInL36M=aBlazeApplicant.hlNoOfAccCountInL36M+1;
+            }
+            //  othersNoOfAccCountInL36M
+            else{ 
+                print("----> Ankit entered 1  :: -->"aBlazeApplicant.othersNoOfAccCountInL36M);
+              aBlazeApplicant.othersNoOfAccCountInL36M=aBlazeApplicant.othersNoOfAccCountInL36M+1;
+              print("----> Ankit after add  :: -->"aBlazeApplicant.othersNoOfAccCountInL36M);
+            } 
+            print("----> Ankit after if   :: -->"aBlazeApplicant.othersNoOfAccCountInL36M);
+            // noOfAccWithDPDAbove0InL36M -- moved out and above -- after discussion with Sanket Joshi 01-03-2022
+            //if(Account.maxdpd <> unknown and Account.maxdpd > 0)  then  {
+            //  aBlazeApplicant.noOfAccWithDPDAbove0InL36M = aBlazeApplicant.noOfAccWithDPDAbove0InL36M + 1;
+            //}
+            
+            // noOfAccInL36M=0; -- moved out and above -- after discussion with Sanket Joshi 01-03-2022
+            //aBlazeApplicant.noOfAccInL36M = aBlazeApplicant.noOfAccInL36M + 1;
+            
+          } 
+          //added by Ankit for more than 36 months handling 
+          else if (Account.currentDate <> unknown  and Account.accountOpenDate <> unknown and 
+             Account.currentDate.subtractInMonths(Account.accountOpenDate).months  >  36) then 
+            {
+              print("----> Ankit entering in if >36 months   :: -->");
+              aBlazeApplicant.othersNoOfAccCountInL36M=aBlazeApplicant.othersNoOfAccCountInL36M+1; // for worst product holding
+              
+              //start for MOB >36 months
+              
+               //  hlMaxMonthsInL36M
+            if  (Account.blazeAccountType  is  contained  in  text  "02")  then  {      
+              mob  =  Account.currentDate.subtractInMonths(Account.accountOpenDate).months;
+                         
+              if(mob  >  aBlazeApplicant.hlMaxMonthsInL36M)  then  {
+                aBlazeApplicant.hlMaxMonthsInL36M=mob;
+                if (aBlazeApplicant.hlMaxMonthsInL36M < 0) then
+                  {
+                    aBlazeApplicant.hlMaxMonthsInL36M =2 ; // changeed by Ankit on 8th April to correct negative scenario
+                  }
+              }
+            }
+            
+            //  secureMinMonthsInL36M 
+            if  (Account.isSecuredLoan  is  equal  to  true)  then  {
+              mob  =  Account.currentDate.subtractInMonths(Account.accountOpenDate).months;
+              if(mob  <  aBlazeApplicant.secureMinMonthsInL36M)  then  {
+                aBlazeApplicant.secureMinMonthsInL36M=mob;
+                if (aBlazeApplicant.secureMinMonthsInL36M < 0) then
+                  {
+                    aBlazeApplicant.secureMinMonthsInL36M =2; //changeed by Ankit on 8th April to correct negative scenario
+                  }
+              }
+            }
+              //end for MOB >36 months 
+              print("----> Ankit ending in if >36 months   :: -->");
+            }
+           print("----> Ankit after if  aBlazeApplicant.othersNoOfAccCountInL36M :: -->"aBlazeApplicant.othersNoOfAccCountInL36M);
+          print("----> Ankit after if aBlazeApplicant.secureMinMonthsInL36M  :: -->"aBlazeApplicant.secureMinMonthsInL36M);
+          print("----> Ankit after if  aBlazeApplicant.hlMaxMonthsInL36M   :: -->" aBlazeApplicant.hlMaxMonthsInL36M);
+          //  if (aBlazeApplicant.secureMinMonthsInL36M = 100000) then
+            //      {
+              //      aBlazeApplicant.secureMinMonthsInL36M =0;
+                //  }
+          print("----> Ankit after if aBlazeApplicant.secureMinMonthsInL36M  posr default :: -->"aBlazeApplicant.secureMinMonthsInL36M);
+           //print("----> Ankit after if  aBlazeApplicant.hlMaxMonthsInL36M   :: -->" aBlazeApplicant.hlMaxMonthsInL36M);
+          
+          //------------------------------------------PaymentHistory  iteration  begins-----------------------------------------------------------------
+          //-----------PaymentHistory  variables-------------
+          monthsCounter  is  a  integer  initially  0;
+          //--------------------------end----------------------------
+          for  each  BlazePaymentHistory  in    Account.blazePaymentHistoryArray
+          do{
+            PaymentHistory  is  some  BlazePaymentHistory  initially  it  as  a  BlazePaymentHistory;            
+            //  dpd  >  0
+            if(PaymentHistory.daysPastDue  >  0  )  then  {
+              // logic for months <=6
+              if(monthsCounter  <=  6)  then  {                      
+                //  noOfDpdInL6m used in Salaried Risk Score
+                aBlazeApplicant.noOfDpdInL6m=aBlazeApplicant.noOfDpdInL6m+1;
+              } 
+              // logic for months <=12
+              if(monthsCounter  <=  12)  then  {
+                //  maxDpdValueInL12m used in SE Experian Score Card -- commented after discussion with Gaurav on 02-03-2022
+              // if(PaymentHistory.daysPastDue  >  aBlazeApplicant.maxDpdValueInL12m)  then  {
+              //   aBlazeApplicant.maxDpdValueInL12m=PaymentHistory.daysPastDue;
+              // }
+                
+                //  hlMaxDpdValueInL12m used in SE Experian Score Card -- commented after discussion with Gaurav on 02-03-2022
+                //if(Account.blazeAccountType  is  contained  in  text  "02")  then  {
+                  //if(PaymentHistory.daysPastDue  >  aBlazeApplicant.hlMaxDpdValueInL12m)  then  {
+                  //  aBlazeApplicant.hlMaxDpdValueInL12m=PaymentHistory.daysPastDue;                            
+                 // }                             
+                //} 
+               
+                //  noOfDpdAbove30CountInL12M used in Risk Score
+                if(PaymentHistory.daysPastDue  =  30)  then  {
+                  aBlazeApplicant.noOfDpdEqualOrAbove30CountInL12M=aBlazeApplicant.noOfDpdEqualOrAbove30CountInL12M+1;
+                }
+                else if (PaymentHistory.daysPastDue  >=  30) then // added by Ankit to handle changes for once 30DPD
+							{
+                              print("----> added by Ankit  :: --> aBlazeApplicant.noOfDpdEqualOrAbove30CountInL12M = 5");
+					  aBlazeApplicant.noOfDpdEqualOrAbove30CountInL12M = 5;
+								}
+                  }  
+            }
+            
+            // logic for months <=24
+            if(monthsCounter  <= 24)  then  {
+              // CC accounts 
+              if(Account.isCreditCard is  equal  to  true) then {
+                // isCcAccDpdEqualOrAbove30InL24M
+                if(PaymentHistory.daysPastDue  >=  30)  then  {
+                  aBlazeApplicant.isCcAccDpdEqualOrAbove30InL24M=true;
+                }
+                 
+              } else {    
+               // Non-CC accounts 
+                // isNonCcAccDpdEqualOrAbove30InL24M -- used in Bureau Deviations
+                 if(PaymentHistory.daysPastDue  >=  30)  then  {
+                  aBlazeApplicant.isNonCcAccDpdEqualOrAbove30InL24M=true;
+                }
+                // isNonCcAccDpdBelow30InL24M -- used in Bureau Deviations
+                 if(PaymentHistory.daysPastDue  <  30)  then  {
+                  aBlazeApplicant.isNonCcAccDpdBelow30InL24M=true;
+                }
+              }
+            }
+            
+            // logic for months > 24
+            if(monthsCounter  > 24)  then  {  
+              // CC accounts
+               if(Account.isCreditCard is  equal  to  true) then {           
+                 // isCcAccDpdEqualOrAbove30Bynd24M -- used in Bureau Deviations
+                 if(PaymentHistory.daysPastDue  >=  30)  then  {
+                  aBlazeApplicant.isCcAccDpdEqualOrAbove30Bynd24M=true;
+                }
+               } else {  
+                // Non-CC accounts 
+                 // isNonCcAccDpdEqualOrAbove30Bynd24M -- used in Bureau Deviations
+                 if(PaymentHistory.daysPastDue  >=  30)  then  {
+                  aBlazeApplicant.isNonCcAccDpdEqualOrAbove30Bynd24M=true;
+                }
+               }        
+            }
+            
+            monthsCounter  =  monthsCounter+1;
+          }
+          //------------------------------------------PaymentHistory  iteration  ends-------------------------------------------------------------------
+        }
+		
+		
+        //------------------------------------------------------------------Account  iteration  ends-------------------------------------------------------------------------------------
+        
+        //------------------------------------------------------------------aBlazeApplicant  variable  setting  begins-------------------------------------------------------------------------
+        //  product_holding Used in SAL Experian Score Card
+        print("");
+        print("----> aBlazeApplicant.nbr_TW_tot_accts :: "aBlazeApplicant.nbr_TW_tot_accts);
+        print("----> aBlazeApplicant.nbr_CL_le25_tot_accts :: "aBlazeApplicant.nbr_CL_le25_tot_accts);
+        print("----> aBlazeApplicant.nbr_PL_tot_accts :: "aBlazeApplicant.nbr_PL_tot_accts);
+        print("----> aBlazeApplicant.nbr_CL_gt25_tot_accts :: "aBlazeApplicant.nbr_CL_gt25_tot_accts);
+        print("----> aBlazeApplicant.nbr_AL_tot_accts :: "aBlazeApplicant.nbr_AL_tot_accts);
+        print("----> aBlazeApplicant.nbr_CC_le1L_tot_accts :: "aBlazeApplicant.nbr_CC_le1L_tot_accts);
+        print("----> aBlazeApplicant.nbr_HL_le25L_tot_accts :: "aBlazeApplicant.nbr_HL_le25L_tot_accts);
+        print("----> aBlazeApplicant.nbr_HL_gt25L_tot_accts :: "aBlazeApplicant.nbr_HL_gt25L_tot_accts);
+        print("----> aBlazeApplicant.nbr_CC_gt1L_tot_accts :: "aBlazeApplicant.nbr_CC_gt1L_tot_accts);
+        if  (aBlazeApplicant.nbr_TW_tot_accts  >  0  or  aBlazeApplicant.nbr_CL_le25_tot_accts  >  0)  then  {
+          aBlazeApplicant.product_holding  =  "TW, CL LE 25K and Others";
+        }  else  if  (aBlazeApplicant.nbr_PL_tot_accts  >  0  or  aBlazeApplicant.nbr_CL_gt25_tot_accts  >  0)  then  {
+          aBlazeApplicant.product_holding  =  "PL or CL GT 25K";
+        }  else  if  (aBlazeApplicant.nbr_AL_tot_accts  >  0  or  aBlazeApplicant.nbr_CC_le1L_tot_accts  >  0  or  aBlazeApplicant.nbr_HL_le25L_tot_accts  >  0)  then  {
+          aBlazeApplicant.product_holding  =  "AL, CC LE 1L or HL le 25L";
+        }  else  if  (aBlazeApplicant.nbr_HL_gt25L_tot_accts  >  0  or  aBlazeApplicant.nbr_CC_gt1L_tot_accts  >  0)  then  {
+          aBlazeApplicant.product_holding  =  "HL GT 25L or CC GT 1L";
+        }  else  {
+          aBlazeApplicant.product_holding  =  "TW, CL LE 25K and Others";
+        }
+        print("----> aBlazeApplicant.product_holding :: "aBlazeApplicant.product_holding);
+        
+        //  worstProductHolding Used in SE Experian Score Card
+        print("");
+        print("----> aBlazeApplicant.twNoOfAccCountInL36M :: "aBlazeApplicant.twNoOfAccCountInL36M);
+        print("----> aBlazeApplicant.glNoOfAccCountInL36M :: "aBlazeApplicant.glNoOfAccCountInL36M);
+        print("----> aBlazeApplicant.stplNoOfAccCountInL36M :: "aBlazeApplicant.stplNoOfAccCountInL36M);
+        print("----> aBlazeApplicant.othersNoOfAccCountInL36M :: "aBlazeApplicant.othersNoOfAccCountInL36M);
+        print("----> aBlazeApplicant.clNoOfAccCountInL36M :: "aBlazeApplicant.clNoOfAccCountInL36M);
+        print("----> aBlazeApplicant.plNoOfAccCountInL36M :: "aBlazeApplicant.plNoOfAccCountInL36M);
+        print("----> aBlazeApplicant.alNoOfAccCountInL36M :: "aBlazeApplicant.alNoOfAccCountInL36M);
+        print("----> aBlazeApplicant.lapNoOfAccCountInL36M :: "aBlazeApplicant.lapNoOfAccCountInL36M);
+        print("----> aBlazeApplicant.ccNoOfAccCountInL36M :: "aBlazeApplicant.ccNoOfAccCountInL36M);
+        print("----> aBlazeApplicant.hlNoOfAccCountInL36M :: "aBlazeApplicant.hlNoOfAccCountInL36M);  
+        if  (aBlazeApplicant.twNoOfAccCountInL36M  >  0  or  aBlazeApplicant.glNoOfAccCountInL36M  >  0 or  aBlazeApplicant.stplNoOfAccCountInL36M  >  0 or  aBlazeApplicant.othersNoOfAccCountInL36M  >  0)  then  {
+          aBlazeApplicant.worstProductHolding  =  "1. TW,2. GL , 4. STPL , 9. Others";
+        }  else  if  (aBlazeApplicant.clNoOfAccCountInL36M  >  0  or  aBlazeApplicant.plNoOfAccCountInL36M  >  0)  then  {
+          aBlazeApplicant.worstProductHolding  =  "3. CL,4. PL";
+        }  else  if  (aBlazeApplicant.alNoOfAccCountInL36M  >  0)  then  {
+          aBlazeApplicant.worstProductHolding  =  "5. AL";
+        }  else  if  (aBlazeApplicant.lapNoOfAccCountInL36M  >  0  or  aBlazeApplicant.ccNoOfAccCountInL36M  >  0 or  aBlazeApplicant.hlNoOfAccCountInL36M  >  0)  then  {
+          aBlazeApplicant.worstProductHolding  =  "6. LAP, 7. CC,8. HL";
+        } 
+        print("----> aBlazeApplicant.worstProductHolding :: "aBlazeApplicant.worstProductHolding);
+        
+        //  isCcSettledRemarkTotalAbove30K
+        aBlazeApplicant.isCcSettledRemarkTotalAbove30K  =  false;
+        print("----> ccOverDueAmount :: "ccOverDueAmount);
+        if  (ccOverDueAmount  >30000)  then  {
+          aBlazeApplicant.isCcSettledRemarkTotalAbove30K=  true;  
+        }
+        print("");
+        print("----> aBlazeApplicant.isCcSettledRemarkTotalAbove30K :: "aBlazeApplicant.isCcSettledRemarkTotalAbove30K);
+        
+        //  currAvgUtilizationOnAllAcc -- Used in SAL & SE Experian Score Card
+        print("");
+        print("----> totalUtilizationAllLiveAccnt :: "totalUtilizationAllLiveAccnt);
+        print("----> aBlazeApplicant.noOfLiveAcc :: "aBlazeApplicant.noOfLiveAcc);  
+        if((totalUtilizationAllLiveAccnt  <>  unknown  and  totalUtilizationAllLiveAccnt  >  0)  
+           and  (aBlazeApplicant.noOfLiveAcc  <>  unknown  and  aBlazeApplicant.noOfLiveAcc  >  0))  then  {
+          aBlazeApplicant.currAvgUtilizationOnAllAcc  =  totalUtilizationAllLiveAccnt  /  aBlazeApplicant.noOfLiveAcc;
+        }
+        print("----> aBlazeApplicant.currAvgUtilizationOnAllAcc :: "aBlazeApplicant.currAvgUtilizationOnAllAcc);
+        
+        //  aBlazeApplicant.currAvgUtilizationOnAllAccSalSegment  -- Used in SAL Experian Score Card
+        print("");
+        print("----> aBlazeApplicant.currAvgUtilizationOnAllAcc :: "aBlazeApplicant.currAvgUtilizationOnAllAcc);  
+        if (aBlazeApplicant.noOfLiveAcc = 0) then {
+          aBlazeApplicant.currAvgUtilizationOnAllAccSalSegment = "A.NO LIVE";
+        }else if (aBlazeApplicant.currAvgUtilizationOnAllAcc <= 15) then {
+          aBlazeApplicant.currAvgUtilizationOnAllAccSalSegment = "B. LE 15%";
+        }else if (aBlazeApplicant.currAvgUtilizationOnAllAcc <= 45) then {
+          aBlazeApplicant.currAvgUtilizationOnAllAccSalSegment = "C. LE 45%";
+        }else if (aBlazeApplicant.currAvgUtilizationOnAllAcc > 45) then {
+          aBlazeApplicant.currAvgUtilizationOnAllAccSalSegment = "D. GT 45%";
+        }
+        print("----> aBlazeApplicant.currAvgUtilizationOnAllAccSalSegment :: "aBlazeApplicant.currAvgUtilizationOnAllAccSalSegment);
+        
+        //  aBlazeApplicant.currAvgUtilizationOnAllAccSESegment  --  Used in SE Experian Score Card
+        if (aBlazeApplicant.noOfLiveAcc = 0) then {
+          aBlazeApplicant.currAvgUtilizationOnAllAccSESegment = "A.NO LIVE";
+        }else if (aBlazeApplicant.currAvgUtilizationOnAllAcc <= 23) then {
+          aBlazeApplicant.currAvgUtilizationOnAllAccSESegment = "C. LE 23%";
+        }else if (aBlazeApplicant.currAvgUtilizationOnAllAcc > 23 and  aBlazeApplicant.currAvgUtilizationOnAllAcc <= 48 ) then {
+          aBlazeApplicant.currAvgUtilizationOnAllAccSESegment = "D. LE 48%";
+        }else if (aBlazeApplicant.currAvgUtilizationOnAllAcc > 48) then {
+          aBlazeApplicant.currAvgUtilizationOnAllAccSESegment = "E. GT 48%";
+        }
+        print("");
+        print("----> aBlazeApplicant.currAvgUtilizationOnAllAccSESegment :: "aBlazeApplicant.currAvgUtilizationOnAllAccSESegment);
+        //Added by Ankit
+        //  currUtilizationOnLiveCC-- -- Used in SAL Experian Score Card
+        print("");
+        print("----> totalOSOnLiveCC :: "totalOSOnLiveCC);
+        print("----> totalLoanAmtOnLiveCC :: "totalLoanAmtOnLiveCC);
+        if((totalOSOnLiveCC  <>  unknown  and  totalOSOnLiveCC  >  0)  
+           and  (totalLoanAmtOnLiveCC  <>  unknown  and  totalLoanAmtOnLiveCC  >  0))  then  {
+          aBlazeApplicant.currUtilizationOnLiveCC  =  (totalOSOnLiveCC  /  totalLoanAmtOnLiveCC)  *  100;
+        }        
+        print("----> aBlazeApplicant.currUtilizationOnLiveCC :: "aBlazeApplicant.currUtilizationOnLiveCC);
+        
+        // currUtilizationOnLiveCCSegment -- Used in SAL Experian Score Card
+        print("");
+        print("----> aBlazeApplicant.noOfLiveCC :: "aBlazeApplicant.noOfLiveCC);  
+        if (aBlazeApplicant.noOfLiveCC = 0) then {
+          aBlazeApplicant.currUtilizationOnLiveCCSegment = "A.NO LIVE";
+        }else if (aBlazeApplicant.currUtilizationOnLiveCC <= 15) then {
+          aBlazeApplicant.currUtilizationOnLiveCCSegment = "B. LE 15%";
+        }else if (aBlazeApplicant.currUtilizationOnLiveCC <= 40) then {
+          aBlazeApplicant.currUtilizationOnLiveCCSegment = "C. LE 40%";
+        }else if (aBlazeApplicant.currUtilizationOnLiveCC > 40) then {
+          aBlazeApplicant.currUtilizationOnLiveCCSegment = "D. GT 40%";
+        } 
+        print("----> aBlazeApplicant.currUtilizationOnLiveCCSegment :: "aBlazeApplicant.currUtilizationOnLiveCCSegment);
+          
+        //  currUtilizationOnLiveRegUnSecAcc -- Used in SE Experian Score Card
+        print("");
+        print("----> totalOSOnLiveRegUnSecAcc :: "totalOSOnLiveRegUnSecAcc);
+        print("----> totalLoanAmtOnLiveRegUnSecAcc :: "totalLoanAmtOnLiveRegUnSecAcc);
+        if((totalOSOnLiveRegUnSecAcc  <>  unknown  and  totalOSOnLiveRegUnSecAcc  >  0)  
+           and  (totalLoanAmtOnLiveRegUnSecAcc  <>  unknown  and  totalLoanAmtOnLiveRegUnSecAcc  >  0))  then  {
+          aBlazeApplicant.currUtilizationOnLiveRegUnSecAcc  =  (totalOSOnLiveRegUnSecAcc  /  totalLoanAmtOnLiveRegUnSecAcc) * 100;
+        }
+        print("----> aBlazeApplicant.currUtilizationOnLiveRegUnSecAcc :: "aBlazeApplicant.currUtilizationOnLiveRegUnSecAcc);
+        
+        if (aBlazeApplicant.noOfLiveRegUnSecAcc = 0) then {
+          aBlazeApplicant.currUtilizationOnLiveRegUnSecAccSegment = "A.NO LIVE";
+        }else if (aBlazeApplicant.currUtilizationOnLiveRegUnSecAcc <= 10) then {
+          aBlazeApplicant.currUtilizationOnLiveRegUnSecAccSegment = "B. LE 10%";
+        }else if (aBlazeApplicant.currUtilizationOnLiveRegUnSecAcc <= 33) then {
+          aBlazeApplicant.currUtilizationOnLiveRegUnSecAccSegment = "C. LE 33%";
+        }else if (aBlazeApplicant.currUtilizationOnLiveRegUnSecAcc <= 63) then {
+          aBlazeApplicant.currUtilizationOnLiveRegUnSecAccSegment = "D. LE 63%";
+        }else if (aBlazeApplicant.currUtilizationOnLiveRegUnSecAcc > 63) then {
+          aBlazeApplicant.currUtilizationOnLiveRegUnSecAccSegment = "E. GT 63%";
+        }
+        
+        //  bureauDelinquencyCategory -- Used in Risk Score
+        print("");
+        print("----> aBlazeApplicant.isNtc :: "aBlazeApplicant.isNtc);
+        print("----> aBlazeApplicant.noOfDpdInL6m :: "aBlazeApplicant.noOfDpdInL6m);
+        print("----> aBlazeApplicant.noOfDpdEqualOrAbove30CountInL12M :: "aBlazeApplicant.noOfDpdEqualOrAbove30CountInL12M);
+	
+        if(aBlazeApplicant.isNtc  =  false and aBlazeApplicant.noOfDpdInL6m  =  0  and  aBlazeApplicant.noOfDpdEqualOrAbove30CountInL12M  =  0)  then  {
+          aBlazeApplicant.bureauDelinquencyCategory="DELINQUENCY CAT 1";
+        }  else  if  (aBlazeApplicant.isNtc  =  false and aBlazeApplicant.noOfDpdInL6m  =  0  and  aBlazeApplicant.noOfDpdEqualOrAbove30CountInL12M  =  1)  then  {
+          aBlazeApplicant.bureauDelinquencyCategory="DELINQUENCY CAT 2";
+        } else  {
+          aBlazeApplicant.bureauDelinquencyCategory="OTHERS";
+        }
+		        print("----> aBlazeApplicant.bureauDelinquencyCategory :: "aBlazeApplicant.bureauDelinquencyCategory);
+	  
+       
+
+		
+		
+        //  maxDelinquencyInLife  -- Used in SAL Experian Score Card
+        print("");
+        print("----> aBlazeApplicant.max_dpd_all :: "aBlazeApplicant.max_dpd_all);
+        print("----> aBlazeApplicant.max_dpd_sec :: "aBlazeApplicant.max_dpd_sec);
+        if(aBlazeApplicant.max_dpd_all  =  0  and  aBlazeApplicant.max_dpd_sec  =  0 and aBlazeApplicant.noOfSecAccounts <> 0)  then  {
+          aBlazeApplicant.maxDelinquencyInLife="A. 0 DPD on SEC";
+        }  else  if  (aBlazeApplicant.noOfSecAccounts = 0 and aBlazeApplicant.max_dpd_all  =  0)  then  {
+          aBlazeApplicant.maxDelinquencyInLife="B. 0 DPD on UNSEC";
+        }  else  if  (aBlazeApplicant.max_dpd_all  <=  29)  then  {
+          aBlazeApplicant.maxDelinquencyInLife="C. 29 DPD";
+        }else  {
+          aBlazeApplicant.maxDelinquencyInLife="GE 30 DPD";
+        }
+        print("----> aBlazeApplicant.maxDelinquencyInLife :: "aBlazeApplicant.maxDelinquencyInLife); 
+        
+        // aBlazeApplicant.maxMOBonSecInYears -- Used in Salaried Experian Score Card
+        print("");
+        print("----> aBlazeApplicant.maxMOBSecured :: " aBlazeApplicant.maxMOBSecured);
+        if(aBlazeApplicant.maxMOBSecured <> unknown and aBlazeApplicant.maxMOBSecured > 0) then {
+          aBlazeApplicant.maxMOBonSecInYears = aBlazeApplicant.maxMOBSecured / 12; 
+        }
+        print("----> aBlazeApplicant.maxMOBonSecInYears :: "aBlazeApplicant.maxMOBonSecInYears);
+        
+        // aBlazeApplicant.percentageOfDelqAcc
+        print("");
+        print("----> aBlazeApplicant.noOfAccWithDPDAbove0InL36M :: "aBlazeApplicant.noOfAccWithDPDAbove0InL36M);
+        print("----> aBlazeApplicant.noOfAccInL36M :: "aBlazeApplicant.noOfAccInL36M);
+        if(aBlazeApplicant.noOfAccWithDPDAbove0InL36M <> unknown and aBlazeApplicant.noOfAccInL36M <> unknown 
+           and aBlazeApplicant.noOfAccWithDPDAbove0InL36M > 0 and aBlazeApplicant.noOfAccInL36M > 0) then {
+          aBlazeApplicant.percentageOfDelqAcc = aBlazeApplicant.noOfAccWithDPDAbove0InL36M / aBlazeApplicant.noOfAccInL36M;
+        }
+        print("----> aBlazeApplicant.percentageOfDelqAcc :: "aBlazeApplicant.percentageOfDelqAcc);
+        
+        // aBlazeApplicant.derogatoryRemarksInL12m
+        print("");
+        //if(aBlazeApplicant.maxDpdValueInL12m > 0) then {
+        //  aBlazeApplicant.derogatoryRemarksInL12m = 1;
+        //  print("----> Individual aBlazeApplicant.derogatoryRemarksInL12m :: "aBlazeApplicant.derogatoryRemarksInL12m);
+        //} 
+        print("----> aBlazeApplicant.derogatoryRemarksInL12m :: "aBlazeApplicant.derogatoryRemarksInL12m);
+        
+        
+        // aBlazeApplicant.maxDpdInL12mScore -- Used in SE Experian Score Card
+        print("");
+        print("----> aBlazeApplicant.maxDpdValueInL12m :: "aBlazeApplicant.maxDpdValueInL12m);
+        print("----> aBlazeApplicant.hlMaxDpdValueInL12m :: "aBlazeApplicant.hlMaxDpdValueInL12m);
+        if(aBlazeApplicant.maxDpdValueInL12m <> unknown and aBlazeApplicant.hlMaxDpdValueInL12m <> unknown) then {
+          HL_SE_seg_DPDInL12mScore_Instance(aBlazeApplicant);
+        }
+        print("----> aBlazeApplicant.maxDpdInL12mScore :: "aBlazeApplicant.maxDpdInL12mScore);
+        
+        // aBlazeApplicant.mobScore -- Used in SE Experian Score Card
+        print("");
+        print("----> aBlazeApplicant.hlMaxMonthsInL36M :: "aBlazeApplicant.hlMaxMonthsInL36M);
+        print("----> aBlazeApplicant.secureMinMonthsInL36M :: "aBlazeApplicant.secureMinMonthsInL36M);
+        if(aBlazeApplicant.hlMaxMonthsInL36M <> unknown and aBlazeApplicant.secureMinMonthsInL36M <> unknown 
+           and aBlazeApplicant.hlMaxMonthsInL36M >= 0 and aBlazeApplicant.secureMinMonthsInL36M >= 0) then {
+          HL_SE_seg_MOBInL36mScore_Instance(aBlazeApplicant);
+        }
+        print("----> aBlazeApplicant.mobScore :: "aBlazeApplicant.mobScore);
+        
+        // aBlazeApplicant.accOpenedScore -- Used in SE Experian Score Card
+        print("");
+        print("----> aBlazeApplicant.noOfAccOpenedInL12m :: "aBlazeApplicant.noOfAccOpenedInL12m);
+        print("----> aBlazeApplicant.noOfUnSecureAccOpenedInL24m :: "aBlazeApplicant.noOfUnSecureAccOpenedInL24m);
+        if(aBlazeApplicant.noOfAccOpenedInL12m <> unknown and aBlazeApplicant.noOfUnSecureAccOpenedInL24m <> unknown 
+           and aBlazeApplicant.noOfAccOpenedInL12m >= 0 and aBlazeApplicant.noOfUnSecureAccOpenedInL24m >= 0) then {
+          HL_SE_seg_AccOpenInL12mScore_Instance(aBlazeApplicant);
+        }
+        print("----> aBlazeApplicant.accOpenedScore :: "aBlazeApplicant.accOpenedScore);
+        
+        //------------------------------------------------------EnquiryArray  iteration  begins--------------------------------------
+        for  each  EnquiryArray  in  aBlazeApplicant.creditBureauData.blazeEnquiryArray  
+        do{
+          Enquiry  is  some  EnquiryArray  initially  it  as  a  EnquiryArray;       
+          if(applicationDate.subtractInMonths(Enquiry.enquiryDate).months  <=  6)  then  {
+            aBlazeApplicant.noOfEnqInL6m=aBlazeApplicant.noOfEnqInL6m+1;          
+          }
+        }
+        print("");
+        print("----> aBlazeApplicant.noOfEnqInL6m :: "aBlazeApplicant.noOfEnqInL6m);
+        //-----------------------------------------------------EnquiryArray  iteration  ends-----------------------------------------
+        //------------------------------------------------------------------aBlazeApplicant  variable  setting  ends--------------------------------------------------------------------------
+      }   
+    }
+				         //Added by KAJAL on 28 July as per change given by ANKIT/GAURAV
+		 // if creditBureauReports is null need to consider the cibil tag
+		 
+		 if (aBlazeApplicant.creditBureauReports.count<=0 )then{ 
+		 
+		 
+		 print("Score Entered by Customer-->"aBlazeApplicant.applicantAdditionalDetails.cibil.score);
+		 if( aBlazeApplicant.applicantAdditionalDetails.cibil.score<>("000-1" and "-1") and 
+			aBlazeApplicant.applicantAdditionalDetails.cibil.noAccountsDeliquentL6m<>unknown and
+			aBlazeApplicant.applicantAdditionalDetails.cibil.noAccounts30DpdL12m<>unknown) then{
+			aBlazeApplicant.noOfDpdInL6m=aBlazeApplicant.applicantAdditionalDetails.cibil.noAccountsDeliquentL6m;
+			aBlazeApplicant.noOfDpdEqualOrAbove30CountInL12M=aBlazeApplicant.applicantAdditionalDetails.cibil.noAccounts30DpdL12m;
+	     if(aBlazeApplicant.isNtc  =  false and aBlazeApplicant.noOfDpdInL6m  =  0  and  aBlazeApplicant.noOfDpdEqualOrAbove30CountInL12M  =  0)  then  {
+          aBlazeApplicant.bureauDelinquencyCategory="DELINQUENCY CAT 1";
+        }  else  if  (aBlazeApplicant.isNtc  =  false and aBlazeApplicant.noOfDpdInL6m  =  0  and  aBlazeApplicant.noOfDpdEqualOrAbove30CountInL12M  =  1)  then  {
+          aBlazeApplicant.bureauDelinquencyCategory="DELINQUENCY CAT 2";
+        } else  {
+          aBlazeApplicant.bureauDelinquencyCategory="OTHERS";
+        }
+}
+		else if(aBlazeApplicant.applicantAdditionalDetails.cibil.score=("000-1"or "-1")) then{
+			aBlazeApplicant.bureauDelinquencyCategory="OTHERS";
+		}
+             print("----> aBlazeApplicant.bureauDelinquencyCategory :: "aBlazeApplicant.bureauDelinquencyCategory);
+}
+	}
+
+	
+  }
+  print("++++> Exiting function :: fn_BureauDerivedVariables");
+  print("");
+  
+}catch an Exception with {
+  aBlazeApplication.fn_CibilBureauDerivedVariablesException = true;  
+  print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");
+}
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='CyZdPO'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_BureauDerivedVariables1</value>
+ </instance>
+</instantiation>

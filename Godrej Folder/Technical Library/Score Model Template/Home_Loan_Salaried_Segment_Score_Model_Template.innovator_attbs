@@ -1,0 +1,15 @@
+#Extended attributes for Eclipse file-based repository (directory: 'Home_Loan_Salaried_Segment_Score_Model_Template')
+#Wed Jan 05 15:56:00 IST 2022
+contentType=Template
+guid=B8dyIhsROCdpjh7YO1OJxOEQ2yg
+innovatorDisplayName=Sal_Segment_Experian_Score_Card
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Score Model
+target=SRL
+type=SRL Ruleset

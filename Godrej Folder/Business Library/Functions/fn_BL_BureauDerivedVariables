@@ -1,0 +1,483 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_BL_BureauDerivedVariables'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_BL_BureauDerivedVariables1</value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_BL_BureauDerivedVariables</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("");
+print("++++> Entering function :: fn_BL_BureauDerivedVariables");
+blazeApplicantArr  is  some  array  of  BlazeApplicant  initially  an  array  of  BlazeApplicant;
+aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+
+today is a date initially calendar().currentDate();
+try {
+  if(aBlazeApplication.businessErrorsFlag = false) then {
+
+    print("----> Number of Applicants :: " BTCommonVar.termInput.blazeApplication.blazeApplicantArray.count);
+
+	
+	//-----------------------------------Entering Applicant Loop--------------------------------------------------
+
+    for  each  BlazeApplicant  in  BTCommonVar.termInput.blazeApplication.blazeApplicantArray such  that  (it  <>  unknown and it.customerCategory =(ignoring case)"RETAIL")
+    do  {
+		
+	print(">>>>Entering Applicant<<<<");
+	aBlazeApplicant  is  some  BlazeApplicant  initially  it  as  a  BlazeApplicant;
+	isUnsecuredInLast6to12M is an integer initially 0;
+	isUnsecuredInLast3to6M is an integer initially 0;
+	isUnsecuredInLast3M is an integer initially 0;
+	worstDelqCounter is an integer initially 0;
+	if(aBlazeApplicant.creditBureauData.blazeAccountDetailsArray is known) then {
+	accountArray is some array of BlazeAccountDetails initially aBlazeApplicant.creditBureauData.blazeAccountDetailsArray;
+	
+	//-----------------------------------Entering Account Loop--------------------------------------------------
+		for  each  BlazeAccountDetails  in  aBlazeApplicant.creditBureauData.blazeAccountDetailsArray  
+		do{
+		print(">>>>Entering Account<<<<");
+		Account  is  some  BlazeAccountDetails  initially  it  as  a  BlazeAccountDetails;  
+		MaxDelqCounter is an integer initially 0;
+		
+		//Checking Account Status
+		if(Account.dateClosed is known)then{
+			Account.ACCOUNT_STATUS ="Closed";
+		}else{
+			Account.ACCOUNT_STATUS ="Active";
+		}
+		print("----> Account.ACCOUNT_STATUS ::  " Account.ACCOUNT_STATUS);
+		
+		//MOB for CRIF
+		if(aBlazeApplicant.INQUIRY_DATE is known and Account.accountOpenDate is known)then{
+			Account.MOB =aBlazeApplicant.INQUIRY_DATE.subtractInMonths(Account.accountOpenDate).months;
+		}
+		print("---->Account.MOB ::"Account.MOB);
+
+		if(aBlazeApplicant.MAX_MOB is unknown and Account.MOB is known)then{
+			aBlazeApplicant.MAX_MOB =Account.MOB;
+		}else if(aBlazeApplicant.MAX_MOB is known and Account.MOB is known and aBlazeApplicant.MAX_MOB <Account.MOB)then{
+			aBlazeApplicant.MAX_MOB =Account.MOB;
+		}
+		//MS_LAST_REP for CRIF
+		if(aBlazeApplicant.INQUIRY_DATE is known and Account.dateReported is known)then{
+		Account.MS_LAST_REP =aBlazeApplicant.INQUIRY_DATE.subtractInMonths(Account.dateReported).months;
+		}
+		print("---->Account.MS_LAST_REP ::"Account.MS_LAST_REP);
+		
+		//Setting isUnsecured Flag
+		Account.isUnsecured =false;
+		if(Account.isCreditCard =false and Account.isSecuredLoan =false)then{
+			Account.isUnsecured =true;
+		}
+		  print("----> Account.isUnsecured ::  " Account.isUnsecured);
+
+		if(Account.isSecuredLoan is equal to true) then {
+			aBlazeApplicant.noOfSecAccounts = aBlazeApplicant.noOfSecAccounts + 1;  
+		}
+		print("----> aBlazeApplicant.noOfSecAccounts ::  " aBlazeApplicant.noOfSecAccounts);          
+
+		//  isSuitFiled           
+		if(Account.suitFilledOrWilfulDefaultStatus  is  contained  in  text  "01,02,03")  then  {
+			aBlazeApplicant.isSuitFiled  =  true;
+		}
+		print("----> aBlazeApplicant.isSuitFiled ::  " aBlazeApplicant.isSuitFiled);
+
+		// isWriteOffOrSettled          
+		if(Account.writeOffoRSettledStatus  is  contained  in  text  "00,01,02,03,04,05,06,07,08,09,10")  then  {
+			aBlazeApplicant.isWriteOffOrSettled  =  true;
+		}
+		print("----> aBlazeApplicant.isWriteOffOrSettled ::  " aBlazeApplicant.isWriteOffOrSettled);
+
+		// isSettled
+		Account.isSettled = false;
+		if(Account.writeOffoRSettledStatus is  contained  in  text "03,04") then {
+			Account.isSettled = true;
+		}
+		print("----> Account.isSettled ::  " Account.isSettled);
+
+		if(Account.isUnsecured =true)then{
+			
+			print("---->Account.accountOpenDate ::"Account.accountOpenDate);
+			if(Account.accountOpenDate is known)then{
+				print("---->today.subtractInMonths(Account.accountOpenDate).months ::"today.subtractInMonths(Account.accountOpenDate).months);
+			}
+			
+			//Counting Unsecured Loans in Last 6 to 12 Months
+			if(Account.accountOpenDate is known and today.subtractInMonths(Account.accountOpenDate).months >6 and
+			today.subtractInMonths(Account.accountOpenDate).months <=12)then
+			{
+				isUnsecuredInLast6to12M =isUnsecuredInLast6to12M + 1;
+			}
+			print("---->isUnsecuredInLast6to12M ::"isUnsecuredInLast6to12M);
+			
+			//Counting Unsecured Loans in Last 3 to 6 Months
+			if(Account.accountOpenDate is known and today.subtractInMonths(Account.accountOpenDate).months >3 and 
+			today.subtractInMonths(Account.accountOpenDate).months <=6)then
+			{
+				isUnsecuredInLast3to6M =isUnsecuredInLast3to6M + 1;
+			}
+			print("---->isUnsecuredInLast3to6M ::"isUnsecuredInLast3to6M);
+		
+			//Counting Unsecured Loans in Last 3 Months
+			if(Account.accountOpenDate is known and today.subtractInMonths(Account.accountOpenDate).months <=3)then
+			{
+				isUnsecuredInLast3M =isUnsecuredInLast3M + 1;
+			}
+			print("---->isUnsecuredInLast3M ::"isUnsecuredInLast3M);
+		}
+		print("---->aBlazeApplicant.INQUIRY_DATE ::"aBlazeApplicant.INQUIRY_DATE);
+		
+		//---------------------------------Entering Payment History Loop-------------------------------------------
+		delqCounter is an integer initially 0;
+		monthsCounterLocal  is  an  integer  initially  0;
+		
+		for  each  BlazePaymentHistory  in    Account.blazePaymentHistoryArray do {
+		print(">>>>Entering Payment History<<<<");
+		PaymentHistory  is  some  BlazePaymentHistory  initially  it  as  a  BlazePaymentHistory;
+	
+		//Declaring and initialsing Local variables for PaymentHistory 
+		MIN_AST_NUM is an integer initially 0;
+		MIN_AST_NUM_UPDATED is an integer initially 0;
+		DPD_UPDATED is an integer initially 0;
+		Month_NUM_UPDATES_24M is an integer;
+		Month_WORST_DELQ_L3M is an integer;
+	
+		print("---->PaymentHistory.assetClassification ::"PaymentHistory.assetClassification);
+		print("---->PaymentHistory.REP_DATE ::"PaymentHistory.REP_DATE);
+		
+		//Calculating MS_REP
+		PaymentHistory.MS_REP =aBlazeApplicant.INQUIRY_DATE.subtractInMonths(PaymentHistory.REP_DATE).months;
+		print("---->PaymentHistory.MS_REP ::"PaymentHistory.MS_REP);
+		
+		//Calculating Date_Diff_Disb_Rep
+		PaymentHistory.Date_Diff_Disb_Rep =Account.dateReported.subtractInMonths(PaymentHistory.REP_DATE).months;
+		print("PaymentHistory.Date_Diff_Disb_Rep ::"PaymentHistory.Date_Diff_Disb_Rep);
+		
+		//Calculating MIN_AST_NUM
+		if(PaymentHistory.assetClassification is known and PaymentHistory.assetClassification <>"")then{
+			if(PaymentHistory.assetClassification =(ignoring case)"STD")then{
+				MIN_AST_NUM =0;
+			}else if(PaymentHistory.assetClassification =(ignoring case)"SMA")then{
+				MIN_AST_NUM =31;
+			}else if(PaymentHistory.assetClassification =(ignoring case)"SUB")then{
+				MIN_AST_NUM =91;
+			}else if(PaymentHistory.assetClassification =(ignoring case)"DBT")then{
+				MIN_AST_NUM =361;
+			}else if(PaymentHistory.assetClassification =(ignoring case)"LOS")then{
+				MIN_AST_NUM =721;
+			}else{
+				MIN_AST_NUM =0;
+			}
+		}
+		print("---->MIN_AST_NUM ::"MIN_AST_NUM);
+	
+		if(PaymentHistory.Date_Diff_Disb_Rep is known)then{
+	
+			//Calculating MIN_AST_NUM_UPDATED
+			if(MIN_AST_NUM>PaymentHistory.Date_Diff_Disb_Rep)then{
+				MIN_AST_NUM_UPDATED =0;
+			}else{
+				MIN_AST_NUM_UPDATED =MIN_AST_NUM;
+			}
+			print("---->MIN_AST_NUM_UPDATED ::"MIN_AST_NUM_UPDATED);
+
+			//Calculating DPD_UPDATED
+			print("---->PaymentHistory.daysPastDue ::"PaymentHistory.daysPastDue);
+			if(PaymentHistory.daysPastDue>PaymentHistory.Date_Diff_Disb_Rep)then{
+				DPD_UPDATED =0;
+			}else{
+				DPD_UPDATED =PaymentHistory.daysPastDue;
+			}
+			print("---->DPD_UPDATED ::"DPD_UPDATED);
+		}
+		else{
+			print("PaymentHistory.Date_Diff_Disb_Rep is UNKNOWN");
+		}
+	
+		PaymentHistory.DELQ =math().max(DPD_UPDATED,MIN_AST_NUM_UPDATED);
+		print("---->PaymentHistory.DELQ ::"PaymentHistory.DELQ);
+	
+		if(PaymentHistory.DELQ is known)then{
+			if(MaxDelqCounter =0)then{
+				Account.MAX_DELQ_L6M =PaymentHistory.DELQ;
+				MaxDelqCounter =MaxDelqCounter+1;
+			}else if(MaxDelqCounter>0 and Account.MAX_DELQ_L6M <PaymentHistory.DELQ)then{
+				Account.MAX_DELQ_L6M =PaymentHistory.DELQ;
+			}
+		}
+		
+		if(PaymentHistory.REP_DATE is known and Account.accountOpenDate is known)then{
+			Month_NUM_UPDATES_24M =PaymentHistory.REP_DATE.subtractInMonths(Account.accountOpenDate).months;
+		}
+		print("---->Month_NUM_UPDATES_24M ::"Month_NUM_UPDATES_24M);
+		if(Month_NUM_UPDATES_24M is known and Month_NUM_UPDATES_24M >=1 and Month_NUM_UPDATES_24M <=24)then{
+			Account.NUM_UPDATES_24M =Account.NUM_UPDATES_24M+1;
+		}
+	
+		if(aBlazeApplicant.INQUIRY_DATE is known and PaymentHistory.REP_DATE is known)then{
+			Month_WORST_DELQ_L3M =aBlazeApplicant.INQUIRY_DATE.subtractInMonths(PaymentHistory.REP_DATE).months;
+		}
+		print("---->Month_WORST_DELQ_L3M ::"Month_WORST_DELQ_L3M);
+		if(Month_WORST_DELQ_L3M is known and Month_WORST_DELQ_L3M >=1 and Month_WORST_DELQ_L3M<=3)then{
+			if(delqCounter =0)then{
+				Account.DELQ_L3M =PaymentHistory.DELQ;
+				delqCounter =delqCounter+1;
+			}
+			else if(delqCounter>0 and PaymentHistory.DELQ>Account.DELQ_L3M)then{
+				Account.DELQ_L3M =PaymentHistory.DELQ;
+			}
+		}
+		//Payment History Derivations for CRIF ENDS
+		
+		//Payment History Derivations for Bureau Starts
+		print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+          if(Account.lastPaymentDate is known)then{
+          print("---->today.subtractInMonths(Account.lastPaymentDate).months ::"today.subtractInMonths(Account.lastPaymentDate).months);
+          }
+		if(Account.lastPaymentDate is known and today.subtractInMonths(Account.lastPaymentDate).months <= 36) then {     
+          
+			if(PaymentHistory.daysPastDue is known)then{
+				print("---->First Level");
+				if(monthsCounterLocal  <= 36) then {
+					print("---->Second Level");
+					if(PaymentHistory.daysPastDue  >= 90)then{
+						print("---->Third Level");
+						aBlazeApplicant.isDpdAb90everInL36M=true;
+						print("---->aBlazeApplicant.isDpdAb90everInL36M ::"aBlazeApplicant.isDpdAb90everInL36M);
+					}
+				}
+				
+				if(monthsCounterLocal  <= 12) then {
+					if(PaymentHistory.daysPastDue  >= 60)then{
+						aBlazeApplicant.isDpdAb60everInL12M=true;
+						print("---->aBlazeApplicant.isDpdAb60everInL12M ::"aBlazeApplicant.isDpdAb60everInL12M);
+					}
+					if(PaymentHistory.daysPastDue  >= 30)then{
+						aBlazeApplicant.isDpdAb30everInL12M=true;
+						print("---->aBlazeApplicant.isDpdAb30everInL12M ::"aBlazeApplicant.isDpdAb30everInL12M);
+					}
+				}
+				
+				if(monthsCounterLocal<= 6)then {
+					if(PaymentHistory.daysPastDue< 30 and PaymentHistory.daysPastDue >0)  then  {
+						aBlazeApplicant.isDpdAb30everInL6M=true;
+						print("---->aBlazeApplicant.isDpdAb30everInL6M ::"aBlazeApplicant.isDpdAb30everInL6M);
+					}
+				}
+				print("---->monthsCounterLocal ::"monthsCounterLocal);
+				print("---->PaymentHistory.daysPastDue ::"PaymentHistory.daysPastDue);
+				monthsCounterLocal  =  monthsCounterLocal+1;
+			}
+		}
+		//Payment History Derivations for Bureau Ends
+		
+		print(">>>>Exiting Payment History<<<<");
+		}
+		
+		print("---->Account.NUM_UPDATES_24M ::"Account.NUM_UPDATES_24M);
+		print("---->Account.DELQ_L3M ::"Account.DELQ_L3M);
+	
+		//Calculating MAX_NUM_UPDATES_24M for scorcard Exclusion
+		if(Account.NUM_UPDATES_24M is known and aBlazeApplicant.MAX_NUM_UPDATES_24M =unknown)then{
+			aBlazeApplicant.MAX_NUM_UPDATES_24M =Account.NUM_UPDATES_24M;
+		}else if(Account.NUM_UPDATES_24M is known and aBlazeApplicant.MAX_NUM_UPDATES_24M =known and aBlazeApplicant.MAX_NUM_UPDATES_24M <Account.NUM_UPDATES_24M)then{
+			aBlazeApplicant.MAX_NUM_UPDATES_24M =Account.NUM_UPDATES_24M;
+		}
+	
+	//if(Account.dateClosed = unknown) then {
+		//if(Account.currentDate.subtractInMonths(Account.lastPaymentDate).months <= 36) then {           
+		//monthsCounterLocal  is  a  integer  initially  0;           
+			//for  each  BlazePaymentHistory  in    Account.blazePaymentHistoryArray do {             
+			//PaymentHistory  is  some  BlazePaymentHistory  initially  it  as  a  BlazePaymentHistory;             
+			
+				//if(monthsCounterLocal  <= 36) then { 
+					//if(PaymentHistory.daysPastDue  >= 90)  then  {
+					//aBlazeApplicant.isDpdAb90everInL36M=true;
+					//}
+				//}
+				
+				//if(monthsCounterLocal  <= 12) then { 
+					//if(PaymentHistory.daysPastDue  >= 60)  then  {
+					//aBlazeApplicant.isDpdAb60everInL12M=true;
+					//}
+					//if(PaymentHistory.daysPastDue  >= 30)  then  {
+					//aBlazeApplicant.isDpdAb30everInL12M=true;
+					//}
+				//}
+				
+				//if(monthsCounterLocal  <= 6) then { 
+					//if(PaymentHistory.daysPastDue  < 30 and PaymentHistory.daysPastDue >0)  then  {
+					//aBlazeApplicant.isDpdAb30everInL6M=true;
+					//}
+				//}
+        //monthsCounterLocal  =  monthsCounterLocal+1;
+			//}
+        //}           
+    //}
+	//---------------------------------Exiting Payment History Loop-------------------------------------------
+
+		if(Account.DELQ_L3M is known and worstDelqCounter =0)then{
+			aBlazeApplicant.WORST_DELQ_L3M =Account.DELQ_L3M;
+			worstDelqCounter =worstDelqCounter+1;
+		}
+		else if(Account.DELQ_L3M is known and worstDelqCounter>0 and Account.DELQ_L3M>aBlazeApplicant.WORST_DELQ_L3M)then{
+			aBlazeApplicant.WORST_DELQ_L3M =Account.DELQ_L3M;
+		}
+	
+	if(Account.isCreditCard = false and Account.lastPaymentDate is known)then{
+	if(aBlazeApplicant.isWriteOffOrSettled  and Account.amountOverdue >10000 and today.subtractInMonths(Account.lastPaymentDate).months <= 36)then{
+		aBlazeApplicant.isNonCcAccWoffSettOverdueAb10kL36M =true;
+		//to be corrected isCcAccWoffSettOverdueAb10kL36M
+	}
+	
+	if(Account.amountOverdue >=5000 and today.subtractInMonths(Account.lastPaymentDate).months <= 60)then{
+		if(aBlazeApplicant.isWriteOffOrSettled or Account.isSettled)then
+		{
+			aBlazeApplicant.isNonCcAccWoffSettOverdueAb5kL60M =true;
+		}
+        //SMA,LSS,DBT,SUB logic to be added
+	}
+	}
+	
+	print("------------------Exiting Account---------------------------------");
+	}
+      }
+	//-----------------------------------Exiting Account Loop--------------------------------------------------
+	
+	print("---->aBlazeApplicant.MAX_MOB ::"aBlazeApplicant.MAX_MOB);
+	print("---->aBlazeApplicant.WORST_DELQ_L3M ::"aBlazeApplicant.WORST_DELQ_L3M);
+	
+	//-----------------------------------------Setting Flags for Application Deviation Matrix--------------------------------------- 
+	print("---->isUnsecuredInLast6to12M ::"isUnsecuredInLast6to12M);
+	if(isUnsecuredInLast6to12M > 2)then{
+		aBlazeApplicant.applicationDeviation_BIL_B7Flag =true
+	}
+	
+	print("isUnsecuredInLast3to6M ::"isUnsecuredInLast3to6M);
+	if(isUnsecuredInLast3to6M > 1)then{
+		aBlazeApplicant.applicationDeviation_BIL_B8Flag =true
+	}
+	
+	print("---->isUnsecuredInLast3M ::"isUnsecuredInLast3M);
+	if(isUnsecuredInLast3M > 0)then{
+		aBlazeApplicant.applicationDeviation_BIL_B9Flag =true
+	}
+	//--------------------------------------------End of Application Deviation Matrix flags-----------------------------------------
+	
+	//-----------------------------------Entering Enquiry Loop--------------------------------------------------
+	print("---->aBlazeApplicant.creditBureauData.blazeEnquiryArray Count ::"aBlazeApplicant.creditBureauData.blazeEnquiryArray.count);
+	if(aBlazeApplicant.creditBureauData.blazeEnquiryArray is known) then {
+		for  each  EnquiryArray  in  aBlazeApplicant.creditBureauData.blazeEnquiryArray  
+		do{
+		//incrementing counter for Unsecured Enquiries
+		Enquiry  is  some  EnquiryArray  initially  it  as  a  EnquiryArray; 
+		isUnsecuredEnquiry is a boolean initially false;
+		if(Enquiry.purpose is unknown or Enquiry.purpose ="")then{
+          Enquiry.purpose ="-";
+        }
+		print("---->Enquiry.purpose ::"Enquiry.purpose);
+		if(Enquiry.purpose is contained  in  text "00,05,08,09,10,12,14,16,24,35,36,37,38,39,40,41,45,47,51,52,61")then{
+			isUnsecuredEnquiry =true;
+		}
+		print("---->isUnsecuredEnquiry ::"isUnsecuredEnquiry);
+		print("---->Enquiry.enquiryDate ::"Enquiry.enquiryDate);
+		if(Enquiry.enquiryDate is known)then{
+        print("---->today.subtractInMonths(Enquiry.enquiryDate).months ::"today.subtractInMonths(Enquiry.enquiryDate).months);
+		if(today.subtractInMonths(Enquiry.enquiryDate).months  <=6 and isUnsecuredEnquiry)then{
+			aBlazeApplicant.noOfUnsecuredEnqInL6m =aBlazeApplicant.noOfUnsecuredEnqInL6m+1;
+		}
+		print("---->noOfUnsecuredEnqInL6m ::"aBlazeApplicant.noOfUnsecuredEnqInL6m);
+		
+		if(today.subtractInMonths(Enquiry.enquiryDate).months <=3 and isUnsecuredEnquiry)then{
+			aBlazeApplicant.noOfUnsecuredEnqInL3m =aBlazeApplicant.noOfUnsecuredEnqInL3m+1;
+		}
+		print("---->noOfUnsecuredEnqInL3m ::"aBlazeApplicant.noOfUnsecuredEnqInL3m);
+	}
+    }
+	}
+	//------------------------------------Exiting Enquiry Loop--------------------------------------------------
+	
+	print("");
+    print("----> aBlazeApplicant.noOfEnqInL6m :: "aBlazeApplicant.noOfEnqInL6m);
+	
+	print("------------------Exiting Applicant---------------------------------");
+	}
+	//-----------------------------------Exiting Applicant Loop--------------------------------------------------
+  
+  }
+  
+  print("++++> Exiting function :: fn_BL_BureauDerivedVariables");
+  print("");
+  
+}catch an Exception with {
+  aBlazeApplication.fn_BL_BureauDerivedVariablesException = true;  
+  print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");
+}
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='RWK6ev'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

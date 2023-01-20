@@ -1,0 +1,19 @@
+#Extended attributes for Innovator file-based repository (directory: 'LAP_KarzaDeviations')
+#Thu May 26 11:37:35 UTC 2022
+contentType=Instance
+guid=KXfB2qxfiMaEHB9d34vBdl787CZ
+innovatorDisplayName=LAP_KarzaDeviations
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=QzixEYa1EHH8Jr6Fk8nhguBcZtu
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+managementProperty.Test\ Case=
+managementProperty.Test\ Role=None
+subType=None
+target=SRL
+type=SRL Ruleset

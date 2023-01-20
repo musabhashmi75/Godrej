@@ -1,0 +1,15 @@
+#Extended attributes for Eclipse file-based repository (directory: 'GHF_Deployment_Definition')
+#Sun Aug 22 00:31:59 IST 2021
+contentType=Fixed
+guid=CmsEjYV8vWP2St5dVr9SO6AQecR
+innovatorDisplayName=GHF_Deployment_Definition
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Deployment Definition
+target=Repository
+type=XML

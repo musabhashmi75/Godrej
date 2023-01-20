@@ -1,0 +1,15 @@
+#Extended attributes for Eclipse file-based repository (directory: 'BTCommonVar')
+#Thu Aug 12 14:42:44 IST 2021
+contentType=Fixed
+guid=LXZ5liJkgBO3KLSyHwsQEKvI3Cr
+innovatorDisplayName=BTCommonVar
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=None
+target=SRL
+type=SRL Variable

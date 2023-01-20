@@ -1,0 +1,480 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_BL_Definitions'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_BL_Definitions1</value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_BL_Definitions</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("");
+print("++++> Entering function :: fn_BL_Definitions");
+
+aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+applicationDate is a date;
+applicationDate = message.invocation.applicationDate;
+
+errType is a string initially "";
+errId is a string initially "";
+errName is a string initially "";
+errAction is a string initially "";
+errCode is a string initially "";
+errText is a string initially "";
+
+try{
+  if(aBlazeApplication.businessErrorsFlag = false) then {
+
+    print("----> Application Date :: "applicationDate);
+
+    productCode is a string;
+    productCode = message.invocation.decisionService;
+
+    print("----> Number of applicants :: "message.request.application.applicants.count);
+
+    //-------------------- upper casing starts---------------------------
+    if(aBlazeApplication.applicationAdditionalDetails.other.eligibilityMethod <> unknown) then {
+      aBlazeApplication.applicationAdditionalDetails.other.eligibilityMethod = portable().toUpperCase(aBlazeApplication.applicationAdditionalDetails.other.eligibilityMethod); 
+    }    
+
+    //-------------------- upper casing ends-----------------------------
+    
+
+    for each BlazeApplicant in BTCommonVar.termInput.blazeApplication.blazeApplicantArray
+    do {
+      aBlazeApplicant is some BlazeApplicant initially it as a BlazeApplicant;
+      
+      print("----> aBlazeApplicant.applicantType :: " aBlazeApplicant.applicantType);
+      print("----> aBlazeApplicant.employmentType :: " aBlazeApplicant.employmentType); 
+      
+          
+      // Corporate -- aBlazeApplicant.bureauScore
+      print("----> aBlazeApplicant.corporateFlag  ::  "  aBlazeApplicant.corporateFlag);
+      
+      
+      if(aBlazeApplicant.corporateFlag is true and aBlazeApplicant.applicantAdditionalDetails.cibil.score is known and aBlazeApplicant.applicantAdditionalDetails.cibil.score<>"") then {
+        aBlazeApplicant.bureauScore  =  aBlazeApplicant.applicantAdditionalDetails.cibil.score as a real; 
+        print("----> Corporate aBlazeApplicant.bureauScore  ::  "  aBlazeApplicant.bureauScore);
+      } 
+      
+	  //SALARIED --aBlazeApplicant.bureauScore
+	  //Added by KAJAL on 28 July as per change given by ANKIT/GAURAV
+	  //Need to add condition for the salaried if creditBureauReports is not present then score should be customer selected.	  
+	  else if(aBlazeApplicant.employmentType =(ignoring case)"SALARIED" and aBlazeApplicant.creditBureauReports.count<=0 and aBlazeApplicant.applicantAdditionalDetails.cibil.score<>unknown)
+		then{
+		if(aBlazeApplicant.applicantAdditionalDetails.cibil.score is known and aBlazeApplicant.applicantAdditionalDetails.cibil.score<>"" and aBlazeApplicant.applicantAdditionalDetails.cibil.score = ("000-1" or " -1") )then{
+	  	    aBlazeApplicant.bureauScore  =-1;
+	  }	
+          else if(aBlazeApplicant.applicantAdditionalDetails.cibil.score.length() >=1)then
+            {
+              aBlazeApplicant.bureauScore  =  aBlazeApplicant.applicantAdditionalDetails.cibil.score as a real;  
+            }
+         print("----> SALARIED aBlazeApplicant.bureauScore  ::  "  aBlazeApplicant.bureauScore);	  
+}   
+      print("----> aBlazeApplicant.bureauScore  ::  "  aBlazeApplicant.bureauScore);     
+      //  isNtc used in Thin Segment Experian Scorecard      
+      if(aBlazeApplicant.bureauScore  is  not  unknown  and  aBlazeApplicant.bureauScore  is  equal  to  -1  )  then  {
+        aBlazeApplicant.isNtc  =  true;
+      } 
+      print("----> aBlazeApplicant.isNtc :: "aBlazeApplicant.isNtc);
+      
+      // Corporate -- aBlazeApplicant.derogatoryRemarksInL12m        
+      if(aBlazeApplicant.customerCategory =(ignoring case)"CORP")then{
+        print("Entered Here");
+      if(aBlazeApplicant.corporateFlag is true and aBlazeApplicant.applicantAdditionalDetails.cibil.derog is unknown
+         or  aBlazeApplicant.applicantAdditionalDetails.cibil.derog = "" or aBlazeApplicant.applicantAdditionalDetails.cibil.derog=(ignoring case) "Y" ) then {
+        aBlazeApplicant.derogatoryRemarksInL12m = 1;
+        print("----> Corporate aBlazeApplicant.derogatoryRemarksInL12m :: "aBlazeApplicant.derogatoryRemarksInL12m);
+      }//added by Ankit to handle retails senp scenario
+      else if(aBlazeApplicant.corporateFlag is true and aBlazeApplicant.applicantAdditionalDetails.cibil.derog=(ignoring case) "N" ) then  {
+                aBlazeApplicant.derogatoryRemarksInL12m = 0;
+      }
+	  //end by Ankit to handle retail senp
+      }
+      print("----> aBlazeApplicant.derogatoryRemarksInL12m :: "aBlazeApplicant.derogatoryRemarksInL12m);   
+      
+
+      // Applicant Priority Address 
+      for each AddressDetails in aBlazeApplicant.kycDetails.addressDetails
+      do {
+        print("----> Address Priority :: "it.priority);
+        if (it.priority is not blank and it.priority = (ignoring case )"5") then {
+          highPriorityAddress is some BlazeAddress initially it as a BlazeAddress;
+          aBlazeApplicant.highPriorityAddress=highPriorityAddress;
+        }
+        // Address Types
+        if (it.addressType is not blank and it.addressType = (ignoring case )"PRIRES") then{
+          primaryResidentialAddress is some BlazeAddress initially it as a BlazeAddress;
+          aBlazeApplicant.primaryResidentialAddress=primaryResidentialAddress;
+        }
+        if (it.addressType is not blank and it.addressType = (ignoring case )"ALTRESI") then{
+          alternateResidentialAddress is some BlazeAddress initially it as a BlazeAddress;
+          aBlazeApplicant.alternateResidentialAddress=alternateResidentialAddress;
+        }
+        if (it.addressType is not blank and it.addressType = (ignoring case )"EMPADD") then{
+          employerAddress is some BlazeAddress initially it as a BlazeAddress;
+          aBlazeApplicant.employerAddress=employerAddress;
+        }
+      }  
+      
+      // Applicant's Age in years
+      age is a real initially 0;
+      age = fn_CalculateAge(aBlazeApplicant);
+      aBlazeApplicant.age = age;
+      print("----> Applicant's Age :: " aBlazeApplicant.age);  
+      
+      // Applicant's Age at maturity
+  //    ageAtMaturity is a real initially 0;
+   //   if(age <> 0 and age <> unknown)
+   //   then{
+   //     ageAtMaturity = age + message.request.application.loanBasicDetail.paymentDetails.numberOfInstallments/12;
+   //     aBlazeApplicant.ageAtMaturity = ageAtMaturity;
+   //   }
+  //    print("----> Applicant's ageAtMaturity :: " ageAtMaturity);   
+      
+      if(message.request.application.loanBasicDetail.paymentDetails.maturityDate is known and aBlazeApplicant.dateOfBirth is known)then{
+ 	  maturityDate is a date initially message.request.application.loanBasicDetail.paymentDetails.maturityDate;
+      dob is a date;
+        print("---->aBlazeApplicant.customerCategory ::"aBlazeApplicant.customerCategory);
+        if(aBlazeApplicant.customerCategory =(ignoring case)"CORP")then{
+           dob =calendar().date(aBlazeApplicant.dateOfIncorporation,"yyyy-MM-dd");
+        }else if(aBlazeApplicant.customerCategory =(ignoring case)"RETAIL")then{
+          dob =calendar().date(aBlazeApplicant.dateOfBirth,"yyyy-MM-dd");
+        }
+    print("---->maturityDate :: "maturityDate );
+      print("---->dob :: "dob );
+ageAtMaturity=((maturityDate).subtractInMonths(dob).months);
+  ageAtMaturity =ageAtMaturity/12;
+}
+      
+      // totalWorkExperience
+      if (aBlazeApplicant.employmentType=  (ignoring  case)  "SALARIED") then {
+           aBlazeApplicant.totalWorkExperience = aBlazeApplicant.applicantAdditionalDetails.customerSalaried.totalWorkExperience; 
+      } else if (aBlazeApplicant.employmentType=  (ignoring  case)  "SEP") then {
+           aBlazeApplicant.totalWorkExperience = aBlazeApplicant.applicantAdditionalDetails.customerSep.totalWorkExperience;  
+      } else if (aBlazeApplicant.employmentType=  (ignoring  case)  "SENP" and aBlazeApplicant.customerCategory<>(ignoring  case)  "CORP") then {
+           aBlazeApplicant.totalWorkExperience = aBlazeApplicant.applicantAdditionalDetails.customerSenp.totalWorkExperience;
+      } else if (aBlazeApplicant.corporateFlag is true) then {
+          print("----> Ankit Applicant age  :: " aBlazeApplicant.age); 
+          aBlazeApplicant.totalWorkExperience = round(aBlazeApplicant.age);
+      }
+      print("----> totalWorkExperience :: " aBlazeApplicant.totalWorkExperience); 
+         
+      //  Sec  Geo  Risk  Ranking  used in all three Experian Scorecard -- aBlazeApplicant.secGeoRiskRanking and ranking1       
+      if(aBlazeApplicant.isNtc=false  and  aBlazeApplicant.employmentType=  (ignoring  case  )  "SALARIED")  then  {
+        Sal_Pincode_Ranking_Instance(aBlazeApplicant);
+        print("----> aBlazeApplicant.secGeoRiskRanking :: "aBlazeApplicant.secGeoRiskRanking);
+      } else  if(aBlazeApplicant.isNtc=false  and  (aBlazeApplicant.employmentType=  (ignoring  case  )  "SEP"  
+      or  aBlazeApplicant.employmentType=  (ignoring  case  )  "SENP"))  then  {
+        SE_Pincode_Ranking_Instance(aBlazeApplicant); 
+        print("----> aBlazeApplicant.ranking1 :: "aBlazeApplicant.ranking1);
+      } else  if(aBlazeApplicant.isNtc=true)  then  {
+        Thin_Segment_Pincode_Ranking_Instance(aBlazeApplicant); 
+        print("----> aBlazeApplicant.secGeoRiskRanking :: "aBlazeApplicant.secGeoRiskRanking);
+      }       
+      
+      
+      // incomeOrPbt
+      if (aBlazeApplicant.employmentType=  (ignoring  case  )  "SALARIED" and aBlazeApplicant.applicantAdditionalDetails.additionalDetail.netAnnual <> unknown) then {
+           aBlazeApplicant.incomeOrPbt = aBlazeApplicant.applicantAdditionalDetails.additionalDetail.netAnnual; 
+      } else if (aBlazeApplicant.employmentType=  (ignoring  case  )  "SEP" and aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsLatestYear <> unknown) then {
+           aBlazeApplicant.incomeOrPbt = aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsLatestYear;  
+      } else if (aBlazeApplicant.employmentType=  (ignoring  case  )  "SENP" and aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.netPbt <> unknown) then {
+           aBlazeApplicant.incomeOrPbt = aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.netPbt;
+      }
+      print("----> incomeOrPbt :: " aBlazeApplicant.incomeOrPbt);
+      
+      // yearsInCurrentAddress
+      if(aBlazeApplicant.applicantAdditionalDetails.additionalDetail.stayInSinceYear is not unknown 
+         and aBlazeApplicant.applicantAdditionalDetails.additionalDetail.stayInSinceYear is not equal to "") then {
+    //    str1 is a string initially "0101" as a string;
+        str1 is a string initially "3112" as a string;
+        // str1 is a string initially "01" as a string;  
+       // str4 is string  ;
+        //str5 is sting;
+        //str5 is a string initially str1.concat(str4);    
+        //strr4 = calender().currentMonth;
+        str2 is a string initially aBlazeApplicant.applicantAdditionalDetails.additionalDetail.stayInSinceYear as a string;
+       // str3 is a string initially str1.concat(str2);    
+        str3 is a string initially str1.concat(str2);
+    //         str3 is a string initially str5.concat(str2);
+        sdf is a date initially SimpleDateFormat.newInstance("ddMMyyyy").parse(str3) as a date;
+        calendar().defaultDateFormat = "dd-MM-yyyy";
+        aBlazeApplicant.yearsInCurrentAddress = calendar().currentDate().subtractInMonths(sdf).months/12;  
+      }
+      print("----> yearsInCurrentAddress :: " aBlazeApplicant.yearsInCurrentAddress);
+      
+      // residenceTypeYears
+      if(aBlazeApplicant.applicantAdditionalDetails.additionalDetail.currentResidence <> unknown 
+         and aBlazeApplicant.applicantAdditionalDetails.additionalDetail.currentResidence is not equal to "" 
+         and aBlazeApplicant.yearsInCurrentAddress <> unknown) then {
+        if((aBlazeApplicant.applicantAdditionalDetails.additionalDetail.currentResidence = (ignoring  case)  "RENTED"  
+            or  aBlazeApplicant.applicantAdditionalDetails.additionalDetail.currentResidence = (ignoring  case)  "COMPANY LEASED")
+          and aBlazeApplicant.yearsInCurrentAddress < 1) then {
+            aBlazeApplicant.residenceTypeYears="Rented_LT_1Y";
+          } else if((aBlazeApplicant.applicantAdditionalDetails.additionalDetail.currentResidence = (ignoring  case)  "RENTED"  
+                     or  aBlazeApplicant.applicantAdditionalDetails.additionalDetail.currentResidence = (ignoring  case)  "COMPANY LEASED") 
+            and aBlazeApplicant.yearsInCurrentAddress >= 1 and aBlazeApplicant.yearsInCurrentAddress <= 2) then {
+              aBlazeApplicant.residenceTypeYears="Rented_BT_1Y-2Y";
+            } else if ((aBlazeApplicant.applicantAdditionalDetails.additionalDetail.currentResidence = (ignoring  case)  "RENTED"  
+                        or  aBlazeApplicant.applicantAdditionalDetails.additionalDetail.currentResidence = (ignoring  case)  "COMPANY LEASED")
+              and aBlazeApplicant.yearsInCurrentAddress >= 3 and aBlazeApplicant.yearsInCurrentAddress <= 4) then {
+                aBlazeApplicant.residenceTypeYears="Rented_BT_3Y-4Y";
+              } else if ((aBlazeApplicant.applicantAdditionalDetails.additionalDetail.currentResidence = (ignoring  case)  "SELF OWNED" 
+                          or aBlazeApplicant.applicantAdditionalDetails.additionalDetail.currentResidence = (ignoring  case)  "FAMILY OWNED" 
+                         or aBlazeApplicant.applicantAdditionalDetails.additionalDetail.currentResidence = (ignoring  case)  "RENTED" 
+              or aBlazeApplicant.applicantAdditionalDetails.additionalDetail.currentResidence = (ignoring  case)  "COMPANY LEASED") 
+              and aBlazeApplicant.yearsInCurrentAddress >= 5) then {
+                aBlazeApplicant.residenceTypeYears="Rented_Owned_GE_5Y";
+              }
+      }
+      print("----> residenceTypeYears :: " aBlazeApplicant.residenceTypeYears);
+      
+      // employmentStatus and employerName
+      for each EmploymentDetails in aBlazeApplicant.kycDetails.employmentDetails
+      do{
+        if(it.currentEmployer=(ignoring  case  )"True" and aBlazeApplicant.employmentType <>  (ignoring  case  )  "NON-WORKING" ) then {
+          aBlazeApplicant.employmentStatus = it.kycEmploymentType;
+          aBlazeApplicant.employerName = it.employerName;
+        }
+      }
+      print("----> aBlazeApplicant.employmentStatus :: " aBlazeApplicant.employmentStatus);
+      print("----> aBlazeApplicant.employerName :: " aBlazeApplicant.employerName);
+      
+      // Non_Target_Employer_Check_Instance
+      if(aBlazeApplicant.employerName <> unknown 
+         and aBlazeApplicant.employerName <> "") then {
+        Non_Target_Employer_Check_Instance(aBlazeApplicant);
+      }
+      print("----> aBlazeApplicant.isNonTargetEmployer :: " aBlazeApplicant.isNonTargetEmployer);
+      
+      // aBlazeApplicant.rag
+       print("---->Ankit--> aBlazeApplicant.subSector :: " aBlazeApplicant.subSector);
+      if(aBlazeApplicant.subSector <> unknown 
+         and aBlazeApplicant.subSector <> "") then {
+        Industry_SubSector_Instance(aBlazeApplicant);     
+      }
+      print("----> aBlazeApplicant.rag :: " aBlazeApplicant.rag);
+      
+      // isSingleSalariedApplicant
+      if(message.request.application.applicants.count <> unknown and message.request.application.applicants.count = 1) then {
+        if (aBlazeApplicant.employmentType=  (ignoring  case  )  "SALARIED") then {
+          aBlazeApplication.isSingleSalariedApplicant=true; 
+        }
+      }
+      print("----> aBlazeApplication.isSingleSalariedApplicant :: " aBlazeApplication.isSingleSalariedApplicant);
+      
+      // isDlAuthentication
+      if(aBlazeApplicant.karza.drivingLicenseAuthentication.drivingLicenseResult is equal to unknown 
+         or aBlazeApplicant.karza.drivingLicenseAuthentication.drivingLicenseResult is equal to null ) then {
+        aBlazeApplicant.isDlAuthentication = false;
+      }
+      print("----> aBlazeApplicant.karza.drivingLicenseAuthentication.drivingLicenseResult :: " aBlazeApplicant.karza.drivingLicenseAuthentication.drivingLicenseResult);
+      print("----> aBlazeApplicant.isDlAuthentication :: " aBlazeApplicant.isDlAuthentication);
+      
+      // isPassportVerification
+      if(aBlazeApplicant.karza.passportVerification.passportVerificationResult is equal to unknown 
+         or aBlazeApplicant.karza.passportVerification.passportVerificationResult is equal to null ) then {
+        aBlazeApplicant.isPassportVerification = false;
+      }
+      print("----> aBlazeApplicant.karza.passportVerification.passportVerificationResult :: " aBlazeApplicant.karza.passportVerification.passportVerificationResult);
+      print("----> aBlazeApplicant.isPassportVerification :: " aBlazeApplicant.isPassportVerification);
+      
+      // isEmploymentVerification
+      if(aBlazeApplicant.karza.employmentVerification.empVerificationResult is equal to unknown 
+         or aBlazeApplicant.karza.employmentVerification.empVerificationResult is equal to null) then {
+        aBlazeApplicant.isEmploymentVerification = false;
+      }
+      print("----> aBlazeApplicant.karza.employmentVerification.empVerificationResult :: " aBlazeApplicant.karza.employmentVerification.empVerificationResult);
+      print("----> aBlazeApplicant.isEmploymentVerification :: " aBlazeApplicant.isEmploymentVerification);
+
+      // creditLimit used in HardStopDeviations
+      if(aBlazeApplication.loggedInUser<>unknown and aBlazeApplication.buffer1<>unknown and aBlazeApplicant.employmentType<>unknown and productCode<>unknown and aBlazeApplication.loggedInUser<>"" and aBlazeApplication.buffer1<>"" and aBlazeApplicant.employmentType<>"" and productCode<>"" and aBlazeApplicant.applicantType <> unknown and aBlazeApplicant.applicantType = (ignoring case)"MainApp") then {
+        aBlazeApplication.buffer1 = portable().toUpperCase(aBlazeApplication.buffer1);
+        User_Wise_Credit_Limit_Matrix_Instance(aBlazeApplication.loggedInUser, aBlazeApplication.buffer1, aBlazeApplicant.employmentType, productCode, aBlazeApplication);
+        print("----> User_Wise_Credit_Limit_Matrix_Instance called... :: "); 
+      }
+      
+      //-------------------- upper casing starts---------------------------
+      if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.incomeProgram <> unknown) then {
+        aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.incomeProgram = portable().toUpperCase(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.incomeProgram);
+      }      
+      if(aBlazeApplicant.applicantAdditionalDetails.additionalDetail.purposeOfLoanOthers <> unknown) then {
+      aBlazeApplicant.applicantAdditionalDetails.additionalDetail.purposeOfLoanOthers = portable().toUpperCase(aBlazeApplicant.applicantAdditionalDetails.additionalDetail.purposeOfLoanOthers);
+      }
+      if(aBlazeApplicant.qualification <> unknown) then {
+        aBlazeApplicant.qualification = portable().toUpperCase(aBlazeApplicant.qualification);
+      }  
+      if(aBlazeApplicant.highPriorityAddress.city <> unknown) then {
+        aBlazeApplicant.highPriorityAddress.city = portable().toUpperCase(aBlazeApplicant.highPriorityAddress.city);
+      } 
+      if(aBlazeApplicant.natureOfBusiness <> unknown) then {
+        aBlazeApplicant.natureOfBusiness = portable().toUpperCase(aBlazeApplicant.natureOfBusiness);
+      } 
+    //-------------------- upper casing ends-----------------------------
+
+    } 
+    print("----> aBlazeApplication.loggedInUser :: " aBlazeApplication.loggedInUser);
+    print("----> aBlazeApplication.buffer1 :: " aBlazeApplication.buffer1);
+    print("----> aBlazeApplication.creditLimit :: " aBlazeApplication.creditLimit);
+
+    // isCreditLimitOverShoot -- used in HardStopDeviations
+    if(aBlazeApplication.loanBasicDetail.keyDetails.loanAmount<>unknown and aBlazeApplication.creditLimit<>unknown and aBlazeApplication.loanBasicDetail.keyDetails.loanAmount > aBlazeApplication.creditLimit) 
+      then {
+      aBlazeApplication.isCreditLimitOverShoot=true;
+    }
+    print("----> aBlazeApplication.isCreditLimitOverShoot :: " aBlazeApplication.isCreditLimitOverShoot); 
+
+    // Verificaitons_FiInitiations -- used in Application Deviations
+    for each FiInitiation in message.request.application.verifications.fiInitiation such that (it  <>  unknown ) 
+    do {
+      if (it.addressType is not blank and it.addressType = (ignoring case )"PRIRES")
+      then {
+        priResAddrVerification is some FiInitiation initially it as a FiInitiation;
+        aBlazeApplication.fi_priResAddrVerification=priResAddrVerification;
+      }
+      
+      if (it.addressType is not blank and it.addressType = (ignoring case )"ALTRESI")
+      then {
+        altResAddrVerification is some FiInitiation initially it as a FiInitiation;
+        aBlazeApplication.fi_altResAddrVerification=altResAddrVerification;
+      }
+      
+      if (it.addressType is not blank and it.addressType = (ignoring case )"EMPADD")
+      then {
+        employerAddrVerification is some FiInitiation initially it as a FiInitiation;
+        aBlazeApplication.fi_employerAddrVerification=employerAddrVerification;
+      }
+    }
+    print("----> aBlazeApplication.fi_priResAddrVerification :: " aBlazeApplication.fi_priResAddrVerification);
+    print("----> aBlazeApplication.fi_altResAddrVerification :: " aBlazeApplication.fi_altResAddrVerification);
+    print("----> aBlazeApplication.fi_employerAddrVerification :: " aBlazeApplication.fi_employerAddrVerification);
+
+    //  SORP/SOCP changed to Self Occupied -- used in Application Deviations -- upper casing of fields used in LTV 
+    for each Collateral in message.request.application.collateral
+    do {
+      for each Property in it.property
+      do{
+        if(it.collateralType<> unknown and it.collateralUsage <> unknown and it.collateralUsage = (ignoring case)"Self Occupied")
+        then {
+          aBlazeApplication.isSorp=true;          
+        } else if(it.collateralType<> unknown and it.collateralUsage <> unknown and it.collateralUsage <> (ignoring case)"Self Occupied")
+        then {
+          aBlazeApplication.isNonSorp=true;      
+        }
+        if(it.collateralType<> unknown and it.collateralUsage <> unknown) then {
+          it.collateralType = portable().toUpperCase(it.collateralType);
+          it.collateralUsage = portable().toUpperCase(it.collateralUsage);
+          print("----> it.collateralType :: " it.collateralType);
+          print("----> it.collateralUsage :: " it.collateralUsage);
+        }
+        // collateral Usage error
+        if(it.collateralUsage = unknown or it.collateralUsage = "") then {
+          print("**Error :: ###>> Collateral Usage is empty <<###");
+          errType = "CONDMAND ";
+          errText = "Collateral Usage is empty";
+          errId = "ERROBJ166";
+          errName = errId;    
+          fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+
+        }
+        // collateral Type error
+        if(it.collateralType = unknown or it.collateralType = "") then {
+          print("**Error :: ###>> Collateral Type is empty <<###");
+          errType = "CONDMAND ";
+          errText = "Collateral Type is empty";
+          errId = "ERROBJ215";
+          errName = errId;    
+          fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+
+        }
+      }
+    }
+    print("----> aBlazeApplication.isSorp :: " aBlazeApplication.isSorp);
+    print("----> aBlazeApplication.isNonSorp :: " aBlazeApplication.isNonSorp);   
+
+    // btLoanStartDate -- used in deviations
+    btDuration is a real initially 0;
+    if(message.request.application.applicationAdditionalDetails.balanceTransfer.btLoanStartDate is not unknown ) then {
+      btLoanStartDate is a date initially message.request.application.applicationAdditionalDetails.balanceTransfer.btLoanStartDate;
+      print("---->btLoanStartDate :: "btLoanStartDate);
+      btDuration=applicationDate.subtractInMonths(btLoanStartDate).months;  
+      aBlazeApplication.btDurationInMonths = btDuration;
+      // Added by kajal as per gaurav request 
+      aBlazeApplication.mob=applicationDate.subtractInDays(btLoanStartDate).days;
+    }
+    print("btDuration -> "btDuration);  
+  }
+
+  print("++++> Exiting function :: fn_BL_Definitions");
+  print("");
+ 
+}catch an Exception with {
+  aBlazeApplication.fn_BL_DefinitionsException = true;  
+  print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");  
+}]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='J59VV8'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

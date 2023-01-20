@@ -1,0 +1,20 @@
+#Extended attributes for Innovator file-based repository (directory: 'fn_BL_Judgemental_ScoreCard')
+#Thu Jan 19 06:12:19 UTC 2023
+contentType=Instance
+guid=930P8O2GZt1XeKYKye0FNOxJUVr
+innovatorDisplayName=fn_BL_Judgemental_ScoreCard
+innovatorItemCreationId=admin
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=Q8jH6kHdOYIZ1uG0WKXqvvejqv0
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+managementProperty.Test\ Case=
+managementProperty.Test\ Role=None
+subType=None
+target=SRL
+type=SRL Function

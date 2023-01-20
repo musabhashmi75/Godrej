@@ -1,0 +1,460 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_BL_Judgemental_ScoreCard'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_BL_Judgemental_ScoreCard1</value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_BL_Judgemental_ScoreCard</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("");
+print("++++> Entering function :: fn_BL_Judgemental_ScoreCard");
+
+aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+print("---->aBlazeApplication ::"
+    aBlazeApplication);
+try {
+    if (aBlazeApplication.businessErrorsFlag = false) then {
+        scoreCardDetailArray is some array of ScoreCardDetail initially message1.response.scoreCardDetails;
+        print("---->scoreCardDetailArray ::"
+            scoreCardDetailArray);
+
+        //------------------------------------Age of Primary coApplicantKey person logic begins------------------------------------
+        agePrimaryApplicant is a real initially 0;
+        retailTraderValue is a real;
+        manufacturerValue is a real;
+        wholesaleTraderValue is a real;
+        serviceITValue is a real;
+        serviceNonITValue is a real;
+        officeSelfOwnedorRented is a string initially "";
+
+        for each BlazeApplicant in BTCommonVar.termInput.blazeApplication.blazeApplicantArray
+        do {
+
+            print("Entering Loop for agePrimaryApplicant");
+            aBlazeApplicant is some BlazeApplicant initially it as a BlazeApplicant;
+            print("----> applicantType :: "
+                aBlazeApplicant.applicantType);
+            print("----> aBlazeApplicant.buffer1 :: "
+                aBlazeApplicant.buffer1);
+            if (aBlazeApplicant.applicantType <> "" and aBlazeApplicant.applicantType <> unknown and aBlazeApplicant.applicantType = (ignoring case)"CoApp"
+                and aBlazeApplicant.buffer1 <> unknown and aBlazeApplicant.buffer1 <> ""
+                and aBlazeApplicant.buffer1 = (ignoring case)"YES") then {
+                print("Entering Coditionals");
+                print("----> applicantType :: "
+                    aBlazeApplicant.applicantType);
+                print("----> aBlazeApplicant.buffer1 :: "
+                    aBlazeApplicant.buffer1);
+                agePrimaryApplicant = fn_CalculateAge(aBlazeApplicant);
+                print("----> agePrimaryApplicant :: "
+                    agePrimaryApplicant);
+            }
+            print("---->aBlazeApplicant.applicantType ::"
+                aBlazeApplicant.applicantType);
+            if (aBlazeApplicant.applicantType <> ""
+                and aBlazeApplicant.applicantType <> unknown and aBlazeApplicant.applicantType = (ignoring
+                    case)
+                "MainApp") then {
+                officeSelfOwnedorRented = aBlazeApplicant.addressOwnershipType;
+                print("----> officeSelfOwnedorRented :: "
+                    officeSelfOwnedorRented);
+            }
+        }
+
+        //------------------------------------Age of Primary coApplicantKey person logic ends------------------------------------
+
+        //-------------------------------------------------Applicant Loop begins-----------------------------------------------------
+
+        for each BlazeApplicant in BTCommonVar.termInput.blazeApplication.blazeApplicantArray
+        do {
+            print("Entering Loop");
+            aBlazeApplicant is some BlazeApplicant initially it as a BlazeApplicant;
+            businessVintage is a real initially 0;
+            bureauScorePrimaryApplicant is a real initially 0;
+            Last12mthBankStatementBal is an integer initially 0;
+            natureOfbusiness is a string initially "";
+            natureOfbusinessValue is a real;
+            turnOverStability is a real initially 0;
+			isCrif is a boolean initially true;
+            if (aBlazeApplicant.applicantType <> ""
+                and aBlazeApplicant.applicantType <> unknown and aBlazeApplicant.applicantType = (ignoring
+                    case)
+                "MainApp") then {
+
+                //----------------------------------------- -----Last Year bank statement Logic starts---------------------------------------------------
+                //abbArray is some fixed array of string;
+                //if(aBlazeApplicant.bankingDetails[0].iwOwRatio <> "" and aBlazeApplicant.bankingDetails[0].iwOwRatio <> unknown)then {
+                //print("----> aBlazeApplicant.bankingDetails[0].iwOwRatio  :: "aBlazeApplicant.bankingDetails[0].iwOwRatio);
+                //}
+                //abbCommaSepratedString is a string initially aBlazeApplicant.bankingDetails[0].iwOwRatio;
+                //abbArray =abbCommaSepratedString.split(",");
+                //abbSum is a real initially 0;
+                //print("------>abbCommaSepratedString ::"abbCommaSepratedString);
+                //print("------>abbArray  ::"abbArray[5]);
+                //i is an integer initially 0;
+                //Last12mthBankStatementBal is an integer initially 0;
+                //arrLength is an integer initially abbArray.count;
+                //print("------>arrLength ::"arrLength);
+                //if(arrLength<12)then{
+                //while(i<arrLength)do{
+                //	print("abbArray all index values::"abbArray[i]);
+                //  abbSum =abbSum +abbArray[i] as a real;
+                //  i =i+1;
+                //}
+                //print("------>abbSum ::"abbSum);
+                //i=0;
+
+                //abbBy3 is a real initially abbSum/3;
+                //print("------>abbBy3 ::"abbBy3);
+                //while(i<arrLength)do{
+                //  if(abbBy3>abbArray[i] as a real)then{
+                //	  Last12mthBankStatementBal =Last12mthBankStatementBal+1;
+                //  }
+                //  i =i+1;
+                //}
+                //}
+                //if(Last12mthBankStatementBal <> unknown )then {
+                //print("------>Last12mthBankStatementBal ::"Last12mthBankStatementBal);
+                //}
+                if (aBlazeApplicant.bankingDetails[0].iwOwRatio <> ""
+                    and aBlazeApplicant.bankingDetails[0].iwOwRatio is known) then {
+                    Last12mthBankStatementBal = aBlazeApplicant.bankingDetails[0].iwOwRatio as a integer;
+                }
+                print("aBlazeApplicant.bankingDetails[0].iwOwRatio ::"
+                    aBlazeApplicant.bankingDetails[0].iwOwRatio);
+
+
+                if (Last12mthBankStatementBal <> unknown) then {
+                    print("------>Last12mthBankStatementBal ::"
+                        Last12mthBankStatementBal);
+                }
+
+                //----------------------------------------- -----Last Year bank statement Logic ends---------------------------------------------------
+
+                businessVintage = fn_CalculateAge(aBlazeApplicant);
+                if (businessVintage <> unknown) then {
+                    print("----> businessVintage :: "
+                        businessVintage);
+                }
+                otherPSL is a real;
+                if (message1.request.application.applicationAdditionalDetails.other.psl <> "") then {
+                    otherPSL = message1.request.application.applicationAdditionalDetails.other.psl as a real;
+                }
+                print("---->otherPSL ::"
+                    otherPSL);
+
+                otherPEP is a real;
+                if (message1.request.application.applicationAdditionalDetails.other.pep <> "") then {
+                    otherPEP = message1.request.application.applicationAdditionalDetails.other.pep as a real;
+                }
+                print("---->otherPEP ::"
+                    otherPEP);
+
+                otherBType is a real;
+                if (message1.request.application.applicationAdditionalDetails.other.borrowerType <> "") then {
+                    otherBType = message1.request.application.applicationAdditionalDetails.other.borrowerType as a real;
+                }
+                print("---->otherBType ::"
+                    otherBType);
+
+                otherBuffer4 is a real;
+                if (message1.request.application.applicationAdditionalDetails.other.buffer4 <> "") then {
+                    otherBuffer4 = message1.request.application.applicationAdditionalDetails.other.buffer4 as a real;
+                }
+
+                otherBuffer5 is a real;
+                if (message1.request.application.applicationAdditionalDetails.other.buffer5 <> "") then {
+                    otherBuffer5 = message1.request.application.applicationAdditionalDetails.other.buffer5 as a real;
+                }
+                otherBuffer6 is a real;
+                if (message1.request.application.applicationAdditionalDetails.other.buffer6 <> "") then {
+                    otherBuffer6 = message1.request.application.applicationAdditionalDetails.other.buffer6 as a real;
+                }
+                print("---->otherBuffer4 ::"
+                    otherBuffer4);
+                print("---->otherBuffer5 ::"
+                    otherBuffer5);
+                print("---->otherBuffer6 ::"
+                    otherBuffer6);
+
+                //------------------------------------------------Growth Percentag Logic begins----------------------------------------------------
+
+                // Turnover Ratio as per Financials
+                turnoverRatio is a real;
+                if (otherPSL <> unknown and otherBuffer4 <> unknown) then {
+                    print("---->otherPSL  :: "
+                        otherPSL);
+                }
+                if (otherPSL = otherBuffer4) then {
+                    message1.request.application.applicationAdditionalDetails.buffer4 = "0";
+                    turnoverRatio = 0;
+                } else {
+                    turnoverRatio = ((otherPSL - otherBuffer4) / (otherBuffer4)) * 100;
+                    message1.request.application.applicationAdditionalDetails.buffer4 = turnoverRatio as a string;
+                }
+                if (turnoverRatio <> unknown) then {
+                    print("---->turnoverRatio :: "
+                        turnoverRatio);
+                }
+                if (message1.request.application.applicationAdditionalDetails.buffer4 <> unknown) then {
+                    print("---->message1.request.application.applicationAdditionalDetails.buffer4 ::"
+                        message1.request.application.applicationAdditionalDetails.buffer4);
+                }
+                //Gross Profit
+                grossProfit is a real;
+                if (otherPEP <> (unknown) and otherBuffer5 <> (unknown)) then {
+                    if (otherPEP = otherBuffer5) then {
+                        message1.request.application.applicationAdditionalDetails.buffer5 = "0";
+                        grossProfit = 0;
+                    } else {
+                        grossProfit = ((otherPEP - otherBuffer5) / (otherBuffer5)) * 100;
+                        message1.request.application.applicationAdditionalDetails.buffer5 = grossProfit as a string;
+                    }
+                    print("---->message1.request.application.applicationAdditionalDetails.buffer5 ::"
+                        message1.request.application.applicationAdditionalDetails.buffer5);
+                }
+
+                //Profit After Tax (PAT)
+                PAT is a real;
+                if (otherBType <> unknown and otherBuffer6 <> unknown) then {
+                    if (otherBType = otherBuffer6) then {
+                        message1.request.application.applicationAdditionalDetails.buffer6 = "0";
+                        PAT = 0;
+                    } else {
+                        PAT = ((otherBType - otherBuffer6) / (otherBuffer6)) * 100;
+                        message1.request.application.applicationAdditionalDetails.buffer6 = PAT as a string;
+                    }
+                    print("---->applicationAdditionalDetails.buffer6 ::"
+                        message1.request.application.applicationAdditionalDetails.buffer6);
+                }
+                //------------------------------------------------Growth Percentag Logic ends----------------------------------------------------
+                if (aBlazeApplication.loanBasicDetail.sourcingDetails.buffer4 <> ""
+                    and aBlazeApplication.loanBasicDetail.sourcingDetails.buffer4 <> unknown) then {
+                    if (aBlazeApplication.loanBasicDetail.sourcingDetails.buffer4 = "000-1") then {
+                        bureauScorePrimaryApplicant = -1;
+                    } else {
+                        bureauScorePrimaryApplicant = aBlazeApplication.loanBasicDetail.sourcingDetails.buffer4 as a real;
+                    }
+                    print("----> bureauScorePrimaryApplicant :: "
+                        bureauScorePrimaryApplicant);
+                }
+
+                if (aBlazeApplication.applicationAdditionalDetails.other.psl <> ""
+                    and aBlazeApplication.applicationAdditionalDetails.other.psl <> unknown) then {
+                    print("---->aBlazeApplication.applicationAdditionalDetails.other.psl :: "
+                        aBlazeApplication.applicationAdditionalDetails.other.psl);
+                }
+
+                natureOfbusiness = message1.request.application.applicationAdditionalDetails.buffer3;
+                if (natureOfbusiness is not equal to null and natureOfbusiness <> ""
+                    and natureOfbusiness <> unknown) then {
+                    print("----> natureOfbusiness :: "
+                        natureOfbusiness);
+
+                    if (natureOfbusiness is equal to(ignoring
+                            case)
+                        "Manufacturing") then {
+                        manufacturerValue = aBlazeApplication.applicationAdditionalDetails.other.psl as a real;
+                        print("------> manufacturerValue :: "
+                            manufacturerValue);
+                    }
+
+                    if (natureOfbusiness is equal to(ignoring
+                            case)
+                        "Retail Trader") then {
+                        retailTraderValue = aBlazeApplication.applicationAdditionalDetails.other.psl as a real;
+                        print("------> retailTraderValue :: "
+                            retailTraderValue);
+                    }
+
+                    if (natureOfbusiness is equal to(ignoring
+                            case)
+                        "Wholesale Trader") then {
+                        wholesaleTraderValue = aBlazeApplication.applicationAdditionalDetails.other.psl as a real;
+                        print("------> wholesaleTraderValue :: "
+                            wholesaleTraderValue);
+                    }
+
+                    if (natureOfbusiness is equal to(ignoring
+                            case)
+                        "Services-IT") then {
+                        serviceITValue = aBlazeApplication.applicationAdditionalDetails.other.psl as a real;
+                        print("------> serviceITValue :: "
+                            serviceITValue);
+                    }
+
+                    if (natureOfbusiness is equal to(ignoring
+                            case)
+                        "Services-Non IT") then {
+                        serviceNonITValue = aBlazeApplication.applicationAdditionalDetails.other.psl as a real;
+                        print("------> serviceNonITValue :: "
+                            serviceNonITValue);
+                    }
+                }
+
+                print("----> wholesaleTraderValue :: "wholesaleTraderValue);
+                print("----> serviceITValue :: "serviceITValue);
+                print("----> manufacturerValue :: "manufacturerValue);
+                print("----> serviceNonITValue :: "serviceNonITValue);
+                print("----> serviceITValue :: "serviceITValue); 
+                print("---->turnoverRatio ::"turnoverRatio);
+
+                jugdementalMondelDecision_CIBIL is some NdScoreModelReturnInfo;
+				jugdementalMondelDecision_CIBIL = BL_Judgemental_Score_Card_Instance(businessVintage, turnoverRatio, officeSelfOwnedorRented, Last12mthBankStatementBal, agePrimaryApplicant, bureauScorePrimaryApplicant, manufacturerValue, retailTraderValue, wholesaleTraderValue, serviceITValue, serviceNonITValue);
+                judgementalScore_CIBIL is a real initially 0;
+				judgementalScore_CIBIL = jugdementalMondelDecision_CIBIL.score;
+				aBlazeApplicant.judgementalScore_CIBIL = judgementalScore_CIBIL;
+				
+                scoreCardCharacteristicsArray is some array of ScoreCardCharacteristicsDetail initially an array of ScoreCardCharacteristicsDetail;
+                for each NdScoredCharacteristic in jugdementalMondelDecision_CIBIL.scoredCharacteristics do {
+                        scoredCharacteristics is some NdScoredCharacteristic initially it as a NdScoredCharacteristic;
+                        scoreCardCharacteristicsDetail is some ScoreCardCharacteristicsDetail initially a ScoreCardCharacteristicsDetail;
+                        scoreCardCharacteristicsDetail.characteristicName = scoredCharacteristics.characteristicName;
+                        scoreCardCharacteristicsDetail.characteristicValue = scoredCharacteristics.binLabel;
+                        scoreCardCharacteristicsDetail.reasonCode = scoredCharacteristics.reasonCode as a string;
+                        scoreCardCharacteristicsDetail.partialScore = scoredCharacteristics.partialScore as a string;
+                        scoreCardCharacteristicsArray.append(scoreCardCharacteristicsDetail);
+                    }
+                print("----> scoreCardCharacteristicsArray count :: "scoreCardCharacteristicsArray.count);
+                scoreCardDetail is some ScoreCardDetail initially a ScoreCardDetail;
+                if (scoreCardCharacteristicsArray <> unknown and scoreCardCharacteristicsArray <> null) then {
+                    scoreCardDetail.scoreCardCharacteristics = scoreCardCharacteristicsArray;
+                }
+
+                scoreCardDetail.scorecardName = jugdementalMondelDecision_CIBIL.scoreModelName;
+                print("Final Score Card Name  ---> "
+                    scoreCardDetail.scorecardName);
+                scoreCardDetail.scorecardScore = jugdementalMondelDecision_CIBIL.score;
+                scoreCardDetail.characteristicCount = jugdementalMondelDecision_CIBIL.characteristicCount;
+                scoreCardDetail.scorecardKey = "appScore";
+                scoreCardDetail.purpose = "AutoPopulate";
+                scoreCardDetail.entityType = aBlazeApplicant.applicantType;
+                scoreCardDetail.entityId = aBlazeApplicant.customerCif as a string;
+                scoreCardDetailArray.append(scoreCardDetail);
+				
+				jugdementalMondelDecision_CRIF is some NdScoreModelReturnInfo;
+				jugdementalMondelDecision_CRIF = BL_Judgemental_Score_Card_Instance(businessVintage, turnoverRatio, officeSelfOwnedorRented, Last12mthBankStatementBal, agePrimaryApplicant, aBlazeApplicant.CRIF_score, manufacturerValue, retailTraderValue, wholesaleTraderValue, serviceITValue, serviceNonITValue);
+				judgementalScore_CRIF is a real initially 0;
+				judgementalScore_CRIF = jugdementalMondelDecision_CRIF.score;
+				
+				scoreCardCharacteristicsArray1 is some array of ScoreCardCharacteristicsDetail initially an array of ScoreCardCharacteristicsDetail;
+                for each NdScoredCharacteristic in jugdementalMondelDecision_CRIF.scoredCharacteristics do {
+                        scoredCharacteristics is some NdScoredCharacteristic initially it as a NdScoredCharacteristic;
+                        scoreCardCharacteristicsDetail is some ScoreCardCharacteristicsDetail initially a ScoreCardCharacteristicsDetail;
+                        scoreCardCharacteristicsDetail.characteristicName = scoredCharacteristics.characteristicName;
+                        scoreCardCharacteristicsDetail.characteristicValue = scoredCharacteristics.binLabel;
+                        scoreCardCharacteristicsDetail.reasonCode = scoredCharacteristics.reasonCode as a string;
+                        scoreCardCharacteristicsDetail.partialScore = scoredCharacteristics.partialScore as a string;
+                        scoreCardCharacteristicsArray1.append(scoreCardCharacteristicsDetail);
+                    }
+                print("----> scoreCardCharacteristicsArray1 count :: "
+                    scoreCardCharacteristicsArray1.count);
+                scoreCardDetail1 is some ScoreCardDetail initially a ScoreCardDetail;
+                if (scoreCardCharacteristicsArray1 <> unknown and scoreCardCharacteristicsArray1 <> null) then {
+                    scoreCardDetail1.scoreCardCharacteristics = scoreCardCharacteristicsArray1;
+                }
+
+                scoreCardDetail1.scorecardName = portable().concat(jugdementalMondelDecision_CRIF.scoreModelName,"_CRIF");
+                print("Final Score Card Name  ---> "
+                scoreCardDetail1.scorecardName);
+                scoreCardDetail1.scorecardScore = jugdementalMondelDecision_CRIF.score;
+                scoreCardDetail1.characteristicCount = jugdementalMondelDecision_CRIF.characteristicCount;
+                scoreCardDetail1.scorecardKey = "appScore";
+                scoreCardDetail1.purpose = "AutoPopulate";
+                scoreCardDetail1.entityType = aBlazeApplicant.applicantType;
+                scoreCardDetail1.entityId = aBlazeApplicant.customerCif as a string;
+                scoreCardDetailArray.append(scoreCardDetail1);
+                  
+                print("---->aBlazeApplicant.CRIF_score ::"aBlazeApplicant.CRIF_score);
+				print("---->scoreCardDetail1.scorecardScore ::"scoreCardDetail.scorecardScore);
+                print("---->scoreCardDetail1.scorecardScore1 ::"scoreCardDetail1.scorecardScore);
+                  
+				if(isCrif)then{
+					aBlazeApplication.riskSegment = BL_Judgemental_Score(scoreCardDetail1.scorecardScore);
+				}
+				else if(isCrif =false)then{
+					aBlazeApplication.riskSegment = BL_Judgemental_Score(scoreCardDetail.scorecardScore);
+				}
+				
+                print("aBlazeApplication.riskSegment  (total) ::"aBlazeApplication.riskSegment);
+                message1.request.application.loanBasicDetail.keyDetails.stepLoan = aBlazeApplication.riskSegment;
+
+            }
+        }
+    }
+} catch an Exception with {
+    aBlazeApplication.fn_ApplicationRiskScoreCardsException = true;
+    print("\n***Exception :: \n>>@@@<<\n"
+        evaluationException().toString()
+        "\n>>@@@<<\n");
+}
+//--------------------------------------------------Applicant Loop ends------------------------------------------------------
+
+print("++++> Exiting function :: fn_BL_Judgemental_ScoreCard");
+print("");]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='FNjKC4'>
+    <instance ref='ParameterNameVH'>
+     <value>message1</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

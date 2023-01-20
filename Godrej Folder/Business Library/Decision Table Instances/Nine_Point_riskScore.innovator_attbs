@@ -1,0 +1,18 @@
+#Extended attributes for Innovator file-based repository (directory: 'Nine_Point_riskScore')
+#Fri Jul 22 11:53:12 UTC 2022
+contentType=Instance
+guid=NsgyKGfVS9Q1hkhq50lJJXSZZ15
+innovatorDisplayName=Nine_Point_riskScore
+innovatorItemCreationId=admin
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=6wJBDnNMEpPfdP4wizmesDxkko8
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

@@ -1,0 +1,15 @@
+#Extended attributes for Eclipse file-based repository (directory: 'Home_Loan_Thin_Segment_Score_Model_Template')
+#Wed Jan 05 15:52:05 IST 2022
+contentType=Template
+guid=AagLyVq1v90xaVFPDFc5byologv
+innovatorDisplayName=Thin_Segment_Experian_Score_Card
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Score Model
+target=SRL
+type=SRL Ruleset

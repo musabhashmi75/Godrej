@@ -1,0 +1,428 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_HL_EligibleLoanAmountSenp'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_HL_EligibleLoanAmountSenp</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("");
+print("++++> Entering function :: fn_HL_EligibleLoanAmountSenp");
+
+aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+// This function runs only in case of incomeProgramUsed is not equal to "BANKING SURROGATE" and incomeProgramUsed is not equal to "LOW LTV"
+// Applicant in message.request.application.applicants
+try{
+for each BlazeApplicant  in  BTCommonVar.termInput.blazeApplication.blazeApplicantArray
+do { 
+  aBlazeApplicant is some BlazeApplicant initially it as a BlazeApplicant;
+  
+  incomeProgramUsed is a string;
+  incomeProgramUsed = aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.incomeProgram;
+  print("----> incomeProgramUsed :: " aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.incomeProgram);
+  
+  if(aBlazeApplicant.employmentType = (ignoring case) "SENP" 
+     and incomeProgramUsed <> unknown 
+     and incomeProgramUsed <> (ignoring case) "BANKING SURROGATE" and incomeProgramUsed <> (ignoring case) "LOW LTV")   then{    
+        
+    // Latest Year Cash Profit
+    print("----> aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.netPbt :: " aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.netPbt);  
+    print("----> aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.depreciation :: " aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.depreciation);  
+    print("----> aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.salaryPartner :: " aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.salaryPartner);  
+    print("----> aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.interestPartner :: " aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.interestPartner);  
+    print("----> aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.interestRelative :: " aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.interestRelative);  
+    print("----> aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.interestBank :: " aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.interestBank);  
+    print("----> aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.oneTimeExpense :: " aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.oneTimeExpense);  
+    print("----> aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.oneTimeIncome :: " aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.oneTimeIncome);
+    
+    latestYearCashProfit is a real initially 0;
+    if(aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.netPbt <> unknown 
+       and aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.depreciation <> unknown 
+       and aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.salaryPartner <> unknown 
+       and aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.interestPartner <> unknown 
+       and aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.interestRelative <> unknown 
+       and aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.interestBank <> unknown 
+       and aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.oneTimeExpense <> unknown 
+       and aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.oneTimeIncome <> unknown) then {
+      
+      latestYearCashProfit = (aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.netPbt 
+                              + aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.depreciation 
+                              + aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.salaryPartner 
+                              + aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.interestPartner 
+                              + aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.interestRelative 
+                              + aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.interestBank 
+                              + aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.oneTimeExpense) - aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.oneTimeIncome;  
+      
+      aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.CASHPROFLAST = latestYearCashProfit;        
+    } 
+    print("----> latestYearCashProfit :: " latestYearCashProfit);
+    print("----> CASHPROFLAST :: " aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.CASHPROFLAST);
+    
+    
+    // Previous Year Cash Profit
+    print("----> aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.netPbt :: " aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.netPbt);  
+    print("----> aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.depreciation :: " aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.depreciation);  
+    print("----> aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.salaryPartner :: " aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.salaryPartner);  
+    print("----> aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.interestPartner :: " aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.interestPartner);  
+    print("----> aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.interestRelative :: " aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.interestRelative);  
+    print("----> aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.interestBank :: " aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.interestBank);  
+    print("----> aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.oneTimeExpense :: " aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.oneTimeExpense);  
+    print("----> aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.oneTimeIncome :: " aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.oneTimeIncome);
+    
+    previousYearCashProfit is a real initially 0;
+    if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.netPbt  <> unknown 
+       and aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.depreciation  <> unknown 
+       and aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.salaryPartner  <> unknown 
+       and aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.interestPartner  <> unknown 
+       and aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.interestRelative  <> unknown 
+       and aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.interestBank  <> unknown 
+       and aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.oneTimeExpense <> unknown 
+       and aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.oneTimeIncome  <> unknown ) then {
+      
+      previousYearCashProfit = (aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.netPbt 
+                                + aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.depreciation 
+                                + aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.salaryPartner 
+                                + aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.interestPartner 
+                                + aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.interestRelative 
+                                + aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.interestBank 
+                                + aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.oneTimeExpense) - aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.oneTimeIncome;
+      aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.CASHPROFPREV = previousYearCashProfit;      
+    }
+    print("----> previousYearCashProfit :: " previousYearCashProfit);
+    print("----> CASHPROFPREV :: " aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.CASHPROFPREV);
+    
+    
+    //Cash Profit Growth Percentage
+    cashProfitGrowthPercentage is a real initially 0;    
+    if(latestYearCashProfit <> unknown and previousYearCashProfit <> unknown and previousYearCashProfit > 0 ) then {
+      cashProfitGrowthPercentage = ((latestYearCashProfit - previousYearCashProfit) / previousYearCashProfit)*100;
+      aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.CASFPRGPER = cashProfitGrowthPercentage;
+    }   
+    print("----> cashProfitGrowthPercentage :: " cashProfitGrowthPercentage);    
+    print("----> CASFPRGPER :: " aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.CASFPRGPER);
+     
+    
+    //Turnover Growth Percentage
+    print("----> aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.turnover :: " aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.turnover);
+    print("----> aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.turnover :: " aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.turnover);
+    
+    turnoverGrowthPercentage is a real initially 0;
+    if(aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.turnover <> unknown  
+       and aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.turnover <> unknown  
+       and aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.turnover > 0) then {
+      
+      turnoverGrowthPercentage = ((aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.turnover 
+                                   - aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.turnover) 
+                                  / aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.turnover)*100;
+      aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.TURNGROPER = turnoverGrowthPercentage;      
+    } 
+    print("----> turnoverGrowthPercentage :: " turnoverGrowthPercentage);
+    print("----> TURNGROPER :: " aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.TURNGROPER);
+    
+    
+    //Gross Profit Growth Percentage
+    print("----> aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.grossProfit :: " aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.grossProfit);
+    print("----> aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.grossProfit :: " aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.grossProfit);
+    
+    grossProfitGrowthPercentage is a real initially 0;
+    if(aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.grossProfit <> unknown 
+       and aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.grossProfit <> unknown 
+       and aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.grossProfit > 0) then {
+      
+      grossProfitGrowthPercentage = ((aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.grossProfit 
+                                    - aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.grossProfit) 
+                                   / aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.grossProfit)*100;
+      aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.GRPRGRPER = grossProfitGrowthPercentage;
+    }
+    print("----> grossProfitGrowthPercentage :: " grossProfitGrowthPercentage);    
+    print("----> GRPRGRPER :: " aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.GRPRGRPER);
+        
+
+    //netPbt Growth Percentage
+    netPbtGrowthPercentage is a real initially 0;
+    latestYearNetPbt is a real initially 0;
+    previousYearNetPbt is a real initially 0;
+
+    if(aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.netPbt<>unknown) then {
+      latestYearNetPbt=aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.netPbt;
+    }
+    print("----> latestYearNetPbt :: " latestYearNetPbt);
+
+    if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.netPbt<>unknown) then {
+      previousYearNetPbt=aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.netPbt;
+    }    
+    print("----> previousYearNetPbt :: " previousYearNetPbt);
+    
+    if(latestYearNetPbt <> unknown and previousYearNetPbt <> unknown and previousYearNetPbt > 0 ) then {
+      netPbtGrowthPercentage = ((latestYearNetPbt - previousYearNetPbt) / previousYearNetPbt)*100;
+      // this variable needs to be created in xsd -- by vikas
+      // aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.NETPBTGPER = netPbtGrowthPercentage;
+    }      
+    print("----> netPbtGrowthPercentage :: " netPbtGrowthPercentage);
+    //print("----> NETPBTGPER :: " aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.NETPBTGPER); // variable not yet added in xsd(BOM)
+    
+    
+    //Clarify row 73F Income calculation
+    //Eligible Income Cash Profit 
+    eligibleIncomeCashProfit is a real initially 0;    
+    if(latestYearCashProfit <> unknown and previousYearCashProfit <> unknown 
+       and latestYearCashProfit <= previousYearCashProfit) then{
+      eligibleIncomeCashProfit = latestYearCashProfit;
+    }    
+    if(latestYearCashProfit <> unknown and previousYearCashProfit <> unknown and cashProfitGrowthPercentage <> unknown 
+       and latestYearCashProfit > previousYearCashProfit and cashProfitGrowthPercentage <= 50)  then{
+      eligibleIncomeCashProfit = latestYearCashProfit;
+    }
+    if(latestYearCashProfit <> unknown and previousYearCashProfit <> unknown and cashProfitGrowthPercentage <> unknown 
+       and latestYearCashProfit > previousYearCashProfit and cashProfitGrowthPercentage > 50)  then{
+      eligibleIncomeCashProfit = ((latestYearCashProfit + previousYearCashProfit)/2);
+    }
+    print("----> aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.isCashProfitGrowthSutainable :: " aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.isCashProfitGrowthSutainable);
+    if(cashProfitGrowthPercentage <> unknown and aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.isCashProfitGrowthSutainable <> unknown
+       and cashProfitGrowthPercentage > 50 and aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.isCashProfitGrowthSutainable is equal to true)  then{
+      eligibleIncomeCashProfit = latestYearCashProfit;
+    } else if(cashProfitGrowthPercentage > 50 and aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.isCashProfitGrowthSutainable is equal to false) then {
+      eligibleIncomeCashProfit = ((latestYearCashProfit + previousYearCashProfit)/2);
+    }
+    print("----> eligibleIncomeCashProfit :: " eligibleIncomeCashProfit);
+           
+    //SENP Foir
+    // HL_SENP_FOIR_Offer_Matrix_Instance
+    print("----> purposeOfLoanOthers :: " aBlazeApplicant.applicantAdditionalDetails.additionalDetail.purposeOfLoanOthers);
+    print("----> incomeProgram :: " aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.incomeProgram);
+    print("----> loanAmount :: " aBlazeApplication.loanBasicDetail.keyDetails.loanAmount);
+    //added by Ankit
+    aBlazeApplicant.applicantAdditionalDetails.additionalDetail.purposeOfLoanOthers =  aBlazeApplication.loanBasicDetail.sourcingDetails.purposeOfLoan;
+      print("----> purposeOfLoanOthers applicant :: " aBlazeApplicant.applicantAdditionalDetails.additionalDetail.purposeOfLoanOthers);
+      print("----> purposeOfLoanOthers application:: " aBlazeApplication.loanBasicDetail.sourcingDetails.purposeOfLoan);
+    
+    if(aBlazeApplicant.applicantAdditionalDetails.additionalDetail.purposeOfLoanOthers <> unknown 
+       and aBlazeApplicant.applicantAdditionalDetails.additionalDetail.purposeOfLoanOthers <> ""
+       and aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.incomeProgram <> unknown
+       and aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.incomeProgram <> ""
+       and aBlazeApplication.loanBasicDetail.keyDetails.loanAmount <> unknown) then {
+      HL_SENP_FOIR_Offer_Matrix_Instance(aBlazeApplicant, aBlazeApplication);      
+    }
+    print("----> aBlazeApplicant.foir :: " aBlazeApplicant.foir);
+    print("----> aBlazeApplicant.grossMargin :: " aBlazeApplicant.grossMargin);
+    
+    aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.MAXFOIRSENP = aBlazeApplicant.foir;
+    print("----> MAXFOIRSENP :: " aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.MAXFOIRSENP);
+    
+    aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.MAXGROSSENP = aBlazeApplicant.grossMargin;
+    print("----> MAXGROSSENP :: " aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.MAXGROSSENP);
+    
+    addtionalFoir is a real initially 0;   
+    if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.additionalFoir <> unknown) then {
+      addtionalFoir = aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.additionalFoir;    
+    }
+    print("----> addtionalFoir :: " addtionalFoir);
+    if(aBlazeApplicant.foir <> unknown  and addtionalFoir <> unknown) then{      
+      aBlazeApplicant.foir = aBlazeApplicant.foir + round(addtionalFoir);      
+    }
+    print("----> aBlazeApplicant.foir after adding additional foir :: " aBlazeApplicant.foir);
+    
+	if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.MAXFOIRSENP is known)then{
+		aBlazeApplicant.foirOfferedSENP =aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.MAXFOIRSENP +addtionalFoir;
+	}
+
+    //Eligible Income Gross Margin
+    eligibleIncomeGrossMargin is a real initially 0;
+    latestYearGrossProfit is a real initially 0;
+    previousYearGrossProfit is a real initially 0;
+    cappingBylatestYear is a real initially 0;
+    cappingByPreviousYear is a real initially 0;
+    latestYearGrossMargin is a real initially 0;
+    previousYearGrossMargin is a real initially 0;
+    grossMarginGrowthPercentage is a real initially 0;
+
+    if(aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.grossProfit<> unknown) then {
+      latestYearGrossProfit = aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.grossProfit;
+    }
+    print("----> latestYearGrossProfit :: " latestYearGrossProfit);
+
+    if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.grossProfit<>unknown) then {
+      previousYearGrossProfit = aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.grossProfit;
+    }
+    print("----> previousYearGrossProfit :: " previousYearGrossProfit);
+
+    print("----> aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.additionalGrossMargin :: " aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.additionalGrossMargin);
+    if(aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.turnover<>unknown 
+      and aBlazeApplicant.grossMargin<>unknown and aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.additionalGrossMargin<>unknown) then {
+      latestYearGrossMargin = aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.turnover
+        *((aBlazeApplicant.grossMargin + aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.additionalGrossMargin)/100);
+    }
+    print("----> latestYearGrossMargin :: " latestYearGrossMargin);
+
+    if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.turnover<>unknown 
+      and aBlazeApplicant.grossMargin<>unknown and aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.additionalGrossMargin<>unknown) then {
+      previousYearGrossMargin = aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.turnover
+        *((aBlazeApplicant.grossMargin + aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.additionalGrossMargin)/100);
+    }
+    print("----> previousYearGrossMargin :: " previousYearGrossMargin);
+
+    if(latestYearGrossMargin < latestYearGrossProfit) then {
+      cappingBylatestYear=latestYearGrossMargin;
+    } else if(latestYearGrossMargin >= latestYearGrossProfit) then {
+      cappingBylatestYear=latestYearGrossProfit;
+    } 
+    print("----> cappingBylatestYear :: " cappingBylatestYear);
+
+    if(previousYearGrossMargin < previousYearGrossProfit) then {
+      cappingByPreviousYear=previousYearGrossMargin;
+    } else if(previousYearGrossMargin >= previousYearGrossProfit) then {
+      cappingByPreviousYear=previousYearGrossProfit;
+    } 
+    print("----> cappingByPreviousYear :: " cappingByPreviousYear);
+
+    grossMarginGrowthPercentage=((cappingBylatestYear-cappingByPreviousYear)/cappingByPreviousYear)*100;    
+    print("----> grossMarginGrowthPercentage :: " grossMarginGrowthPercentage);    
+    
+    print("----> aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.isGrossProfitGrowthSutainable :: " aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.isGrossProfitGrowthSutainable);
+    
+    if(cappingBylatestYear <= cappingByPreviousYear) then {
+      eligibleIncomeGrossMargin = cappingBylatestYear;
+    } 
+    else if(cappingBylatestYear > cappingByPreviousYear and grossMarginGrowthPercentage <= 50) then {
+      eligibleIncomeGrossMargin = cappingBylatestYear;
+    } 
+    else if(grossMarginGrowthPercentage > 50 and aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.isGrossProfitGrowthSutainable is equal to true)  then {
+      eligibleIncomeGrossMargin = cappingBylatestYear; 
+    } 
+    else if(grossMarginGrowthPercentage > 50 
+            and aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.isGrossProfitGrowthSutainable is equal to false ) then {
+      eligibleIncomeGrossMargin = (cappingBylatestYear + cappingByPreviousYear)/2;
+    }
+    print("----> eligibleIncomeGrossMargin :: " eligibleIncomeGrossMargin);
+     
+
+    //Eligible Income Industry Margin    
+    eligibleIncomeIndustryMargin is a real initially 0;
+    latestYearIndustryMargin is a real initially 0;
+    previousYearIndustryMargin is a real initially 0;
+
+    print("----> aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.industryMarginCRISIL :: " aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.industryMarginCRISIL);  
+
+    if(aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.turnover<>unknown and aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.industryMarginCRISIL<>unknown) then {
+        latestYearIndustryMargin=aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.turnover 
+        * (aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.industryMarginCRISIL/100);
+    }
+    print("----> latestYearIndustryMargin :: " latestYearIndustryMargin);
+
+    if(aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.turnover<>unknown and aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.industryMarginCRISIL<>unknown) then {
+        previousYearIndustryMargin=aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.turnover
+        * (aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.industryMarginCRISIL/100);
+    }
+    print("----> previousYearIndustryMargin :: " previousYearIndustryMargin);
+    
+    print("----> aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.isTurnoverGrowthSutainable :: " aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.isTurnoverGrowthSutainable);
+    
+    if(latestYearIndustryMargin <= previousYearIndustryMargin) then{
+      eligibleIncomeIndustryMargin = latestYearIndustryMargin;
+    } 
+    else if(latestYearIndustryMargin > previousYearIndustryMargin and turnoverGrowthPercentage <= 50)  then{
+      eligibleIncomeIndustryMargin = latestYearIndustryMargin;
+    } 
+    else if(aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.isTurnoverGrowthSutainable <> unknown
+       and turnoverGrowthPercentage > 50 and aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.isTurnoverGrowthSutainable is equal to true) then {
+      eligibleIncomeIndustryMargin = latestYearIndustryMargin;
+    } 
+    else if(aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.isTurnoverGrowthSutainable <> unknown
+       and turnoverGrowthPercentage > 50 
+             and aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.isTurnoverGrowthSutainable is equal to false) then {
+      eligibleIncomeIndustryMargin = ((latestYearIndustryMargin + previousYearIndustryMargin)/2);
+    }  
+    print("----> eligibleIncomeIndustryMargin :: " eligibleIncomeIndustryMargin);
+    
+   
+    //Net Monthly Income considered for Eligbility
+    netMonthlyIncomeEligibility is a real initially 0; 
+    
+    fn_HL_NetMonthlyIncomeEligibility(aBlazeApplicant,incomeProgramUsed,eligibleIncomeCashProfit,eligibleIncomeGrossMargin,eligibleIncomeIndustryMargin);    
+    netMonthlyIncomeEligibility = aBlazeApplicant.netMonthlyIncomeEligibility;
+    print("----> netMonthlyIncomeEligibility :: " netMonthlyIncomeEligibility);
+    
+    fn_HL_EligibleLoanAmountProgram(aBlazeApplicant,netMonthlyIncomeEligibility,incomeProgramUsed);
+    
+    print("----> aBlazeApplication.finalMonthlyIncomeAllApplicant in loop before :: " aBlazeApplication.finalMonthlyIncomeAllApplicant);
+    aBlazeApplication.finalMonthlyIncomeAllApplicant = aBlazeApplication.finalMonthlyIncomeAllApplicant + netMonthlyIncomeEligibility;
+    print("----> aBlazeApplication.finalMonthlyIncomeAllApplicant in loop after :: " aBlazeApplication.finalMonthlyIncomeAllApplicant);
+  }
+}
+aBlazeApplication.finalMonthlyIncomeAllApplicant = aBlazeApplication.finalMonthlyIncomeAllApplicant;
+print("----> aBlazeApplication.finalMonthlyIncomeAllApplicant ::" aBlazeApplication.finalMonthlyIncomeAllApplicant);
+
+  print("++++> Exiting function :: fn_HL_EligibleLoanAmountSenp");
+  print("");
+
+}catch an Exception with {
+  aBlazeApplication.fn_HL_EligibileLoanAmountSenpException = true;  
+  print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");  
+}]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='Kdn4j2'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_EligibleLoanAmountSenp1</value>
+ </instance>
+</instantiation>

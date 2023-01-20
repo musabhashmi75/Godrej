@@ -1,0 +1,15 @@
+#Extended attributes for Eclipse file-based repository (directory: 'BlazeCreditBureauData')
+#Tue Oct 05 13:55:10 IST 2021
+contentType=Fixed
+guid=G70J8AnNnaSdR34alPEOm57pfEB
+innovatorDisplayName=BlazeCreditBureauData
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=None
+target=SRL
+type=SRL Class

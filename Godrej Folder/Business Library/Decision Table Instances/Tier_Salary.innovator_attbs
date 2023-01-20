@@ -1,0 +1,18 @@
+#Extended attributes for Innovator file-based repository (directory: 'Tier_Salary')
+#Tue Apr 05 16:31:54 UTC 2022
+contentType=Instance
+guid=VLGUtt2ecFHovzTJGr0FFacvQK2
+innovatorDisplayName=Tier_Salary
+innovatorItemCreationId=admin
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=6wJBDnNMEpPfdP4wizmesDxkko8
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

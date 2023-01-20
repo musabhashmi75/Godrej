@@ -1,0 +1,585 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_LAP_EligibilityCalculation'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_LAP_EligibilityCalculation</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[        print("++++> Entering function :: fn_LAP_EligibilityCalculation");
+
+        aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+
+        try{
+        if(aBlazeApplication.businessErrorsFlag = false) then {
+
+        print("----> aBlazeApplication.eligibilityCheck :: " aBlazeApplication.eligibilityCheck);
+
+        if(aBlazeApplication.eligibilityCheck is equal to true) then {
+        // Maximum Loan Amount
+        maxLoanAmount is a real initially 0;
+        netAnnualAllApplicants  is a real initially 0;
+        minLTV is an integer initially 0;
+        if(aBlazeApplication.applicationAdditionalDetails.other.rentalIncomeProgram = (ignoring case) "YES") then {
+        fn_LAP_Eligibility_Basis_Rental_Income(message);
+        maxLoanAmount=aBlazeApplication.applicationAdditionalDetails.finalOffer.LOANAMTOFFR;
+        minLTV = 60;
+        aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLTV = minLTV;
+        print("----> aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLTV :: " aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLTV);
+
+        //added by Ankit for foir
+
+        for each BlazeApplicant  in  BTCommonVar.termInput.blazeApplication.blazeApplicantArray
+        do {
+        aBlazeApplicant is some BlazeApplicant initially it as a BlazeApplicant;
+
+        print("----> aBlazeApplicant.applicantAdditionalDetails.additionalDetail.netAnnual :: " aBlazeApplicant.applicantAdditionalDetails.additionalDetail.netAnnual);
+
+        netAnnualAllApplicants = netAnnualAllApplicants + aBlazeApplicant.applicantAdditionalDetails.additionalDetail.netAnnual;
+        }
+        print("----> netAnnualAllApplicants :: " netAnnualAllApplicants);
+        aBlazeApplication.finalMonthlyIncomeAllApplicant = netAnnualAllApplicants/12;
+        print("----> finalMonthlyIncomeAllApplicant :: " aBlazeApplication.finalMonthlyIncomeAllApplicant);
+        //end by Ankit for final foir rental
+
+        } else {
+        fn_LAP_Eligibility_Basis_Foir(message);
+        fn_LAP_Eligibility_Basis_ABB(message);
+        fn_LAP_Eligibility_Basis_LTV(message);
+        //added by Ankit for risk kyc scorecard
+        for each BlazeApplicant  in  BTCommonVar.termInput.blazeApplication.blazeApplicantArray
+        do {
+        aBlazeApplicant is some BlazeApplicant initially it as a BlazeApplicant;
+        // added for 9 point grid
+        ageScore is a real  initially aBlazeApplicant.age;
+        cityScore is a real  initially aBlazeApplicant.age;
+        marketScore is a real  initially aBlazeApplicant.age;
+        ninePointRiskScore is a real  initially aBlazeApplicant.age;
+        totalNinePointScore is a real  initially aBlazeApplicant.age;
+        ninePointRiskCategory is a string;
+        //end for 9 point grid
+
+        riskCategory is a string;
+        panCheckScore is a real initially 0 ;
+        panCheckCalScore is a real initially 0 ;
+        nob is a real initially 0 ;
+        nobCal is a real initially 0 ;
+        custProfile is a real initially 0 ;
+        custProfileScore is a real initially 0 ;
+
+
+        individualWt is a real initially 0;
+        totalWt is a real initially 0;
+
+        print("----> pep :: " aBlazeApplicant.applicantAdditionalDetails.buffer6 );
+        if ( aBlazeApplicant.applicantAdditionalDetails.buffer6 =(ignoring case) "YES" ) then
+        {
+        individualWt = 200;
+        totalWt = 200;
+        riskCategory= "High";
+        print("----> individualWt :: " individualWt);
+        print("----> totalWt :: " totalWt);
+        aBlazeApplicant.applicantAdditionalDetails.buffer2 =riskCategory;
+        print("----> aBlazeApplicant.applicantAdditionalDetails.buffer2 :: " aBlazeApplicant.applicantAdditionalDetails.buffer2);
+        }
+        else
+        {
+        print("----> aBlazeApplicant.applicantAdditionalDetails.buffer3 :: "  aBlazeApplicant.applicantAdditionalDetails.buffer3 );
+        if ( aBlazeApplicant.applicantAdditionalDetails.buffer3<> unknown and aBlazeApplicant.applicantAdditionalDetails.buffer3 ="VERIFIED") then
+        {
+        panCheckScore = 1;
+        panCheckCalScore = 30;
+        }else {
+        panCheckScore = 2;
+        panCheckCalScore = 60;
+        }
+        print("----> panCheckCalScore  :: "  panCheckCalScore );
+        //   print("---->aBlazeApplicant.employmentType  :: " aBlazeApplicant.employmentType );
+
+
+        if (   (aBlazeApplicant.corporateFlag = true or aBlazeApplicant.employmentType=  (ignoring  case)  "SENP") and aBlazeApplicant.subSector <> unknown and aBlazeApplicant.subSector =(ignoring case)"SBSC221"  ) then {
+
+        print("----> aBlazeApplicant.corporateFlag  :: " aBlazeApplicant.corporateFlag );
+        print("---->aBlazeApplicant.employmentType  :: " aBlazeApplicant.employmentType );
+        print("----> aBlazeApplicant.subSector  :: " aBlazeApplicant.subSector );
+        nob = 2;
+        nobCal = 60;
+        print("----> nobCal  :: " nobCal );
+        }
+        else
+        {
+        nob = 1;
+        nobCal = 30;
+        }
+        print("----> nobCal  :: " nobCal );
+        if(aBlazeApplicant.customerRiskSegment = unknown) then
+        {
+        aBlazeApplicant.customerRiskSegment  = "UNKNOWN";
+        }
+
+        print("----> aBlazeApplicant.customerRiskSegment  :: " aBlazeApplicant.customerRiskSegment );
+        if( aBlazeApplicant.employmentType=  (ignoring  case)  "SEP") then
+        {
+        custProfile = 1;
+        custProfileScore = 40;
+        }
+        else if (     aBlazeApplicant.customerRiskSegment = "Plus Plus") then {
+        print("---->  customerRiskSegment Plus Plus :: " );
+        custProfile = 1;
+        custProfileScore = 40;
+        }
+        else if (   aBlazeApplicant.customerRiskSegment = "Market Plus") then {
+        print("---->  customerRiskSegment Market Plus  :: " );
+        custProfile = 2;
+        custProfileScore = 80;
+        }else
+        {
+        print("---->  customerRiskSegment else :: " );
+        custProfile = 3;
+        custProfileScore = 120;
+        }
+        print("----> custProfileScore  :: "  custProfileScore );
+
+
+
+
+
+        totalWt = panCheckCalScore + nobCal + custProfileScore;
+        print("----> totalWt  :: "  totalWt );
+        if(totalWt > 200) then
+        {riskCategory= "High";}
+        else if (totalWt <=150) then
+        {
+        riskCategory= "LOW";
+        }else
+        {
+        riskCategory= "MEDIUM";
+        }
+        print("----> riskCategory  :: "  riskCategory );
+        aBlazeApplicant.applicantAdditionalDetails.buffer2 =riskCategory;
+        }
+        //start for 9 point scorecard
+        // debug();
+        Nine_Point_Age(aBlazeApplicant,aBlazeApplicant);
+        ageScore = aBlazeApplicant.ageAtMaturity;
+        print("----> aBlazeApplicant.ageAtMaturity :: " aBlazeApplicant.ageAtMaturity);
+        print("----> ageScore :: " ageScore);
+        Tier_City_Score(aBlazeApplicant,aBlazeApplicant,aBlazeApplicant);
+        print("----> aBlazeApplicant.ageAtMaturity :: " aBlazeApplicant.ageAtMaturity);
+        cityScore = aBlazeApplicant.ageAtMaturity;
+        print("----> cityScore :: " cityScore);
+        print("----> aBlazeApplicant.riskscore :: " aBlazeApplicant.experianScore);
+        Nine_Point_riskScore(aBlazeApplicant,aBlazeApplicant);
+        ninePointRiskScore= aBlazeApplicant.ageAtMaturity;
+        //print("----> cityScore :: " cityScore);
+        print("----> aBlazeApplicant.ninePointRiskScore :: " ninePointRiskScore);
+        if(ninePointRiskScore = unknown) then {
+        ninePointRiskScore = 0;
+        }
+
+        if(cityScore = unknown) then {
+        cityScore = 0;
+        }
+        if(ageScore = unknown) then {
+        ageScore = 0;
+        }
+
+
+        totalNinePointScore = ninePointRiskScore + cityScore + ageScore;
+        print("---->totalNinePointScore :: " totalNinePointScore);
+
+
+        if(totalNinePointScore >=0 and  totalNinePointScore <= 39.5) then
+        {ninePointRiskCategory= "LOW";}
+        else if (totalNinePointScore >=40 and  totalNinePointScore <= 79.5) then
+        {
+        ninePointRiskCategory= "MED";
+        }else if (totalNinePointScore >=80 and  totalNinePointScore <= 100) then
+        {
+        ninePointRiskCategory= "HIGH";
+        }
+        print("---->ninePointRiskCategory :: " ninePointRiskCategory);
+        aBlazeApplicant.applicantAdditionalDetails.buffer4 =ninePointRiskCategory;
+
+        // >>> Salaried Risk scorecard variables ends...
+
+
+        //  print("----> aBlazeApplicant.applicantAdditionalDetails.additionalDetail.netAnnual :: " aBlazeApplicant.applicantAdditionalDetails.additionalDetail.netAnnual);
+
+        // netAnnualAllApplicants = netAnnualAllApplicants + aBlazeApplicant.applicantAdditionalDetails.additionalDetail.netAnnual;
+        }//end by Ankit for risk kyc
+
+
+        // tempMaxLoanAmount is a real initially 0
+        print("----> aBlazeApplication.eligibleLoanAmountLtv :: " aBlazeApplication.eligibleLoanAmountLtv);
+        print("----> aBlazeApplication.eligibleLoanAmountFoir :: " aBlazeApplication.eligibleLoanAmountFoir);
+        print("----> aBlazeApplication.eligibleLoanAmountAbb :: " aBlazeApplication.eligibleLoanAmountAbb);
+
+        // all positive
+        if(message.request.application.applicationAdditionalDetails.finalOffer.MAXLOELIGLTV<> unknown and (aBlazeApplication.eligibleLoanAmountFoir <> unknown or aBlazeApplication.eligibleLoanAmountAbb <> unknown))then{
+        if(message.request.application.applicationAdditionalDetails.finalOffer.MAXLOELIGLTV =0 or message.request.application.applicationAdditionalDetails.finalOffer.MAXLOELIGLTV=-1)then{
+          maxLoanAmount =message.request.application.applicationAdditionalDetails.finalOffer.MAXLOELIGINC;
+        }
+          else if(message.request.application.applicationAdditionalDetails.finalOffer.MAXLOELIGLTV>0)then{
+                 maxLoanAmount =  math().min(message.request.application.applicationAdditionalDetails.finalOffer.MAXLOELIGLTV, message.request.application.applicationAdditionalDetails.finalOffer.MAXLOELIGINC);
+                 }
+        }
+        
+
+        // two positive and one zero
+//        else if (aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountLtv = 0 and aBlazeApplication.eligibleLoanAmountFoir > 0 and aBlazeApplication.eligibleLoanAmountAbb > 0) then {
+//        maxLoanAmount =  math().min(aBlazeApplication.eligibleLoanAmountFoir, aBlazeApplication.eligibleLoanAmountAbb);
+//        } else if (aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountLtv > 0 and aBlazeApplication.eligibleLoanAmountFoir = 0 and aBlazeApplication.eligibleLoanAmountAbb > 0) then {
+//        maxLoanAmount =  math().min(aBlazeApplication.eligibleLoanAmountLtv, aBlazeApplication.eligibleLoanAmountAbb);
+//        } else if(aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountLtv > 0 and aBlazeApplication.eligibleLoanAmountFoir > 0 and aBlazeApplication.eligibleLoanAmountAbb = 0) then {
+//        maxLoanAmount =  math().min(aBlazeApplication.eligibleLoanAmountLtv, aBlazeApplication.eligibleLoanAmountFoir);
+//        }
+//
+//        // two positive and one negative
+//        else if (aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountLtv < 0 and aBlazeApplication.eligibleLoanAmountFoir > 0 and aBlazeApplication.eligibleLoanAmountAbb > 0) then {
+//        maxLoanAmount =  math().min(aBlazeApplication.eligibleLoanAmountFoir, aBlazeApplication.eligibleLoanAmountAbb);
+//        } else if (aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountLtv > 0 and aBlazeApplication.eligibleLoanAmountFoir < 0 and aBlazeApplication.eligibleLoanAmountAbb > 0) then {
+//        maxLoanAmount =  math().min(aBlazeApplication.eligibleLoanAmountLtv, aBlazeApplication.eligibleLoanAmountAbb);
+//        } else if(aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountLtv > 0 and aBlazeApplication.eligibleLoanAmountFoir > 0 and aBlazeApplication.eligibleLoanAmountAbb < 0) then {
+//        maxLoanAmount =  math().min(aBlazeApplication.eligibleLoanAmountLtv, aBlazeApplication.eligibleLoanAmountFoir);
+//        }
+//
+//        // two positive and one unknown
+//        else if (aBlazeApplication.eligibleLoanAmountLtv = unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountFoir > 0 and aBlazeApplication.eligibleLoanAmountAbb > 0) then {
+//        maxLoanAmount =  math().min(aBlazeApplication.eligibleLoanAmountFoir, aBlazeApplication.eligibleLoanAmountAbb);
+//        } else if (aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir = unknown and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountLtv > 0 and aBlazeApplication.eligibleLoanAmountAbb > 0) then {
+//        maxLoanAmount =  math().min(aBlazeApplication.eligibleLoanAmountLtv, aBlazeApplication.eligibleLoanAmountAbb);
+//        } else if(aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown and aBlazeApplication.eligibleLoanAmountAbb = unknown
+//        and aBlazeApplication.eligibleLoanAmountLtv > 0 and aBlazeApplication.eligibleLoanAmountFoir > 0) then {
+//        maxLoanAmount =  math().min(aBlazeApplication.eligibleLoanAmountLtv, aBlazeApplication.eligibleLoanAmountFoir);
+//        }
+//
+//        // one positive and two zero
+//        else if(aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountLtv > 0 and aBlazeApplication.eligibleLoanAmountFoir = 0 and aBlazeApplication.eligibleLoanAmountAbb = 0) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountLtv;
+//        //commented by Ankit
+//        maxLoanAmount  = 0;
+//        } else if(aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountLtv = 0 and aBlazeApplication.eligibleLoanAmountFoir > 0 and aBlazeApplication.eligibleLoanAmountAbb = 0) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountFoir;
+//        } else if(aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountLtv = 0 and aBlazeApplication.eligibleLoanAmountFoir = 0 and aBlazeApplication.eligibleLoanAmountAbb > 0) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountAbb;
+//        }
+//
+//        // one positive and two negative
+//        else if(aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountFoir < 0 and aBlazeApplication.eligibleLoanAmountAbb <0 and aBlazeApplication.eligibleLoanAmountLtv > 0) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountLtv;
+//        } else if(aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountLtv < 0 and aBlazeApplication.eligibleLoanAmountAbb <0 and aBlazeApplication.eligibleLoanAmountFoir > 0) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountFoir;
+//        } else if(aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountLtv < 0 and aBlazeApplication.eligibleLoanAmountFoir <0 and aBlazeApplication.eligibleLoanAmountAbb > 0) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountAbb;
+//        }
+//
+//        // one positive and two unknown
+//        else if(aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir = unknown and aBlazeApplication.eligibleLoanAmountAbb = unknown
+//        and aBlazeApplication.eligibleLoanAmountLtv > 0) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountLtv;
+//        } else if(aBlazeApplication.eligibleLoanAmountLtv = unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown and aBlazeApplication.eligibleLoanAmountAbb = unknown
+//        and aBlazeApplication.eligibleLoanAmountFoir > 0) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountFoir;
+//        } else if(aBlazeApplication.eligibleLoanAmountLtv = unknown and aBlazeApplication.eligibleLoanAmountFoir = unknown and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountAbb > 0) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountAbb;
+//        }
+//
+//        // one positive, one negative and one unknown
+//        else if(aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown
+//        and aBlazeApplication.eligibleLoanAmountLtv > 0 and aBlazeApplication.eligibleLoanAmountFoir < 0 and aBlazeApplication.eligibleLoanAmountAbb = unknown ) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountLtv;
+//        } else if(aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountLtv > 0 and aBlazeApplication.eligibleLoanAmountAbb < 0   and aBlazeApplication.eligibleLoanAmountFoir = unknown) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountLtv;
+//        } else if(aBlazeApplication.eligibleLoanAmountFoir <> unknown and aBlazeApplication.eligibleLoanAmountLtv <> unknown
+//        and aBlazeApplication.eligibleLoanAmountFoir > 0  and aBlazeApplication.eligibleLoanAmountLtv < 0 and aBlazeApplication.eligibleLoanAmountAbb = unknown) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountFoir;
+//        } else if(aBlazeApplication.eligibleLoanAmountFoir <> unknown  and aBlazeApplication.eligibleLoanAmountAbb<>unknown
+//        and aBlazeApplication.eligibleLoanAmountFoir > 0  and aBlazeApplication.eligibleLoanAmountAbb < 0  and aBlazeApplication.eligibleLoanAmountLtv = unknown) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountFoir;
+//        } else if(aBlazeApplication.eligibleLoanAmountAbb <> unknown  and aBlazeApplication.eligibleLoanAmountLtv <> unknown
+//        and aBlazeApplication.eligibleLoanAmountAbb > 0  and aBlazeApplication.eligibleLoanAmountLtv < 0   and aBlazeApplication.eligibleLoanAmountFoir = unknown) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountAbb;
+//        } else if(aBlazeApplication.eligibleLoanAmountAbb <> unknown   and aBlazeApplication.eligibleLoanAmountFoir <> unknown
+//        and aBlazeApplication.eligibleLoanAmountAbb > 0  and aBlazeApplication.eligibleLoanAmountFoir < 0  and aBlazeApplication.eligibleLoanAmountLtv = unknown) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountAbb;
+//        }
+//
+//        // one positive, one negative and one zero
+//        else if(aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown  and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountLtv > 0 and aBlazeApplication.eligibleLoanAmountFoir < 0 and aBlazeApplication.eligibleLoanAmountAbb=0) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountLtv;
+//        } else if(aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown  and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountLtv > 0 and aBlazeApplication.eligibleLoanAmountFoir = 0 and aBlazeApplication.eligibleLoanAmountAbb<0) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountLtv;
+//        } else if(aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown  and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountFoir > 0 and aBlazeApplication.eligibleLoanAmountLtv < 0 and aBlazeApplication.eligibleLoanAmountAbb=0) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountFoir;
+//        } else if(aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown  and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountFoir > 0 and aBlazeApplication.eligibleLoanAmountLtv=0 and aBlazeApplication.eligibleLoanAmountAbb<0) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountFoir;
+//        } else if(aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown  and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountAbb > 0 and aBlazeApplication.eligibleLoanAmountLtv<0 and aBlazeApplication.eligibleLoanAmountFoir=0) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountAbb;
+//        } else if(aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown  and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountAbb > 0 and aBlazeApplication.eligibleLoanAmountLtv=0 and aBlazeApplication.eligibleLoanAmountFoir<0) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountAbb;
+//        }
+//
+//        // one positive, one zero and one unknown
+//        else if(aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir = unknown  and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountLtv > 0  and aBlazeApplication.eligibleLoanAmountAbb=0) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountLtv;
+//        } else if(aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown  and aBlazeApplication.eligibleLoanAmountAbb = unknown
+//        and aBlazeApplication.eligibleLoanAmountLtv > 0 and aBlazeApplication.eligibleLoanAmountFoir = 0 ) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountLtv;
+//        } else if(aBlazeApplication.eligibleLoanAmountLtv = unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown  and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountFoir > 0 and aBlazeApplication.eligibleLoanAmountAbb=0) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountFoir;
+//        } else if(aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown  and aBlazeApplication.eligibleLoanAmountAbb = unknown
+//        and aBlazeApplication.eligibleLoanAmountFoir > 0 and aBlazeApplication.eligibleLoanAmountLtv=0) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountFoir;
+//        } else if(aBlazeApplication.eligibleLoanAmountLtv = unknown and aBlazeApplication.eligibleLoanAmountFoir <> unknown  and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountAbb > 0 and aBlazeApplication.eligibleLoanAmountFoir=0) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountAbb;
+//        } else if(aBlazeApplication.eligibleLoanAmountLtv <> unknown and aBlazeApplication.eligibleLoanAmountFoir = unknown  and aBlazeApplication.eligibleLoanAmountAbb <> unknown
+//        and aBlazeApplication.eligibleLoanAmountAbb > 0 and aBlazeApplication.eligibleLoanAmountLtv=0) then {
+//        maxLoanAmount = aBlazeApplication.eligibleLoanAmountAbb;
+//        }
+//
+//        print("----> tempMaxLoanAmount :: " tempMaxLoanAmount);
+        print("----> maxLoanAmount :: " maxLoanAmount);
+
+        }
+
+        // totalObligationAllApplicants -- need to verify with altamas
+        totalObligationAllApplicants is a real initially 0;
+        totalInstallmentAmount is a real initially 0;
+        // Applicant in message.request.application.applicants
+        applicantCounter is an integer initially 0;
+        for each BlazeApplicant  in  BTCommonVar.termInput.blazeApplication.blazeApplicantArray
+        do {
+        //aBlazeApplicant is some BlazeApplicant initially it as a BlazeApplicant;
+
+        applicantCounter=applicantCounter+1;
+        print(" ");
+        print("----> Applicant Number :: " applicantCounter);
+
+        bankingDetailCounter is an integer initially 0;
+        bankingDetailsArray is some array of BankingDetails initially it.bankingDetails;
+        for each BankingDetails in bankingDetailsArray
+        do {
+        bankingDetailCounter=bankingDetailCounter+1;
+        print("----> BankingDetail Number :: " bankingDetailCounter);
+        externalLiabilityCounter is an integer initially 0;
+        for each ExternalLiabilities in it.externalLiabilities
+        //added by Ankit for EMI foir
+        do{
+        if(it.installmentAmount.amount<>unknown and it.emiConsideredForFoir = true) then {
+        externalLiabilityCounter=externalLiabilityCounter+1;
+        print("----> ExternalLiability Number :: " externalLiabilityCounter);
+        print("----> Ankit added it.emiConsideredForFoir :: " it.emiConsideredForFoir);
+        print("----> ExternalLiabilities.installmentAmount.amount :: " it.installmentAmount.amount);
+        totalInstallmentAmount = totalInstallmentAmount + it.installmentAmount.amount;
+        }
+        }
+        }
+        print("----> totalInstallmentAmount :: " totalInstallmentAmount);
+        //  totalObligationAllApplicants = totalObligationAllApplicants + totalInstallmentAmount; commented by ankit
+        totalObligationAllApplicants =   totalInstallmentAmount;
+        }
+        print("----> totalObligationAllApplicants :: " totalObligationAllApplicants);
+
+        // Final Values
+        baseRate is a real initially 0;
+        tenor is a real initially 0;
+        if(aBlazeApplication.loanBasicDetail.paymentDetails.baseRate as a real <> unknown
+        and aBlazeApplication.loanBasicDetail.paymentDetails.numberOfInstallments as a real <> unknown) then {
+        baseRate = aBlazeApplication.loanBasicDetail.paymentDetails.baseRate as a real;
+        tenor = aBlazeApplication.loanBasicDetail.paymentDetails.numberOfInstallments as a real;
+        }
+
+        // tenor
+        if(tenor<> unknown and tenor >0) then {
+        aBlazeApplication.tenor=tenor;
+        }
+
+        print("----> baseRate :: " baseRate);
+        print("----> tenor :: " tenor);
+
+        multiplier is a real initially 0;
+        divisor is a real initially 0;
+        rate is a real initially 0;
+        ratePerMonth is a real initially 0;
+
+        ratePerMonth = baseRate/(12*100);
+
+        rate = 1 + ratePerMonth;
+        multiplier = math().power(rate, tenor);
+        divisor = multiplier - 1;
+        print("----> multiplier :: " multiplier);
+        print("----> divisor :: " divisor);
+        print("----> ratePerMonth :: " ratePerMonth);
+
+        // finalEmi
+        finalEmi is a real initially 0;
+        if(divisor <> 0) then {
+        finalEmi = ((math().min(maxLoanAmount, aBlazeApplication.loanBasicDetail.keyDetails.loanAmount)) * ratePerMonth * multiplier) / divisor;
+        }
+        print("----> aBlazeApplication.loanBasicDetail.keyDetails.loanAmount :: " aBlazeApplication.loanBasicDetail.keyDetails.loanAmount);
+        print("----> finalEmi :: " finalEmi);
+
+        // finalFoir, finalLtv
+        finalFoir is a real initially 0;
+        finalLtv is a real initially 0;
+        print("----> aBlazeApplication.applicationAdditionalDetails.other.rentalIncomeProgram :: " aBlazeApplication.applicationAdditionalDetails.other.rentalIncomeProgram);
+        print("----> aBlazeApplication.finalMonthlyIncomeAllApplicant :: " aBlazeApplication.finalMonthlyIncomeAllApplicant);
+        print("----> aBlazeApplication.tvApproval.finalValuationAmount.finalValAmount :: " aBlazeApplication.tvApproval.finalValuationAmount.finalValAmount);
+        if(aBlazeApplication.applicationAdditionalDetails.other.rentalIncomeProgram <> (ignoring case)"YES") then {
+        print("----> inside rental income  ankit 4  :: " finalLtv);
+        if(aBlazeApplication.finalMonthlyIncomeAllApplicant <> unknown and aBlazeApplication.finalMonthlyIncomeAllApplicant <> 0) then {
+        finalFoir = ((finalEmi + totalObligationAllApplicants) / aBlazeApplication.finalMonthlyIncomeAllApplicant) *100;
+        }
+        if(aBlazeApplication.loanBasicDetail.keyDetails.loanAmount <> unknown
+        and aBlazeApplication.tvApproval.finalValuationAmount.finalValAmount as a real <> unknown
+        and aBlazeApplication.tvApproval.finalValuationAmount.finalValAmount as a real <> 0) then {
+        print("----> inside final LTV ankit 1  :: " );
+        print("----> inside ,MAX , loan amount  ankit 2  :: " (math().min(maxLoanAmount, aBlazeApplication.loanBasicDetail.keyDetails.loanAmount) ));
+        finalLtv = (math().min(maxLoanAmount, aBlazeApplication.loanBasicDetail.keyDetails.loanAmount)
+        / (aBlazeApplication.tvApproval.finalValuationAmount.finalValAmount as a real)) *100;
+        print("----> inside final LTV ankit 3  :: " finalLtv);
+        }
+        }
+        // added by Ankit for rental income
+        if(aBlazeApplication.applicationAdditionalDetails.other.rentalIncomeProgram = (ignoring case)"YES") then {
+        print("----> inside rental income  ankit 6  :: " finalLtv);
+        print("---->aBlazeApplication.finalMonthlyIncomeAllApplicant   :: " aBlazeApplication.finalMonthlyIncomeAllApplicant );
+
+        if(aBlazeApplication.finalMonthlyIncomeAllApplicant <> unknown and aBlazeApplication.finalMonthlyIncomeAllApplicant <> 0) then {
+        finalFoir = ((finalEmi + totalObligationAllApplicants) / aBlazeApplication.finalMonthlyIncomeAllApplicant) *100;
+        }
+        if(aBlazeApplication.loanBasicDetail.keyDetails.loanAmount <> unknown
+        and aBlazeApplication.tvApproval.finalValuationAmount.finalValAmount as a real <> unknown
+        and aBlazeApplication.tvApproval.finalValuationAmount.finalValAmount as a real <> 0) then {
+        print("----> inside final LTV ankit 7  :: " );
+        print("----> inside ,MAX , loan amount  ankit 8  :: " (math().min(maxLoanAmount, aBlazeApplication.loanBasicDetail.keyDetails.loanAmount) ));
+        finalLtv = (math().min(maxLoanAmount, aBlazeApplication.loanBasicDetail.keyDetails.loanAmount)
+        / (aBlazeApplication.tvApproval.finalValuationAmount.finalValAmount as a real)) *100;
+        print("----> inside final LTV ankit 9  :: " finalLtv);
+        }
+        }
+        //end by Ankit for rental income
+
+        print("----> finalFoir :: " finalFoir);
+        print("----> finalLtv :: " finalLtv);
+
+
+        aBlazeApplication.applicationAdditionalDetails.finalOffer.FINALFOIR = finalFoir;
+        aBlazeApplication.applicationAdditionalDetails.finalOffer.FINALLTV = finalLtv;
+        aBlazeApplication.applicationAdditionalDetails.finalOffer.EMIFINOFF = finalEmi;
+
+        print("----> math().min(maxLoanAmount, aBlazeApplication.loanBasicDetail.keyDetails.loanAmount) :: " math().min(maxLoanAmount, aBlazeApplication.loanBasicDetail.keyDetails.loanAmount));
+        aBlazeApplication.applicationAdditionalDetails.finalOffer.LOANAMTOFFR = math().min(maxLoanAmount, aBlazeApplication.loanBasicDetail.keyDetails.loanAmount);
+        //   aBlazeApplication.applicationAdditionalDetails.finalOffer.ROINTR = baseRate;
+        aBlazeApplication.applicationAdditionalDetails.finalOffer.LOANTENU = tenor;
+        aBlazeApplication.applicationAdditionalDetails.finalOffer.ROINTR = aBlazeApplication.loanBasicDetail.paymentDetails.baseRate as a real;
+        print("----> aBlazeApplication.applicationAdditionalDetails.finalOffer.FINALFOIR :: " aBlazeApplication.applicationAdditionalDetails.finalOffer.FINALFOIR);
+        print("----> aBlazeApplication.applicationAdditionalDetails.finalOffer.FINALLTV :: " aBlazeApplication.applicationAdditionalDetails.finalOffer.FINALLTV);
+        print("----> aBlazeApplication.applicationAdditionalDetails.finalOffer.EMIFINOFF :: " aBlazeApplication.applicationAdditionalDetails.finalOffer.EMIFINOFF);
+        print("----> aBlazeApplication.applicationAdditionalDetails.finalOffer.LOANAMTOFFR :: " aBlazeApplication.applicationAdditionalDetails.finalOffer.LOANAMTOFFR);
+        print("----> aBlazeApplication.applicationAdditionalDetails.finalOffer.ROINTR :: " aBlazeApplication.applicationAdditionalDetails.finalOffer.ROINTR);
+        print("----> aBlazeApplication.applicationAdditionalDetails.finalOffer.LOANTENU :: " aBlazeApplication.applicationAdditionalDetails.finalOffer.LOANTENU);
+
+        }
+        }
+
+        print("++++> Exiting function :: fn_LAP_EligibilityCalculation");
+        print("");
+
+        }catch an Exception with {
+        aBlazeApplication.fn_LAP_EligibilityCalculationException = true;
+        print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");
+        }]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='8RBmYS'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_EligibilityCalculation1</value>
+ </instance>
+</instantiation>

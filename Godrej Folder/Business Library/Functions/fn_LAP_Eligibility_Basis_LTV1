@@ -1,0 +1,282 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_HL_Eligibility_Basis_LTV'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_HL_Eligibility_Basis_LTV</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("");
+print("++++> Entering function :: fn_HL_Eligibility_Basis_LTV");
+
+aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+
+try{
+  
+  minLTV is an integer initially 0;
+  LTV is an integer initially 0;
+  start is an integer initially 0;
+
+  loanAmount is a real initially aBlazeApplication.loanBasicDetail.keyDetails.loanAmount;
+  netAnnualSalaryOfAllApplicants is a real initially aBlazeApplication.netAnnualSalaryOfAllApplicants;
+  if(aBlazeApplication.businessErrorsFlag = false) then {
+    // Applicant in message.request.application.applicants
+    for each BlazeApplicant  in  BTCommonVar.termInput.blazeApplication.blazeApplicantArray 
+    do {
+
+      aBlazeApplicant is some BlazeApplicant initially it as a BlazeApplicant;
+      applicantLTV is an integer initially 0;
+
+      print("----> aBlazeApplicant.applicantAdditionalDetails.additionalDetail.purposeOfLoanOthers :: " aBlazeApplicant.applicantAdditionalDetails.additionalDetail.purposeOfLoanOthers);
+      print("----> aBlazeApplicant.employmentType :: " aBlazeApplicant.employmentType);
+      print("----> aBlazeApplicant.customerRiskSegment :: " aBlazeApplicant.customerRiskSegment);
+      print("----> aBlazeApplicant.applicantType :: " aBlazeApplicant.applicantType);
+
+      print("----> aBlazeApplication.employmentType :: " aBlazeApplication.employmentType);
+      print("----> aBlazeApplication.riskSegment :: " aBlazeApplication.riskSegment);
+      print("----> aBlazeApplication.loanBasicDetail.keyDetails.loanAmount :: " aBlazeApplication.loanBasicDetail.keyDetails.loanAmount);
+      print("----> aBlazeApplication.netAnnualSalaryOfAllApplicants :: " aBlazeApplication.netAnnualSalaryOfAllApplicants);
+
+      if(aBlazeApplicant.applicantAdditionalDetails.additionalDetail.purposeOfLoanOthers<>unknown 
+         and aBlazeApplicant.applicantAdditionalDetails.additionalDetail.purposeOfLoanOthers<>""
+         and loanAmount<>unknown) then {
+        ltvMin is an integer initially 100;
+     //   purposeOfLoanOthers is a string initially aBlazeApplicant.applicantAdditionalDetails.additionalDetail.purposeOfLoanOthers;
+        //addded by Ankit
+        purposeOfLoanOthers is a string initially aBlazeApplication.loanBasicDetail.sourcingDetails.purposeOfLoan;
+print("----> purposeOfLoanOthers :: "purposeOfLoanOthers);
+        if(aBlazeApplicant.employmentType <> unknown and aBlazeApplicant.customerRiskSegment <> unknown
+           and aBlazeApplicant.employmentType <> "" and aBlazeApplicant.customerRiskSegment <> ""
+           and netAnnualSalaryOfAllApplicants <> unknown 
+           and aBlazeApplicant.customerRiskSegment <> (ignoring case)"NRI/ PIO/ Merchant Navy"
+           and aBlazeApplicant.employmentType =(ignoring case)"SALARIED") then{
+
+             for each Collateral in aBlazeApplication.collateral 
+             do {
+               for each Property in it.property 
+               do {
+                 if(it.collateralType<> unknown and it.collateralType<> "" and it.collateralUsage <> unknown and it.collateralUsage <> "") then {
+                   print("----> it.collateralType :: " it.collateralType);
+                   print("----> it.collateralUsage :: " it.collateralUsage);
+                   print("----> aBlazeApplicant.employmentType :: " aBlazeApplicant.employmentType);
+                   print("----> aBlazeApplicant.customerRiskSegment :: " aBlazeApplicant.customerRiskSegment);
+
+                   HL_Sal_LTV_Matrix_Instance(purposeOfLoanOthers, aBlazeApplicant.customerRiskSegment, 
+                                              it.collateralUsage, netAnnualSalaryOfAllApplicants, loanAmount, aBlazeApplicant);
+                   print("----> HL_Sal_LTV_Matrix_Instance called :: " );
+
+                   //collateralType, collateralUsage can be multiple 
+                   print("----> aBlazeApplicant.ltv :: " aBlazeApplicant.ltv);
+                   print("----> ltvMin :: " ltvMin);
+                   if(aBlazeApplicant.ltv < ltvMin) then {
+                     ltvMin = aBlazeApplicant.ltv;
+                     print("----> ltvMin :: " ltvMin);
+                   }
+                 }
+               }
+             }
+             applicantLTV = ltvMin;
+           } else if (aBlazeApplication.employmentType <> unknown and aBlazeApplication.riskSegment <> unknown 
+                      and aBlazeApplication.employmentType <> "" and aBlazeApplication.riskSegment <> ""
+                      and netAnnualSalaryOfAllApplicants <> unknown and aBlazeApplication.riskSegment <> (ignoring case)"NRI/ PIO/ Merchant Navy" 
+           and aBlazeApplication.employmentType =(ignoring case)"SALARIED") then {
+             for each Collateral in aBlazeApplication.collateral 
+             do {
+               for each Property in it.property 
+               do {
+                 if(it.collateralType<> unknown and it.collateralType<> "" and it.collateralUsage <> unknown and it.collateralUsage <> "") then {
+                   print("----> it.collateralType :: " it.collateralType);
+                   print("----> it.collateralUsage :: " it.collateralUsage);
+                   print("----> aBlazeApplication.employmentType :: " aBlazeApplication.employmentType);
+                   print("----> aBlazeApplication.riskSegment :: " aBlazeApplication.riskSegment);
+
+                   HL_Sal_LTV_Matrix_Instance(purposeOfLoanOthers, aBlazeApplication.riskSegment,
+                                              it.collateralUsage, netAnnualSalaryOfAllApplicants, loanAmount, aBlazeApplicant);
+                   print("----> HL_Sal_LTV_Matrix_Instance called :: " );
+
+                   //collateralType, collateralUsage can be multiple 
+                   print("----> aBlazeApplicant.ltv :: " aBlazeApplicant.ltv);
+                   print("----> ltvMin :: " ltvMin);       
+                   if(aBlazeApplicant.ltv < ltvMin) then {
+                     ltvMin = aBlazeApplicant.ltv;
+                     print("----> ltvMin :: " ltvMin);
+                   }
+                 }
+               }
+             }
+             applicantLTV =  ltvMin;
+           } else if (aBlazeApplicant.employmentType <> unknown and aBlazeApplicant.customerRiskSegment <> unknown 
+                      and aBlazeApplicant.employmentType <> "" and aBlazeApplicant.customerRiskSegment <> "" 
+                      and aBlazeApplicant.employmentType =(ignoring case)"SALARIED" 
+           and aBlazeApplicant.customerRiskSegment = (ignoring case)"NRI/ PIO/ Merchant Navy") then {
+
+             print("----> aBlazeApplicant.employmentType :: " aBlazeApplicant.employmentType);
+             print("----> aBlazeApplicant.customerRiskSegment :: " aBlazeApplicant.customerRiskSegment);
+
+             HL_NRI_LTV_Matrix_Instance(purposeOfLoanOthers,  loanAmount, aBlazeApplicant);
+             print("----> HL_NRI_LTV_Matrix_Instance called :: " );
+
+             print("----> aBlazeApplicant.ltv :: " aBlazeApplicant.ltv);      
+             applicantLTV =  aBlazeApplicant.ltv;
+           } else if (aBlazeApplication.employmentType <> unknown and aBlazeApplication.riskSegment <> unknown
+                      and aBlazeApplication.employmentType <> "" and aBlazeApplication.riskSegment <> ""
+                   and aBlazeApplication.employmentType =(ignoring case)"SALARIED" 
+           and aBlazeApplication.riskSegment = (ignoring case)"NRI/ PIO/ Merchant Navy") then {
+
+             print("----> aBlazeApplication.employmentType :: " aBlazeApplication.employmentType);
+             print("----> aBlazeApplication.riskSegment :: " aBlazeApplication.riskSegment);
+
+             HL_NRI_LTV_Matrix_Instance(purposeOfLoanOthers,  loanAmount, aBlazeApplicant);
+             print("----> HL_NRI_LTV_Matrix_Instance called :: " );
+
+             print("----> aBlazeApplicant.ltv :: " aBlazeApplicant.ltv);      
+             applicantLTV =  aBlazeApplicant.ltv;
+           } else if(aBlazeApplicant.employmentType <> unknown and aBlazeApplicant.employmentType <> ""
+                     and (aBlazeApplicant.employmentType = (ignoring case)"SEP"  or aBlazeApplicant.employmentType = (ignoring case)"SENP")) then {
+             for each Collateral in aBlazeApplication.collateral 
+             do {
+               for each Property in it.property 
+               do {
+                 if(it.collateralType<> unknown and it.collateralType<> "" and it.collateralUsage <> unknown and it.collateralUsage <> "") then {
+                   print("----> it.collateralType :: " it.collateralType);
+                   print("----> it.collateralUsage :: " it.collateralUsage);
+                   print("----> aBlazeApplicant.employmentType :: " aBlazeApplicant.employmentType);
+
+                   HL_SEP_SENP_LTV_Matrix_Instance(purposeOfLoanOthers, aBlazeApplicant.employmentType, it.collateralUsage, loanAmount,  aBlazeApplicant);
+                   print("----> HL_SEP_SENP_LTV_Matrix_Instance called :: " );
+
+                   //collateralType, collateralUsage can be multiple 
+                   print("----> aBlazeApplicant.ltv :: " aBlazeApplicant.ltv);
+                   print("----> ltvMin :: " ltvMin);
+                   if(aBlazeApplicant.ltv < ltvMin) then {
+                     ltvMin = aBlazeApplicant.ltv;
+                     print("----> ltvMin :: " ltvMin);
+                   }
+                 }
+               }
+             }
+             applicantLTV = ltvMin;      
+           }
+      }
+
+      if (start=0) then {
+        minLTV=applicantLTV;
+        start=1;
+        print("----> minLTV :: " minLTV);
+      } else {
+        if(applicantLTV < minLTV) then {
+          minLTV=applicantLTV;
+          print("----> minLTV :: " minLTV);
+        }
+      }  
+    }
+
+    if(aBlazeApplication.applicationAdditionalDetails.finalOffer.additionalLtv<> unknown 
+       and aBlazeApplication.applicationAdditionalDetails.finalOffer.additionalLtv > 0) then {
+      LTV = minLTV + round(aBlazeApplication.applicationAdditionalDetails.finalOffer.additionalLtv);
+      print("----> aBlazeApplication.applicationAdditionalDetails.finalOffer.additionalLtv :: " aBlazeApplication.applicationAdditionalDetails.finalOffer.additionalLtv);
+      print("----> LTV :: " LTV);
+    } else{
+      LTV = minLTV;  
+      print("----> LTV :: " LTV);
+    }
+
+  //  aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLTV = LTV; commented by Ankit
+    aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLTV = minLTV;
+    print("----> aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLTV :: " aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLTV);
+
+	if(aBlazeApplication.applicationAdditionalDetails.finalOffer.additionalLtv is known)then{
+		aBlazeApplication.ltvOffered =aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLTV +aBlazeApplication.applicationAdditionalDetails.finalOffer.additionalLtv;
+	}
+	
+    totalFinalValuationAmt is a real initially 0;  
+    totalFinalValuationAmt = totalFinalValuationAmt + aBlazeApplication.tvApproval.finalValuationAmount.finalValAmount as a real;
+    print("----> totalFinalValuationAmt :: " totalFinalValuationAmt);
+    print("----> aBlazeApplication.tvApproval.finalValuationAmount.finalValAmount as a real :: " aBlazeApplication.tvApproval.finalValuationAmount.finalValAmount as a real);
+
+    eligibleLoanAmountLtv is a real initially 0;
+    eligibleLoanAmountLtv = totalFinalValuationAmt * (LTV/100); 
+    print("----> eligibleLoanAmountLtv :: " eligibleLoanAmountLtv);
+
+    aBlazeApplication.eligibleLoanAmountLtv = eligibleLoanAmountLtv;
+    aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLOELIGLTV = eligibleLoanAmountLtv;
+
+    print("----> aBlazeApplication.eligibleLoanAmountLtv :: " aBlazeApplication.eligibleLoanAmountLtv);
+    print("----> aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLOELIGLTV :: " aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLOELIGLTV);
+  }
+
+  print("++++> Exiting function :: fn_HL_Eligibility_Basis_LTV");
+  print("");
+
+}catch an Exception with {
+  aBlazeApplication.fn_HL_EligibilityBasisLTVException = true;  
+  print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");  
+}
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='Y0rHmn'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_Eligibility_Basis_LTV1</value>
+ </instance>
+</instantiation>

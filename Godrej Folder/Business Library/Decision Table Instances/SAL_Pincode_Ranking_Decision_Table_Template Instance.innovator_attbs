@@ -1,0 +1,16 @@
+#Extended attributes for Eclipse file-based repository (directory: 'SAL_Pincode_Ranking_Decision_Table_Template Instance')
+#Tue Jul 27 15:27:25 IST 2021
+contentType=Instance
+guid=BCjnMIUULAXowxWoeWQ7W8HWlJe
+innovatorDisplayName=Sal_Pincode_Ranking_Instance
+innovatorTemplateRef=AKY0qpLjkPtJe1fTonLEnMBMIro
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

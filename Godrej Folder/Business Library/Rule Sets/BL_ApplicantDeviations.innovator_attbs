@@ -1,0 +1,20 @@
+#Extended attributes for Innovator file-based repository (directory: 'BL_ApplicantDeviations')
+#Thu Jan 19 11:26:26 UTC 2023
+contentType=Instance
+guid=KLl3gP7YQOJD4d1gj2UN5V5x9mT
+innovatorDisplayName=BL_ApplicantDeviations
+innovatorItemCreationId=admin
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=QzixEYa1EHH8Jr6Fk8nhguBcZtu
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+managementProperty.Test\ Case=
+managementProperty.Test\ Role=None
+subType=None
+target=SRL
+type=SRL Ruleset

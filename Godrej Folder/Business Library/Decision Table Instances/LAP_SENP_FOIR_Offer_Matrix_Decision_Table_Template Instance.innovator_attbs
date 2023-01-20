@@ -1,0 +1,17 @@
+#Extended attributes for Innovator file-based repository (directory: 'LAP_SENP_FOIR_Offer_Matrix_Decision_Table_Template Instance')
+#Tue Dec 27 09:48:35 UTC 2022
+contentType=Instance
+guid=56FCyIoBlEraavFX7I7vfX5H1vX
+innovatorDisplayName=LAP_SENP_FOIR_Offer_Matrix_Instance
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=5thqYrNdabnjFcDOUCSeMkaiXnq
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

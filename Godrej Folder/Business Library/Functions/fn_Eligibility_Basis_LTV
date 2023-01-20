@@ -1,0 +1,347 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_LAP_Eligibility_Basis_LTV'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_LAP_Eligibility_Basis_LTV</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("");
+print("++++> Entering function :: fn_LAP_Eligibility_Basis_LTV");
+
+aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+
+try{
+minLTV is an integer initially 0;
+LTV is an integer initially 0;
+start is an integer initially 0;
+// Applicant in message.request.application.applicants
+if(aBlazeApplication.businessErrorsFlag = false) then {
+
+  
+  
+  for each BlazeApplicant  in  BTCommonVar.termInput.blazeApplication.blazeApplicantArray
+  do{
+    aBlazeApplicant is some BlazeApplicant initially it as a BlazeApplicant;
+    if (aBlazeApplicant.employmentType<> "NON-WORKING") then {
+    
+    applicantLTV is an integer initially 0;
+      print("----> product code inside lap ltv :: " );
+    productCode is a string;
+productCode = message.invocation.decisionService;
+  print("----> productCode :: " productCode);
+    
+    //added by Ankit for low ltv
+incomeProgramUsed is a string;
+    incomeProgramUsed = aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.incomeProgram;
+    print("----> incomeProgramUsed :: " aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.incomeProgram);
+    // end by Ankit for low LTV
+    
+    print("----> aBlazeApplicant.applicantAdditionalDetails.additionalDetail.purposeOfLoanOthers :: " aBlazeApplicant.applicantAdditionalDetails.additionalDetail.purposeOfLoanOthers);
+    print("----> aBlazeApplicant.employmentType :: " aBlazeApplicant.employmentType);
+    print("----> aBlazeApplicant.customerRiskSegment :: " aBlazeApplicant.customerRiskSegment);
+    print("----> aBlazeApplicant.applicantType :: " aBlazeApplicant.applicantType);
+    print("----> aBlazeApplication.employmentType :: " aBlazeApplication.employmentType);
+    print("----> aBlazeApplication.riskSegment :: " aBlazeApplication.riskSegment);
+   
+    if(aBlazeApplicant.applicantAdditionalDetails.additionalDetail.purposeOfLoanOthers <> unknown 
+       and aBlazeApplicant.applicantAdditionalDetails.additionalDetail.purposeOfLoanOthers <> ""
+       and aBlazeApplicant.applicantAdditionalDetails.additionalDetail.purposeOfLoanOthers= (ignoring case)"NRP") then {
+      if(aBlazeApplicant.employmentType <> unknown and aBlazeApplicant.customerRiskSegment <> unknown and aBlazeApplicant.applicantType <> unknown 
+         and aBlazeApplicant.customerRiskSegment <> ""
+         and aBlazeApplicant.applicantType = (ignoring case)"MainApp" and aBlazeApplicant.employmentType =(ignoring case)"SALARIED" ) then {
+        LAP_LTV_Matrix_Table_02_Instance(aBlazeApplicant.employmentType, aBlazeApplicant.customerRiskSegment, aBlazeApplicant); 
+        print("----> aBlazeApplicant.maxLtv :: " aBlazeApplicant.maxLtv);
+      } else if(aBlazeApplication.employmentType <> unknown and aBlazeApplication.riskSegment <> unknown 
+                and  aBlazeApplication.riskSegment <> ""
+                and aBlazeApplication.employmentType =(ignoring case)"SALARIED") then {
+        LAP_LTV_Matrix_Table_02_Instance(aBlazeApplication.employmentType, aBlazeApplication.riskSegment, aBlazeApplicant);
+        print("----> aBlazeApplicant.maxLtv :: " aBlazeApplicant.maxLtv);
+      } else if(aBlazeApplicant.employmentType <> unknown and aBlazeApplicant.customerRiskSegment <> unknown 
+                and aBlazeApplicant.employmentType <> "" and aBlazeApplicant.customerRiskSegment <> "") then {
+        LAP_LTV_Matrix_Table_02_Instance(aBlazeApplicant.employmentType, aBlazeApplicant.customerRiskSegment, aBlazeApplicant); 
+        print("----> aBlazeApplicant.maxLtv :: " aBlazeApplicant.maxLtv);
+      } 
+      applicantLTV =  aBlazeApplicant.maxLtv;
+    } else {
+      ltvMin is an integer initially 100;
+      if(aBlazeApplicant.employmentType <> unknown and aBlazeApplicant.customerRiskSegment <> unknown and aBlazeApplicant.applicantType <> unknown
+         and aBlazeApplicant.customerRiskSegment <> ""
+         and aBlazeApplicant.applicantType = (ignoring case) "MainApp" and aBlazeApplicant.employmentType =(ignoring case)"SALARIED" ) then{
+        for each Collateral in aBlazeApplication.collateral
+        do{
+          for each Property in it.property
+          do{
+            //aProperty is some BlazeApplicant initially it as a Property;
+            if(it.collateralType<> unknown and it.collateralType<>"" and it.collateralUsage <> unknown and it.collateralUsage<>"") then {
+                print("----> it.collateralType :: " it.collateralType);
+                print("----> it.collateralUsage :: " it.collateralUsage);
+                print("----> aBlazeApplicant.employmentType :: " aBlazeApplicant.employmentType);
+                print("----> aBlazeApplicant.customerRiskSegment :: " aBlazeApplicant.customerRiskSegment);
+if(productCode ="LP") then {
+              LAP_LTV_Matrix_Table_01_Instance(it.collateralType, it.collateralUsage, aBlazeApplicant.employmentType, aBlazeApplicant.customerRiskSegment, aBlazeApplicant);
+             
+} else if (productCode ="NP") then
+  {
+    print("----> inside NP :: " );
+     NP_LTV_01_INSTANCE( aBlazeApplicant, aBlazeApplicant, aBlazeApplicant,it.collateralType);
+  }
+              //collateralType, collateralUsage can be multiple 
+              print("----> aBlazeApplicant.ltv :: " aBlazeApplicant.ltv);
+              print("----> ltvMin :: " ltvMin);
+              if(aBlazeApplicant.ltv<>unknown and (aBlazeApplicant.ltv < ltvMin)) then {
+                ltvMin = aBlazeApplicant.ltv;
+                print("----> ltvMin :: " ltvMin);
+              }
+            }
+          }
+        }
+        applicantLTV = ltvMin;
+      } else if (aBlazeApplication.employmentType <> unknown and aBlazeApplication.riskSegment <> unknown
+                  and aBlazeApplication.riskSegment <> ""
+                    and aBlazeApplication.employmentType =(ignoring case)"SALARIED") then {
+        for each Collateral in aBlazeApplication.collateral
+        do{
+          for each Property in it.property
+          do{
+            if(it.collateralType<> unknown and it.collateralType<>"" and it.collateralUsage <> unknown and it.collateralUsage<>"") then {
+                print("----> it.collateralType :: " it.collateralType);
+                print("----> it.collateralUsage :: " it.collateralUsage);
+                print("----> aBlazeApplication.employmentType :: " aBlazeApplication.employmentType);
+                print("----> aBlazeApplication.riskSegment :: " aBlazeApplication.riskSegment);
+
+             // LAP_LTV_Matrix_Table_01_Instance(it.collateralType, it.collateralUsage, aBlazeApplication.employmentType, aBlazeApplication.riskSegment, aBlazeApplicant);
+              if(productCode ="LP") then {
+              LAP_LTV_Matrix_Table_01_Instance(it.collateralType, it.collateralUsage, aBlazeApplicant.employmentType, aBlazeApplicant.customerRiskSegment, aBlazeApplicant);
+             
+} else if (productCode ="NP") then
+  {
+    print("----> inside NP :: " );
+     NP_LTV_01_INSTANCE( aBlazeApplicant, aBlazeApplicant, aBlazeApplicant,it.collateralType);
+  }
+
+              //collateralType, collateralUsage can be multiple 
+              print("----> aBlazeApplicant.ltv :: " aBlazeApplicant.ltv);
+              print("----> ltvMin :: " ltvMin);       
+              if(aBlazeApplicant.ltv<>unknown and (aBlazeApplicant.ltv < ltvMin)) then {
+                ltvMin = aBlazeApplicant.ltv;
+                print("----> ltvMin :: " ltvMin);
+              }
+            }
+          }
+        }
+        applicantLTV =  ltvMin;
+      } else if(aBlazeApplicant.employmentType <> unknown and aBlazeApplicant.customerRiskSegment <> unknown 
+                and aBlazeApplicant.employmentType <> "" and aBlazeApplicant.customerRiskSegment <> "" 
+                and aBlazeApplicant.employmentType =(ignoring case)"SENP" ) then {
+        // print("----> it. GHF SENP AAA :: " it.collateralTyp);
+         print("----> it. GHF SENP AAA :: " );
+        //added by Ankit for low LTV
+        if(aBlazeApplicant.employmentType = (ignoring case) "SENP" 
+       and incomeProgramUsed <> unknown 
+       and incomeProgramUsed =  (ignoring case) "LOW LTV")   then{    
+                   print("----> it. GHF SENP BBB :: " );
+          ltvMin=50;
+        }
+        else {
+        // end by Ankit for Low LTV
+        for each Collateral in aBlazeApplication.collateral
+        do{
+          for each Property in it.property
+          do{
+            if(it.collateralType<> unknown and it.collateralType<>"" and it.collateralUsage <> unknown and it.collateralUsage<>"") then {
+                print("----> it.collateralType :: " it.collateralType);
+                print("----> it.collateralUsage :: " it.collateralUsage);
+                print("----> aBlazeApplicant.employmentType :: " aBlazeApplicant.employmentType);
+                print("----> aBlazeApplicant.customerRiskSegment :: " aBlazeApplicant.customerRiskSegment);
+
+          //    LAP_LTV_Matrix_Table_01_Instance(it.collateralType, it.collateralUsage, aBlazeApplicant.employmentType, aBlazeApplicant.customerRiskSegment, aBlazeApplicant);
+               print("----> productCode inside SENP :: " productCode);
+              if(productCode ="LP") then {
+              LAP_LTV_Matrix_Table_01_Instance(it.collateralType, it.collateralUsage, aBlazeApplicant.employmentType, aBlazeApplicant.customerRiskSegment, aBlazeApplicant);
+             
+} else if (productCode ="NP") then
+  {
+    print("----> inside NP :: " );
+     NP_LTV_01_INSTANCE( aBlazeApplicant, aBlazeApplicant, aBlazeApplicant,it.collateralType);
+  }
+
+              //collateralType, collateralUsage can be multiple 
+              print("----> aBlazeApplicant.ltv :: " aBlazeApplicant.ltv);
+              print("----> ltvMin :: " ltvMin);
+              if(aBlazeApplicant.ltv<>unknown and (aBlazeApplicant.ltv < ltvMin)) then {
+                ltvMin = aBlazeApplicant.ltv;
+                print("----> ltvMin :: " ltvMin);
+              }
+            }
+          }
+        }
+        }//added by Ankit for low LTV
+        applicantLTV = ltvMin;      
+      }  else if(aBlazeApplicant.employmentType <> unknown and aBlazeApplicant.employmentType <> "" 
+                 and aBlazeApplicant.employmentType =(ignoring case)"SEP") then {
+        for each Collateral in aBlazeApplication.collateral
+        do{
+          for each Property in it.property
+          do{
+            if(it.collateralType<> unknown and it.collateralType<>"" and it.collateralUsage <> unknown and it.collateralUsage<>"") then {
+                print("----> it.collateralType :: " it.collateralType);
+                print("----> it.collateralUsage :: " it.collateralUsage);
+                print("----> aBlazeApplicant.employmentType :: " aBlazeApplicant.employmentType);
+                print("----> aBlazeApplicant.customerRiskSegment :: " aBlazeApplicant.customerRiskSegment);
+
+          //    LAP_LTV_Matrix_Table_01_Instance(it.collateralType, it.collateralUsage, aBlazeApplicant.employmentType, aBlazeApplicant.customerRiskSegment, aBlazeApplicant);
+              //collateralType, collateralUsage can be multiple 
+            if(productCode ="LP") then {
+              LAP_LTV_Matrix_Table_01_Instance(it.collateralType, it.collateralUsage, aBlazeApplicant.employmentType, aBlazeApplicant.customerRiskSegment, aBlazeApplicant);
+             
+} else if (productCode ="NP") then
+  {
+    print("----> inside NP :: " );
+     NP_LTV_01_INSTANCE( aBlazeApplicant, aBlazeApplicant, aBlazeApplicant,it.collateralType);
+  }
+
+              
+              print("----> aBlazeApplicant.ltv :: " aBlazeApplicant.ltv);
+              print("----> ltvMin :: " ltvMin);
+              if(aBlazeApplicant.ltv<>unknown and (aBlazeApplicant.ltv < ltvMin)) then {
+                ltvMin = aBlazeApplicant.ltv;
+                print("----> ltvMin :: " ltvMin);
+              }
+            }
+          }
+        }
+        applicantLTV = ltvMin;      
+      }
+    }
+   
+      if (start=0) then {
+        minLTV=applicantLTV;
+        start=1;
+         print("----> Ankti inside IF minLTV :: " minLTV);
+        print("----> minLTV :: " minLTV);
+      } else {
+        if(applicantLTV < minLTV) then {
+          minLTV=applicantLTV;
+                   print("----> Ankti inside else minLTV :: " minLTV);
+          print("----> minLTV :: " minLTV);
+        }
+      }  
+    }
+}//for otp if
+                print("---->Ankit before startt of if add aBlazeApplication.applicationAdditionalDetails.finalOffer.additionalLtv :: " aBlazeApplication.applicationAdditionalDetails.finalOffer.additionalLtv);
+
+    if(aBlazeApplication.applicationAdditionalDetails.finalOffer.additionalLtv<> unknown 
+       and aBlazeApplication.applicationAdditionalDetails.finalOffer.additionalLtv > 0) then {
+            print("---->Ankit before add aBlazeApplication.applicationAdditionalDetails.finalOffer.additionalLtv :: " aBlazeApplication.applicationAdditionalDetails.finalOffer.additionalLtv);
+
+      LTV = minLTV + round(aBlazeApplication.applicationAdditionalDetails.finalOffer.additionalLtv);
+      print("----> aBlazeApplication.applicationAdditionalDetails.finalOffer.additionalLtv :: " aBlazeApplication.applicationAdditionalDetails.finalOffer.additionalLtv);
+      print("----> LTV :: " LTV);
+    } else{
+      LTV = minLTV;
+      print("----> LTV :: " LTV);
+    }
+//added by Ankit for max LTV
+//  if(incomeProgramUsed <> unknown 
+  //       and ( incomeProgramUsed = (ignoring case) "LOW LTV")) then {
+    //LTV = 50;
+  //}
+  
+  
+  
+  //aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLTV = LTV; Commented by Ankit
+  aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLTV = minLTV;
+  print("----> aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLTV :: " aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLTV);
+
+  totalFinalValuationAmt is a real initially 0;  
+  totalFinalValuationAmt = totalFinalValuationAmt + aBlazeApplication.tvApproval.finalValuationAmount.finalValAmount as a real;
+  print("----> totalFinalValuationAmt :: " totalFinalValuationAmt);
+  print("----> aBlazeApplication.tvApproval.finalValuationAmount.finalValAmount as a real :: " aBlazeApplication.tvApproval.finalValuationAmount.finalValAmount as a real);
+
+  eligibleLoanAmountLtv is a real initially 0;
+  eligibleLoanAmountLtv = totalFinalValuationAmt * (LTV/100); 
+  print("----> eligibleLoanAmountLtv :: " eligibleLoanAmountLtv);
+
+  aBlazeApplication.eligibleLoanAmountLtv = eligibleLoanAmountLtv;
+  aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLOELIGLTV = eligibleLoanAmountLtv;
+
+  print("----> aBlazeApplication.eligibleLoanAmountLtv :: " aBlazeApplication.eligibleLoanAmountLtv);
+  print("----> aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLOELIGLTV :: " aBlazeApplication.applicationAdditionalDetails.finalOffer.MAXLOELIGLTV);
+}
+
+  print("++++> Exiting function :: fn_LAP_Eligibility_Basis_LTV");
+  print("");
+
+}catch an Exception with {
+  aBlazeApplication.fn_LAP_EligibilityBasisLTVException = true;  
+  print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");  
+}
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='Y0rHmn'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_Eligibility_Basis_LTV1</value>
+ </instance>
+</instantiation>

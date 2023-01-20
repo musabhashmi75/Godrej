@@ -1,0 +1,15 @@
+#Extended attributes for Eclipse file-based repository (directory: 'LTV_Matrix_Table-03')
+#Mon Aug 30 11:43:13 IST 2021
+contentType=Template
+guid=X5bsduxzxVOWZt17D1911hAaUgY
+innovatorDisplayName=LAP_LTV_Matrix_Table_03
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

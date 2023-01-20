@@ -1,0 +1,15 @@
+#Extended attributes for Eclipse file-based repository (directory: 'BlazeAccountDetails')
+#Thu Dec 29 12:35:29 UTC 2022
+contentType=Fixed
+guid=TcQsyWrOq6sSuBbch4jXOeS4kQQ
+innovatorDisplayName=BlazeAccountDetails
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=None
+target=SRL
+type=SRL Class

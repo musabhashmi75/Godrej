@@ -1,0 +1,19 @@
+#Extended attributes for Innovator file-based repository (directory: 'fn_EntryPoint')
+#Mon Jan 02 12:05:24 UTC 2023
+contentType=Instance
+guid=8IUEYUAQ3uLneOg2TJMUJ13Cw0l
+innovatorDisplayName=fn_EntryPoint
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=Q8jH6kHdOYIZ1uG0WKXqvvejqv0
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+managementProperty.Test\ Case=
+managementProperty.Test\ Role=None
+subType=None
+target=SRL
+type=SRL Function

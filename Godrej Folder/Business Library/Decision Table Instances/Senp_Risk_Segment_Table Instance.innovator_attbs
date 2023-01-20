@@ -1,0 +1,16 @@
+#Extended attributes for Eclipse file-based repository (directory: 'Senp_Risk_Segment_Table Instance')
+#Thu Sep 09 15:31:55 IST 2021
+contentType=Instance
+guid=BmXfYXzFrUvj0FGa22HOtZvvmPa
+innovatorDisplayName=SENP_Risk_Segment_Instance
+innovatorTemplateRef=DA95gPwmBRTD2K7jzE3M4WeLyBp
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

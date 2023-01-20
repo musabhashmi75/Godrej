@@ -1,0 +1,2380 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='8vueGpky4OCm43FlEsSZnl4Lne9' name='City_Salary_Instance'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+ </instance>
+ <instance ref='rulesetName'>
+  <value>City_Salary_Instance</value>
+ </instance>
+ <instance-list ref='cases'>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='DKDH5p'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='L39Ee0'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='HV5EhQ'>
+       <instance ref='value'>
+        <value>MUMBAI</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='Vg7ovY'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='UKhVGx'>
+       <instance ref='value'>
+        <value>2850000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='YYL48T'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='HA1svE'>
+       <instance ref='value'>
+        <value>MU_NCR_GT_28L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='GYYtWy'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='9tmwv4'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='6bs7Mk'>
+       <instance ref='value'>
+        <value>MUMBAI</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='K7pjQT'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='3t5Kff'>
+       <instance ref='value1'>
+        <value>1550000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>2850000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='ZWdprl'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='TLedSM'>
+       <instance ref='value'>
+        <value>MU_NCR_BT_15L-28L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>19 Jul, 2021 7:49 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='S3oEZI'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='PznefL'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='FDkcM2'>
+       <instance ref='value'>
+        <value>MUMBAI</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='ZTYWu0'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='NfENbF'>
+       <instance ref='value1'>
+        <value>870000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>1550000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='VXuUnT'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='G5DuN1'>
+       <instance ref='value'>
+        <value>MU_NCR_BT_8L-15L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>19 Jul, 2021 7:49 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='Tx8E8t'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='KjmTS5'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='MtftWe'>
+       <instance ref='value'>
+        <value>MUMBAI</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='6PmtQZ'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='WKecv9'>
+       <instance ref='value1'>
+        <value>675000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>870000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='ER7oAN'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='5eEP6U'>
+       <instance ref='value'>
+        <value>MU_NCR_BT_6L-8L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule4</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>19 Jul, 2021 7:49 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='7fsg8H'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='DWPmtY'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='96Ws66'>
+       <instance ref='value'>
+        <value>MUMBAI</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='M3e9hz'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='6Wvf2h'>
+       <instance ref='value1'>
+        <value>475000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>675000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='Q2jhYm'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='5Wl9m8'>
+       <instance ref='value'>
+        <value>MU_NCR_BT_4L-6L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule5</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>5</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>19 Jul, 2021 7:49 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='FvYLLN'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='JZ7Smv'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='KfCDTb'>
+       <instance ref='value'>
+        <value>MUMBAI</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='BE8pXG'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than' id='DVOJB2'>
+       <instance ref='value'>
+        <value>475000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='3jTriD'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='TDwglu'>
+       <instance ref='value'>
+        <value>MU_NCR_LT_4L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule6</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>19 Jul, 2021 7:49 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='2ZIC98'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='D2XvIp'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='XEjCwJ'>
+       <instance ref='value'>
+        <value>DELHI</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='KmwArU'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='SKvhZj'>
+       <instance ref='value'>
+        <value>2850000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='1eskt4'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='IdQ2p2'>
+       <instance ref='value'>
+        <value>DEL_NCR_GT_28L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>19 Jul, 2021 7:49 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='Rdf8aK'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='3DbTom'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='6yFnM9'>
+       <instance ref='value'>
+        <value>DELHI</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='Wr5caN'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='Jn1Jnm'>
+       <instance ref='value1'>
+        <value>1550000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>2850000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='aJpOCn'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='TfZRmy'>
+       <instance ref='value'>
+        <value>DEL_NCR_BT_15L-28L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule8</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>8</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>19 Jul, 2021 7:49 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='ZQlPl6'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='Ju1AfX'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='Rn8zRw'>
+       <instance ref='value'>
+        <value>DELHI</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='PVqQKe'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='XPUGgt'>
+       <instance ref='value1'>
+        <value>870000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>1550000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='Lq2JvF'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='MoRxrv'>
+       <instance ref='value'>
+        <value>DEL_NCR_BT_8L-15L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule9</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>9</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>19 Jul, 2021 7:49 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='Nu8OUE'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='YBl907'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='C8AXBE'>
+       <instance ref='value'>
+        <value>DELHI</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='RlkVCl'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='4SX2mc'>
+       <instance ref='value1'>
+        <value>675000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>870000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='RFIAsH'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='HBO5sO'>
+       <instance ref='value'>
+        <value>DEL_NCR_BT_6L-8L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule10</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>10</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>19 Jul, 2021 7:49 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='AGvPQY'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='Fjxbxo'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='LyRrza'>
+       <instance ref='value'>
+        <value>DELHI</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='UvqYL5'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='Ya47q0'>
+       <instance ref='value1'>
+        <value>475000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>675000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='QBTlkU'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='LiNJ0O'>
+       <instance ref='value'>
+        <value>DEL_NCR_BT_4L-6L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule11</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>11</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>19 Jul, 2021 7:49 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='9PYGnZ'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='Y3ZBjD'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='6EyJca'>
+       <instance ref='value'>
+        <value>DELHI</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='PE0JDm'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than' id='VyCWFU'>
+       <instance ref='value'>
+        <value>475000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='9M6ZFr'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='WpY4fc'>
+       <instance ref='value'>
+        <value>DEL_NCR_LT_4L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule12</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>12</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>19 Jul, 2021 7:49 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='8Xq9fT'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='ZTOvul'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='Quj3pk'>
+       <instance ref='value'>
+        <value>BENGALURU</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='8tMkd3'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='VH6waO'>
+       <instance ref='value'>
+        <value>2200000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='1wN6X6'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='UtoGJY'>
+       <instance ref='value'>
+        <value>BENG_GT_22L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule13</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>13</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>19 Jul, 2021 7:49 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='3L6bv4'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='6n9BJ5'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='GXFgNV'>
+       <instance ref='value'>
+        <value>BENGALURU</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='XNwWVo'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='M2Jh1d'>
+       <instance ref='value1'>
+        <value>1230000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>2200000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='XyxXQY'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='5sjkxb'>
+       <instance ref='value'>
+        <value>BENG_BT_12L-22L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule14</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>14</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>19 Jul, 2021 7:49 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='AkI77t'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='G9LxBY'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='JkaPU3'>
+       <instance ref='value'>
+        <value>BENGALURU</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='UkCBC9'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='PSt0oY'>
+       <instance ref='value1'>
+        <value>870000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>1230000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='YrHBOx'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='5sCUkf'>
+       <instance ref='value'>
+        <value>BENG_BT_8L-12L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule15</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>15</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>19 Jul, 2021 7:49 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='RLXYKd'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='JIhW4k'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='aCEr2g'>
+       <instance ref='value'>
+        <value>BENGALURU</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='LxK4l1'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='FESgMd'>
+       <instance ref='value1'>
+        <value>675000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>870000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='MNdbAE'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='Nilmyf'>
+       <instance ref='value'>
+        <value>BENG_BT_6L-8L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule16</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>16</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>19 Jul, 2021 7:49 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='9pAj1k'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='XJCjEo'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='BeJtLG'>
+       <instance ref='value'>
+        <value>BENGALURU</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='Vi0zfL'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='AB54Vr'>
+       <instance ref='value1'>
+        <value>475000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>675000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='KDEibI'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='4FnSC6'>
+       <instance ref='value'>
+        <value>BENG_BT_4L-6L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule17</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>17</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>19 Jul, 2021 7:49 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='XvqOMF'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='1eZtSV'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='CnLXKY'>
+       <instance ref='value'>
+        <value>BENGALURU</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='Zu28zN'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than' id='7dwXkC'>
+       <instance ref='value'>
+        <value>475000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='ZFIPfE'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='UYSOuw'>
+       <instance ref='value'>
+        <value>BENG_LT_4L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule18</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>18</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>19 Jul, 2021 7:49 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='PbqsFP'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='H2TvH6'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='IumcJv'>
+       <instance ref='value'>
+        <value>PUNE</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='6zI9zX'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='11O1zY'>
+       <instance ref='value'>
+        <value>1870000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='Q88ePN'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='Suo0lA'>
+       <instance ref='value'>
+        <value>PUN_GT_18L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule19</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>19</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>19 Jul, 2021 7:49 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='Wb3DkC'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='OBefjV'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='OjrHoM'>
+       <instance ref='value'>
+        <value>PUNE</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='6BmATP'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='9Vzyd3'>
+       <instance ref='value1'>
+        <value>1230000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>1870000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='1bTJ3G'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='RyjGdM'>
+       <instance ref='value'>
+        <value>PUN_BT_12L-18L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule20</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>20</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>19 Jul, 2021 7:49 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='5RjHkM'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='3ULIjR'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='MUjNba'>
+       <instance ref='value'>
+        <value>PUNE</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='29T0aw'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='6yCty7'>
+       <instance ref='value1'>
+        <value>870000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>1230000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='4yDbZu'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='CeAnKV'>
+       <instance ref='value'>
+        <value>PUN_BT_8L-12L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule21</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>21</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>19 Jul, 2021 7:49 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='DyhBJN'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='YfOmt2'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='Fqom27'>
+       <instance ref='value'>
+        <value>PUNE</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='9Wmq3Y'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='LIfT4d'>
+       <instance ref='value1'>
+        <value>675000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>870000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='2EKwdj'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='4RdP07'>
+       <instance ref='value'>
+        <value>PUN_BT_6L-8L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule22</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>22</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>19 Jul, 2021 7:49 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='MUM7WW'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='MkDY0P'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='226ibl'>
+       <instance ref='value'>
+        <value>PUNE</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='R0XIR4'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='F5l1VW'>
+       <instance ref='value1'>
+        <value>475000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>675000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='KeHQ9M'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='KVlYkW'>
+       <instance ref='value'>
+        <value>PUN_BT_4L-6L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule23</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>23</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>19 Jul, 2021 7:49 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='ZkzoSp'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='AawdIf'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='ZNc7dQ'>
+       <instance ref='value'>
+        <value>PUNE</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='GApYc6'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than' id='UWr4lY'>
+       <instance ref='value'>
+        <value>475000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='BLSiYR'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='NjQmn7'>
+       <instance ref='value'>
+        <value>PUN_LT_4L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule24</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>24</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>19 Jul, 2021 7:49 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='MEb6oG'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='8QMQ78'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='GfBf1n'>
+       <instance ref='value'>
+        <value>AHMEDABAD</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='3JqTao'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='JL2bNn'>
+       <instance ref='value'>
+        <value>1870000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='HrdmSE'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='QbzAei'>
+       <instance ref='value'>
+        <value>AHMED_GT_18L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule25</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>25</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>3 Feb, 2022 5:50 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='1fTTf9'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='O2W511'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='R58x0L'>
+       <instance ref='value'>
+        <value>AHMEDABAD</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='INtNiw'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='XOTxS2'>
+       <instance ref='value1'>
+        <value>1230000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>1870000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='Yx8bZb'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='HtNzVw'>
+       <instance ref='value'>
+        <value>AHMED_BT_12L-18L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule26</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>26</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>3 Feb, 2022 5:50 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='N61sIZ'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='Ihnoln'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='BwJnZy'>
+       <instance ref='value'>
+        <value>AHMEDABAD</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='ZyIdUV'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='Yv4sa4'>
+       <instance ref='value1'>
+        <value>870000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>1230000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='322oTZ'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='16DVtO'>
+       <instance ref='value'>
+        <value>AHMED_BT_8L-12L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule27</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>27</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>3 Feb, 2022 5:50 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='XfAgiy'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='G5z0af'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='28jevf'>
+       <instance ref='value'>
+        <value>AHMEDABAD</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='58zezM'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='XGz07Z'>
+       <instance ref='value1'>
+        <value>675000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>870000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='8aPbJJ'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='W0PqUz'>
+       <instance ref='value'>
+        <value>AHMED_BT_6L-8L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule28</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>28</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>3 Feb, 2022 5:50 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='3E29Ds'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='BSdCWx'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='A2oeND'>
+       <instance ref='value'>
+        <value>AHMEDABAD</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='MkZeaX'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='3fM7iJ'>
+       <instance ref='value1'>
+        <value>475000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>675000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='Hdn6C7'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='16X85E'>
+       <instance ref='value'>
+        <value>AHMED_BT_4L-6L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule29</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>29</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>3 Feb, 2022 5:50 PM</value>
+   </instance>
+  </item>
+  <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Decision Table Case Template' id='5cQmG6'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='8rOiLw'>
+     <instance ref='CELL GROUP NAME'>
+      <value>city</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='6ipBzd'>
+       <instance ref='value'>
+        <value>AHMEDABAD</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='MM7Kzn'>
+     <instance ref='CELL GROUP NAME'>
+      <value>totalSalaryRelatedIncome</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than' id='RHXiy9'>
+       <instance ref='value'>
+        <value>475000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Template' id='TsfbhT'>
+     <instance ref='CELL GROUP NAME'>
+      <value>lapCitySalary</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='XhtF4D'>
+       <instance ref='value'>
+        <value>AHMED_LT_4L</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule30</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>30</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>3 Feb, 2022 5:50 PM</value>
+   </instance>
+  </item>
+ </instance-list>
+ <instance ref='editingInfo'>
+  <instance ref='rowCondValueCount'>
+   <value>0</value>
+  </instance>
+  <instance ref='colCondValueCount'>
+   <value>0</value>
+  </instance>
+  <instance ref='isNewInstance'>
+   <value>false</value>
+  </instance>
+ </instance>
+ <instance ref='casesInfo'>
+  <instance-list ref='condition cells'>
+   <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Group Info Template' id='FA3H1n'>
+    <instance ref='name'>
+     <value>city</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>city</value>
+    </instance>
+    <instance ref='property'>
+     <value>currentApplicant.highPriorityAddress.city</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Group Info Template' id='WovdNM'>
+    <instance ref='name'>
+     <value>totalSalaryRelatedIncome</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>totalSalaryRelatedIncome</value>
+    </instance>
+    <instance ref='property'>
+     <value>currentApplicant.totalSalaryRelatedIncome</value>
+    </instance>
+    <instance ref='type'>
+     <value>real</value>
+    </instance>
+   </item>
+  </instance-list>
+  <instance-list ref='action cells'>
+   <item template='8vueGpky4OCm43FlEsSZnl4Lne9.Cell Group Info Template' id='9F8PHR'>
+    <instance ref='name'>
+     <value>lapCitySalary</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>citySalary</value>
+    </instance>
+    <instance ref='property'>
+     <value>currentApplicant.citySalary</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

@@ -1,0 +1,772 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='AxwdhagxohAz7bskanjbuJ4UZKo' name='HL_SE_seg_DPDInL12mScore_Instance'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+ </instance>
+ <instance ref='rulesetName'>
+  <value>HL_SE_seg_DPDInL12mScore_Instance</value>
+ </instance>
+ <instance-list ref='cases'>
+  <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Decision Table Case Template' id='9qlhyx'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='WwZZUJ'>
+     <instance ref='CELL GROUP NAME'>
+      <value>hlMaxDpdValueInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='HXCX2s'>
+       <instance ref='value'>
+        <value>-1</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='CzdAVC'>
+     <instance ref='CELL GROUP NAME'>
+      <value>maxDpdValueInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='YPkALr'>
+       <instance ref='value'>
+        <value>0</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='4Roewn'>
+     <instance ref='CELL GROUP NAME'>
+      <value>maxMOB</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='TPzoch'>
+       <instance ref='value'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Decision Table Case Template' id='YpAqcl'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='C7hNYT'>
+     <instance ref='CELL GROUP NAME'>
+      <value>hlMaxDpdValueInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='YlwKmy'>
+       <instance ref='value'>
+        <value>-1</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='RicpRg'>
+     <instance ref='CELL GROUP NAME'>
+      <value>maxDpdValueInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range' id='I81GEW'>
+       <instance ref='value1'>
+        <value>1</value>
+       </instance>
+       <instance ref='value2'>
+        <value>30</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='S2Isbg'>
+     <instance ref='CELL GROUP NAME'>
+      <value>maxMOB</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='DG0Pxy'>
+       <instance ref='value'>
+        <value>2</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule4</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Decision Table Case Template' id='QKhPXX'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='CLYpqS'>
+     <instance ref='CELL GROUP NAME'>
+      <value>hlMaxDpdValueInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='SmIZpJ'>
+       <instance ref='value'>
+        <value>-1</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='Ah4a6j'>
+     <instance ref='CELL GROUP NAME'>
+      <value>maxDpdValueInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='VMMnMf'>
+       <instance ref='value'>
+        <value>30</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='aAxETV'>
+     <instance ref='CELL GROUP NAME'>
+      <value>maxMOB</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='7RicoY'>
+       <instance ref='value'>
+        <value>1</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule5</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Decision Table Case Template' id='TXaHGy'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='AloOlF'>
+     <instance ref='CELL GROUP NAME'>
+      <value>hlMaxDpdValueInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='QQJF4x'>
+       <instance ref='value'>
+        <value>0</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='EZi99B'>
+     <instance ref='CELL GROUP NAME'>
+      <value>maxDpdValueInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='yuLZ2W'>
+       <instance ref='value'>
+        <value>0</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='MrqfvH'>
+     <instance ref='CELL GROUP NAME'>
+      <value>maxMOB</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='8QYIHu'>
+       <instance ref='value'>
+        <value>4</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>5 Aug, 2021 6:18 PM</value>
+   </instance>
+  </item>
+  <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Decision Table Case Template' id='MVvjpa'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='36OrgW'>
+     <instance ref='CELL GROUP NAME'>
+      <value>hlMaxDpdValueInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='KdhrvB'>
+       <instance ref='value'>
+        <value>0</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='Mtmoyr'>
+     <instance ref='CELL GROUP NAME'>
+      <value>maxDpdValueInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range' id='ShV8Ce'>
+       <instance ref='value1'>
+        <value>1</value>
+       </instance>
+       <instance ref='value2'>
+        <value>30</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='QH4yr6'>
+     <instance ref='CELL GROUP NAME'>
+      <value>maxMOB</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='3cCnBi'>
+       <instance ref='value'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule6</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>5</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Decision Table Case Template' id='YoTqnX'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='Ilihc7'>
+     <instance ref='CELL GROUP NAME'>
+      <value>hlMaxDpdValueInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='aVOrOJ'>
+       <instance ref='value'>
+        <value>0</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='TUKzD4'>
+     <instance ref='CELL GROUP NAME'>
+      <value>maxDpdValueInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='ITLv3a'>
+       <instance ref='value'>
+        <value>30</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='A1twJI'>
+     <instance ref='CELL GROUP NAME'>
+      <value>maxMOB</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='SyKVoH'>
+       <instance ref='value'>
+        <value>2</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Decision Table Case Template' id='FiQSTE'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='9ZltDs'>
+     <instance ref='CELL GROUP NAME'>
+      <value>hlMaxDpdValueInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='WYduSz'>
+       <instance ref='value'>
+        <value>0</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='1Wq4nZ'>
+     <instance ref='CELL GROUP NAME'>
+      <value>maxDpdValueInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='rIXhoz'>
+       <instance ref='value'>
+        <value>0</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='2eAtEu'>
+     <instance ref='CELL GROUP NAME'>
+      <value>maxMOB</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Action not applicable' id='Q9kv1r'>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>5 Aug, 2021 6:21 PM</value>
+   </instance>
+  </item>
+  <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Decision Table Case Template' id='2NAiDV'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='Qh4j3X'>
+     <instance ref='CELL GROUP NAME'>
+      <value>hlMaxDpdValueInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='M9UFyP'>
+       <instance ref='value'>
+        <value>0</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='DXxPkv'>
+     <instance ref='CELL GROUP NAME'>
+      <value>maxDpdValueInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range' id='4BNhWK'>
+       <instance ref='value1'>
+        <value>1</value>
+       </instance>
+       <instance ref='value2'>
+        <value>30</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='KSg8Ua'>
+     <instance ref='CELL GROUP NAME'>
+      <value>maxMOB</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='Jw5zmI'>
+       <instance ref='value'>
+        <value>1</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule8</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>8</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>5 Aug, 2021 6:22 PM</value>
+   </instance>
+  </item>
+  <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Decision Table Case Template' id='OWIwb1'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='63Ws9y'>
+     <instance ref='CELL GROUP NAME'>
+      <value>hlMaxDpdValueInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='VzONbh'>
+       <instance ref='value'>
+        <value>0</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='OiQ0gs'>
+     <instance ref='CELL GROUP NAME'>
+      <value>maxDpdValueInL12m</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='O8DfWs'>
+       <instance ref='value'>
+        <value>30</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Template' id='C795Mm'>
+     <instance ref='CELL GROUP NAME'>
+      <value>maxMOB</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='Azoc4L'>
+       <instance ref='value'>
+        <value>1</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule9</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>9</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>5 Aug, 2021 6:22 PM</value>
+   </instance>
+  </item>
+ </instance-list>
+ <instance ref='editingInfo'>
+  <instance ref='rowCondValueCount'>
+   <value>0</value>
+  </instance>
+  <instance ref='colCondValueCount'>
+   <value>0</value>
+  </instance>
+  <instance ref='isNewInstance'>
+   <value>false</value>
+  </instance>
+ </instance>
+ <instance ref='casesInfo'>
+  <instance-list ref='condition cells'>
+   <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Group Info Template' id='EJdMDK'>
+    <instance ref='name'>
+     <value>hlMaxDpdValueInL12m</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>hlMaxDpdValueInL12m</value>
+    </instance>
+    <instance ref='property'>
+     <value>aBlazeApplicant.hlMaxDpdValueInL12m</value>
+    </instance>
+    <instance ref='type'>
+     <value>integer</value>
+    </instance>
+   </item>
+   <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Group Info Template' id='SCxtxw'>
+    <instance ref='name'>
+     <value>maxDpdValueInL12m</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>maxDpdValueInL12m</value>
+    </instance>
+    <instance ref='property'>
+     <value>aBlazeApplicant.maxDpdValueInL12m</value>
+    </instance>
+    <instance ref='type'>
+     <value>integer</value>
+    </instance>
+   </item>
+  </instance-list>
+  <instance-list ref='action cells'>
+   <item template='AxwdhagxohAz7bskanjbuJ4UZKo.Cell Group Info Template' id='FETg3d'>
+    <instance ref='name'>
+     <value>maxMOB</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>maxDpdInL12mScore</value>
+    </instance>
+    <instance ref='property'>
+     <value>aBlazeApplicant.maxDpdInL12mScore</value>
+    </instance>
+    <instance ref='type'>
+     <value>integer</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

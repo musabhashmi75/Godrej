@@ -1,0 +1,597 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_BL_EligibilityCalculation'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_BL_EligibilityCalculation1</value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_BL_EligibilityCalculation</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("");
+print("++++> Entering function :: fn_BL_EligibilityCalculation");
+aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+try{
+  print("------>aBlazeApplication.fn_SetErrorInResponseException ::"aBlazeApplication.fn_SetErrorInResponseException);
+  print("------>aBlazeApplication.businessErrorsFlag ::"aBlazeApplication.businessErrorsFlag);
+  if(aBlazeApplication.businessErrorsFlag =false)then{
+  maxPermissibleLoAmount is a real initially 2500000;
+  
+  finalLoanEMI is a real;
+  if(message.request.application.applicationAdditionalDetails.finalOffer.EMIFINOFF <>unknown and 
+    message.request.application.applicationAdditionalDetails.finalOffer.EMIFINOFF <>unavailable)then{
+  finalLoanEMI = message.request.application.applicationAdditionalDetails.finalOffer.EMIFINOFF as a real;
+  print("---->finalLoanEMI ::"finalLoanEMI);}
+  
+  rentalIncomeProgram is a real;
+  if(message.request.application.applicationAdditionalDetails.other.rentalIncomeProgram <>"")then{
+  rentalIncomeProgram =message.request.application.applicationAdditionalDetails.other.rentalIncomeProgram as a real;
+  print("---->rentalIncomeProgram ::"rentalIncomeProgram);}
+  
+  totalMonthlyOblBankSurMethod is a real;
+  if(message.request.application.applicationAdditionalDetails.other.creExposure <>"")then{
+  totalMonthlyOblBankSurMethod =message.request.application.applicationAdditionalDetails.other.creExposure as a real;
+  print("---->totalMonthlyOblBankSurMethod ::"totalMonthlyOblBankSurMethod);}
+  
+  otherBuffer16 is a real;
+  if(message.request.application.applicationAdditionalDetails.other.buffer16<>"")then{
+  otherBuffer16 =message.request.application.applicationAdditionalDetails.other.buffer16 as a real;
+  print("---->otherBuffer16 ::"otherBuffer16);}
+  
+  monthlyAvgBankBal12m is a  real;
+  if(message.request.application.applicationAdditionalDetails.other.stageOfConstruction <>"")then{
+  monthlyAvgBankBal12m =message.request.application.applicationAdditionalDetails.other.stageOfConstruction as a real;
+  print("---->monthlyAvgBankBal12m ::"monthlyAvgBankBal12m);}
+  
+  otherGBIMet is a real;
+  if(message.request.application.applicationAdditionalDetails.other.gblMet <>"")then{
+  otherGBIMet =message.request.application.applicationAdditionalDetails.other.gblMet as a real;
+  print("---->otherGBIMet ::"otherGBIMet);}
+  
+  greatestIndividualContribution is a real;
+  if(message.request.application.applicationAdditionalDetails.other.buffer17 <>"")then{
+   greatestIndividualContribution =message.request.application.applicationAdditionalDetails.other.buffer17 as a real;
+  print("---->greatestIndividualContribution ::"greatestIndividualContribution);}
+  
+  totalMonthlyOblGSTMethod is a real;
+  if(message.request.application.applicationAdditionalDetails.other.buffer15 <>"")then{
+  totalMonthlyOblGSTMethod =message.request.application.applicationAdditionalDetails.other.buffer15 as a real;
+  print("---->totalMonthlyOblGSTMethod ::"totalMonthlyOblGSTMethod);}
+  
+  eligibilityMethod is a string;
+  if(message.request.application.applicationAdditionalDetails.other.endusageoffunds <>"")then{
+  eligibilityMethod =message.request.application.applicationAdditionalDetails.other.endusageoffunds;
+  print("---->eligibilityMethod ::"eligibilityMethod);}
+  
+  //------------------------------------------Latest year variables-----------------------------------------------------
+  otherBType is a real;
+  if(message.request.application.applicationAdditionalDetails.other.borrowerType <>"")
+    then{
+  otherBType =message.request.application.applicationAdditionalDetails.other.borrowerType as a real;
+  print("---->otherBType ::"otherBType);}
+  
+  otherLType is a real;
+  if(message.request.application.applicationAdditionalDetails.other.lendingType <>"")then{
+  otherLType =message.request.application.applicationAdditionalDetails.other.lendingType as a real;
+  print("---->otherLType ::"otherLType);}
+  
+  otherPropertyIdentified is a real;
+  if(message.request.application.applicationAdditionalDetails.other.propertyIdentified <>"")then{
+  otherPropertyIdentified =message.request.application.applicationAdditionalDetails.other.propertyIdentified as a real;
+  print("---->otherPropertyIdentified ::"otherPropertyIdentified);}
+  
+  otherRiskCategorisation is a real;
+  if(message.request.application.applicationAdditionalDetails.other.riskCategorization <>"")then{
+  otherRiskCategorisation =message.request.application.applicationAdditionalDetails.other.riskCategorization as a real;
+  print("---->otherRiskCategorisation ::"otherRiskCategorisation);}
+  
+  otherCinNo is a real;
+  if(message.request.application.applicationAdditionalDetails.other.cinNo <>"")then{
+  otherCinNo =message.request.application.applicationAdditionalDetails.other.cinNo as a real;
+  print("---->otherCinNo ::"otherCinNo);}
+  
+  otherFinalFoirPercentage is a real;
+  if(message.request.application.applicationAdditionalDetails.other.finalFoirPercentage <>"")then{
+  otherFinalFoirPercentage =message.request.application.applicationAdditionalDetails.other.finalFoirPercentage as a real;
+  print("---->otherFinalFoirPercentage ::"otherFinalFoirPercentage);}
+  
+  otherFinalLtvPercentage is a real;
+  if(message.request.application.applicationAdditionalDetails.other.finalLtvPercentage <>"")then{
+  otherFinalLtvPercentage =message.request.application.applicationAdditionalDetails.other.finalLtvPercentage as a real;
+  print("---->otherFinalLtvPercentage ::"otherFinalLtvPercentage);}
+  
+  otherFinalLoanAmount is a real;
+  if(message.request.application.applicationAdditionalDetails.other.finalLoanAmount <>"")then{
+  otherFinalLoanAmount =message.request.application.applicationAdditionalDetails.other.finalLoanAmount as a real;
+  print("---->otherFinalLoanAmount ::"otherFinalLoanAmount);}
+  
+  otherBuffer23 is a real;
+  //if(message.request.application.applicationAdditionalDetails.other.buffer23 <>"")then{
+  //otherBuffer23  =message.request.application.applicationAdditionalDetails.other.buffer23 as a real;
+  //print("---->otherBuffer23 ::"otherBuffer23); }
+  
+  otherEligibilityMethod is a real;
+  if(message.request.application.applicationAdditionalDetails.other.eligibilityMethod <>"")then{
+  otherEligibilityMethod =message.request.application.applicationAdditionalDetails.other.eligibilityMethod as a real;
+  print("---->otherEligibilityMethod ::"otherEligibilityMethod);}
+  
+  otherSBIMet is a real;
+  if(message.request.application.applicationAdditionalDetails.other.sblMet <>"")then{
+  otherSBIMet =message.request.application.applicationAdditionalDetails.other.sblMet as a real;
+  print("---->otherSBIMet ::"otherSBIMet);}
+  
+  otherBuffer21 is a string;
+  if(message.request.application.applicationAdditionalDetails.other.buffer21 <>"")then{
+  otherBuffer21 =message.request.application.applicationAdditionalDetails.other.buffer21;
+  print("---->otherBuffer21 ::"otherBuffer21);}
+  
+  otherBuffer19 is a string;
+  if(message.request.application.applicationAdditionalDetails.other.buffer19 <>"")then{
+  otherBuffer19 =message.request.application.applicationAdditionalDetails.other.buffer19;
+  print("---->otherBuffer19 ::"otherBuffer19);}
+
+
+ //-----------------------------------Previous Year Variables------------------------------------------------------
+ 
+ otherBuffer6 is a real;
+ if(message.request.application.applicationAdditionalDetails.other.buffer6 <>"")then{
+otherBuffer6 =message.request.application.applicationAdditionalDetails.other.buffer6 as a real;
+ print("---->otherBuffer6 ::"otherBuffer6);}
+
+otherBuffer7 is a real;
+if(message.request.application.applicationAdditionalDetails.other.buffer7 <>"")then{
+otherBuffer7 =message.request.application.applicationAdditionalDetails.other.buffer7 as a real;
+print("---->otherBuffer7 ::"otherBuffer7);}
+
+otherBuffer8 is a real;
+if(message.request.application.applicationAdditionalDetails.other.buffer8 <>"")then{
+otherBuffer8 =message.request.application.applicationAdditionalDetails.other.buffer8 as a real;
+print("---->otherBuffer8 ::"otherBuffer8);}
+
+otherBuffer9 is a real;
+if(message.request.application.applicationAdditionalDetails.other.buffer9 <>"")then{
+otherBuffer9 =message.request.application.applicationAdditionalDetails.other.buffer9 as a real;
+print("---->otherBuffer ::"otherBuffer9);}
+
+otherBuffer10 is a real;
+if(message.request.application.applicationAdditionalDetails.other.buffer10 <>"")then{
+otherBuffer10 =message.request.application.applicationAdditionalDetails.other.buffer10 as a real;
+print("---->otherBuffer10 ::"otherBuffer10);}
+
+otherBuffer12 is a real;
+if(message.request.application.applicationAdditionalDetails.other.buffer12 <>"")then{
+otherBuffer12 =message.request.application.applicationAdditionalDetails.other.buffer12 as a real;
+print("---->otherBuffer12 ::"otherBuffer12);}
+
+otherBuffer13 is a real;
+if(message.request.application.applicationAdditionalDetails.other.buffer13  <>"")then{
+otherBuffer13 =message.request.application.applicationAdditionalDetails.other.buffer13 as a real;
+print("---->otherBuffer13 ::"otherBuffer13);}
+
+otherBuffer14 is a real;
+if(message.request.application.applicationAdditionalDetails.other.buffer14 <>"")then{
+otherBuffer14 =message.request.application.applicationAdditionalDetails.other.buffer14 as a real;
+print("---->otherBuffer14 ::"otherBuffer14);}
+
+otherBuffer17 is a real;
+if(message.request.application.applicationAdditionalDetails.other.buffer17 <>"")then{
+otherBuffer17 =message.request.application.applicationAdditionalDetails.other.buffer17 as a real;
+print("---->otherBuffer17 ::"otherBuffer17);}
+
+otherBuffer24 is a real;
+if(message.request.application.applicationAdditionalDetails.other.buffer24<>"")then{
+otherBuffer24 =message.request.application.applicationAdditionalDetails.other.buffer24 as a real;
+print("---->otherBuffer24 ::"otherBuffer24);}
+
+otherBuffer25 is a real;
+if(message.request.application.applicationAdditionalDetails.other.buffer25 <>"")then{
+otherBuffer25 =message.request.application.applicationAdditionalDetails.other.buffer25 as a real;
+print("---->otherBuffer25 ::"otherBuffer25);}
+
+otherBuffer18 is a string;
+if(message.request.application.applicationAdditionalDetails.other.buffer18 <>"")then{
+otherBuffer18 =message.request.application.applicationAdditionalDetails.other.buffer18;
+print("---->otherBuffer18 ::"otherBuffer18);}
+
+otherBuffer20 is a string;
+if(message.request.application.applicationAdditionalDetails.other.buffer20 <>"")then{
+otherBuffer20 =message.request.application.applicationAdditionalDetails.other.buffer20;
+print("---->otherBuffer20 ::"otherBuffer20);}
+
+additionalBuffer10 is a real;
+if(message.request.application.applicationAdditionalDetails.buffer10 <>"")then{
+additionalBuffer10 =message.request.application.applicationAdditionalDetails.buffer10 as a real;
+print("---->additionalBuffer10 ::"additionalBuffer10);}
+ 
+//-----------------------------------------DTAB Assignments Starts-----------------------------------------------------
+  print("---->Risk Segment ::"aBlazeApplication.riskSegment);
+  print("---->numberOfInstallments ::"message.request.application.loanBasicDetail.paymentDetails.numberOfInstallments);
+  print("---->rentalIncomeProgram ::"message.request.application.applicationAdditionalDetails.other.rentalIncomeProgram);
+  
+  mulIncomeProgram is a real;
+  creditToLoanRatio is a real;
+  indMarGstProgram is a real;
+  foirAsPerGst is a real;
+  abbToEmiRationForGSTProgram is a real;
+ //print("value of risk segment is "aBlazeApplication.riskSegment);
+ if(message.request.application.loanBasicDetail.paymentDetails.numberOfInstallments is known and aBlazeApplication.riskSegment is known and aBlazeApplication.riskSegment<>"")then{
+  mulIncomeProgram =BL_Multiplier_for_Income_Program(message.request.application.loanBasicDetail.paymentDetails.numberOfInstallments,aBlazeApplication.riskSegment);}
+  print("---->mulIncomeProgram ::"mulIncomeProgram);
+
+  
+  if(message.request.application.applicationAdditionalDetails.buffer3<>"" and message.request.application.applicationAdditionalDetails.buffer3 is known)then{
+  indMarGstProgram =BL_Industry_Margin_for_GST_Program(message.request.application.applicationAdditionalDetails.buffer3);
+  print("---->indMarGstProgram ::"indMarGstProgram);}
+  
+  if(aBlazeApplication.riskSegment <>"" and aBlazeApplication.riskSegment is known  )then{
+  foirAsPerGst =BL_FOIR_for_GST_Program(aBlazeApplication.riskSegment);
+  print("---->foirAsPerGst ::"foirAsPerGst);}
+  
+  if(aBlazeApplication.riskSegment<>"" and aBlazeApplication.riskSegment is known )then{
+  abbToEmiRationForGSTProgram =BL_ABB_to_EMI_Ratio_for_GST_Program(aBlazeApplication.riskSegment);
+  print("---->abbToEmiRationForGSTProgram ::"abbToEmiRationForGSTProgram);}
+  
+  //-----------------------------------------DTAB Assignments Emd---------------------------------------------------- 
+  
+  //--------------------------------------Growth Percentage logic Begins-------------------------------------------------
+  
+  //Turnover as per GST
+    print("otherSBIMet ::"otherSBIMet);
+    print("additionalBuffer10 ::"additionalBuffer10);
+    
+  if(otherSBIMet = additionalBuffer10)then{
+	  print("Entering 0 for buffer7");
+	  message.request.application.applicationAdditionalDetails.buffer7 ="0";
+  }else{
+  additionalBuffer7 is a real;
+  additionalBuffer7 =((otherSBIMet - additionalBuffer10)/(additionalBuffer10))*100;
+  print("additionalBuffer7 ::"additionalBuffer7);
+  message.request.application.applicationAdditionalDetails.buffer7 =additionalBuffer7 as a string;
+  }
+  print("---->message.request.application.applicationAdditionalDetails.buffer7 ::"message.request.application.applicationAdditionalDetails.buffer7);
+  
+  //Total Income Latest Year
+  if(otherBType<>unknown and otherLType<>unknown and otherPropertyIdentified<>unknown and 
+  otherRiskCategorisation<>unknown and otherCinNo<>unknown and otherFinalFoirPercentage<>unknown and otherFinalLtvPercentage<>unknown)
+  then{
+  otherBuffer23 =otherBType + otherLType + otherPropertyIdentified + otherRiskCategorisation + otherCinNo + otherFinalLtvPercentage - otherFinalLoanAmount;
+  }
+    message.request.application.applicationAdditionalDetails.other.buffer23 =otherBuffer23 as a string;
+  print("---->otherBuffer23 ::"otherBuffer23);
+  
+  //Total Income Previous Year
+  if(otherBuffer6<>unknown and otherBuffer7<>unknown and otherBuffer8<>unknown and otherBuffer9<>unknown and 
+  otherBuffer10<>unknown and otherBuffer12<>unknown and otherBuffer13<>unknown)
+  then{
+  otherBuffer24 =otherBuffer6 + otherBuffer7 + otherBuffer8 + otherBuffer9 + otherBuffer10 + otherBuffer13 - otherBuffer14;
+  }
+     message.request.application.applicationAdditionalDetails.other.buffer24 =otherBuffer24 as a string;
+  print("---->otherBuffer24 ::"otherBuffer24);
+  
+  //-----------------------------------------------------------Growth Percentage logic Ends-------------------------------------------------------------------
+  
+  //----------------------------------------------------------------emiPerLakh logic Begins----------------------------------------------------------------------
+  
+    baseRate is a real initially 0;
+  tenor is a real initially 0;
+  if(aBlazeApplication.loanBasicDetail.paymentDetails.baseRate as a real <> unknown 
+     and aBlazeApplication.loanBasicDetail.paymentDetails.numberOfInstallments as a real <> unknown) then {
+    baseRate = aBlazeApplication.loanBasicDetail.paymentDetails.baseRate as a real;
+    tenor = aBlazeApplication.loanBasicDetail.paymentDetails.numberOfInstallments as a real;
+    message.request.application.applicationAdditionalDetails.finalOffer.ROINTR =baseRate;
+    message.request.application.applicationAdditionalDetails.finalOffer.LOANTENU =tenor;
+  }
+  print("----> baseRate :: " baseRate);
+  print("----> tenor :: " tenor);
+
+  multiplier is a real initially 0;
+  divisor is a real initially 0;
+  rate is a real initially 0;
+  ratePerMonth is a real initially 0;
+
+  ratePerMonth = baseRate/(12*100);
+
+  rate = 1 + ratePerMonth;
+  if(tenor>=180)then{
+  			multiplier = math().power(rate, 180);
+       }else if(tenor <180)then{
+  			multiplier = math().power(rate, tenor);
+       }
+  divisor = multiplier - 1;
+
+emiPerLakh is a real initially 0;
+  if(divisor <> 0) then {
+    emiPerLakh = (100000 * ratePerMonth * multiplier) / divisor;
+  }
+  print("----> emiPerLakh :: " emiPerLakh);
+  
+  //------------------------------------------------------------emiPerLakh logic ends----------------------------------------------------------------------------
+  
+  //-------------------------------------------------Income Method Loan Eligibility logic Begins------------------------------------------------------------
+  
+  //Capped PAT
+  capPat is a real;
+  if(otherBType <>unknown and otherBuffer6<>unknown)then{
+   capPat =math().min(otherBType,(otherBuffer6+(otherBuffer6*1.5)));
+  }
+   print("----> capPat :: " capPat);
+  
+  //Capped Depriciation
+  capDep is a real;
+  if(otherLType <>unknown and otherBType<>unknown )then {
+  capDep =math().min(otherLType,(otherBType+(otherBType*1.5)));}
+  print("----> capDep :: " capDep);
+   
+  //Cash Profit
+  cashProfit is a real;
+    
+  cashProfit =((capPat+capDep)*(mulIncomeProgram))+(otherPropertyIdentified + otherRiskCategorisation + otherCinNo + otherFinalLtvPercentage - otherFinalLoanAmount );
+  print("----> cashProfit :: " cashProfit);
+  
+  //Income Method Eligible Loan Amount 1
+  incEligLoAmt1 is a real;
+  if(cashProfit <>unknown and otherBuffer16<>unknown)then {
+  incEligLoAmt1 =cashProfit - otherBuffer16;}
+  print("----> incEligLoAmt1 :: " incEligLoAmt1);
+  
+  abbEmiCapIncProgram is a real;
+   if(aBlazeApplication.riskSegment<>"" and aBlazeApplication.riskSegment is known  and incEligLoAmt1<>unknown)then { 
+  abbEmiCapIncProgram =BL_ABB_to_EMI_Capping_for_Income_Program(aBlazeApplication.riskSegment,incEligLoAmt1);}
+  print("----> abbEmiCapIncProgram :: " abbEmiCapIncProgram);
+  
+  //EMI for Eligible Loan Amount 1
+  emiEligLoanAmount1 is a real;
+  if(incEligLoAmt1<>unknown and ratePerMonth<>unknown and multiplier<>unknown)then{
+  emiEligLoanAmount1 =( incEligLoAmt1* ratePerMonth * multiplier) / divisor;}
+  print("----> emiEligLoanAmount1 :: " emiEligLoanAmount1);
+  
+  //EMI basis ABB to EMI ratio
+  emiAbbEmiRatio is a real;
+    if(monthlyAvgBankBal12m<>unknown and abbEmiCapIncProgram<>unknown)then{
+  emiAbbEmiRatio =monthlyAvgBankBal12m/abbEmiCapIncProgram;}
+  print("----> emiAbbEmiRatio :: " emiAbbEmiRatio);
+  
+  //Income Method Eligible Loan Amount 2
+  incEligLoAmt2 is a real;
+   if(emiAbbEmiRatio<>unknown and emiPerLakh<>unknown)then{
+  incEligLoAmt2 =(emiAbbEmiRatio/emiPerLakh)*100000;}
+  print("----> incEligLoAmt2 :: " incEligLoAmt2);
+  
+  //Final Eligible Loan Amount - Income Method
+  finalEligLoAmtIncMethod is a real;
+    
+   if(incEligLoAmt1<>unknown and incEligLoAmt2<>unknown)then{ 
+  finalEligLoAmtIncMethod =math().min(math().min(incEligLoAmt1,incEligLoAmt2),maxPermissibleLoAmount);}
+  print("----> finalEligLoAmtIncMethod :: " finalEligLoAmtIncMethod);
+  message.request.application.applicationAdditionalDetails.buffer8 =finalEligLoAmtIncMethod as a string;
+  
+    //-------------------------------------------------Income Method Loan Eligibility logic ends------------------------------------------------------------
+  
+    //----------------------------------------------Banking Surrogate Loan Eligibility logic Begins--------------------------------------------------------
+  abbToEmiRatioBanksur is a real;
+    if(aBlazeApplication.riskSegment <>"" and aBlazeApplication.riskSegment is known)then{
+  abbToEmiRatioBanksur =BL_ABB_to_EMI_Ratio_for_Banking_Surrogate(aBlazeApplication.riskSegment);}
+  print("----> abbToEmiRatioBanksur :: " abbToEmiRatioBanksur);
+  
+  //Eligible EMI for Banking Surrogate
+  eligEmiBankingSur is a real;
+    if(monthlyAvgBankBal12m<>unknown and abbToEmiRatioBanksur<>unknown and totalMonthlyOblBankSurMethod <>unknown)then{
+  eligEmiBankingSur =(monthlyAvgBankBal12m/abbToEmiRatioBanksur)-totalMonthlyOblBankSurMethod;}
+  print("----> eligEmiBankingSur :: " eligEmiBankingSur);
+  
+  //Banking Surrogate Eligible Loan Amount 1
+  bankingSurEligLoAmt1 is a real;
+    if(eligEmiBankingSur <>unknown and emiPerLakh<>unknown)then{
+  bankingSurEligLoAmt1 =(eligEmiBankingSur/emiPerLakh)*100000;}
+  print("----> bankingSurEligLoAmt1 :: " bankingSurEligLoAmt1);
+  
+  if(aBlazeApplication.riskSegment is known and aBlazeApplication.riskSegment<>"" and bankingSurEligLoAmt1 is not unknown)then{
+  creditToLoanRatio =BL_Credit_to_Loan_Ratio(aBlazeApplication.riskSegment,bankingSurEligLoAmt1 );
+  print("---->creditToLoanRatio ::"creditToLoanRatio);}
+  
+  //Eligibile Loan Amount Basis Credit to Loan ratio
+  eligLoAmtCreditLoRatio is a real;
+    if(otherGBIMet <>unknown and creditToLoanRatio<>unknown)then{
+  eligLoAmtCreditLoRatio = otherGBIMet/creditToLoanRatio;}
+  print("----> eligLoAmtCreditLoRatio :: " eligLoAmtCreditLoRatio);
+  
+  //Final Eligible Loan Amount - Banking Method
+  finalEligLoAmtBankingSur is a real;
+  if(finalEligLoAmtIncMethod<>unknown and bankingSurEligLoAmt1<>unknown and eligLoAmtCreditLoRatio<>unknown )then{
+  finalEligLoAmtBankingSur =math().min(maxPermissibleLoAmount,math().min(bankingSurEligLoAmt1,math().min((finalEligLoAmtIncMethod*2),eligLoAmtCreditLoRatio)));
+  message.request.application.applicationAdditionalDetails.buffer9 =finalEligLoAmtBankingSur as a string;
+  print("----> finalEligLoAmtBankingSur :: " finalEligLoAmtBankingSur);
+  }
+  
+  //----------------------------------------------Banking Surrogate Loan Eligibility logic ends----------------------------------------------------------
+  
+  //------------------------------------------------GST Program Loan Eligibility logic begins--------------------------------------------------------------
+  
+  //Capped Turnover as per GST
+    revisedTurnCap is a real;
+  gstTurnCap is a real;
+    if(otherSBIMet<>(unknown or unavailable) and additionalBuffer10<>(unknown or unavailable))then {
+  gstTurnCap=math().min(otherSBIMet,additionalBuffer10+(additionalBuffer10*2.5));
+  print("----> gstTurnCap :: " gstTurnCap);
+  
+  //Revised Capped Turnover
+  if(greatestIndividualContribution >40)then{
+    revisedTurnCap =gstTurnCap - (otherSBIMet*greatestIndividualContribution/100);
+	print("----> revisedTurnCap :: " revisedTurnCap);
+  }
+  else{
+    revisedTurnCap =gstTurnCap;
+	print("----> revisedTurnCap :: " revisedTurnCap);
+  }
+    }
+  
+  //Income as per Industry Margin
+  incPerIndustryMargin is a real;
+    if(revisedTurnCap<>unknown and indMarGstProgram<>unknown)then{
+  incPerIndustryMargin =(revisedTurnCap*(indMarGstProgram/100))/12;}
+  print("----> incPerIndustryMargin :: " incPerIndustryMargin);
+  
+  //Eligible EMI for GST Program
+  eligEmiGstProgram is a real;
+    if(incPerIndustryMargin<>unknown and foirAsPerGst<>unknown and totalMonthlyOblGSTMethod<>unknown)then{
+  eligEmiGstProgram =(incPerIndustryMargin*(foirAsPerGst/100))-totalMonthlyOblGSTMethod;}
+  print("----> eligEmiGstProgram :: " eligEmiGstProgram);
+  
+  //Eligibile Loan Amount in GST Program1
+  eligLoAmtGSTProgram1 is a real;
+    if(eligEmiGstProgram<>unknown and emiPerLakh<>unknown)then{
+  eligLoAmtGSTProgram1 =(eligEmiGstProgram/emiPerLakh)*100000;}
+  print("----> eligLoAmtGSTProgram1 :: " eligLoAmtGSTProgram1);
+  
+  //EMI basis ABB to EMI ratio
+  emiBasisAbbEmiRatio is a real;
+  if(monthlyAvgBankBal12m<>unknown and abbToEmiRationForGSTProgram<>unknown and otherBuffer16<>unknown)then{
+  //emiBasisAbbEmiRatio =(monthlyAvgBankBal12m*abbToEmiRationForGSTProgram)-otherBuffer16;}
+    emiBasisAbbEmiRatio =monthlyAvgBankBal12m/abbToEmiRationForGSTProgram;}
+  print("----> emiBasisAbbEmiRatio :: " emiBasisAbbEmiRatio);
+  
+  //GST Method Eligible Loan Amount 2
+  gstMethodEligLoAmt2 is a real;
+    if(emiBasisAbbEmiRatio <>unknown and emiPerLakh<>unknown)then{
+  gstMethodEligLoAmt2 =(emiBasisAbbEmiRatio/emiPerLakh)*100000;}
+  print("----> gstMethodEligLoAmt2 :: " gstMethodEligLoAmt2);
+  
+  //Final Eligible Loan Amount - GST Program
+  finalEligLoAmtGSTProgram is a real;
+
+  print("---->finalEligLoAmtIncMethod*2 ::"finalEligLoAmtIncMethod*2);
+    
+    if(finalEligLoAmtIncMethod<>unknown and eligLoAmtGSTProgram1<>unknown and gstMethodEligLoAmt2<>unknown)then{
+  finalEligLoAmtGSTProgram =math().min((finalEligLoAmtIncMethod*2),math().min(maxPermissibleLoAmount,math().min(eligLoAmtGSTProgram1,gstMethodEligLoAmt2)));}
+  print("----> finalEligLoAmtGSTProgram :: " finalEligLoAmtGSTProgram);
+  
+  message.request.application.applicationAdditionalDetails.other.buffer22 =finalEligLoAmtGSTProgram as a string;
+ 
+  //--------------------------------------------------GST Program Loan Eligibility logic ends--------------------------------------------------------------
+  
+  //---------------------------------------------------------Final Offer Logic Begins---------------------------------------------------------------------------
+  
+  //Eligible Loan Amount
+  eligLoAmount is a real;
+  if(eligibilityMethod ="" or eligibilityMethod =unavailable or eligibilityMethod ="")then{
+    eligLoAmount =math().max(finalEligLoAmtIncMethod,math().max(finalEligLoAmtBankingSur,finalEligLoAmtGSTProgram));
+	print("----> eligLoAmount :: " eligLoAmount);	
+  }else{
+    if(eligibilityMethod =(ignoring case)"INCOMEMETHOD")then{
+      eligLoAmount =finalEligLoAmtIncMethod;
+	  print("----> eligLoAmount :: " eligLoAmount);  
+    }
+    if(eligibilityMethod =(ignoring case)"BANKINGSURROGATE")then{
+      eligLoAmount =finalEligLoAmtBankingSur;
+	  print("----> eligLoAmount :: " eligLoAmount);
+	  
+    }
+    if(eligibilityMethod =(ignoring case)"GSTPROGRAM")then{
+      eligLoAmount =finalEligLoAmtGSTProgram;
+	  print("----> eligLoAmount :: " eligLoAmount);  
+    }
+  }
+  message.request.application.applicationAdditionalDetails.finalOffer.MAXLOELIGINC =eligLoAmount;
+    
+   finalLoanEMI =(rentalIncomeProgram * ratePerMonth * multiplier) / divisor;
+    print("----------------->FinalLoanEmi::"finalLoanEMI);
+   message.request.application.applicationAdditionalDetails.finalOffer.EMIFINOFF =finalLoanEMI;
+  print("----> finalLoanEMI :: "message.request.application.applicationAdditionalDetails.finalOffer.EMIFINOFF);
+    
+      //----------------------------------------------------FinalFoir Logic starts---------------------------------------------------------
+	  
+  finalFoir is a real initially 0;
+    if(eligibilityMethod =(ignoring case)"INCOMEMETHOD")then{
+      finalFoir =((otherBuffer16 + rentalIncomeProgram)/cashProfit)*100;
+	  print("---->Income finalFoir :: " finalFoir);  
+    }
+    if(eligibilityMethod =(ignoring case)"BANKINGSURROGATE")then{
+      finalFoir =((finalLoanEMI + totalMonthlyOblBankSurMethod)/monthlyAvgBankBal12m)*100;
+	  print("---->Banking finalFoir :: " finalFoir);
+	  
+    }
+    if(eligibilityMethod =(ignoring case)"GSTPROGRAM")then{
+      finalFoir =((finalLoanEMI + totalMonthlyOblGSTMethod)/ incPerIndustryMargin)*100;
+	  print("----> GST finalFoir :: " finalFoir);  
+    }
+    message.request.application.applicationAdditionalDetails.finalOffer.FINALFOIR =finalFoir;
+	
+ //----------------------------------------------------------Final Offer Logic ends---------------------------------------------------------
+  }
+
+  print("++++> Exiting function :: fn_BL_EligibilityCalculation");
+  print("");
+  
+}catch an Exception with {
+  aBlazeApplication.fn_BL_EligibilityCalculationException = true;  
+  print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");  
+}
+
+
+  
+  ]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='Brecbw'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

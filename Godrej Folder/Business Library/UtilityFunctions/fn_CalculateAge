@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_CalculateAge'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_CalculateAge</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>real</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("");
+print("++++> Entering function :: fn_CalculateAge");
+
+calendar().defaultDateFormat="yyyy-MM-dd";
+ageInYears is a real initially 0;
+aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+try {
+if(aBlazeApplication.businessErrorsFlag = false) then {
+print("---->aBlazeApplicant.corporateFlag :: "aBlazeApplicant.corporateFlag);
+  print("---->aBlazeApplicant.dateOfBirth :: "aBlazeApplicant.dateOfBirth);
+  print("---->aBlazeApplicant.dateOfIncorporation :: "aBlazeApplicant.dateOfIncorporation);
+  if(aBlazeApplicant.corporateFlag is equal to false and aBlazeApplicant.dateOfBirth is known) then {
+    dateOfBirth is a date initially calendar().date(aBlazeApplicant.dateOfBirth,"yyyy-MM-dd");
+    print("dateOfBirth -> "dateOfBirth);
+    ageInDays is a real initially (calendar().currentDate().subtractInMonths(dateOfBirth).days)/365;
+    print("ageInDays -> "ageInDays);
+    ageInYears=(calendar().currentDate().subtractInMonths(dateOfBirth).months)/12 + ageInDays;
+    print("Individual ageInYears -> "ageInYears);
+  } else if (aBlazeApplicant.corporateFlag is equal to true and aBlazeApplicant.dateOfIncorporation is known) then {
+    dateOfIncorporation is a date initially calendar().date(aBlazeApplicant.dateOfIncorporation,"yyyy-MM-dd");
+    print("dateOfIncorporation-> "dateOfIncorporation);
+    ageInDays is a real initially (calendar().currentDate().subtractInMonths(dateOfIncorporation).days)/365;
+    print("ageInDays -> "ageInDays);
+    ageInYears=(calendar().currentDate().subtractInMonths(dateOfIncorporation).months)/12 + ageInDays;
+    print("Corporate ageInYears -> "ageInYears);
+  }
+}
+  
+  print("++++> Exiting function :: fn_CalculateAge");
+  print("");
+
+} catch an Exception with {
+  aBlazeApplication.fn_CalculateAgeException= true;  
+  print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");  
+}
+return ageInYears;]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='MK9sC6'>
+    <instance ref='ParameterNameVH'>
+     <value>aBlazeApplicant</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeApplicant</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_CalculateAge1</value>
+ </instance>
+</instantiation>

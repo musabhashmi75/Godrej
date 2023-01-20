@@ -1,0 +1,18 @@
+#Extended attributes for Innovator file-based repository (directory: 'Tier_City_Score')
+#Fri Aug 12 06:12:28 UTC 2022
+contentType=Instance
+guid=FyifsYCgYY4ohluViaRZoVCSi5m
+innovatorDisplayName=Tier_City_Score
+innovatorItemCreationId=admin
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=6wJBDnNMEpPfdP4wizmesDxkko8
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

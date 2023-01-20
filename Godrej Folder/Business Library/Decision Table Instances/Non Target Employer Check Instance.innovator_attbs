@@ -1,0 +1,16 @@
+#Extended attributes for Eclipse file-based repository (directory: 'Non Target Employer Check Instance')
+#Fri Aug 27 17:13:38 IST 2021
+contentType=Instance
+guid=GcB69HkhYZr5Tg1v9xHmVHoxxQ4
+innovatorDisplayName=Non_Target_Employer_Check_Instance
+innovatorTemplateRef=2pWCCiLgpCkTKOHWL5GcgVa5EM5
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

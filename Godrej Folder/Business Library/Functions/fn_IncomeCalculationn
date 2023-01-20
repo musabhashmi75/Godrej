@@ -1,0 +1,599 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_ApplicationRiskScoreCards'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_ApplicationRiskScoreCards</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("");
+print("++++> Entering function :: fn_ApplicationRiskScoreCards");
+
+aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+scoreCardDetailArray is some array of ScoreCardDetail initially message.response.scoreCardDetails;
+
+applicationDate is a date;
+applicationDate = message.invocation.applicationDate;
+errType is a string initially "";
+errId is a string initially "";
+errName is a string initially "";
+errAction is a string initially "";
+errCode is a string initially "";
+errText is a string initially "";
+try {
+if(aBlazeApplication.businessErrorsFlag = false) then {
+  print("----> Application Date :: "applicationDate);
+  print("----> Number of applicants :: "BTCommonVar.termInput.blazeApplication.blazeApplicantArray.count);
+  print("----> aBlazeApplication.riskScoreCardCheck :: "aBlazeApplication.riskScoreCardCheck);
+
+  if(aBlazeApplication.riskScoreCardCheck is equal to true) then {
+
+    for each BlazeApplicant  in  BTCommonVar.termInput.blazeApplication.blazeApplicantArray
+    do {
+      aBlazeApplicant is some BlazeApplicant initially it as a BlazeApplicant; 
+     
+      print("---->salariedEligibility.buffer1 :: " aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.buffer1);
+      bonusIncentivePerT is a real;
+     if(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.buffer1 = unknown
+		or aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.buffer1 = "" 
+		or aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.buffer1="#")then{
+     bonusIncentivePerT = 0; 
+        }else{
+          bonusIncentivePerT= aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.buffer1 as a real;
+          bonusIncentivePerT =bonusIncentivePerT/100;
+        }
+      print("bonusIncentivePerT ::"bonusIncentivePerT);
+      
+      print("----> aBlazeApplicant.employmentType :: " aBlazeApplicant.employmentType);
+         // if(aBlazeApplicant.employmentType<>(ignoring case) "NON-WORKING") then{
+      //added by Ankit on 5th April fot Tier changes 
+     cityTier is a string initially "";
+    
+      // end by Ankit for Tier changes 
+      
+      // by Vikas date:10-11-2021
+      if(aBlazeApplicant.residentialStatus<>unknown and aBlazeApplicant.residentialStatus=(ignoring case) "Resident") then { 
+        // Run the score card
+        // >>> Salaried Risk scorecard variables starts...      
+        // Net Bonus 
+        netBonus is a real initially 0;
+        print("---->aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.latestYearBonus ::"aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.latestYearBonus);
+        print("----> aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.previousYearBonus ::" aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.previousYearBonus);
+        
+        if(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.latestYearBonus <> unknown 
+           and aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.previousYearBonus <> unknown) then {
+          if (aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.latestYearBonus <= aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.previousYearBonus) then {
+            print("Entered first");
+            netBonus = (bonusIncentivePerT) * aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.latestYearBonus;
+          }  
+          if(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.latestYearBonus > aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.previousYearBonus) then {
+            print("Entered Second");
+            netBonus = (bonusIncentivePerT) * ((aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.latestYearBonus 
+                                + aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.previousYearBonus)/2);
+          }
+        } 
+        print("----> netBonus :: "netBonus);
+        
+        // Net Incentive
+        netIncentive is a real initially 0;
+        if(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth1 <> unknown
+           and aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth2 <> unknown 
+           and aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth3 <> unknown 
+           and aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth4 <> unknown 
+           and aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth5 <> unknown 
+           and aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth6 <> unknown) then {
+          netIncentive =  ((bonusIncentivePerT)*((aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth1
+                                  + aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth2 
+                                  + aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth3 
+                                  + aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth4 
+                                  + aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth5 
+                                  + aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth6)/6))*12;
+        } 
+        print("----> netIncentive :: "netIncentive);
+        
+        // Total Variable Salary
+        totalVariableSalary is a real initially 0;
+        if(netBonus <> unknown and netIncentive <> unknown) then {
+          totalVariableSalary = netBonus + netIncentive;
+        }  
+        print("----> totalVariableSalary :: "totalVariableSalary);
+        
+        // Total Salary Related Income
+        totalSalaryRelatedIncome is a real initially 0;
+        if(aBlazeApplicant.applicantAdditionalDetails.additionalDetail.netAnnual <> unknown and totalVariableSalary <> unknown) then {
+          totalSalaryRelatedIncome = aBlazeApplicant.applicantAdditionalDetails.additionalDetail.netAnnual + totalVariableSalary;
+          aBlazeApplicant.totalSalaryRelatedIncome = totalSalaryRelatedIncome;     
+        } 
+        print("----> aBlazeApplicant.totalSalaryRelatedIncome :: "aBlazeApplicant.totalSalaryRelatedIncome); 
+        
+        // CitySalary
+        print("----> aBlazeApplicant.highPriorityAddress.city :: "aBlazeApplicant.highPriorityAddress.city);
+        if(aBlazeApplicant.totalSalaryRelatedIncome <> unknown and aBlazeApplicant.totalSalaryRelatedIncome > 0 
+           and (aBlazeApplicant.highPriorityAddress.city <> unknown and aBlazeApplicant.highPriorityAddress.city <> "")) then {       
+          City_Tier_Mapping(aBlazeApplicant,aBlazeApplicant);
+       //   City_Salary_Instance(aBlazeApplicant); commented by Ankit
+          Tier_Salary_mapping(aBlazeApplicant,aBlazeApplicant,aBlazeApplicant);
+          
+        }
+          print("---->Ankit  aBlazeApplicant.KArza PAN :: " aBlazeApplicant.karza.panStatusCheck.panStatusResult.status);  
+         print("---->Ankit  aBlazeApplicant.cityTier :: " aBlazeApplicant.buffer1);  
+        print("----> aBlazeApplicant.citySalary :: " aBlazeApplicant.citySalary);  
+        
+        // >>> Salaried Error starts...
+          //employmentStatus       
+        if(aBlazeApplicant.employmentStatus is equal to unknown or aBlazeApplicant.employmentStatus="")  then {
+          print("**Error :: ###>> Current Employer flag is not set or Kyc Employment Type is empty <<###");
+          errType = "CONDMAND";
+          errText = "Current Employer flag is not set or Kyc Employment Type is empty";
+          errId = "ERROBJ198";
+          errName = errId;
+          fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        }
+        
+        // >>> Salaried Error ends...
+
+      
+        
+//age        
+if(aBlazeApplicant.age is equal to unknown)  then {
+    print("**Error :: ###>> Age is Mandatory <<###");
+    errType = "CONDMAND";
+    errText = "Age is Mandatory";
+    errId = "ERROBJ199";
+    errName = errId;
+    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+  }
+        
+  
+        
+//citySalary
+ citySalary is a string initially aBlazeApplicant.citySalary;
+        
+if(aBlazeApplicant.citySalary is equal to unknown or aBlazeApplicant.citySalary="")  then {
+    print("**Error :: ###>> High Priority Address is not set or Total Salary Related Income is empty <<###");
+    errType = "CONDMAND";
+    errText = "High Priority Address is not set or Total Salary Related Income is empty";
+    errId = "ERROBJ200";
+    errName = errId;
+    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+  }
+        
+//bureauScore
+ bureauScore is a real initially aBlazeApplicant.bureauScore;
+        
+if(aBlazeApplicant.bureauScore is equal to unknown)  then {
+    print("**Error :: ###>> Bureau Score is Mandatory <<###");
+    errType = "CONDMAND";
+    errText = "Bureau Score is Mandatory";
+    errId = "ERROBJ201";
+    errName = errId;
+    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+  }
+        
+//bureauDelinquencyCategory
+ bureauDelinquencyCategory is a string initially aBlazeApplicant.bureauDelinquencyCategory;
+        
+if(bureauDelinquencyCategory is equal to unknown or bureauDelinquencyCategory="")  then {
+    print("**Error :: ###>> Bureau Delinquency Category is Mandatory <<###");
+    errType = "CONDMAND";
+    errText = "Bureau Delinquency Category is Mandatory";
+    errId = "ERROBJ202";
+    errName = errId;
+    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+  }
+        
+//isNtc
+ isNtc is a boolean initially aBlazeApplicant.isNtc;
+        
+if(isNtc is equal to unknown)  then {
+    print("**Error :: ###>> isNtc is Mandatory <<###");
+    errType = "CONDMAND";
+    errText = "isNtc is Mandatory";
+    errId = "ERROBJ203";
+    errName = errId;
+    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+  }
+        
+//noOfDpdInL6m
+
+ noOfDpdInL6m is a real initially aBlazeApplicant.noOfDpdInL6m;
+        
+if(noOfDpdInL6m is equal to unknown)  then {
+    print("**Error :: ###>> noOfDpdInL6m is Mandatory <<###");
+    errType = "CONDMAND";
+    errText = "noOfDpdInL6m is Mandatory";
+    errId = "ERROBJ204";
+    errName = errId;
+    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+  }
+        
+//noOfDpdEqualOrAbove30CountInL12M
+ noOfDpdEqualOrAbove30CountInL12M is a real initially aBlazeApplicant.noOfDpdEqualOrAbove30CountInL12M;
+        
+if(noOfDpdEqualOrAbove30CountInL12M is equal to unknown)  then {
+    print("**Error :: ###>> noOfDpdEqualOrAbove30CountInL12M is Mandatory <<###");
+    errType = "CONDMAND";
+    errText = "noOfDpdEqualOrAbove30CountInL12M is Mandatory";
+    errId = "ERROBJ205";
+    errName = errId;
+    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+  }
+        
+        // -------------------------------------------------------------------------Salaried Risk Score starts-----------------------------------------------------------------------------------------  
+        // Salaried Risk Score
+        salRiskScore is a real initially 0; 
+        salScoreModelDecision is some NdScoreModelReturnInfo;
+        print("----> aBlazeApplicant.employmentStatus :: " aBlazeApplicant.employmentStatus); 
+         print("----> aBlazeApplicant.citySalary inside scorecard:: " aBlazeApplicant.citySalary);  
+        print("----> aBlazeApplicant.age :: " aBlazeApplicant.age); 
+        print("----> aBlazeApplicant.bureauScore :: " aBlazeApplicant.bureauScore); 
+        print("----> aBlazeApplicant.bureauDelinquencyCategory :: " aBlazeApplicant.bureauDelinquencyCategory); 
+        if(aBlazeApplicant.employmentType=  (ignoring  case  )  "SALARIED")  then  {
+          
+          salScoreModelDecision = Salaried_Risk_Score_Card_Instance(aBlazeApplicant);
+          salRiskScore = salScoreModelDecision.score;    
+          aBlazeApplicant.riskScore = salRiskScore;  
+          print("----> salRiskScore :: "salRiskScore); 
+          
+          // Sal_Risk_Segment  
+          if(aBlazeApplicant.riskScore <> unknown) then {    
+            Sal_Risk_Segment_Instance(aBlazeApplicant);    
+          }  
+          print("----> SALARIED aBlazeApplicant.customerRiskSegment :: " aBlazeApplicant.customerRiskSegment); 
+          
+          // message.response.scoreCardDetails.scoreCardCharacteristics
+          scoreCardCharacteristicsArray is some array of ScoreCardCharacteristicsDetail initially an array of ScoreCardCharacteristicsDetail;
+          for each NdScoredCharacteristic in salScoreModelDecision.scoredCharacteristics do {
+            scoredCharacteristics  is  some  NdScoredCharacteristic  initially  it  as  a  NdScoredCharacteristic;
+            scoreCardCharacteristicsDetail is some ScoreCardCharacteristicsDetail initially a ScoreCardCharacteristicsDetail;     
+            //scoreCardCharacteristicsDetail.baselineScore = scoredCharacteristics.baselineScore as a string;
+            //scoreCardCharacteristicsDetail.binLabel = scoredCharacteristics.binLabel;
+            scoreCardCharacteristicsDetail.characteristicName = scoredCharacteristics.characteristicName;    
+            scoreCardCharacteristicsDetail.characteristicValue =  scoredCharacteristics.binLabel;
+            scoreCardCharacteristicsDetail.reasonCode = scoredCharacteristics.reasonCode as a string;
+            scoreCardCharacteristicsDetail.partialScore = scoredCharacteristics.partialScore as a string;
+            scoreCardCharacteristicsArray.append(scoreCardCharacteristicsDetail);
+          }
+          print("----> scoreCardCharacteristicsArray count :: " scoreCardCharacteristicsArray.count);
+          
+          // scoreCardDetail
+          scoreCardDetail is some ScoreCardDetail initially a ScoreCardDetail;  
+          if(scoreCardCharacteristicsArray <> unknown and scoreCardCharacteristicsArray <> null) then {
+            scoreCardDetail.scoreCardCharacteristics = scoreCardCharacteristicsArray;
+          }
+          
+          cardName is a string initially "";
+          cardName = portable().concat(salScoreModelDecision.scoreModelName, "_");
+          
+          scoreCardDetail.scorecardName = portable().concat(cardName, aBlazeApplicant.customerRiskSegment);          
+          scoreCardDetail.scorecardScore = salScoreModelDecision.score;
+          scoreCardDetail.characteristicCount = salScoreModelDecision.characteristicCount;
+          scoreCardDetail.scorecardKey = "appScore";
+          scoreCardDetail.purpose = "AutoPopulate";
+          scoreCardDetail.entityType = aBlazeApplicant.applicantType;
+          scoreCardDetail.entityId = aBlazeApplicant.customerCif as a string;  
+          scoreCardDetailArray.append(scoreCardDetail);
+          print("----> SALARIED Risk scorecard added");
+          print("----> scoreCardDetailArray count after SALARIED Risk scorecard :: " scoreCardDetailArray.count);
+        } else {
+          print("----> SALARIED Risk scorecard not added");
+        }  
+        // -------------------------------------------------------------------------Salaried Risk Score ends------------------------------------------------------------------------------------------
+        
+        
+        
+        
+        // >>> SENP Risk scorecard variables starts...        
+        // SenpIndustryTypeTurnOver
+        if(aBlazeApplicant.employmentType=  (ignoring  case  )  "SENP" 
+           and aBlazeApplicant.natureOfBusiness <> unknown 
+           and aBlazeApplicant.natureOfBusiness <> "" 
+           and aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.turnover <> unknown) then {          
+          SENP_IndustryType_TurnOver_Instance(aBlazeApplicant);       
+        }
+        print("----> aBlazeApplicant.senpIndustryTypeTurnOver :: " aBlazeApplicant.senpIndustryTypeTurnOver);
+        
+        // Turnover Stability
+        turnoverStability is a real initially 0;
+        if(aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.turnover <> unknown
+           and aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.turnover <> unknown) then {
+          turnoverStability = ((aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.turnover 
+                                - aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.turnover) 
+                               / aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.turnover)*100;  
+          aBlazeApplicant.turnOverStability = turnoverStability;
+        }
+        print("----> aBlazeApplicant.turnOverStability :: "aBlazeApplicant.turnOverStability);
+        
+        // Bottom Line Stability
+        bottomLineStability is a real initially 0;
+        latestYearNetPbt is a real initially 0;
+        previousYearNetPbt is a real initially 0;
+        
+        if(aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.netPbt<>unknown) then {
+          latestYearNetPbt=aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.netPbt;
+        }
+        
+        if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.netPbt<>unknown) then {
+          previousYearNetPbt=aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.netPbt;
+        }   
+        
+        if(latestYearNetPbt <> unknown and previousYearNetPbt <> unknown 
+           and aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.turnover <> unknown) then {
+          bottomLineStability = ((latestYearNetPbt - previousYearNetPbt) / previousYearNetPbt)*100;
+          aBlazeApplicant.bottomLineStability = bottomLineStability;
+        }
+        print("----> aBlazeApplicant.bottomLineStability :: "aBlazeApplicant.bottomLineStability);    
+        //aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.NETPBTGROWTHPER =aBlazeApplicant.bottomLineStability;
+        //print("NETPBTGROWTHPER ::"aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.NETPBTGROWTHPER);
+        // >>> SENP Risk scorecard variables ends...
+        
+ //rag
+//rag is a string initially aBlazeApplicant.rag;        
+//if(rag is equal to unknown or rag="")  then {
+   // print("**Error :: ###>> Sub Sector is not set or Sub Sector is Empty <<###");
+    //errType = "CONDMAND";
+    //errText = "Sub Sector is not set or Sub Sector is Empty";
+    //errId = "ERROBJ206";
+    //errName = errId;
+    
+    //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+  //}
+        
+//totalWorkExperience
+totalWorkExperience is a real initially aBlazeApplicant.totalWorkExperience;        
+if(totalWorkExperience is equal to unknown)  then {
+    print("**Error :: ###>> Total Work Experience is Mandatory <<###");
+    errType = "CONDMAND";
+    errText = "Total Work Experience is Mandatory";
+    errId = "ERROBJ207";
+    errName = errId;
+    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+  }
+        
+//senpIndustryTypeTurnOver
+senpIndustryTypeTurnOver is a string initially aBlazeApplicant.senpIndustryTypeTurnOver;        
+if(senpIndustryTypeTurnOver is equal to unknown or senpIndustryTypeTurnOver="")  then {
+    print("**Error :: ###>> Senp Industry Type Turn Over is Mandatory <<###");
+    errType = "CONDMAND";
+    errText = "Senp Industry Type Turn Over is Mandatory";
+    errId = "ERROBJ208";
+    errName = errId;
+    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+  }
+
+//bureauScore        
+if(aBlazeApplicant.bureauScore is equal to unknown)  then {
+    print("**Error :: ###>> Bureau Score is Mandatory <<###");
+    errType = "CONDMAND";
+    errText = "Bureau Score is Mandatory";
+    errId = "ERROBJ209";
+    errName = errId;
+    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+  }
+ 
+//derogatoryRemarksInL12m
+derogatoryRemarksInL12m is a real initially aBlazeApplicant.derogatoryRemarksInL12m;        
+if(derogatoryRemarksInL12m is equal to unknown)  then {
+    print("**Error :: ###>> Derogatory Remarks InL12m is Mandatory <<###");
+    errType = "CONDMAND";
+    errText = "Derogatory Remarks InL12m is Mandatory";
+    errId = "ERROBJ210";
+    errName = errId;
+    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+  }
+        
+//ccOdUtilization
+ccOdUtilization is a string initially aBlazeApplicant.applicantAdditionalDetails.senpRiskScoreEligibility.ccOdUtilization;        
+if(ccOdUtilization is equal to unknown or ccOdUtilization="")  then {
+    print("**Error :: ###>> ccOdUtilization is Mandatory <<###");
+    errType = "CONDMAND";
+    errText = "ccOdUtilization is Mandatory";
+    errId = "ERROBJ211";
+    errName = errId;
+    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+  }
+        
+//bottomLineStability        
+if(aBlazeApplicant.bottomLineStability is equal to unknown)  then {
+    print("**Error :: ###>> Bottom Line Stability is Mandatory <<###");
+    errType = "CONDMAND";
+    errText = "Bottom Line Stability is Mandatory";
+    errId = "ERROBJ212";
+    errName = errId;
+    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+  }
+        
+ //debtEquityRatio
+debtEquityRatio is a real initially aBlazeApplicant.applicantAdditionalDetails.senpRiskScoreEligibility.debtEquityRatio;        
+if(debtEquityRatio is equal to unknown)  then {
+    print("**Error :: ###>> Debt Equity Ratio is Mandatory <<###");
+    errType = "CONDMAND";
+    errText = "Debt Equity Ratio is Mandatory";
+    errId = "ERROBJ213";
+    errName = errId;
+    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+  }
+        
+ //abbEmiRatio
+abbEmiRatio is a real initially aBlazeApplicant.applicantAdditionalDetails.senpRiskScoreEligibility.abbEmiRatio;        
+if(abbEmiRatio is equal to unknown)  then {
+    print("**Error :: ###>> Abb Emi Ratio is Mandatory <<###");
+    errType = "CONDMAND";
+    errText = " Abb Emi Ratio is Mandatory";
+    errId = "ERROBJ214";
+    errName = errId;
+    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+  }
+        
+        
+        // -------------------------------------------------------------------------SENP Risk Score starts-----------------------------------------------------------------------------------------  
+        // SENP Risk Score
+        senpRiskScore is a real initially 0; 
+        senpScoreModelDecision is some NdScoreModelReturnInfo;
+        print("----> aBlazeApplicant.rag :: " aBlazeApplicant.rag); 
+        print("----> aBlazeApplicant.totalWorkExperience :: " aBlazeApplicant.totalWorkExperience); 
+        print("----> aBlazeApplicant.senpIndustryTypeTurnOver :: " aBlazeApplicant.senpIndustryTypeTurnOver); 
+        print("----> aBlazeApplicant.turnOverStability :: " aBlazeApplicant.turnOverStability);
+        print("----> aBlazeApplicant.bureauScore :: " aBlazeApplicant.bureauScore);
+        print("----> aBlazeApplicant.derogatoryRemarksInL12m :: " aBlazeApplicant.derogatoryRemarksInL12m);
+        print("----> aBlazeApplicant.applicantAdditionalDetails.senpRiskScoreEligibility.ccOdUtilization :: " aBlazeApplicant.applicantAdditionalDetails.senpRiskScoreEligibility.ccOdUtilization);
+        print("----> aBlazeApplicant.applicantAdditionalDetails.senpRiskScoreEligibility.debtEquityRatio :: " aBlazeApplicant.applicantAdditionalDetails.senpRiskScoreEligibility.debtEquityRatio);
+        print("----> aBlazeApplicant.applicantAdditionalDetails.senpRiskScoreEligibility.abbEmiRatio :: " aBlazeApplicant.applicantAdditionalDetails.senpRiskScoreEligibility.abbEmiRatio);
+        if(aBlazeApplicant.employmentType=  (ignoring  case)  "SENP")  then  { 
+          
+          // for corporate we consider debtEquityRatio and for individual we consider abbEmiRatio for scoring
+          if(aBlazeApplicant.corporateFlag = false) then {
+            aBlazeApplicant.applicantAdditionalDetails.senpRiskScoreEligibility.debtEquityRatio=0;
+          }else if(aBlazeApplicant.corporateFlag = true and (aBlazeApplicant.sector ="SENP1" or aBlazeApplicant.sector="SENP2")) then {
+            aBlazeApplicant.applicantAdditionalDetails.senpRiskScoreEligibility.debtEquityRatio=0;
+          }  else if(aBlazeApplicant.corporateFlag = true) then {
+            aBlazeApplicant.applicantAdditionalDetails.senpRiskScoreEligibility.abbEmiRatio=0;
+          }
+          senpScoreModelDecision = Senp_Risk_Score_Card_Instance(aBlazeApplicant);
+          senpRiskScore = senpScoreModelDecision.score;   
+          aBlazeApplicant.riskScore = senpRiskScore; 
+          print("----> senpRiskScore :: "senpRiskScore); 
+          
+           // SENP_Risk_Segment    
+          if(aBlazeApplicant.riskScore <> unknown) then {
+            SENP_Risk_Segment_Instance(aBlazeApplicant);         
+          } 
+          print("----> SENP aBlazeApplicant.customerRiskSegment :: " aBlazeApplicant.customerRiskSegment); 
+          
+          // message.response.scoreCardDetails.scoreCardCharacteristics
+          scoreCardCharacteristicsArray is some array of ScoreCardCharacteristicsDetail initially an array of ScoreCardCharacteristicsDetail;
+          for each NdScoredCharacteristic in senpScoreModelDecision.scoredCharacteristics  do {
+            scoredCharacteristics  is  some  NdScoredCharacteristic  initially  it  as  a  NdScoredCharacteristic;
+            scoreCardCharacteristicsDetail is some ScoreCardCharacteristicsDetail initially a ScoreCardCharacteristicsDetail;
+            //scoreCardCharacteristicsDetail.baselineScore = scoredCharacteristics.baselineScore as a string;
+            //scoreCardCharacteristicsDetail.binLabel = scoredCharacteristics.binLabel;
+            scoreCardCharacteristicsDetail.characteristicName = scoredCharacteristics.characteristicName;    
+            scoreCardCharacteristicsDetail.characteristicValue =  scoredCharacteristics.binLabel;
+            scoreCardCharacteristicsDetail.reasonCode = scoredCharacteristics.reasonCode as a string;
+            scoreCardCharacteristicsDetail.partialScore = scoredCharacteristics.partialScore as a string;
+            scoreCardCharacteristicsArray.append(scoreCardCharacteristicsDetail);
+          }
+          print("----> scoreCardCharacteristicsArray count :: " scoreCardCharacteristicsArray.count);  
+          
+          // scoreCardDetail
+          scoreCardDetail is some ScoreCardDetail initially a ScoreCardDetail;  
+          if(scoreCardCharacteristicsArray <> unknown and scoreCardCharacteristicsArray <> null) then {
+            scoreCardDetail.scoreCardCharacteristics = scoreCardCharacteristicsArray;
+          }
+          
+          cardName is a string initially "";
+          cardName = portable().concat(senpScoreModelDecision.scoreModelName, "_");
+          
+          scoreCardDetail.scorecardName = portable().concat(cardName, aBlazeApplicant.customerRiskSegment);
+          scoreCardDetail.scorecardScore = senpScoreModelDecision.score;
+          scoreCardDetail.characteristicCount = senpScoreModelDecision.characteristicCount;
+          scoreCardDetail.scorecardKey = "appScore";
+          scoreCardDetail.purpose = "AutoPopulate";
+          scoreCardDetail.entityType = aBlazeApplicant.applicantType;
+          scoreCardDetail.entityId = aBlazeApplicant.customerCif as a string;
+          scoreCardDetailArray.append(scoreCardDetail);
+          print("----> SENP Risk scorecard added");
+          print("----> scoreCardDetailArray count after SENP Risk scorecard :: " scoreCardDetailArray.count);
+        } else {
+          print("----> SENP Risk scorecard not added");
+        }  
+        // -------------------------------------------------------------------------SENP Risk Score ends------------------------------------------------------------------------------------------          
+       
+      } else {
+        aBlazeApplicant.customerRiskSegment="NRI/ PIO/ Merchant Navy";
+      }
+      print("----> aBlazeApplicant.customerRiskSegment value :: " aBlazeApplicant.customerRiskSegment);        
+    }
+
+ // }
+}
+}
+  print("++++> Exiting function :: fn_ApplicationRiskScoreCards");
+  print("");
+
+}catch an Exception with {
+  aBlazeApplication.fn_ApplicationRiskScoreCardsException = true;  
+  print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");
+}]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='EGIYtI'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_IncomeCalculation1</value>
+ </instance>
+</instantiation>

@@ -1,0 +1,291 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_HL_EligibleLoanAmountSep'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_HL_EligibleLoanAmountSep</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("");
+print("++++> Entering function :: fn_HL_EligibleLoanAmountSep");
+
+aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+
+// Applicant in message.request.application.applicants
+try{
+for each BlazeApplicant  in  BTCommonVar.termInput.blazeApplication.blazeApplicantArray
+do {
+  aBlazeApplicant is some BlazeApplicant initially it as a BlazeApplicant;
+  if(aBlazeApplicant.employmentType = (ignoring case)"SEP") then{
+    // Growth Percentage
+    growthPercentage is a real initially 0;
+    print("----> aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsLatestYear :: "aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsLatestYear);
+    print("----> aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsPreviousYear :: "aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsPreviousYear);
+    if(aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsLatestYear <> unknown 
+       and aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsPreviousYear <> unknown 
+       and aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsPreviousYear > 0) then {
+      growthPercentage = ((aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsLatestYear 
+                         - aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsPreviousYear)
+                        / aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsPreviousYear)*100;
+    }    
+    aBlazeApplicant.applicantAdditionalDetails.GROWPER = growthPercentage;
+    print("----> aBlazeApplicant.applicantAdditionalDetails.GROWPER :: "aBlazeApplicant.applicantAdditionalDetails.GROWPER);
+    
+    //Gross Annual Reciept Considered -- modified on 24-02-2022 as discussed on call with vikas dubey    
+    grossAnnualRecieptConsidered is a real initially 0;
+    if(growthPercentage<>unknown and growthPercentage<=50 and aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsLatestYear <> unknown) then{
+      grossAnnualRecieptConsidered = aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsLatestYear;
+    } else if(growthPercentage<>unknown and aBlazeApplicant.applicantAdditionalDetails.sepEligibility.isGrowthSustainable <> unknown
+              and growthPercentage>50 and aBlazeApplicant.applicantAdditionalDetails.sepEligibility.isGrowthSustainable is equal to true
+              and aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsLatestYear <> unknown) then{
+      grossAnnualRecieptConsidered = aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsLatestYear;
+    } else if ( aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsLatestYear <> unknown
+               and aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsPreviousYear <> unknown) then {
+      grossAnnualRecieptConsidered = (aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsLatestYear 
+                                      + aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsPreviousYear)/2;
+    }
+    aBlazeApplicant.applicantAdditionalDetails.sepEligibility.GROWANNRC = grossAnnualRecieptConsidered;
+    print("----> aBlazeApplicant.applicantAdditionalDetails.sepEligibility.GROWANNRC :: "aBlazeApplicant.applicantAdditionalDetails.sepEligibility.GROWANNRC);
+    
+    //Income Multiplier
+    //SEP Foir --(04-02-2022) removed aBlazeApplicant.applicantAdditionalDetails.customerSelfEmployedProfesional.profession after discussion with vikas dubey and ankit
+    print("----> aBlazeApplicant.qualification :: " aBlazeApplicant.qualification);
+    print("----> aBlazeApplicant.applicantAdditionalDetails.customerSep.totalWorkExperience :: " aBlazeApplicant.applicantAdditionalDetails.customerSep.totalWorkExperience);
+    if(aBlazeApplicant.qualification <> unknown
+       and aBlazeApplicant.applicantAdditionalDetails.customerSep.totalWorkExperience <> unknown) then {       
+        HL_SEP_FOIR_Offer_Matrix_Instance(aBlazeApplicant);       
+    }   
+    print("----> aBlazeApplicant.foir :: " aBlazeApplicant.foir);
+    print("----> aBlazeApplicant.incomeMultiplier :: " aBlazeApplicant.incomeMultiplier);
+    aBlazeApplicant.applicantAdditionalDetails.sepEligibility.MAXFOIRSEP = aBlazeApplicant.foir;
+    aBlazeApplicant.applicantAdditionalDetails.sepEligibility.INCMG = aBlazeApplicant.incomeMultiplier;
+    print("----> aBlazeApplicant.applicantAdditionalDetails.sepEligibility.MAXFOIRSEP :: " aBlazeApplicant.applicantAdditionalDetails.sepEligibility.MAXFOIRSEP);
+    print("----> aBlazeApplicant.applicantAdditionalDetails.sepEligibility.INCMG :: " aBlazeApplicant.applicantAdditionalDetails.sepEligibility.INCMG);
+	
+	 //added by Ankit for additional foir
+    //  aBlazeApplicant.applicantAdditionalDetails.sepEligibility.additionalFoir;
+      addtionalFoir is a real initially 0;   
+    if(aBlazeApplicant.applicantAdditionalDetails.sepEligibility.additionalFoir <> unknown) then {
+      addtionalFoir = aBlazeApplicant.applicantAdditionalDetails.sepEligibility.additionalFoir;    
+    }
+	
+    print("----> addtionalFoir :: " addtionalFoir);
+    if(aBlazeApplicant.foir <> unknown  and addtionalFoir <> unknown) then{      
+      aBlazeApplicant.foir = aBlazeApplicant.foir + round(addtionalFoir);      
+    }
+    print("----> aBlazeApplicant.foir after adding additional foir :: " aBlazeApplicant.foir);
+	
+	//AdditionalVatiable Created as per Altamash
+	if(aBlazeApplicant.applicantAdditionalDetails.sepEligibility.MAXFOIRSEP is known)then{
+		aBlazeApplicant.foirOfferedSEP =aBlazeApplicant.applicantAdditionalDetails.sepEligibility.MAXFOIRSEP+addtionalFoir;
+	}
+	print("---->aBlazeApplicant.foirOfferedSEP ::"aBlazeApplicant.foirOfferedSEP);
+	
+	  //end by Ankit
+    
+    //Total Professional Income
+    totalProfessionalIncome is a real initially 0;
+    print("----> aBlazeApplicant.applicantAdditionalDetails.sepEligibility.additionalMultiplier :: " aBlazeApplicant.applicantAdditionalDetails.sepEligibility.additionalMultiplier);
+    print("----> grossAnnualRecieptConsidered :: " grossAnnualRecieptConsidered);
+    if(grossAnnualRecieptConsidered <> unknown and aBlazeApplicant.incomeMultiplier <> unknown 
+       and aBlazeApplicant.applicantAdditionalDetails.sepEligibility.additionalMultiplier <> unknown) then {
+      totalProfessionalIncome = grossAnnualRecieptConsidered*(aBlazeApplicant.incomeMultiplier + aBlazeApplicant.applicantAdditionalDetails.sepEligibility.additionalMultiplier);
+    } 
+    print("----> totalProfessionalIncome :: " totalProfessionalIncome);
+	
+    
+    // Total Other Income
+    totalOtherIncome is a real initially 0;
+    print("----> aBlazeApplicant.applicantAdditionalDetails.customerSelfEmployedProfesional.rentalIncome :: " aBlazeApplicant.applicantAdditionalDetails.customerSelfEmployedProfesional.rentalIncome);
+    print("----> aBlazeApplicant.applicantAdditionalDetails.customerSelfEmployedProfesional.otherIncome :: " aBlazeApplicant.applicantAdditionalDetails.customerSelfEmployedProfesional.otherIncome);
+    if(aBlazeApplicant.applicantAdditionalDetails.customerSelfEmployedProfesional.rentalIncome <> unknown 
+       and  aBlazeApplicant.applicantAdditionalDetails.customerSelfEmployedProfesional.otherIncome <> unknown) then {
+      totalOtherIncome = aBlazeApplicant.applicantAdditionalDetails.customerSelfEmployedProfesional.rentalIncome 
+      + aBlazeApplicant.applicantAdditionalDetails.customerSelfEmployedProfesional.otherIncome;
+    }
+    		if((aBlazeApplicant.applicantAdditionalDetails.buffer5 =unavailable
+            or aBlazeApplicant.applicantAdditionalDetails.buffer5 =unknown
+            or aBlazeApplicant.applicantAdditionalDetails.buffer5 =""
+        	or aBlazeApplicant.applicantAdditionalDetails.buffer5 =(ignoring case)"NO"
+   			or aBlazeApplicant.applicantAdditionalDetails.buffer5="#")
+        	and (
+   			aBlazeApplicant.applicantAdditionalDetails.associatedCompanies.associatedCompanyName2 =unavailable
+   			or aBlazeApplicant.applicantAdditionalDetails.associatedCompanies.associatedCompanyName2 =unknown
+  		    or aBlazeApplicant.applicantAdditionalDetails.associatedCompanies.associatedCompanyName2 =""
+   			or aBlazeApplicant.applicantAdditionalDetails.associatedCompanies.associatedCompanyName2 ="NO"
+  			or aBlazeApplicant.applicantAdditionalDetails.associatedCompanies.associatedCompanyName2 ="#")
+			)then{        
+    if(totalOtherIncome <> unknown and totalProfessionalIncome <> unknown and totalOtherIncome > totalProfessionalIncome) then{
+      totalOtherIncome = totalProfessionalIncome;
+    }
+            }
+    print("----> totalOtherIncome :: " totalOtherIncome);
+    
+    //Total Annual Income
+    totalAnnualIncome is a real initially 0;
+    if(totalProfessionalIncome <> unknown and totalOtherIncome <> unknown) then {
+      totalAnnualIncome = totalProfessionalIncome + totalOtherIncome;
+    }   
+    print("----> totalAnnualIncome :: " totalAnnualIncome);
+    
+	aBlazeApplicant.otherIncPercOfPrimaryInc_SEP =totalOtherIncome/totalProfessionalIncome;
+	print("---->totalProfessionalIncome ::"totalProfessionalIncome);
+	
+    print("----> aBlazeApplication.finalMonthlyIncomeAllApplicant before :: " aBlazeApplication.finalMonthlyIncomeAllApplicant);
+    if(aBlazeApplication.finalMonthlyIncomeAllApplicant <> unknown and totalAnnualIncome <> unknown) then {
+      aBlazeApplication.finalMonthlyIncomeAllApplicant = aBlazeApplication.finalMonthlyIncomeAllApplicant + (totalAnnualIncome/12);
+    }    
+    print("----> aBlazeApplication.finalMonthlyIncomeAllApplicant after :: " aBlazeApplication.finalMonthlyIncomeAllApplicant);
+    
+    //Net Monthly Income considered for Eligbility
+    netMonthlyIncomeEligibility is a real initially 0;
+    if(totalAnnualIncome <> unknown) then {
+      netMonthlyIncomeEligibility = totalAnnualIncome/12;    
+    }
+    print("----> netMonthlyIncomeEligibility :: " netMonthlyIncomeEligibility);
+        
+    //totalIncomeEligibleSep
+    totalIncomeEligibleSep is a real initially 0;
+    if(netMonthlyIncomeEligibility <> unknown and aBlazeApplicant.foir <> unknown) then {
+      totalIncomeEligibleSep = netMonthlyIncomeEligibility * (aBlazeApplicant.foir/100);
+    }
+    print("----> totalIncomeEligibleSep :: " totalIncomeEligibleSep);
+    
+    totalInstallmentAmount is a real initially 0; 
+    for each BankingDetails in aBlazeApplicant.bankingDetails
+    do {
+      for each ExternalLiabilities in it.externalLiabilities
+      do{
+         if(it.installmentAmount.amount<>unknown   and it.emiConsideredForFoir = true and aBlazeApplicant.employmentType = (ignoring case)"SEP")  then{
+        totalInstallmentAmount = totalInstallmentAmount + it.installmentAmount.amount;
+      }
+      }     
+    }
+    print("----> totalInstallmentAmount :: " totalInstallmentAmount);
+    
+    incomeAvailableForLoan is a real initially 0;
+    if(totalIncomeEligibleSep <> unknown and totalInstallmentAmount<> unknown) then {
+      incomeAvailableForLoan = totalIncomeEligibleSep - totalInstallmentAmount;
+    } 
+    print("----> incomeAvailableForLoan :: " incomeAvailableForLoan);
+    
+    // baseRate, tenor
+    baseRate is a real initially 0;
+    tenor is a real initially 0;
+    if(aBlazeApplication.loanBasicDetail.paymentDetails.baseRate as a real <> unknown 
+       and aBlazeApplication.loanBasicDetail.paymentDetails.numberOfInstallments as a real <> unknown) then {
+      baseRate = aBlazeApplication.loanBasicDetail.paymentDetails.baseRate as a real;
+      tenor = aBlazeApplication.loanBasicDetail.paymentDetails.numberOfInstallments as a real;
+    }
+    print("----> baseRate :: " baseRate);
+  print("----> tenor :: " tenor);
+    
+    multiplier is a real initially 0;
+    divisor is a real initially 0;
+    rate is a real initially 0;
+    ratePerMonth is a real initially 0;
+    
+    ratePerMonth = baseRate/(12*100);
+    
+    rate = 1 + ratePerMonth;
+    multiplier = math().power(rate, tenor);
+    divisor = multiplier - 1;
+    
+    print("----> multiplier :: " multiplier);
+    print("----> divisor :: " divisor);
+    print("----> ratePerMonth :: " ratePerMonth);
+    
+    emiPerLakh is a real initially 0;
+    if(divisor <> 0) then {
+      emiPerLakh = (100000 * ratePerMonth * multiplier) / divisor;
+    }
+    print("----> emiPerLakh :: " emiPerLakh);
+    
+    eligibleLoanAmountFoir is a real initially 0;
+    if(emiPerLakh<>unknown and incomeAvailableForLoan<>unknown and emiPerLakh <> 0) then {
+      eligibleLoanAmountFoir = (incomeAvailableForLoan/emiPerLakh) * 100000;
+    }
+    print("----> eligibleLoanAmountFoir :: " eligibleLoanAmountFoir);
+    
+    print("----> aBlazeApplication.eligibleLoanAmountFoir before in loop :: " aBlazeApplication.eligibleLoanAmountFoir);
+    aBlazeApplication.eligibleLoanAmountFoir = aBlazeApplication.eligibleLoanAmountFoir + eligibleLoanAmountFoir;
+    print("----> aBlazeApplication.eligibleLoanAmountFoir after in loop :: " aBlazeApplication.eligibleLoanAmountFoir);
+  }
+}
+print("----> aBlazeApplication.eligibleLoanAmountFoir out of loop :: " aBlazeApplication.eligibleLoanAmountFoir); 
+
+  print("++++> Exiting function :: fn_HL_EligibleLoanAmountSep");
+  print("");
+
+}catch an Exception with {
+  aBlazeApplication.fn_HL_EligibileLoanAmountSepException = true;  
+  print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");  
+}
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='EpTbEO'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_EligibleLoanAmountSep1</value>
+ </instance>
+</instantiation>

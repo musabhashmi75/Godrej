@@ -1,0 +1,15 @@
+#Extended attributes for Eclipse file-based repository (directory: 'LAP_SENP_IndustryType_TurnOver_Decision_Table_Template')
+#Tue Nov 09 11:47:51 IST 2021
+contentType=Template
+guid=EXrJptxU9xUuOKOI2fRvqZTyiL4
+innovatorDisplayName=SENP_IndustryType_TurnOver
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

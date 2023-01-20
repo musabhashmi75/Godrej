@@ -1,0 +1,15 @@
+#Extended attributes for Eclipse file-based repository (directory: 'LAP_City_Salary')
+#Tue Nov 09 11:34:08 IST 2021
+contentType=Template
+guid=8vueGpky4OCm43FlEsSZnl4Lne9
+innovatorDisplayName=City_Salary
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

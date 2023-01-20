@@ -1,0 +1,15 @@
+#Extended attributes for Eclipse file-based repository (directory: 'BlazeBurApplicantData')
+#Fri Jun 25 12:01:04 IST 2021
+contentType=Fixed
+guid=IH72fG7iOOoyt67Rt17fanGIz73
+innovatorDisplayName=BlazeBurApplicantData
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=None
+target=SRL
+type=SRL Class

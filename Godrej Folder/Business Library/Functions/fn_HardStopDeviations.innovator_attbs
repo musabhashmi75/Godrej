@@ -1,0 +1,19 @@
+#Extended attributes for Innovator file-based repository (directory: 'fn_HardStopDeviations')
+#Tue Apr 12 11:11:40 UTC 2022
+contentType=Instance
+guid=7fvNt1TwrvE0NlpLZpqJCW5L4mJ
+innovatorDisplayName=fn_HardStopDeviations
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=Q8jH6kHdOYIZ1uG0WKXqvvejqv0
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+managementProperty.Test\ Case=
+managementProperty.Test\ Role=None
+subType=None
+target=SRL
+type=SRL Function

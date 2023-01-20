@@ -1,0 +1,15 @@
+#Extended attributes for Eclipse file-based repository (directory: 'HL_NRI_LTV_Matrix')
+#Wed Nov 17 16:45:26 IST 2021
+contentType=Template
+guid=TMoQ9NRPS0aiw4cLcorZzGJrvVn
+innovatorDisplayName=HL_NRI_LTV_Matrix
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Decision Table
+target=SRL
+type=SRL Ruleset

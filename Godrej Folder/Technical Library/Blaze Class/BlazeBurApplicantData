@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='BlazeBurApplicantData'>
+ <ide-name>BlazeBurApplicantData</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1RaoORulMMLlNlYZXj9utiAR34f' name='SRL Class' id='BOoYn1SsleEvLtUJ6qE1sPjwR1l'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Class Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><class managementPropertiesRef='BOoYn1SsleEvLtUJ6qE1sPjwR1l'>
+   <name>BlazeBurApplicantData</name>
+   <type>object</type>
+   <properties>
+    <property>
+     <name>fullName</name>
+     <type>string</type>
+    </property>
+    <property>
+     <name>dob</name>
+     <type>date</type>
+    </property>
+    <property>
+     <name>gender</name>
+     <type>string</type>
+    </property>
+    <property>
+     <name>panIssueDate</name>
+     <type>date</type>
+    </property>
+    <property>
+     <name>panExpirationDate</name>
+     <type>date</type>
+    </property>
+    <property>
+     <name>aadharIssueDate</name>
+     <type>date</type>
+    </property>
+    <property>
+     <name>voterIdIssueDate</name>
+     <type>date</type>
+    </property>
+    <property>
+     <name>rationCardIssueDate</name>
+     <type>date</type>
+    </property>
+    <property>
+     <name>aadharExpirationDate</name>
+     <type>date</type>
+    </property>
+    <property>
+     <name>voterIdExpirationDate</name>
+     <type>date</type>
+    </property>
+    <property>
+     <name>rationCardExpirationDate</name>
+     <type>date</type>
+    </property>
+    <property>
+     <name>income</name>
+     <type>real</type>
+    </property>
+    <property>
+     <name>employmentStatus</name>
+     <type>string</type>
+    </property>
+   </properties>
+  </class></template:content>
+</template>
