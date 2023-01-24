@@ -991,9 +991,11 @@ try {
         //------------------------------------------------------EnquiryArray  iteration  begins--------------------------------------
         for  each  EnquiryArray  in  aBlazeApplicant.creditBureauData.blazeEnquiryArray  
         do{
-          Enquiry  is  some  EnquiryArray  initially  it  as  a  EnquiryArray;       
+          Enquiry  is  some  EnquiryArray  initially  it  as  a  EnquiryArray;    
+          if(Enquiry.enquiryDate is known)then{
           if(applicationDate.subtractInMonths(Enquiry.enquiryDate).months  <=  6)  then  {
             aBlazeApplicant.noOfEnqInL6m=aBlazeApplicant.noOfEnqInL6m+1;          
+          }
           }
         }
         print("");
