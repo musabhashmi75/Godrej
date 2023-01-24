@@ -88,7 +88,7 @@ try {
 		print(">>>>Entering Account<<<<");
 		Account  is  some  BlazeAccountDetails  initially  it  as  a  BlazeAccountDetails;  
 		MaxDelqCounter is an integer initially 0;
-		assetClassificationFlag is a boolean initially false;
+		
 		//Checking Account Status
 		if(Account.dateClosed is known)then{
 			Account.ACCOUNT_STATUS ="Closed";
@@ -188,8 +188,8 @@ try {
 		//Declaring and initialsing Local variables for PaymentHistory 
 		MIN_AST_NUM is an integer;
 		MIN_AST_NUM_UPDATED is an integer;
-		
-		DPD_UPDATED is an integer;
+		initVar is an integer;
+		DPD_UPDATED is an integer initially initVar;
 		print("---->DPD_UPDATED ::"DPD_UPDATED);
 		Month_NUM_UPDATES_24M is an integer;
 		Month_WORST_DELQ_L3M is an integer;
@@ -253,15 +253,6 @@ try {
 		PaymentHistory.DELQ = DPD_UPDATED;
 	}
 	print("---->PaymentHistory.DELQ ::"PaymentHistory.DELQ);
-	
-		if(PaymentHistory.DELQ is known)then{
-			if(MaxDelqCounter =0)then{
-				Account.MAX_DELQ_L6M =PaymentHistory.DELQ;
-				MaxDelqCounter =MaxDelqCounter+1;
-			}else if(MaxDelqCounter>0 and Account.MAX_DELQ_L6M <PaymentHistory.DELQ)then{
-				Account.MAX_DELQ_L6M =PaymentHistory.DELQ;
-			}
-		}
 		
 		if(PaymentHistory.REP_DATE is known and Account.accountOpenDate is known)then{
 			Month_NUM_UPDATES_24M =PaymentHistory.REP_DATE.subtractInMonths(Account.accountOpenDate).months;
@@ -327,10 +318,7 @@ try {
 			}
 		}
 		//Payment History Derivations for Bureau Ends
-		if(PaymentHistory.assetClassification is known and PaymentHistory.assetClassification  is  contained  in  text  "SUB,LSS,DBT,SMA")then{
-          assetClassificationFlag =true;
-        }   
-          
+		
 		print(">>>>Exiting Payment History<<<<");
 		}
 		
@@ -384,20 +372,18 @@ try {
 			aBlazeApplicant.WORST_DELQ_L3M =Account.DELQ_L3M;
 		}
 	
-	if(Account.isCreditCard and Account.lastPaymentDate is known)then{
+	if(Account.isCreditCard = false and Account.lastPaymentDate is known)then{
 	if(aBlazeApplicant.isWriteOffOrSettled  and Account.amountOverdue >10000 and today.subtractInMonths(Account.lastPaymentDate).months <= 36)then{
 		aBlazeApplicant.isNonCcAccWoffSettOverdueAb10kL36M =true;
 		//to be corrected isCcAccWoffSettOverdueAb10kL36M
 	}
 	
-	if(Account.isCreditCard =false and Account.amountOverdue >=5000 and today.subtractInMonths(Account.lastPaymentDate).months <= 60)then{
+	if(Account.amountOverdue >=5000 and today.subtractInMonths(Account.lastPaymentDate).months <= 60)then{
 		if(aBlazeApplicant.isWriteOffOrSettled or Account.isSettled)then
 		{
 			aBlazeApplicant.isNonCcAccWoffSettOverdueAb5kL60M =true;
 		}
-        if(assetClassificationFlag)then{
-          aBlazeApplicant.isNonCcAccWoffSettOverdueAb5kL60M =true;
-        }
+        //SMA,LSS,DBT,SUB logic to be added
 	}
 	}
 	

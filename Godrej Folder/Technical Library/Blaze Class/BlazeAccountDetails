@@ -239,10 +239,6 @@
      <name>DISBURSED_AMT</name>
      <type>real</type>
     </property>
-    <property>
-     <name>MAX_DELQ_L6M</name>
-     <type>real</type>
-    </property>
    </properties>
    <initializer>NUM_UPDATES_24M =0;</initializer>
   </class></template:content>

@@ -203,6 +203,7 @@ ageAtMaturity=((maturityDate).subtractInMonths(dob).months);
           print("----> Ankit Applicant age  :: " aBlazeApplicant.age); 
           aBlazeApplicant.totalWorkExperience = round(aBlazeApplicant.age);
       }
+      print("----.aBlazeApplicant.age ::"aBlazeApplicant.age);
       print("----> totalWorkExperience :: " aBlazeApplicant.totalWorkExperience); 
          
       //  Sec  Geo  Risk  Ranking  used in all three Experian Scorecard -- aBlazeApplicant.secGeoRiskRanking and ranking1       
