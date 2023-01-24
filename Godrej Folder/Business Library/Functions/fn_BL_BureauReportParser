@@ -380,6 +380,7 @@ try {
                     dateOpenedOrDisbursed is a date initially sdf as a date;
                     calendar().defaultDateFormat = "yyyy-MM-dd";
                     blazeAccountDetails.accountOpenDate = dateOpenedOrDisbursed;  
+					blazeAccountDetails.DISBURSED_DATE = dateOpenedOrDisbursed;
                   } else {
                     blazeAccountDetails.accountOpenDate =  newDate1;
                     print("----> blazeAccountDetails.accountOpenDate ::  " blazeAccountDetails.accountOpenDate);
@@ -406,7 +407,7 @@ try {
                   fixedDate is a date initially fix as a date;
 				  print("--->fixedDate ::"fixedDate);
 				  
-				  repCounter is a duration initially 1 months;
+				  repCounter is a duration initially 0 months;
 				  
                   calendar().defaultDateFormat="yyyy-MM-dd".
                   print("----> fixedDate ::  " fixedDate);

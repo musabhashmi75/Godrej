@@ -1002,6 +1002,53 @@
         <value>BL Bureau Derived Variables</value>
        </instance>
       </item>
+      <item template='5nrT9calkTxODnluALdD788RpOy.template25' id='TstnJe'>
+       <instance ref='TaskImplementationVH'>
+        <value>fn_BL_Definitions(Message)</value>
+       </instance>
+       <instance ref='TaskImplementationParameterCountVH'>
+        <value></value>
+       </instance>
+       <instance ref='TaskImplementationTypeVH'>
+        <value></value>
+       </instance>
+       <instance-list ref='TaskArgumentsVH'>
+        <item template='5nrT9calkTxODnluALdD788RpOy.template23' id='UflLsc'>
+         <instance ref='ArgumentIndexVH'>
+          <value></value>
+         </instance>
+         <instance ref='ArgumentTypeVH'>
+          <value></value>
+         </instance>
+         <instance ref='ParameterName'>
+          <value></value>
+         </instance>
+         <instance-selection ref='ArgumentValueVH'>
+          <item template='5nrT9calkTxODnluALdD788RpOy.template40' id='2mLwVI'>
+           <instance ref='value'>
+            <value>message</value>
+           </instance>
+          </item>
+         </instance-selection>
+        </item>
+       </instance-list>
+       <instance ref='TaskReturnTypeVH'>
+        <value></value>
+       </instance>
+       <instance-selection ref='TaskReturnValueVH'>
+        <item template='5nrT9calkTxODnluALdD788RpOy.template40' id='EKCZyL'>
+         <instance ref='value'>
+          <value></value>
+         </instance>
+        </item>
+       </instance-selection>
+       <instance ref='TaskCommentsVH'>
+        <value></value>
+       </instance>
+       <instance ref='TaskNameVH'>
+        <value>BL Definitions</value>
+       </instance>
+      </item>
       <item template='5nrT9calkTxODnluALdD788RpOy.template25' id='CfmgPe'>
        <instance ref='TaskImplementationVH'>
         <value>fn_BL_CRIF_ScoreCard(Message)</value>

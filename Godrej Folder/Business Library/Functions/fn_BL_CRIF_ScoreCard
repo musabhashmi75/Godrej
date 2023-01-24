@@ -94,6 +94,7 @@ try {
 		N_CTR_EVER_ALL is a real;
 		N_CTR_EVER_ALL =aBlazeApplicant.creditBureauReports[0].CreditReport.Account.count;
 		MAX_of_MAX_DELQ is a real;
+		MAX_of_MAX_DELQ_L6M is a real;
 		MIN_of_MAX_DELQ_special is a real;
 		MIN_MOB_UNSEC_App is a real;
 		MIN_MOB_SPECIAL is a real;
@@ -103,17 +104,17 @@ try {
 		MIN_of_N_CTR_A_OVD_UNSEC_special is a real;
 		TOT_BAL_A_ALL_IMDT is a real initially 0;
 		TOT_DA_A_ALL_IMDT is a real initially 0;
-		PCT_LEVERAGE_A_ALL_SPECIAL is a real initially -999.99;
+		PCT_LEVERAGE_A_ALL_SPECIAL is a real;
 		segment is a string initially "";
 		
 		//Initialising local flags Appliant level
-		MAX_DELQ_L6M_FLAG is a boolean initially false;
 		MON_SIN_L30P_ALL_FLAG is a boolean initially false;
 		MIN_PCT_BAL_DA_A_ALL_FLAG is a boolean initially false;
 		MAX_DELQ_known is a boolean initially false;
 		exclusionFlag1 is a boolean initially false;
 		exclusionFlag2 is a boolean initially false;
 		exclusionFlag3 is a boolean initially false;
+		ccCount is an integer initially 0;
 		
 		for  each  BlazeAccountDetails  in  aBlazeApplicant.creditBureauData.blazeAccountDetailsArray do{
 		Account  is  some  BlazeAccountDetails  initially  it  as  a  BlazeAccountDetails;
@@ -126,6 +127,7 @@ try {
 		MAX_DELQ is a real;
 		MAX_DELQ_L24M is a real;
 		MAX_DELQ_L36M is a real;
+		MAX_DELQ_L6M is a real;
 		MOB_UNSEC is a real;
 		PCT_OTB_A_CARDS is a real;
 		OVERDUE_1 is a real;
@@ -138,21 +140,23 @@ try {
 		PCT_OTB_A_CARDS_special is a real;
 		N_CTR_A_OVD_UNSEC_special is a real;
 		
-		//Declaring andInitialising local flags Account level 
+		//Declaring and Initializing local flags Account level 
 		MAX_DELQ_L24M_FLAG is a boolean initially false;
 		MAX_DELQ_L36M_FLAG is a boolean initially false;
+		MAX_DELQ_L6M_FLAG is a boolean initially false;
 		accountSecuredFlag is a boolean initially false;
 		ccFlag is a boolean initially false;
 		
 		//Defining accountSecuredFlag
-		if(Account.accountType is contained in text "4,13,17,15,34,59,32,33,1,7,50,2,3,44")then{
+		if(Account.accountType = ("4" or "04" or "13" or "17" or "15" or "34" or "59" or "32" or "33" or "1" or "01" or "7" or "07" or "50" or "2" or "02" or "3" or "03" or "44"))then{
 			accountSecuredFlag =true;
 		}
 		//Defining ccFlag
-		else if(Account.accountType is contained in text "35,10,16,36,31") then {
+		else if(Account.accountType = ("35" or "10" or "16" or "36" or "31")) then {
 			ccFlag = true;
+			ccCount = ccCount+1;
 		}
-		
+		print("accountSecuredFlag = "accountSecuredFlag);
 		print("---->Account.DISBURSED_AMT ::"Account.DISBURSED_AMT);
 		//Setting DA_ISSUE_FLAG
 		if(Account.DISBURSED_AMT<=0)then{
@@ -191,7 +195,7 @@ try {
 		}
 		
 		// Setting PCT_OTB_A_CARDS
-		if (Account.ACCOUNT_STATUS is known and Account.ACCOUNT_STATUS <> (ignoring case)"Active" and Account.DISBURSED_AMT is known and Account.DISBURSED_AMT>0 and ccFlag is true) then {
+		if (Account.ACCOUNT_STATUS is known and Account.ACCOUNT_STATUS = (ignoring case)"Active" and Account.DISBURSED_AMT is known and Account.DISBURSED_AMT>0 and ccFlag is true) then {
 			PCT_OTB_A_CARDS = (100*(1-(CURRENT_BAL1/Account.DISBURSED_AMT)));
 			if(SUM_PCT_OTB_A_CARDS is unknown) then {
 				SUM_PCT_OTB_A_CARDS = PCT_OTB_A_CARDS;
@@ -255,21 +259,9 @@ try {
 		}
 		print("---->aBlazeApplicant.RAT_REC_L24M_ALL ::"aBlazeApplicant.RAT_REC_L24M_ALL);
 		
-		if(Account.accountType is contained in text "35,10,16,36,31" and  Account.ACCOUNT_STATUS is known and Account.ACCOUNT_STATUS <>(ignoring case)"Active")then{
+		if(ccFlag and Account.ACCOUNT_STATUS is known and Account.ACCOUNT_STATUS <>(ignoring case)"Active")then{
 			if(Account.MOB is known and Account.MOB>=0 and Account.MOB <=24)then{
 				aBlazeApplicant.N_CTR_L24M_CC =aBlazeApplicant.N_CTR_L24M_CC +1;
-			}
-		}
-		
-		//Calculating MAX_DELQ_L6M_ALL ----"SCORECARDVARIABLE"-----
-		if(Account.MAX_DELQ_L6M is unknown)then{
-			aBlazeApplicant.MAX_DELQ_L6M_ALL =-777.79
-		}else if(Account.MAX_DELQ_L6M is known)then{
-			if(MAX_DELQ_L6M_FLAG =false)then{
-			aBlazeApplicant.MAX_DELQ_L6M_ALL =MAX_DELQ_L6M;
-			MAX_DELQ_L6M_FLAG =true;
-			}else if(MAX_DELQ_L6M_FLAG =true and aBlazeApplicant.MAX_DELQ_L6M_ALL <MAX_DELQ_L6M)then{
-				aBlazeApplicant.MAX_DELQ_L6M_ALL =MAX_DELQ_L6M;
 			}
 		}
 		
@@ -286,18 +278,18 @@ try {
 		}
 		
 		//Calculating MAX_DELQ_L24M
-		if(PaymentHistory.MS_REP is known and PaymentHistory.MS_REP <=24)then{
+		if(PaymentHistory.MS_REP is known and PaymentHistory.MS_REP <=24 and PaymentHistory.DELQ is known)then{
 			if(MAX_DELQ_L24M_FLAG =false)then{
 				MAX_DELQ_L24M =PaymentHistory.DELQ;
 				MAX_DELQ_L24M_FLAG =true;
-			}else if (MAX_DELQ_L24M_FLAG =true and PaymentHistory.DELQ is known and MAX_DELQ_L24M <PaymentHistory.DELQ)then{
+			}else if (MAX_DELQ_L24M_FLAG =true and MAX_DELQ_L24M <PaymentHistory.DELQ)then{
 				MAX_DELQ_L24M =PaymentHistory.DELQ;
 			}
 		}
 		
 		//Calculating MAX_DELQ_L36M
-		if(PaymentHistory.MS_REP is known and PaymentHistory.MS_REP <=36)then{
-			if(MAX_DELQ_L36M_FLAG = false and PaymentHistory.DELQ is known)then{
+		if(PaymentHistory.MS_REP is known and PaymentHistory.MS_REP <=36 and PaymentHistory.DELQ is known)then{
+			if(MAX_DELQ_L36M_FLAG = false)then{
 				MAX_DELQ_L36M =PaymentHistory.DELQ;
 				MAX_DELQ_L36M_FLAG is true;
 			}else if (MAX_DELQ_L36M_FLAG = true and MAX_DELQ_L36M <PaymentHistory.DELQ)then{
@@ -305,9 +297,22 @@ try {
 			}
 		}
 		
-		
+		//Calculating MAX_DELQ_L6M
+		if(PaymentHistory.MS_REP is known and PaymentHistory.MS_REP <=6 and PaymentHistory.DELQ is known)then{
+			if(MAX_DELQ_L6M_FLAG = false)then{
+				MAX_DELQ_L6M =PaymentHistory.DELQ;
+				MAX_DELQ_L6M_FLAG is true;
+			}else if (MAX_DELQ_L6M_FLAG = true and MAX_DELQ_L6M <PaymentHistory.DELQ)then{
+				MAX_DELQ_L6M =PaymentHistory.DELQ;
+			}
+			print("PaymentHistory.DELQ="PaymentHistory.DELQ);
+		}
+		print("PaymentHistory.DELQ="PaymentHistory.DELQ);
+		print("MS_REP="MS_REP);
+		print("MAX_DELQ_L6M="MAX_DELQ_L6M);
 	//Exiting PaymentHistory Loop
 	}
+	print("MAX_DELQ_L6M="MAX_DELQ_L6M);
 	
 	if(accountSecuredFlag =true and Account.DISBURSED_AMT>0 and MAX_DELQ_L24M is known)then{
 		MAX_DELQ =MAX_DELQ_L24M;
@@ -364,7 +369,7 @@ try {
 		if(MON_SIN_L30P_ALL_FLAG =false)then{
 			aBlazeApplicant.MON_SIN_L30P_ALL =MS_L30P;
 			MON_SIN_L30P_ALL_FLAG =true;
-		}else if(MON_SIN_L30P_ALL_FLAG =true and aBlazeApplicant.MON_SIN_L30P_ALL <MS_L30P)then{
+		}else if(MON_SIN_L30P_ALL_FLAG =true and aBlazeApplicant.MON_SIN_L30P_ALL >MS_L30P)then{
 			aBlazeApplicant.MON_SIN_L30P_ALL =MS_L30P;
 		}
 	}
@@ -394,7 +399,16 @@ try {
 	}
 	print("----> OVERDUE_1 ::"OVERDUE_1);
 	
-	
+	//Calculating MAX_of_MAX_DELQ_L6M
+	if(MAX_DELQ_L6M is known)then{
+		if(MAX_of_MAX_DELQ_L6M is unknown)then{
+			MAX_of_MAX_DELQ_L6M =MAX_DELQ_L6M;
+		}else if(MAX_of_MAX_DELQ_L6M <MAX_DELQ_L6M)then{
+			MAX_of_MAX_DELQ_L6M =MAX_DELQ_L6M;
+		}
+	}
+	print("MAX_of_MAX_DELQ_L6M="MAX_of_MAX_DELQ_L6M);
+		
 	//Calculating N_CTR_A_OVD_UNSEC ----"SCORECARDVARIABLE"----
 	if(OVERDUE_1 is known and accountSecuredFlag =false and  Account.ACCOUNT_STATUS is known and Account.ACCOUNT_STATUS =(ignoring case)"Active" and OVERDUE_1>0)then{
 		aBlazeApplicant.N_CTR_A_OVD_UNSEC =aBlazeApplicant.N_CTR_A_OVD_UNSEC +1;
@@ -407,14 +421,14 @@ try {
 	else if (accountSecuredFlag = true and  Account.ACCOUNT_STATUS is known and Account.ACCOUNT_STATUS =(ignoring case)"Active")then{
 		N_CTR_A_OVD_UNSEC_special = -888.88;
 	}
-	else if (accountSecuredFlag = false and  Account.ACCOUNT_STATUS is known and Account.ACCOUNT_STATUS =(ignoring case)"Active" and OVERDUE_1 =0)then{
+	else if (accountSecuredFlag = false and  Account.ACCOUNT_STATUS is known and Account.ACCOUNT_STATUS =(ignoring case)"Active" and OVERDUE_1 is known and OVERDUE_1 =0)then{
 		N_CTR_A_OVD_UNSEC_special = -999.98;
 	}
 	else if (accountSecuredFlag = false and  Account.ACCOUNT_STATUS is known and Account.ACCOUNT_STATUS =(ignoring case)"Active") then{
 		N_CTR_A_OVD_UNSEC_special = -999.99;
 	}
 	else {
-		N_CTR_A_OVD_UNSEC_special = -777.;
+		N_CTR_A_OVD_UNSEC_special = -777.79;
 	}
 	
 	//Calculating MIN_of_N_CTR_A_OVD_UNSEC_special
@@ -437,18 +451,33 @@ try {
 	}
 	print("---->TOT_DA_A_ALL_IMDT ::"TOT_DA_A_ALL_IMDT);
 	
+	if(ACTIVE_FLAG and DA_ISSUE_FLAG) then {
+		PCT_LEVERAGE_A_ALL_SPECIAL = -999.99;
+	}
+	else if(CURRENT_BAL1 is unknown and PCT_LEVERAGE_A_ALL_SPECIAL is unknown) then{
+		PCT_LEVERAGE_A_ALL_SPECIAL=-999.98
+	}
+	else if(ACTIVE_FLAG=false and PCT_LEVERAGE_A_ALL_SPECIAL is unknown)then {
+		PCT_LEVERAGE_A_ALL_SPECIAL = -777.79;
+	}
+	
 	//End of account iteration
 	}
 	
+	if(ccCount=0) then {
+		aBlazeApplicant.N_CTR_L24M_CC = -1;
+	}
+	
 	//Calculating PCT_LEVERAGE_A_ALL ----"SCORECARDVARIABLE"----
-	if(TOT_BAL_A_ALL_IMDT>0 and TOT_DA_A_ALL_IMDT>0)then{
+	if(TOT_DA_A_ALL_IMDT>0 and TOT_BAL_A_ALL_IMDT>0)then{
 		aBlazeApplicant.PCT_LEVERAGE_A_ALL =(TOT_BAL_A_ALL_IMDT/TOT_DA_A_ALL_IMDT)*100;
 	}
-	print("---->aBlazeApplicant.PCT_LEVERAGE_A_ALL ::"aBlazeApplicant.PCT_LEVERAGE_A_ALL);
 	
 	if(aBlazeApplicant.PCT_LEVERAGE_A_ALL = unknown or aBlazeApplicant.PCT_LEVERAGE_A_ALL =unavailable)then{
 		aBlazeApplicant.PCT_LEVERAGE_A_ALL =PCT_LEVERAGE_A_ALL_SPECIAL;
 	}
+	print("---->aBlazeApplicant.PCT_LEVERAGE_A_ALL ::"aBlazeApplicant.PCT_LEVERAGE_A_ALL);
+	
 	//Re-Calculating N_CTR_A_OVD_U	NSEC ----"SCORECARDVARIABLE"----
 	if(aBlazeApplicant.N_CTR_A_OVD_UNSEC =0 and MIN_of_N_CTR_A_OVD_UNSEC_special is known)then{
 		aBlazeApplicant.N_CTR_A_OVD_UNSEC =MIN_of_N_CTR_A_OVD_UNSEC_special;
@@ -473,7 +502,13 @@ try {
 	else if (MIN_PCT_OTB_A_CARDS_special is known) then {
 		aBlazeApplicant.AVG_PCT_OTB_A_CARDS = MIN_PCT_OTB_A_CARDS_special;
 	}
-	
+	//Calculating MAX_DELQ_L6M_ALL ----"SCORECARDVARIABLE"-----
+	if(MAX_of_MAX_DELQ_L6M is unknown)then{
+		aBlazeApplicant.MAX_DELQ_L6M_ALL =-777.79;
+	}else if(MAX_of_MAX_DELQ_L6M is known)then{
+		aBlazeApplicant.MAX_DELQ_L6M_ALL =MAX_of_MAX_DELQ_L6M;
+	}
+		
 	print("---->aBlazeApplicant.MIN_PCT_BAL_DA_A_ALL ::"aBlazeApplicant.MIN_PCT_BAL_DA_A_ALL);
 	print("---->aBlazeApplicant.N_CTR_L24M_ALL ::"aBlazeApplicant.N_CTR_L24M_ALL);
 	print("---->aBlazeApplicant.RAT_REC_L24M_ALL ::"aBlazeApplicant.RAT_REC_L24M_ALL);
@@ -579,14 +614,6 @@ try {
  </instance>
  <instance ref='FunctionParametersVH'>
   <instance-list ref='ParametersVH'>
-   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='EQisX3'>
-    <instance ref='ParameterNameVH'>
-     <value>parameter1</value>
-    </instance>
-    <instance ref='ParameterTypeVH'>
-     <value>ScoreCardCharacteristicsDetail</value>
-    </instance>
-   </item>
    <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='9ZCriU'>
     <instance ref='ParameterNameVH'>
      <value>message</value>

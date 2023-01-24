@@ -66,10 +66,11 @@ if(aBlazeApplication.businessErrorsFlag = false) then {
   print("----> aBlazeApplication.deviationsCheck :: " aBlazeApplication.deviationsCheck);
 
   if(aBlazeApplication.deviationsCheck is equal to true) then {
+    BL_ApplicationDeviations(message); 
     for  each  BlazeApplicant  in  BTCommonVar.termInput.blazeApplication.blazeApplicantArray
     do {
       aBlazeApplicant  is  some  BlazeApplicant  initially  it  as  a  BlazeApplicant;
-      BL_ApplicationDeviations(message, aBlazeApplicant); 
+      BL_ApplicantDeviations(aBlazeApplicant,message); 
     }
   }
 }

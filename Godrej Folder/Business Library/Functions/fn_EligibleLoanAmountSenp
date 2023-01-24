@@ -68,10 +68,11 @@ if(aBlazeApplication.businessErrorsFlag = false) then {
     
     incomeProgramUsed is a string;
     incomeProgramUsed = aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.incomeProgram;
+    print("----> aBlazeApplicant.applicantType ::"aBlazeApplicant.applicantType);
     print("----> incomeProgramUsed :: " aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.incomeProgram);
-    
+    print("----> aBlazeApplicant.employmentType ::"aBlazeApplicant.employmentType);
     if(aBlazeApplicant.employmentType = (ignoring case) "SENP" 
-       and incomeProgramUsed <> unknown 
+       and incomeProgramUsed <> unknown and incomeProgramUsed <>""
        and incomeProgramUsed <> (ignoring case) "BANKING SURROGATE" and incomeProgramUsed <> (ignoring case) "LOW LTV")   then{    
           
       // Latest Year Cash Profit

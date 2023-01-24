@@ -88,7 +88,7 @@ try {
 		print(">>>>Entering Account<<<<");
 		Account  is  some  BlazeAccountDetails  initially  it  as  a  BlazeAccountDetails;  
 		MaxDelqCounter is an integer initially 0;
-		
+		assetClassificationFlag is a boolean initially false;
 		//Checking Account Status
 		if(Account.dateClosed is known)then{
 			Account.ACCOUNT_STATUS ="Closed";
@@ -186,9 +186,11 @@ try {
 		PaymentHistory  is  some  BlazePaymentHistory  initially  it  as  a  BlazePaymentHistory;
 	
 		//Declaring and initialsing Local variables for PaymentHistory 
-		MIN_AST_NUM is an integer initially 0;
-		MIN_AST_NUM_UPDATED is an integer initially 0;
-		DPD_UPDATED is an integer initially 0;
+		MIN_AST_NUM is an integer;
+		MIN_AST_NUM_UPDATED is an integer;
+		
+		DPD_UPDATED is an integer;
+		print("---->DPD_UPDATED ::"DPD_UPDATED);
 		Month_NUM_UPDATES_24M is an integer;
 		Month_WORST_DELQ_L3M is an integer;
 	
@@ -200,12 +202,12 @@ try {
 		print("---->PaymentHistory.MS_REP ::"PaymentHistory.MS_REP);
 		
 		//Calculating Date_Diff_Disb_Rep
-		PaymentHistory.Date_Diff_Disb_Rep =Account.dateReported.subtractInMonths(PaymentHistory.REP_DATE).months;
+		PaymentHistory.Date_Diff_Disb_Rep =PaymentHistory.REP_DATE.subtractInDays(Account.DISBURSED_DATE).days;
 		print("PaymentHistory.Date_Diff_Disb_Rep ::"PaymentHistory.Date_Diff_Disb_Rep);
 		
 		//Calculating MIN_AST_NUM
 		if(PaymentHistory.assetClassification is known and PaymentHistory.assetClassification <>"")then{
-			if(PaymentHistory.assetClassification =(ignoring case)"STD")then{
+			if(PaymentHistory.assetClassification =(ignoring case)("STD" or "XXX"))then{
 				MIN_AST_NUM =0;
 			}else if(PaymentHistory.assetClassification =(ignoring case)"SMA")then{
 				MIN_AST_NUM =31;
@@ -215,27 +217,24 @@ try {
 				MIN_AST_NUM =361;
 			}else if(PaymentHistory.assetClassification =(ignoring case)"LOS")then{
 				MIN_AST_NUM =721;
-			}else{
-				MIN_AST_NUM =0;
-			}
+			}//else{
+				//MIN_AST_NUM =0;
+			//}
 		}
 		print("---->MIN_AST_NUM ::"MIN_AST_NUM);
 	
 		if(PaymentHistory.Date_Diff_Disb_Rep is known)then{
 	
 			//Calculating MIN_AST_NUM_UPDATED
-			if(MIN_AST_NUM>PaymentHistory.Date_Diff_Disb_Rep)then{
-				MIN_AST_NUM_UPDATED =0;
-			}else{
+			if(MIN_AST_NUM is known and MIN_AST_NUM <= PaymentHistory.Date_Diff_Disb_Rep)then{
 				MIN_AST_NUM_UPDATED =MIN_AST_NUM;
 			}
 			print("---->MIN_AST_NUM_UPDATED ::"MIN_AST_NUM_UPDATED);
 
 			//Calculating DPD_UPDATED
 			print("---->PaymentHistory.daysPastDue ::"PaymentHistory.daysPastDue);
-			if(PaymentHistory.daysPastDue>PaymentHistory.Date_Diff_Disb_Rep)then{
-				DPD_UPDATED =0;
-			}else{
+			print("---->DPD_UPDATED ::"DPD_UPDATED);
+			if(PaymentHistory.daysPastDue<=PaymentHistory.Date_Diff_Disb_Rep)then{
 				DPD_UPDATED =PaymentHistory.daysPastDue;
 			}
 			print("---->DPD_UPDATED ::"DPD_UPDATED);
@@ -244,8 +243,16 @@ try {
 			print("PaymentHistory.Date_Diff_Disb_Rep is UNKNOWN");
 		}
 	
+	if(DPD_UPDATED is known and MIN_AST_NUM_UPDATED is known) then {
 		PaymentHistory.DELQ =math().max(DPD_UPDATED,MIN_AST_NUM_UPDATED);
-		print("---->PaymentHistory.DELQ ::"PaymentHistory.DELQ);
+	}
+	else if(MIN_AST_NUM_UPDATED is known) then {
+		PaymentHistory.DELQ = MIN_AST_NUM_UPDATED;
+	}
+	else if(DPD_UPDATED is known) then {
+		PaymentHistory.DELQ = DPD_UPDATED;
+	}
+	print("---->PaymentHistory.DELQ ::"PaymentHistory.DELQ);
 	
 		if(PaymentHistory.DELQ is known)then{
 			if(MaxDelqCounter =0)then{
@@ -320,7 +327,10 @@ try {
 			}
 		}
 		//Payment History Derivations for Bureau Ends
-		
+		if(PaymentHistory.assetClassification is known and PaymentHistory.assetClassification  is  contained  in  text  "SUB,LSS,DBT,SMA")then{
+          assetClassificationFlag =true;
+        }   
+          
 		print(">>>>Exiting Payment History<<<<");
 		}
 		
@@ -374,18 +384,20 @@ try {
 			aBlazeApplicant.WORST_DELQ_L3M =Account.DELQ_L3M;
 		}
 	
-	if(Account.isCreditCard = false and Account.lastPaymentDate is known)then{
+	if(Account.isCreditCard and Account.lastPaymentDate is known)then{
 	if(aBlazeApplicant.isWriteOffOrSettled  and Account.amountOverdue >10000 and today.subtractInMonths(Account.lastPaymentDate).months <= 36)then{
 		aBlazeApplicant.isNonCcAccWoffSettOverdueAb10kL36M =true;
 		//to be corrected isCcAccWoffSettOverdueAb10kL36M
 	}
 	
-	if(Account.amountOverdue >=5000 and today.subtractInMonths(Account.lastPaymentDate).months <= 60)then{
+	if(Account.isCreditCard =false and Account.amountOverdue >=5000 and today.subtractInMonths(Account.lastPaymentDate).months <= 60)then{
 		if(aBlazeApplicant.isWriteOffOrSettled or Account.isSettled)then
 		{
 			aBlazeApplicant.isNonCcAccWoffSettOverdueAb5kL60M =true;
 		}
-        //SMA,LSS,DBT,SUB logic to be added
+        if(assetClassificationFlag)then{
+          aBlazeApplicant.isNonCcAccWoffSettOverdueAb5kL60M =true;
+        }
 	}
 	}
 	
