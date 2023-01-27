@@ -66,11 +66,21 @@ if(aBlazeApplication.businessErrorsFlag = false) then {
   print("----> aBlazeApplication.deviationsCheck :: " aBlazeApplication.deviationsCheck);
 
   if(aBlazeApplication.deviationsCheck is equal to true) then {
-    BL_ApplicationDeviations(message); 
+    if(message.request.application.loanBasicDetail.leadId is known and message.request.application.loanBasicDetail.leadId =(ignoring case)"Amber")then{
+       BL_ApplicationDeviations_R(message);
+    }else{
+      BL_ApplicationDeviations(message);
+    }
+     
     for  each  BlazeApplicant  in  BTCommonVar.termInput.blazeApplication.blazeApplicantArray
     do {
       aBlazeApplicant  is  some  BlazeApplicant  initially  it  as  a  BlazeApplicant;
-      BL_ApplicantDeviations(aBlazeApplicant,message); 
+      if(message.request.application.loanBasicDetail.leadId is known and message.request.application.loanBasicDetail.leadId =(ignoring case)"Amber")then{
+        BL_ApplicantDeviations_R(aBlazeApplicant,message);
+      }
+      else{
+        BL_ApplicantDeviations(aBlazeApplicant,message);
+      }
     }
   }
 }

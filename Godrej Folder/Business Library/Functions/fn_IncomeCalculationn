@@ -506,7 +506,7 @@ if(abbEmiRatio is equal to unknown)  then {
           // for corporate we consider debtEquityRatio and for individual we consider abbEmiRatio for scoring
           if(aBlazeApplicant.corporateFlag = false) then {
             aBlazeApplicant.applicantAdditionalDetails.senpRiskScoreEligibility.debtEquityRatio=0;
-          }else if(aBlazeApplicant.corporateFlag = true and (aBlazeApplicant.sector ="SENP1" or aBlazeApplicant.sector="SENP2")) then {
+          }else if(aBlazeApplicant.sector <>unavailable and aBlazeApplicant.sector is known and aBlazeApplicant.corporateFlag = true and (aBlazeApplicant.sector ="SENP1" or aBlazeApplicant.sector="SENP2")) then {
             aBlazeApplicant.applicantAdditionalDetails.senpRiskScoreEligibility.debtEquityRatio=0;
           }  else if(aBlazeApplicant.corporateFlag = true) then {
             aBlazeApplicant.applicantAdditionalDetails.senpRiskScoreEligibility.abbEmiRatio=0;

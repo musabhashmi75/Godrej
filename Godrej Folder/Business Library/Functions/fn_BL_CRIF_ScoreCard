@@ -120,7 +120,8 @@ try {
 		Account  is  some  BlazeAccountDetails  initially  it  as  a  BlazeAccountDetails;
 		
 		//Initialising local variables Account level
-		CURRENT_BAL1 is a real;
+		initVar is a real;
+		CURRENT_BAL1 is a real initially initVar;
 		ACTIVE_FLAG is a boolean initially false;
 		DA_ISSUE_FLAG is a boolean initially false;
 		MS_L30P is a real;

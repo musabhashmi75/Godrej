@@ -1,11 +1,10 @@
-#Extended attributes for Innovator file-based repository (directory: 'fn_BL_CRIF_ScoreCard')
-#Wed Jan 25 07:18:28 UTC 2023
+#Extended attributes for Innovator file-based repository (directory: 'BL_ApplicantDeviations_R')
+#Wed Jan 25 09:52:54 UTC 2023
 contentType=Instance
-guid=5R9UhtnD5eYRerojIrM8pE2pmjx
-innovatorDisplayName=fn_BL_CRIF_ScoreCard
-innovatorItemCreationId=admin
+guid=EOE7hg9yvLvPs6rzeEDW4a9qzTg
+innovatorDisplayName=BL_ApplicantDeviations_R
 innovatorLastModifiedUser=admin
-innovatorTemplateRef=Q8jH6kHdOYIZ1uG0WKXqvvejqv0
+innovatorTemplateRef=QzixEYa1EHH8Jr6Fk8nhguBcZtu
 managementProperty.Predictive\ Model\ Type=NotApplicable
 managementProperty.Source\ Reference.filterVH=
 managementProperty.Source\ Reference.locationVH=
@@ -17,4 +16,4 @@ managementProperty.Test\ Case=
 managementProperty.Test\ Role=None
 subType=None
 target=SRL
-type=SRL Function
+type=SRL Ruleset
