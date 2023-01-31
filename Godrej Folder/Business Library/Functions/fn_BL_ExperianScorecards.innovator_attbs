@@ -1,8 +1,9 @@
-#Extended attributes for Innovator file-based repository (directory: 'fn_ScoreCards')
-#Mon Jan 30 10:22:17 UTC 2023
+#Extended attributes for Innovator file-based repository (directory: 'fn_BL_ExperianScorecards')
+#Mon Jan 30 09:10:24 UTC 2023
 contentType=Instance
-guid=HiRE6l6ypf1sxUdNjzKFJHwaeFz
-innovatorDisplayName=fn_ExperianScoreCards
+guid=XG5aS9Bk6h8Ht0huGbXcbPxR5Oy
+innovatorDisplayName=fn_BL_ExperianScorecards
+innovatorItemCreationId=admin
 innovatorLastModifiedUser=admin
 innovatorTemplateRef=Q8jH6kHdOYIZ1uG0WKXqvvejqv0
 managementProperty.Predictive\ Model\ Type=NotApplicable

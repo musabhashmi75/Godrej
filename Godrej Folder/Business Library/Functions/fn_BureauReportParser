@@ -284,7 +284,7 @@ try {
                     print("----> Null :: acNonsummary.PaymentHistoryEndDate ::  " acNonsummary.PaymentHistoryEndDate);
                   }
                   
-                  // noMonths1 is a duration initially 2 months;
+                                    // noMonths1 is a duration initially 2 months;
                   // if( blazeAccountDetails.paymentHistoryStartDate <> unknown and 
                   // calendar().currentDate().subtractInMonths(blazeAccountDetails.paymentHistoryStartDate).months > 2) then {
                   // newDate is a date;
@@ -295,23 +295,49 @@ try {
                   // }  
                   
                   // CurrentDate
-                  oneMonth is a duration initially 1 month;
-                  twoMonths is a duration initially 2 months;    
-                  if(acNonsummary.DateReportedAndCertified is not unknown and 
-                     acNonsummary.DateReportedAndCertified is not equal to "")				then{
-                  if(applicationDate.subtractInMonths(blazeAccountDetails.dateReported).months = 0) then {
-                    blazeAccountDetails.currentDate = applicationDate;
-                  } else if(applicationDate.subtractInMonths(blazeAccountDetails.dateReported + oneMonth).months = 0) then{
-                    blazeAccountDetails.currentDate = blazeAccountDetails.dateReported;
-                  } else if(applicationDate.subtractInMonths(blazeAccountDetails.dateReported + twoMonths).months = 0) then{
-                    blazeAccountDetails.currentDate = blazeAccountDetails.dateReported;
-                  } else {
-                    blazeAccountDetails.currentDate = applicationDate - twoMonths;
-                  } 
-                    }
-                  else {
-                    blazeAccountDetails.currentDate = applicationDate - twoMonths;
-                  } 
+               //   oneMonth is a duration initially 1 month;
+                //  twoMonths is a duration initially 2 months;    
+                 // if(acNonsummary.DateReportedAndCertified is not unknown and 
+                 //    acNonsummary.DateReportedAndCertified is not equal to "")				then{
+                //  if(applicationDate.subtractInMonths(blazeAccountDetails.dateReported).months = 0) then {
+                 //   blazeAccountDetails.currentDate = applicationDate;
+                 // } else if(applicationDate.subtractInMonths(blazeAccountDetails.dateReported + oneMonth).months = 0) then{
+                 //   blazeAccountDetails.currentDate = blazeAccountDetails.dateReported;
+                //  } else if(applicationDate.subtractInMonths(blazeAccountDetails.dateReported + twoMonths).months = 0) then{
+                 //   blazeAccountDetails.currentDate = blazeAccountDetails.dateReported;
+                //  } else {
+                 //   blazeAccountDetails.currentDate = applicationDate - twoMonths;
+                //  } 
+                   // }
+                  //else {
+                   // blazeAccountDetails.currentDate = applicationDate - twoMonths;
+                  //} 
+                  
+                  //CurrentDate (new logic added on 17-01-23)
+				if(aBlazeApplicant.INQUIRY_DATE is known)then{
+				dateArr is some array of string initially an array of string;
+				dateArr = aBlazeApplicant.INQUIRY_DATE.toString().split("-") as a array of string;
+				
+				month is an integer initially dateArr[1] as a integer;
+				month =month-2;
+				dateArr[1] = month as a string;
+				day is a string initially "01";
+				year is a string initially dateArr[0];
+				
+				dateStr is a string initially year"-"month"-"day;   
+				blazeDate is a date initially SimpleDateFormat.newInstance("yyyy-MM-dd").parse(dateStr) as a date;
+				calendar().defaultDateFormat = "yyyy-MM-dd";
+
+                print("---->blazeDate ::"blazeDate);
+				print("---->Difference in months ::"blazeAccountDetails.paymentHistoryStartDate.subtractInMonths(blazeDate));
+				if(blazeAccountDetails.paymentHistoryStartDate is known and blazeAccountDetails.paymentHistoryStartDate.subtractInMonths(blazeDate).months> 0) then{
+					blazeAccountDetails.currentDate = blazeAccountDetails.paymentHistoryStartDate;
+                  print("Entered if");
+				}
+				else{
+					blazeAccountDetails.currentDate = blazeDate;
+				}
+				}
                   
                   // AccountOpenDate
                   noMonths2 is a duration initially 36 months;
@@ -418,13 +444,15 @@ try {
                     blazePaymentHistoryObj.assetClassification = portable().concat(stringArr[payArrIndex], stringArr[payArrIndex+1]);
                     blazePaymentHistoryObj.assetClassification = portable().concat(blazePaymentHistoryObj.assetClassification, stringArr[payArrIndex+2]);
                     print("----> blazePaymentHistoryObj.assetClassification ::  " blazePaymentHistoryObj.assetClassification);
-                    if(paymentMonth <= 9) then {            
-                      payArrIndex = payArrIndex + 6;
-                      print("----> payArrIndex for month value LE 9 ::  " payArrIndex);
-                    } else if(paymentMonth > 9) then {            
-                      payArrIndex = payArrIndex + 7;
-                      print("----> payArrIndex for month value GT 9 ::  " payArrIndex);
-                    }
+                    //if(paymentMonth <= 9) then {            
+                    //  payArrIndex = payArrIndex + 6;
+                    //  print("----> payArrIndex for month value LE 9 ::  " payArrIndex);
+                    //} else if(paymentMonth > 9) then {            
+                    //  payArrIndex = payArrIndex + 7;
+                    //  print("----> payArrIndex for month value GT 9 ::  " payArrIndex);
+                    //}
+                    print("---->payArrIndex ::"payArrIndex);
+                    payArrIndex = payArrIndex + 3;
                     
                     //Calculate monthSinceCurrDate  
                     blazePaymentHistoryObj.monthSinceCurrDate = (blazeAccountDetails.currentDate.subtractInMonths(blazePaymentHistoryObj.paymentDate).months);

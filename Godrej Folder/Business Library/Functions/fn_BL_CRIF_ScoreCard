@@ -120,8 +120,7 @@ try {
 		Account  is  some  BlazeAccountDetails  initially  it  as  a  BlazeAccountDetails;
 		
 		//Initialising local variables Account level
-		initVar is a real;
-		CURRENT_BAL1 is a real initially initVar;
+		CURRENT_BAL1 is a real;
 		ACTIVE_FLAG is a boolean initially false;
 		DA_ISSUE_FLAG is a boolean initially false;
 		MS_L30P is a real;
@@ -259,11 +258,8 @@ try {
 			aBlazeApplicant.RAT_REC_L24M_ALL =aBlazeApplicant.N_CTR_L24M_ALL/N_CTR_EVER_ALL;
 		}
 		print("---->aBlazeApplicant.RAT_REC_L24M_ALL ::"aBlazeApplicant.RAT_REC_L24M_ALL);
-		
-		if(ccFlag and Account.ACCOUNT_STATUS is known and Account.ACCOUNT_STATUS <>(ignoring case)"Active")then{
-			if(Account.MOB is known and Account.MOB>=0 and Account.MOB <=24)then{
+		if(ccFlag and Account.MOB is known and Account.MOB>=0 and Account.MOB <=24)then{
 				aBlazeApplicant.N_CTR_L24M_CC =aBlazeApplicant.N_CTR_L24M_CC +1;
-			}
 		}
 		
 	//Entering Payment History Loop
@@ -539,6 +535,19 @@ try {
 		exclusionFlag3 =true;
 	}
 	print("---->exclusionFlag3 ::"exclusionFlag3);
+	
+	if(aBlazeApplicant.PCT_LEVERAGE_A_ALL is known) then{
+		aBlazeApplicant.PCT_LEVERAGE_A_ALL = math().round(aBlazeApplicant.PCT_LEVERAGE_A_ALL,-2);
+		print("---->aBlazeApplicant.PCT_LEVERAGE_A_ALL ::"aBlazeApplicant.PCT_LEVERAGE_A_ALL);
+	}
+	if(aBlazeApplicant.MIN_PCT_BAL_DA_A_ALL is known) then{
+		aBlazeApplicant.MIN_PCT_BAL_DA_A_ALL = math().round(aBlazeApplicant.MIN_PCT_BAL_DA_A_ALL,-2);
+		print("---->aBlazeApplicant.MIN_PCT_BAL_DA_A_ALL ::"aBlazeApplicant.MIN_PCT_BAL_DA_A_ALL);
+	}
+	if(aBlazeApplicant.AVG_PCT_OTB_A_CARDS is known) then{
+		aBlazeApplicant.AVG_PCT_OTB_A_CARDS = math().round(aBlazeApplicant.AVG_PCT_OTB_A_CARDS,-2);
+		print("---->aBlazeApplicant.AVG_PCT_OTB_A_CARDS ::"aBlazeApplicant.AVG_PCT_OTB_A_CARDS);
+	}
 	
 	crifBusinessModelDecision is some NdScoreModelReturnInfo;
 	crifBusinessModelDecision= BL_CRIF_Score_Card(aBlazeApplicant.MAX_DELQ_L6M_ALL,aBlazeApplicant.RAT_REC_L24M_ALL,

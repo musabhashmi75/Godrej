@@ -500,6 +500,7 @@ try {
             aBlazeApplicant.nbr_CC_gt1L_tot_accts  =  aBlazeApplicant.nbr_CC_gt1L_tot_accts  +  1;
           }
           
+		  if(Account.accountOpenDate is known)then{
           //  noOfAccOpenedInL12m Used in SE Experian Score Card
           if(applicationDate.subtractInMonths(Account.accountOpenDate).months  <=  12)  then  {
             aBlazeApplicant.noOfAccOpenedInL12m  =  aBlazeApplicant.noOfAccOpenedInL12m  +  1;
@@ -522,6 +523,7 @@ try {
             and Account.isSecuredLoan = true and (aBlazeApplicant.maxMOBSecured < Account.age)) then {
             aBlazeApplicant.maxMOBSecured = Account.age;
           }
+		  }
 
 
           //  Accounts  opened  in  36  months -- applicationDate changed to Account.currentDate as discussed with Sanket on 02-03-2022       
@@ -635,6 +637,7 @@ try {
               //start for MOB >36 months
               
                //  hlMaxMonthsInL36M
+		if(Account.accountOpenDate is known)then{
             if  (Account.blazeAccountType  is  contained  in  text  "02")  then  {      
               mob  =  Account.currentDate.subtractInMonths(Account.accountOpenDate).months;
                          
@@ -658,6 +661,7 @@ try {
                   }
               }
             }
+		}
               //end for MOB >36 months 
               print("----> Ankit ending in if >36 months   :: -->");
             }

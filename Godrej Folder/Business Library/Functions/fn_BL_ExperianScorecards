@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_ExperianScoreCards'>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_BL_ExperianScorecards'>
  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
  </instantiation>
  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
@@ -46,15 +46,18 @@
  <instance ref='InstanceName'>
   <value></value>
  </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_BL_ExperianScorecards1</value>
+ </instance>
  <instance ref='FunctionNameVH'>
-  <value>fn_ExperianScoreCards</value>
+  <value>fn_BL_ExperianScorecards</value>
  </instance>
  <instance ref='FunctionReturnType'>
   <value>void</value>
  </instance>
  <instance ref='FunctionBodyVH'>
   <value><![CDATA[print("");
-print("++++> Entering function :: fn_ExperianScoreCards");
+print("++++> Entering function :: fn_BL_ExperianScorecards");
 
 aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
 
@@ -89,14 +92,15 @@ if(aBlazeApplication.businessErrorsFlag = false) then {
       print("Applicant Type in Experian Score Card---> "aBlazeApplicant.applicantType);
       // if(aBlazeApplicant.employmentType<>(ignoring case) "NON-WORKING") then{
       result is a boolean initially false;  
+	  print("----> aBlazeApplicant.isNtc ::"aBlazeApplicant.isNtc);
       if(aBlazeApplicant.isNtc=false and aBlazeApplicant.creditBureauData.blazeAccountDetailsArray<>unknown 
          and aBlazeApplicant.creditBureauData.blazeAccountDetailsArray.count>0) then {
+			 print("----> Entered First Block");
         for  each  BlazeAccountDetails  in  aBlazeApplicant.creditBureauData.blazeAccountDetailsArray 
-        do {    
+        do { 
+			print("---->Entered Account Iteration");
           Account  is  some  BlazeAccountDetails  initially  it  as  a  BlazeAccountDetails;    
           //  Accounts older than a year    
-		  print("----> Account.accountOpenDate ::"Account.accountOpenDate);
-		  print("----> applicationDate ::"applicationDate);
           if(Account.accountOpenDate<>unknown and applicationDate.subtractInMonths(Account.accountOpenDate).months  >=  12)  then {
             result = true;
           } else if(Account.lastPaymentDate<>unknown and applicationDate.subtractInMonths(Account.lastPaymentDate).months  >=  12) then {
@@ -117,28 +121,36 @@ if(aBlazeApplication.businessErrorsFlag = false) then {
       print("----> result :: "result);
       
       // Experian Score
-      experianScore is a real initially 0; 
+      experian_Score is a real initially 0;
+		print("xXX");
+		print("---->NdScoreModelReturnInfo"NdScoreModelReturnInfo);
       scoreModelDecision is some NdScoreModelReturnInfo;
+	  
+	  print("----> result ::"result);
+	  print("----> aBlazeApplicant.employmentType ::"aBlazeApplicant.employmentType);
+	  print("----> experian_Score ::"experian_Score);
       if(result is true) then {
         if(aBlazeApplicant.isNtc=false  and  aBlazeApplicant.employmentType=  (ignoring  case  )  "SALARIED")  then  {
           scoreModelDecision = Sal_Segment_Experian_Score_Card_Instance(aBlazeApplicant);
-          experianScore = scoreModelDecision.score;           
+          experian_Score = scoreModelDecision.score;           
         } else  if(aBlazeApplicant.isNtc=false  and  (aBlazeApplicant.employmentType=  (ignoring  case  )  "SEP"  
-        or  aBlazeApplicant.employmentType=  (ignoring  case  )  "SENP"))  then  {
+        or  aBlazeApplicant.employmentType=  (ignoring  case  )"SENP"))  then  {
           scoreModelDecision = Self_employed_Segment_Experian_Score_Card_Instance(aBlazeApplicant);
-          experianScore = scoreModelDecision.score;
+          experian_Score = scoreModelDecision.score;
         }       
       } 
+	  print("----> experian_Score ::"experian_Score);
       if(aBlazeApplicant.isNtc=true)  then  {  
         scoreModelDecision = Thin_Segment_Experian_Score_Card_Instance(aBlazeApplicant);
-        experianScore = scoreModelDecision.score;      
+        experian_Score = scoreModelDecision.score;      
       }      
-      print("----> experianScore :: "experianScore); 
-      aBlazeApplicant.experianScore = experianScore; 
+      print("----> experian_Score :: "experian_Score); 
+      aBlazeApplicant.experianScore = experian_Score;  
       experianSegment =SENP_Experience_Segmentation(aBlazeApplicant);
-
+      
+      // message.response.scoreCardDetails.scoreCardCharacteristics
       scoreCardCharacteristicsArray is some array of ScoreCardCharacteristicsDetail initially an array of ScoreCardCharacteristicsDetail;
-      if(scoreModelDecision<>null and scoreModelDecision<> unknown) then {
+      if(scoreModelDecision<> unknown and scoreModelDecision<> null) then {
         for each NdScoredCharacteristic in scoreModelDecision.scoredCharacteristics such that (it  <>  unknown)
         do {
           scoredCharacteristics  is  some  NdScoredCharacteristic  initially  it  as  a  NdScoredCharacteristic;
@@ -162,7 +174,7 @@ if(aBlazeApplication.businessErrorsFlag = false) then {
         scoreCardDetail.scorecardName = portable().concat(scoreModelDecision.scoreModelName,portable().concat("_",experianSegment));
         scoreCardDetail.scorecardScore = scoreModelDecision.score;
         scoreCardDetail.characteristicCount = scoreModelDecision.characteristicCount;
-        scoreCardDetail.scorecardKey = "experianScore";
+        scoreCardDetail.scorecardKey = "experian_Score";
         scoreCardDetail.purpose = "AutoPopulate";
         scoreCardDetail.entityType = aBlazeApplicant.applicantType;
         scoreCardDetail.entityId = aBlazeApplicant.customerCif as a string;
@@ -178,7 +190,7 @@ if(aBlazeApplication.businessErrorsFlag = false) then {
   } 
 }
 
-  print("++++> Exiting function :: fn_ExperianScoreCards");
+  print("++++> Exiting function :: fn_BL_ExperianScorecards");
   print("");
 
 }catch an Exception with {
@@ -191,7 +203,7 @@ if(aBlazeApplication.businessErrorsFlag = false) then {
  </instance>
  <instance ref='FunctionParametersVH'>
   <instance-list ref='ParametersVH'>
-   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='X02KnH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='8to3hE'>
     <instance ref='ParameterNameVH'>
      <value>message</value>
     </instance>
@@ -200,8 +212,5 @@ if(aBlazeApplication.businessErrorsFlag = false) then {
     </instance>
    </item>
   </instance-list>
- </instance>
- <instance ref='UniqueInstanceNameVH'>
-  <value>fn_ExperianScoreCards1</value>
  </instance>
 </instantiation>

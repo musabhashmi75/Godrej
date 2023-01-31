@@ -99,7 +99,7 @@ try {
 		
 		//MOB for CRIF
 		if(aBlazeApplicant.INQUIRY_DATE is known and Account.accountOpenDate is known)then{
-			Account.MOB =aBlazeApplicant.INQUIRY_DATE.subtractInMonths(Account.accountOpenDate).months;
+			Account.MOB =aBlazeApplicant.INQUIRY_DATE.subtractInMonths(Account.DISBURSED_DATE).months;
 		}
 		print("---->Account.MOB ::"Account.MOB);
 
@@ -179,7 +179,13 @@ try {
 		
 		//---------------------------------Entering Payment History Loop-------------------------------------------
 		delqCounter is an integer initially 0;
-		monthsCounterLocal  is  an  integer  initially  0;
+		monthsCounterLocal  is  an  integer  initially  1;
+		print("---->Account.paymentHistoryStartDate ::"Account.paymentHistoryStartDate);
+		print("---->Account.currentDate ::"Account.currentDate);
+		if(Account.paymentHistoryStartDate is known and Account.currentDate is known)then{
+			monthsCounterLocal =Account.currentDate.subtractInMonths(Account.paymentHistoryStartDate).months
+		}
+		print("---->Derived monthsCounterLocal ::"monthsCounterLocal);
 		
 		for  each  BlazePaymentHistory  in    Account.blazePaymentHistoryArray do {
 		print(">>>>Entering Payment History<<<<");
