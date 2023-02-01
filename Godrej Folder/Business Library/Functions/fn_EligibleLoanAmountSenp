@@ -71,9 +71,8 @@ if(aBlazeApplication.businessErrorsFlag = false) then {
     print("----> aBlazeApplicant.applicantType ::"aBlazeApplicant.applicantType);
     print("----> incomeProgramUsed :: " aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.incomeProgram);
     print("----> aBlazeApplicant.employmentType ::"aBlazeApplicant.employmentType);
-    if(aBlazeApplicant.employmentType = (ignoring case) "SENP" 
-       and incomeProgramUsed <> unknown and incomeProgramUsed <>""
-       and incomeProgramUsed <> (ignoring case) "BANKING SURROGATE" and incomeProgramUsed <> (ignoring case) "LOW LTV")   then{    
+    if(aBlazeApplicant.employmentType = (ignoring case) "SENP" and incomeProgramUsed <> unknown and incomeProgramUsed <>""
+       and incomeProgramUsed <>"#" and incomeProgramUsed <> (ignoring case) "BANKING SURROGATE" and incomeProgramUsed <> (ignoring case) "LOW LTV")   then{    
           
       // Latest Year Cash Profit
 	  print("---->message.request.application.applicants[2].applicantAdditionalDetails.senpLatestYearEligibility.netPbt ::"message.request.application.applicants[2].applicantAdditionalDetails.senpLatestYearEligibility.netPbt);

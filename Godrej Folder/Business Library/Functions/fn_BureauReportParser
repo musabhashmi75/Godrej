@@ -93,6 +93,20 @@ try {
             print("----> creditReport :: " creditReport);      
             if(creditReport is not unknown and creditReport is not null) then {
               print("----> creditReport is not null :: " creditReport);
+              
+              			  //----------------------------------------INQUIRY_DATE----------------------------------------
+			  print("---->creditReport.Header.DateProcessed ::"creditReport.Header.DateProcessed);
+			  if(creditReport.Header.DateProcessed is known and creditReport.Header.DateProcessed is not equal to "") then {
+                    str is a string initially creditReport.Header.DateProcessed as a string;
+                    sdf is a date initially SimpleDateFormat.newInstance("ddMMyyyy").parse(str) as a date;
+                    dateProcessed is a date initially sdf as a date;
+                    calendar().defaultDateFormat = "yyyy-MM-dd";
+                    aBlazeApplicant.INQUIRY_DATE = dateProcessed;
+					print("---->aBlazeApplicant.INQUIRY_DATE ::"aBlazeApplicant.INQUIRY_DATE);
+              } else {
+                    print("----> Null :: Header.dateProcessed ::   " creditReport.Header.DateProcessed);
+              } 
+              
               //------------------------------------------ burScore ----------------------------------------
               if(creditReport.ScoreSegment <> unknown and creditReport.ScoreSegment.count > 0 and 
                  creditReport.ScoreSegment[0].Score <> unknown and creditReport.ScoreSegment[0].Score <> "") then {

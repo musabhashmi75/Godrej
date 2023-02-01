@@ -1174,7 +1174,7 @@ responseDeviation.reasonText = "BL";
 responseDeviation.approvalLevel = "L5,BL_ZONAL_HEAD";
 responseDeviation.deviationType = "Eligibility ";
 responseDeviation.ruleLevel="";
-responseDeviation.entityId=message.invocation.applicationNumber as a string;
+responseDeviation.entityId=message.invocation.applicationNumber;
 responseDeviation.entityType="Application";
 responseDeviation.accountNo="";
 responseDeviation.recommendationText="";
@@ -1516,7 +1516,7 @@ responseDeviation.reasonText = "BL";
 responseDeviation.approvalLevel = "L3,BL_ACM";
 responseDeviation.deviationType = "Eligibility";
 responseDeviation.ruleLevel="";
-responseDeviation.entityId=message.invocation.applicationNumber as a string;
+responseDeviation.entityId=message.invocation.applicationNumber;
 responseDeviation.entityType="Application";
 responseDeviation.accountNo="";
 responseDeviation.recommendationText="";
@@ -1553,6 +1553,858 @@ responseDeviation.ruleCategory = "BL";
 responseDeviation.reasonText = "BL";
 responseDeviation.approvalLevel = "L3,BL_ACM";
 responseDeviation.deviationType = "Product Norms";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='LhJHaH'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>BIL_PRO12_R</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"integer","elements":[{"valueType":"integer","name":"twelveMonAbbDeviation","fqName":"twelveMonAbbDeviation","externalType":"integer","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"integer","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"3000000","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation = a ResponseDeviation;
+responseDeviation.ruleId = "BIL_PRO12_R";
+responseDeviation.ruleName = "BIL_PRO12_R";
+responseDeviation.ruleDescription = "Min ABB norm not met";
+responseDeviation.ruleAction = "DEVIATION";
+responseDeviation.ruleCategory = "BL";
+responseDeviation.reasonText = "BL";
+responseDeviation.approvalLevel = "L5,BL_ZONAL_HEAD";
+responseDeviation.deviationType = "Product Norms";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+message.response.responseDeviations.append(responseDeviation);
+</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='2fz1pR'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>BIL_PRO11_R</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"integer","elements":[{"valueType":"integer","name":"twelveMonAbbDeviation","fqName":"twelveMonAbbDeviation","externalType":"integer","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"integer","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"2000000","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation = a ResponseDeviation;
+responseDeviation.ruleId = "BIL_PRO11_R";
+responseDeviation.ruleName = "BIL_PRO11_R";
+responseDeviation.ruleDescription = "Min ABB norm not met";
+responseDeviation.ruleAction = "DEVIATION";
+responseDeviation.ruleCategory = "BL";
+responseDeviation.reasonText = "BL";
+responseDeviation.approvalLevel = "L4,BL_LOCATION_HEAD";
+responseDeviation.deviationType = "Product Norms";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+message.response.responseDeviations.append(responseDeviation);
+</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='4ipnKz'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>BIL_PRO10_R</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"integer","elements":[{"valueType":"integer","name":"twelveMonAbbDeviation","fqName":"twelveMonAbbDeviation","externalType":"integer","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"integer","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"1000000","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation = a ResponseDeviation;
+responseDeviation.ruleId = "BIL_PRO10_R";
+responseDeviation.ruleName = "BIL_PRO10_R";
+responseDeviation.ruleDescription = "Min ABB norm not met ";
+responseDeviation.ruleAction = "DEVIATION";
+responseDeviation.ruleCategory = "BL";
+responseDeviation.reasonText = "BL";
+responseDeviation.approvalLevel = "L3,BL_ACM";
+responseDeviation.deviationType = "Product Norms";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+message.response.responseDeviations.append(responseDeviation);
+</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='NsY1kR'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>BIL_PRO9_R</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"endusageoffunds","fqName":"message.request.application.applicationAdditionalDetails.other.endusageoffunds","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"INCOMEMETHOD","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"sourcingOfficer","fqName":"sourcingOfficer","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"10","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation = a ResponseDeviation;
+responseDeviation.ruleId = "BIL_PRO9_R";
+responseDeviation.ruleName = "BIL_PRO9_R";
+responseDeviation.ruleDescription = "Min credit Count norm not met";
+responseDeviation.ruleAction = "DEVIATION";
+responseDeviation.ruleCategory = "BL";
+responseDeviation.reasonText = "BL";
+responseDeviation.approvalLevel = "L3,BL_ACM";
+responseDeviation.deviationType = "Product Norms";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+message.response.responseDeviations.append(responseDeviation);
+</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='9qexZI'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>BIL_ELE18_R</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"dmaCode","fqName":"dmaCode","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"50","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"dmaCode","fqName":"dmaCode","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"60","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation = a ResponseDeviation;
+responseDeviation.ruleId = "BIL_ELE18_R";
+responseDeviation.ruleName = "BIL_ELE18_R";
+responseDeviation.ruleDescription = "Banking Turnover less than norms";
+responseDeviation.ruleAction = "DEVATION";
+responseDeviation.ruleCategory = "BL";
+responseDeviation.reasonText = "BL";
+responseDeviation.approvalLevel = "L5,BL_ZONAL_HEAD";
+responseDeviation.deviationType = "Eligibility";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+BTCommonVar.termInput.blazeApplication.loanBasicDetail.sourcingDetails.dmaCode = dmaCode as a string;
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='D9G5Qm'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>BIL_ELE17_R</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"dmaCode","fqName":"dmaCode","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"60","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"dmaCode","fqName":"dmaCode","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"70","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation = a ResponseDeviation;
+responseDeviation.ruleId = "BIL_ELE17_R";
+responseDeviation.ruleName = "BIL_ELE17_R";
+responseDeviation.ruleDescription = "Banking Turnover less than norms";
+responseDeviation.ruleAction = "DEVIATION";
+responseDeviation.ruleCategory = "BL";
+responseDeviation.reasonText = "BL";
+responseDeviation.approvalLevel = "L4,BL_LOCATION_HEAD";
+responseDeviation.deviationType = "Eligibility";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+BTCommonVar.termInput.blazeApplication.loanBasicDetail.sourcingDetails.dmaCode = dmaCode as a string;
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='3jGbZX'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>BIL_ELE16_R</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"dmaCode","fqName":"dmaCode","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"70","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"dmaCode","fqName":"dmaCode","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"75","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation = a ResponseDeviation;
+responseDeviation.ruleId = "BIL_ELE16_R";
+responseDeviation.ruleName = "BIL_ELE16_R";
+responseDeviation.ruleDescription = "Banking Turnover less than norms";
+responseDeviation.ruleAction = "DEVIATION";
+responseDeviation.ruleCategory = "BL";
+responseDeviation.reasonText = "BL";
+responseDeviation.approvalLevel = "L3,BL_ACM";
+responseDeviation.deviationType = "Eligibility";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+BTCommonVar.termInput.blazeApplication.loanBasicDetail.sourcingDetails.dmaCode = dmaCode as a string;
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='HovajI'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>BIL_ELE15_R</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"dmaCode","fqName":"dmaCode","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"75","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"dmaCode","fqName":"dmaCode","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"80","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation = a ResponseDeviation;
+responseDeviation.ruleId = "BIL_ELE15_R";
+responseDeviation.ruleName = "BIL_ELE15_R";
+responseDeviation.ruleDescription = "Banking Turnover less than norms";
+responseDeviation.ruleAction = "DEVATION";
+responseDeviation.ruleCategory = "BL";
+responseDeviation.reasonText = "BL";
+responseDeviation.approvalLevel = "L1,BL_REGIONAL_CM";
+responseDeviation.deviationType = "Eligibility";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+BTCommonVar.termInput.blazeApplication.loanBasicDetail.sourcingDetails.dmaCode = dmaCode as a string;
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='IcviFN'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>BIL_VER1_R</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"lastStatus","externalType":"string","ancestry":{"members":[{"name":"BTCommonVar"},{"name":"termInput"},{"name":"application"},{"name":"verifications"},{"name":"fiInitiation","index":0},{"name":"lastStatus"}],"__meta_klass":"PA"},"__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"Negative","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation = a ResponseDeviation;
+responseDeviation.ruleId = "BIL_VER1_R";
+responseDeviation.ruleName = "BIL_VER1_R";
+responseDeviation.ruleDescription = "Negative Field Verification";
+responseDeviation.ruleAction = "DEVIATION";
+responseDeviation.ruleCategory = "BL";
+responseDeviation.reasonText = "BL";
+responseDeviation.approvalLevel = "L3,BL_ACM";
+responseDeviation.deviationType = "Verfications";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='PGlUld'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>BIL_PRO7_R</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"sourcingChannelCategory","fqName":"sourcingChannelCategory","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"5","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"sourcingChannelCategory","fqName":"sourcingChannelCategory","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"10","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation = a ResponseDeviation;
+responseDeviation.ruleId = "BIL_PRO7_R";
+responseDeviation.ruleName = "BIL_PRO7_R";
+responseDeviation.ruleDescription = "Outward Cheque Bounce Norms not met more than 10%";
+responseDeviation.ruleAction = "DEVIATION";
+responseDeviation.ruleCategory = "BL";
+responseDeviation.reasonText = "BL";
+responseDeviation.approvalLevel = "L3,BL_ACM";
+responseDeviation.deviationType = "Product Norms";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='VftcHx'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>BIL_PRO6_R</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"sourcingChannelCategory","fqName":"sourcingChannelCategory","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"5","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"sourcingChannelCategory","fqName":"sourcingChannelCategory","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"0","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation = a ResponseDeviation;
+responseDeviation.ruleId = "BIL_PRO6_R";
+responseDeviation.ruleName = "BIL_PRO6_R";
+responseDeviation.ruleDescription = "Outward Cheque Bounce Norms not met more than 5%";
+responseDeviation.ruleAction = "DEVIATION";
+responseDeviation.ruleCategory = "BL";
+responseDeviation.reasonText = "BL";
+responseDeviation.approvalLevel = "L1,BL_REGIONAL_CM";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+responseDeviation.deviationType = "Product Norms";
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='8lVw0c'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>BIL_PRO5_R</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"sourcingBranch","fqName":"sourcingBranch","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"3","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"sourcingBranch","fqName":"sourcingBranch","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"4","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"sourcingLoanBranch","fqName":"sourcingLoanBranch","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"5","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation = a ResponseDeviation;
+responseDeviation.ruleId = "BIL_PRO5_R";
+responseDeviation.ruleName = "BIL_PRO4_R";
+responseDeviation.ruleDescription = "Inward Cheque Bounce Norms not met more than 4% ";
+responseDeviation.ruleAction = "DEVIATION";
+responseDeviation.ruleCategory = "BL";
+responseDeviation.reasonText = "BL";
+responseDeviation.approvalLevel = "L4,BL_LOCATION_HEAD";
+responseDeviation.deviationType = "Product Norms";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='5g7o7v'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>BIL_PRO4_R</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"sourcingBranch","fqName":"sourcingBranch","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"2","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"sourcingBranch","fqName":"sourcingBranch","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"3","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"sourcingLoanBranch","fqName":"sourcingLoanBranch","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"5","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation = a ResponseDeviation;
+responseDeviation.ruleId = "BIL_PRO4_R";
+responseDeviation.ruleName = "BIL_PRO4_R";
+responseDeviation.ruleDescription = "Inward Cheque Bounce Norms not met more than 2% or Cheque bounce more than 5 ";
+responseDeviation.ruleAction = "DEVIATION";
+responseDeviation.ruleCategory = "BL";
+responseDeviation.reasonText = "BL";
+responseDeviation.approvalLevel = "L3,BL_ACM";
+responseDeviation.deviationType = "Product Norms";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='UOCMsM'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>BIL_PRO15_R</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Minimum turnover norm for banking surrogate not met </value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"endusageoffunds","fqName":"message.request.application.applicationAdditionalDetails.other.endusageoffunds","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"BANKINGSURROGATE","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"BIL_PRO15_var","fqName":"BIL_PRO15_var","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"4000000","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation = a ResponseDeviation;
+responseDeviation.ruleId = "BIL_PRO15_R";
+responseDeviation.ruleName = "BIL_PRO15_R";
+responseDeviation.ruleDescription = "Minimum turnover norm for banking surrogate not met";
+responseDeviation.ruleAction = "DEVIATION";
+responseDeviation.ruleCategory = "BL";
+responseDeviation.reasonText = "BL";
+responseDeviation.approvalLevel = "L5,BL_ZONAL_HEAD";
+responseDeviation.deviationType = "Product Norms";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+message.response.responseDeviations.append(responseDeviation);
+</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='R7W3Hx'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>BIL_PRO8_R</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"employeeName","fqName":"employeeName","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"30","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation = a ResponseDeviation;
+responseDeviation.ruleId = "BIL_PRO8_R";
+responseDeviation.ruleName = "BIL_PRO8_R";
+responseDeviation.ruleDescription = "Delay in GST Filling greater then 30 days";
+responseDeviation.ruleAction = "DEVIATION";
+responseDeviation.ruleCategory = "BL";
+responseDeviation.reasonText = "BL";
+responseDeviation.approvalLevel = "L3,BL_ACM";
+responseDeviation.deviationType = "Product Norms";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+message.response.responseDeviations.append(responseDeviation);
+</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='U90hS7'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>BIL_CP13_R</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"buffer19","fqName":"BTCommonVar.termInput.application.applicationAdditionalDetails.other.buffer19","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"unaudited","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"additionalPsl","fqName":"additionalPsl","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"50000000","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation = a ResponseDeviation;
+responseDeviation.ruleId = "BIL_CP13_R";
+responseDeviation.ruleName = "BIL_CP13_R";
+responseDeviation.ruleDescription = "Audited Financials Not taken";
+responseDeviation.ruleAction = "DEVIATION";
+responseDeviation.ruleCategory = "BL";
+responseDeviation.reasonText = "BL";
+responseDeviation.approvalLevel = "L3,BL_ACM";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId= message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+responseDeviation.deviationType = "Client profile and Bureau";
+responseDeviation.ruleLevel="";
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='RsQfPF'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>BIL_PRO18_R</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"sourcingBuffer2","fqName":"sourcingBuffer2","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"80","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value><![CDATA[responseDeviation = a ResponseDeviation;
+responseDeviation.ruleId = "BIL_PRO18_R";
+responseDeviation.ruleName = "BIL_PRO18_R";
+responseDeviation.ruleDescription = "Average Limit Utilisation >80% in OD/CC account";
+responseDeviation.ruleAction = "DEVIATION";
+responseDeviation.ruleCategory = "BL";
+responseDeviation.reasonText = "BL";
+responseDeviation.approvalLevel = "L3,BL_ACM";
+responseDeviation.deviationType = "Product Norms";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+message.response.responseDeviations.append(responseDeviation);
+]]></value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='OkhuqJ'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>BIL_PRO17_R</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"endusageoffunds","fqName":"BTCommonVar.termInput.blazeApplication.applicationAdditionalDetails.other.endusageoffunds","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"GSTPROGRAM","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"sourcingBuffer1","fqName":"sourcingBuffer1","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"15","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"otherRentalIncome","fqName":"otherRentalIncome","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"2000000","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation = a ResponseDeviation;
+responseDeviation.ruleId = "BIL_PRO17_R";
+responseDeviation.ruleName = "BIL_PRO17_R";
+responseDeviation.ruleDescription = "Minimum Credit Count norm for Gst Surrogate not met";
+responseDeviation.ruleAction = "DEVIATION";
+responseDeviation.ruleCategory = "BL";
+responseDeviation.reasonText = "BL";
+responseDeviation.approvalLevel = "L3,BL_ACM";
+responseDeviation.deviationType = "Product Norms";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+message.response.responseDeviations.append(responseDeviation);
+</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='EsNmff'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>BIL_PRO16_R</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"endusageoffunds","fqName":"BTCommonVar.termInput.blazeApplication.applicationAdditionalDetails.other.endusageoffunds","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"BankingSurrogate","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"additionalBorrowerType","fqName":"additionalBorrowerType","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"300000","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation = a ResponseDeviation;
+responseDeviation.ruleId = "BIL_PRO16_R";
+responseDeviation.ruleName = "BIL_PRO16_R";
+responseDeviation.ruleDescription = "Minimun ITR norm for banking surrogate not met ";
+responseDeviation.ruleAction = "DEVIATION";
+responseDeviation.ruleCategory = "BL";
+responseDeviation.reasonText = "BL";
+responseDeviation.approvalLevel = "L3,BL_ACM";
+responseDeviation.deviationType = "Product Norms";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+message.response.responseDeviations.append(responseDeviation);
+</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='OdimNU'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>BIL_PRO14_R</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"endusageoffunds","fqName":"BTCommonVar.termInput.blazeApplication.applicationAdditionalDetails.other.endusageoffunds","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"BANKINGSURROGATE","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"sourcingBuffer1","fqName":"sourcingBuffer1","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"15","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"otherRentalIncome","fqName":"otherRentalIncome","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"1500000","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation = a ResponseDeviation;
+responseDeviation.ruleId = "BIL_PRO14_R";
+responseDeviation.ruleName = "BIL_PRO14_R";
+responseDeviation.ruleDescription = "Minimum Credit norm for Banking surrogate not met ";
+responseDeviation.ruleAction = "DEVIATION";
+responseDeviation.ruleCategory = "BL";
+responseDeviation.reasonText = "BL";
+responseDeviation.approvalLevel = "L4,BL_LOCATION_HEAD";
+responseDeviation.deviationType = "Product Norms";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+message.response.responseDeviations.append(responseDeviation);
+</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='P3wLww'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>BIL_PRO13_R</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"endusageoffunds","fqName":"BTCommonVar.termInput.blazeApplication.applicationAdditionalDetails.other.endusageoffunds","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"BANKINGSURROGATE","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[{"exprs":[],"disposeWhenEmpty":true,"subGroups":[{"exprs":[{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"purposeOfloan","fqName":"purposeOfloan","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"200000","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"otherRentalIncome","fqName":"otherRentalIncome","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"1000000","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"otherRentalIncome","fqName":"otherRentalIncome","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"1500000","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},{"exprs":[{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"purposeOfloan","fqName":"purposeOfloan","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"300000","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"otherRentalIncome","fqName":"otherRentalIncome","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"1500000","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"}],"operator":"or","__meta_klass":"ConditionGroup"}],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation = a ResponseDeviation;
+responseDeviation.ruleId = "BIL_PRO13_R";
+responseDeviation.ruleName = "BIL_PRO13_R";
+responseDeviation.ruleDescription = "Minimum Credit norm for Banking surrogate not met ";
+responseDeviation.ruleAction = "DEVIATION";
+responseDeviation.ruleCategory = "BL";
+responseDeviation.reasonText = "BL";
+responseDeviation.approvalLevel = "L3,BL_ACM";
+responseDeviation.deviationType = "Product Norms";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+message.response.responseDeviations.append(responseDeviation);
+</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='P41wJi'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>BIL_VER2_R</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"lastStatus","externalType":"string","ancestry":{"members":[{"name":"BTCommonVar"},{"name":"termInput"},{"name":"application"},{"name":"verifications"},{"name":"rcuInitiation","index":0},{"name":"lastStatus"}],"__meta_klass":"PA"},"__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"Negative","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation = a ResponseDeviation;
+responseDeviation.ruleId = "BIL_VER2_R";
+responseDeviation.ruleName = "BIL_VER2_R";
+responseDeviation.ruleDescription = "Negative FCU/ Document Verification -other than Fraud";
+responseDeviation.ruleAction = "DEVIATION";
+responseDeviation.ruleCategory = "BL";
+responseDeviation.reasonText = "BL";
+responseDeviation.approvalLevel = "L3,BL_CCU_ACM";
+responseDeviation.deviationType = "Verfications";
 responseDeviation.ruleLevel="";
 responseDeviation.entityId=message.invocation.applicationNumber;
 responseDeviation.entityType="Application";

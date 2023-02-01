@@ -75,6 +75,8 @@ try {
     do  {
 		
       aBlazeApplicant  is  some  BlazeApplicant  initially  it  as  a  BlazeApplicant;
+      print("----------------------------------------------------------------------------------++>>Entering Applicant ::"aBlazeApplicant.customerCif);
+      
       if(it.creditBureauData  <>  unknown)then{
 	  
       if(aBlazeApplicant.corporateFlag = false) then {
@@ -206,7 +208,8 @@ try {
             do{
               PaymentHistory  is  some  BlazePaymentHistory  initially  it  as  a  BlazePaymentHistory;
               print("----> PaymentHistory.daysPastDue ::  " PaymentHistory.daysPastDue);
-              print("----> PaymentHistory.paymentDate ::  " PaymentHistory.paymentDate);              
+              print("----> PaymentHistory.paymentDate ::  " PaymentHistory.paymentDate);   
+              print("---->Account.currentDate ::"Account.currentDate);
               if(Account.currentDate.subtractInMonths(PaymentHistory.paymentDate).months <= 36) then {
                 if(PaymentHistory.daysPastDue  >  Account.maxdpd)  then  {
                   Account.maxdpd=PaymentHistory.daysPastDue;
@@ -320,7 +323,7 @@ try {
 	print("---->Account.dateClosed ::"Account.dateClosed);
 	print("---->Account.isCreditCard ::"Account.isCreditCard);
 	print("---->PaymentHistory.daysPastDue ::"PaymentHistory.daysPastDue);
-	
+	print("---->Account.currentDate ::"Account.currentDate);
 	if(PaymentHistory.paymentDate is known and today.subtractInMonths(PaymentHistory.paymentDate).months <= 12)then{
 	if(((Account.dateClosed  is unknown or today.subtractInMonths(Account.dateClosed).months<=12) and Account.isCreditCard =false and PaymentHistory.daysPastDue  >0) or 
 	(Account.dateClosed is unknown  and Account.isCreditCard and ccTotalOverDue>=30000 and PaymentHistory.daysPastDue  >=30))then{
@@ -1033,6 +1036,7 @@ try {
 		}
              print("----> aBlazeApplicant.bureauDelinquencyCategory :: "aBlazeApplicant.bureauDelinquencyCategory);
 }
+      print("----------------------------------------------------------------------------------++>>Entering Applicant ::"aBlazeApplicant.customerCif);
 	}
 
 	
