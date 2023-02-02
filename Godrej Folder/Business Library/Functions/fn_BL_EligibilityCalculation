@@ -65,6 +65,12 @@ try{
   if(aBlazeApplication.businessErrorsFlag =false)then{
   maxPermissibleLoAmount is a real initially 2500000;
   
+  otherBuffer2 is a real;
+  if(message.request.application.applicationAdditionalDetails.other.buffer2 <>"")then{
+	  otherBuffer2 =message.request.application.applicationAdditionalDetails.other.buffer2 as a real;
+  }
+  print("----> otherBuffer2 ::"otherBuffer2);
+  
   finalLoanEMI is a real;
   if(message.request.application.applicationAdditionalDetails.finalOffer.EMIFINOFF <>unknown and 
     message.request.application.applicationAdditionalDetails.finalOffer.EMIFINOFF <>unavailable)then{
@@ -541,6 +547,11 @@ emiPerLakh is a real initially 0;
   }
   message.request.application.applicationAdditionalDetails.finalOffer.MAXLOELIGINC =eligLoAmount;
     
+	if(rentalIncomeProgram =unknown and otherBuffer2 is known and eligLoAmount is known)then{
+		rentalIncomeProgram =math().min(otherBuffer2,eligLoAmount);
+	}
+	print("---->rentalIncomeProgram ::"rentalIncomeProgram);
+	
    finalLoanEMI =(rentalIncomeProgram * ratePerMonth * multiplier) / divisor;
     print("----------------->FinalLoanEmi::"finalLoanEMI);
    message.request.application.applicationAdditionalDetails.finalOffer.EMIFINOFF =finalLoanEMI;

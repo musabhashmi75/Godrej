@@ -57,6 +57,8 @@
 print("++++> Entering function :: fn_CalculatedVariables");
 
 // message.response.calculatedVariables
+if(message.invocation.decisionPoint <>(ignoring case)"CBR")then{
+print("message.response.calculatedVariables.count = "message.response.calculatedVariables.count);
 calculatedVariablesArray is some array of CalculatedVariable initially an array of CalculatedVariable;
 aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
 
@@ -641,6 +643,7 @@ if(aBlazeApplication.businessErrorsFlag = false) then {
 }catch an Exception with {
   aBlazeApplication.fn_CalculatedVariablesException = true;  
   print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");  
+}
 }]]></value>
  </instance>
  <instance ref='CommentsVH'>

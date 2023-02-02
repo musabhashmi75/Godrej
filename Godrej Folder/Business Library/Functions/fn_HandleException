@@ -452,7 +452,7 @@ if(aBlazeApplication.fn_BL_DefaultValuesException= true)  then {
 	//BL Bureau Report Parser Exception
 print("----> aBlazeApplication.fn_BL_BureauReportParserException :: "aBlazeApplication.fn_BL_BureauReportParserException);
 if(aBlazeApplication.fn_BL_BureauReportParserException= true)  then {
-  print("**Error :: ###>> Exception occured in fn_CibilBureauReportParserException <<###");
+  print("**Error :: ###>> Exception occured in fn_BL_BureauReportParserException <<###");
     errType = "Exception";
     errText = "Exception occured in fn_BL_BureauReportParserException check logs for more info";
     errId = "EXCEPTION_014";
@@ -522,6 +522,17 @@ if(aBlazeApplication.fn_BL_CRIF_ScoreCardException= true)  then {
     errType = "Exception";
     errText = "Exception occured in fn_BL_CRIF_ScoreCardException check logs for more info";
     errId = "EXCEPTION_020";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+  
+  	//BL Consumer Bureau Red Flag Exception
+	  print("----> aBlazeApplication.fn_ConsumerBureauVariableException :: "aBlazeApplication.fn_ConsumerBureauVariableException);
+if(aBlazeApplication.fn_ConsumerBureauVariableException= true)  then {
+  print("**Error :: ###>> Exception occured in fn_ConsumerBureauVariableException <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_ConsumerBureauVariableException check logs for more info";
+    errId = "EXCEPTION_021";
     errName = errId;    
     fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
 }

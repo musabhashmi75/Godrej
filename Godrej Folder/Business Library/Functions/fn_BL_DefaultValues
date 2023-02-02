@@ -59,6 +59,10 @@
   <value><![CDATA[print("");
 print("++++> Entering function :: fn_BL_DefaultValues");
 
+if(message.response.calculatedVariables is null or message.response.calculatedVariables is (unknown or unavailable)) then {
+  message.response.calculatedVariables = an array of CalculatedVariable;
+}
+
 aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
 
 productCode is a string;
@@ -193,6 +197,85 @@ try {
       aBlazeApplicant.noOfUnsecuredEnqInL3m =0;
 //----------------------------------------------------BL Deviation Flags ends------------------------------------------------------------------
  
+       //----------------------------------------------------Consumer Bureau Variable Begins_------------------------------------------------------------
+     aBlazeApplicant.totalNoOfActiveAcct= 0;
+	 aBlazeApplicant.noOfActiveCCAcct = 0;
+	 aBlazeApplicant.noOfActiveNonCCAcct=0;
+	 aBlazeApplicant.totalNoOfClosedAcct=0;
+	 aBlazeApplicant.noOfClosedCCAcct=0;
+	 aBlazeApplicant.noOfClosedNonCCAcct=0;
+	 aBlazeApplicant.totalOutstanding=0;
+	 aBlazeApplicant.totalCCOutstanding=0;
+	 aBlazeApplicant.totalNonCCOutstanding=0;
+	 aBlazeApplicant.totalOverdueAmt=0;
+	 aBlazeApplicant.totalCCOverdueAmt=0;
+	 aBlazeApplicant.totalNonCCOverdueAmt=0;
+	 aBlazeApplicant.totalNumEnqLast7Days=0;
+	 aBlazeApplicant.numCCEnqLast7Days=0;
+	 aBlazeApplicant.numNonCCEnqLast7Days=0;
+	 aBlazeApplicant.totalNumEnqLast30Days=0;
+	 aBlazeApplicant.numCCEnqLast30Days=0;
+	 aBlazeApplicant.numNonCCEnqLast30Days=0;
+	 aBlazeApplicant.totalNumEnqLast90Days=0;
+	 aBlazeApplicant.numCCEnqLast90Days=0;
+	 aBlazeApplicant.numNonCCEnqLast90Days=0;
+	 aBlazeApplicant.totalNumEnqLast180Days=0;
+	 aBlazeApplicant.numCCEnqLast180Days=0;
+	 aBlazeApplicant.numNonCCEnqLast180Days=0;
+	 aBlazeApplicant.totalNumEnqLast360Days=0;
+	 aBlazeApplicant.numCCEnqLast360Days=0;
+	 aBlazeApplicant.numNonCCEnqLast360Days=0;
+	 aBlazeApplicant.totalCountOf30PlusLast24m=0;
+	 aBlazeApplicant.countOf30PlusCCAcctLast24m=0;
+	 aBlazeApplicant.countOf30PlusNonCCAcctLast24m=0;
+	 aBlazeApplicant.totalSumOf30PlusLast24m =0;
+	 aBlazeApplicant.sumOf30PlusCCAcctLast24m=0;
+	 aBlazeApplicant.sumOf30PlusCCAcctLast24m=0;
+	 aBlazeApplicant.totalCountwrittenOff_Settled=0;
+	 aBlazeApplicant.countOfwrittenOff_SettledCC=0;
+	 aBlazeApplicant.countOfwrittenOff_SettledNonCC=0;
+	 aBlazeApplicant.BlcOfwrittenOff_Settled=0;
+	 aBlazeApplicant.blcOfwrittenOff_SettledCC=0;
+	 aBlazeApplicant.blcOfwrittenOff_SettledNonCC=0;
+	 aBlazeApplicant.overdueAmt_CC=0;
+	 aBlazeApplicant.overdueAmtCC_Color="";
+	 aBlazeApplicant.maxDPD24Months_CC=0;
+	 aBlazeApplicant.maxDPD24Months_NonCC=0;
+	 aBlazeApplicant.maxDPD24MonthsCC_Color="";
+	 aBlazeApplicant.maxDPD24MonthsNonCC_Color="";
+	 aBlazeApplicant.maxDPDBeyond24Months_NonCC=0;
+	 aBlazeApplicant.maxDPDBeyond24MonthsNonCC_Color="";
+	 aBlazeApplicant.writtenOffSettledWithin24Months_CC=0;
+	 aBlazeApplicant.writtenOffSettledWithin24Months_NonCC=0;
+	 aBlazeApplicant.writtenOffSettledWithin24MonthsCC_Color="";
+	 aBlazeApplicant.writtenOffSettledWithin24MonthsNonCC_Color="";
+	 aBlazeApplicant.writtenOffSettledBeyond24Months_CC=0;
+	 aBlazeApplicant.writtenOffSettledBeyond24Months_NonCC=0;
+	 aBlazeApplicant.writtenOffSettledBeyond24MonthsCC_Color="";
+	 aBlazeApplicant.writtenOffSettledBeyond24MonthsNonCC_Color="";
+	 aBlazeApplicant.currUtilisationLiveAcct_CC=0;
+	 aBlazeApplicant.currUtilisationLiveAcctCC_Color="";
+	 aBlazeApplicant.avgCurrUtilisationLiveAcct_NonCC=0;
+	 aBlazeApplicant.avgCurrUtilisationLiveAcctNonCC_Color="";
+	 aBlazeApplicant.acctOpenedLast12Months_CC=0;
+	 aBlazeApplicant.acctOpenedLast12Months_NonCC=0;
+	 aBlazeApplicant.acctOpenedLast12MonthsCC_Color="";
+	 aBlazeApplicant.acctOpenedLast12MonthsNonCC_Color="";
+	 aBlazeApplicant.noOfAcctOpenedinL12MonthsAndCurrActive_NonCC=0;
+	 aBlazeApplicant.noOfAcctOpenedinL12MonthsAndCurrActiveNonCC_Color="";
+	 aBlazeApplicant.totalMaxDelinquencyInlife=0;
+	 aBlazeApplicant.totalMaxDelinquencyInlife_Color="";
+	 aBlazeApplicant.totalCibilScore=0;
+	 aBlazeApplicant.totalCibilScore_Color="";
+	 aBlazeApplicant.totalAvgCurrUtilisationLiveAcct=0;
+	 aBlazeApplicant.totalAvgCurrUtilisationLiveAcct_Color="";
+	 aBlazeApplicant.totalNumEnqLast6Months=0;
+	 aBlazeApplicant.totalNumEnqLast6Months_Color="";
+	 aBlazeApplicant.totalNumEnqLast12Months=0;
+	 aBlazeApplicant.totalNumEnqLast12Months_Color="";
+
+ //----------------------------------------------------Consumer Bureau Variable Ends------------------------------------------------------------
+      
     } 
     //------------------------------------ aBlazeApplicant's initial values end ----------------------------------------------
     

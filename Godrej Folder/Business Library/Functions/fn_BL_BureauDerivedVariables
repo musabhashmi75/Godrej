@@ -183,7 +183,8 @@ try {
 		print("---->Account.paymentHistoryStartDate ::"Account.paymentHistoryStartDate);
 		print("---->Account.currentDate ::"Account.currentDate);
 		if(Account.paymentHistoryStartDate is known and Account.currentDate is known)then{
-			monthsCounterLocal =Account.currentDate.subtractInMonths(Account.paymentHistoryStartDate).months
+			monthsCounterLocal =Account.currentDate.subtractInMonths(Account.paymentHistoryStartDate).months;
+            monthsCounterLocal =monthsCounterLocal+1;
 		}
 		print("---->Derived monthsCounterLocal ::"monthsCounterLocal);
 		

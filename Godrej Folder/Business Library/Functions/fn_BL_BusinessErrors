@@ -101,7 +101,8 @@
         aBlazeApplication.fn_SetErrorInResponseException = false;
         aBlazeApplication.fn_DecimalNumberPrecisionException = false;
 		aBlazeApplication.fn_BL_CRIF_ScoreCardException =false;
-		
+		aBlazeApplication.fn_ConsumerBureauVariableException = false;
+
         businessErrorFlag is a boolean initially false;
 
         errType is a string initially "";
