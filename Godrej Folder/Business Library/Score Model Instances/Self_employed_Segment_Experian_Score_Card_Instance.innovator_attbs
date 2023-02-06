@@ -1,9 +1,9 @@
 #Extended attributes for Innovator file-based repository (directory: 'Self_employed_Segment_Experian_Score_Card_Instance')
-#Thu Mar 17 10:44:46 UTC 2022
+#Mon Feb 06 08:36:15 UTC 2023
 contentType=Instance
 guid=OdwpSKnw3n4hX2RY4yGyshseUCU
 innovatorDisplayName=Self_employed_Segment_Experian_Score_Card_Instance
-innovatorLastModifiedUser=admin 
+innovatorLastModifiedUser=admin
 innovatorTemplateRef=WoKSMt1Gn64EyAi2O19bOxiRDUc
 managementProperty.Predictive\ Model\ Type=NotApplicable
 managementProperty.Source\ Reference.filterVH=

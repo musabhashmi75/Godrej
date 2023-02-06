@@ -76,7 +76,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>GE_8</value>
+    <value>GE_8_The Applicant poses a moderate geographical risk</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -88,7 +88,7 @@
     <value>ranking1</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>ranking1_0_GE_8</value>
+    <value>ranking1_0_GE_8_The_Applicant_poses_a_moderate_geographical_risk</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -133,7 +133,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>EQ_4</value>
+    <value>EQ_4_The Applicant poses a high geographical risk</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -145,7 +145,7 @@
     <value>ranking1</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>ranking1_1_EQ_4</value>
+    <value>ranking1_1_EQ_4_The_Applicant_poses_a_high_geographical_risk</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -190,7 +190,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>EQ_3</value>
+    <value>EQ_3_The Applicant poses a moderate geographical risk</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -202,7 +202,7 @@
     <value>ranking1</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>ranking1_2_EQ_3</value>
+    <value>ranking1_2_EQ_3_The_Applicant_poses_a_moderate_geographical_risk</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -247,7 +247,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>EQ_5</value>
+    <value>EQ_5_The Applicant poses a moderate geographical risk</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -259,7 +259,7 @@
     <value>ranking1</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>ranking1_3_EQ_5</value>
+    <value>ranking1_3_EQ_5_The_Applicant_poses_a_moderate_geographical_risk</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -304,7 +304,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>EQ_6</value>
+    <value>_The Applicant poses a moderate geographical risk</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -316,7 +316,7 @@
     <value>ranking1</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>ranking1_4_EQ_6</value>
+    <value>ranking1_4__The_Applicant_poses_a_moderate_geographical_risk</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -361,7 +361,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>EQ_7</value>
+    <value>EQ_7_The Applicant poses a moderate geographical risk</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -373,7 +373,7 @@
     <value>ranking1</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>ranking1_5_EQ_7</value>
+    <value>ranking1_5_EQ_7_The_Applicant_poses_a_moderate_geographical_risk</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -418,7 +418,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>EQ_1</value>
+    <value>EQ_1_The Applicant poses a low geographical risk</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -430,7 +430,7 @@
     <value>ranking1</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>ranking1_6_EQ_1</value>
+    <value>ranking1_6_EQ_1_The_Applicant_poses_a_low_geographical_risk</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -475,7 +475,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>EQ_2</value>
+    <value>EQ_2_The Applicant poses a moderate geographical risk</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -487,7 +487,7 @@
     <value>ranking1</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>ranking1_7_EQ_2</value>
+    <value>ranking1_7_EQ_2_The_Applicant_poses_a_moderate_geographical_risk</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
