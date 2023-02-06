@@ -61,34 +61,6 @@
  </instance>
  <instance ref='rulesetInitialization'>
   <instance-list ref='newEntity'>
-   <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.New local entity template' id='Gio0Qv'>
-    <instance ref='styleSheet'>
-    </instance>
-    <instance ref='comment'>
-     <value></value>
-    </instance>
-    <instance ref='entity'>
-     <value>Variable</value>
-    </instance>
-    <instance ref='name'>
-     <value>aBlazeApplicant</value>
-    </instance>
-    <instance ref='entitySrlType'>
-     <value>BlazeApplicant</value>
-    </instance>
-    <instance ref='entityTemplateList'>
-     <value>QzixEYa1EHH8Jr6Fk8nhguBcZtu.New variable</value>
-    </instance>
-    <instance-selection ref='entityTemplate'>
-     <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.New variable' id='7MIHZQ'>
-      <instance ref='__ENTITY_PROPERTIES__VH__'>
-      </instance>
-      <instance ref='initialValue'>
-       <value></value>
-      </instance>
-     </item>
-    </instance-selection>
-   </item>
   </instance-list>
  </instance>
  <instance ref='initializationRule'>
@@ -131,8 +103,8 @@ responseDeviation.reasonText="Rented Industrial Property";
 responseDeviation.approvalLevel="L6";
 responseDeviation.deviationType="Higher authority approval";
 responseDeviation.ruleLevel="";
-responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
-responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
 responseDeviation.accountNo="";
 responseDeviation.recommendationText="";
 
@@ -257,6 +229,126 @@ responseDeviation.ruleAction="DEVIATION";
 responseDeviation.ruleCategory="Verifications";
 responseDeviation.reasonText="Match with Politically exposed database";
 responseDeviation.approvalLevel="L5,LAP_COMMITTEE";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='Qc9Ib2'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>FICO_HAA_PRO29</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Balance Transfer within 6 MOB</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"loanType","fqName":"message.request.application.loanBasicDetail.loanType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"HT","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"btMob","fqName":"message.request.application.applicationAdditionalDetails.balanceTransfer.btMob","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is less than","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"6","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="FICO_HAA_PRO29";
+responseDeviation.ruleName="FICO_HAA_PRO29";
+responseDeviation.ruleDescription="Balance Transfer within 6 MOB";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Balance Transfer";
+responseDeviation.reasonText="Balance Transfer within 6 MOB";
+responseDeviation.approvalLevel="L6,HL_CREDIT";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='9u10fF'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>FICO_HAA_BT2</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>BT from Unapproved Financier</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"nameOfFinancialInstitute","fqName":"message.request.application.applicationAdditionalDetails.balanceTransfer.nameOfFinancialInstitute","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"OTHERS","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="FICO_HAA_BT2";
+responseDeviation.ruleName="FICO_HAA_BT2";
+responseDeviation.ruleDescription="BT from Unapproved Financier";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Balance Transfer";
+responseDeviation.reasonText="BT from Unapproved Financier";
+responseDeviation.approvalLevel="L3,HL_CREDIT";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='2MpfOd'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>FICO_HAA_PRO30</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Top-up within 12 MOB</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"loanType","fqName":"message.request.application.loanBasicDetail.loanType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"LT","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"btMob","fqName":"message.request.application.applicationAdditionalDetails.balanceTransfer.btMob","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is less than","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"12","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="FICO_HAA_PRO30";
+responseDeviation.ruleName="FICO_HAA_PRO30";
+responseDeviation.ruleDescription="Top-up within 12 MOB";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Product Norms";
+responseDeviation.reasonText="Top-up within 12 MOB";
+responseDeviation.approvalLevel="L3,HL_CREDIT";
 responseDeviation.deviationType="Higher authority approval";
 responseDeviation.ruleLevel="";
 responseDeviation.entityId=message.invocation.applicationNumber;

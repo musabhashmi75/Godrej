@@ -551,6 +551,7 @@ emiPerLakh is a real initially 0;
 		rentalIncomeProgram =math().min(otherBuffer2,eligLoAmount);
 	}
 	print("---->rentalIncomeProgram ::"rentalIncomeProgram);
+	message.request.application.applicationAdditionalDetails.other.rentalIncomeProgram =rentalIncomeProgram as a string;
 	
    finalLoanEMI =(rentalIncomeProgram * ratePerMonth * multiplier) / divisor;
     print("----------------->FinalLoanEmi::"finalLoanEMI);

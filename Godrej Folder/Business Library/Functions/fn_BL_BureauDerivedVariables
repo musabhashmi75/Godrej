@@ -193,9 +193,9 @@ try {
 		PaymentHistory  is  some  BlazePaymentHistory  initially  it  as  a  BlazePaymentHistory;
 	
 		//Declaring and initialsing Local variables for PaymentHistory 
-		MIN_AST_NUM is an integer;
-		MIN_AST_NUM_UPDATED is an integer;
 		initVar is an integer;
+		MIN_AST_NUM is an integer initially initVar;
+		MIN_AST_NUM_UPDATED is an integer initially initVar;
 		DPD_UPDATED is an integer initially initVar;
 		print("---->DPD_UPDATED ::"DPD_UPDATED);
 		Month_NUM_UPDATES_24M is an integer;

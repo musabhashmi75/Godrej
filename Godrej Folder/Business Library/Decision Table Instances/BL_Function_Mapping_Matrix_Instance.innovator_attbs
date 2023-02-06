@@ -1,10 +1,11 @@
-#Extended attributes for Innovator file-based repository (directory: 'fn_LAP_Deviations')
-#Fri Feb 03 07:39:56 UTC 2023
+#Extended attributes for Innovator file-based repository (directory: 'BL_Function_Mapping_Matrix_Instance')
+#Thu Feb 02 18:05:20 UTC 2023
 contentType=Instance
-guid=XAGUcjVCrii6pwzDid8NX4bhzk7
-innovatorDisplayName=fn_LAP_Deviations
+guid=QFfZ5SLQo20VL75HiSaR6f30ilJ
+innovatorDisplayName=BL_Function_Mapping_Matrix_Instance
+innovatorItemCreationId=admin
 innovatorLastModifiedUser=admin
-innovatorTemplateRef=Q8jH6kHdOYIZ1uG0WKXqvvejqv0
+innovatorTemplateRef=6wJBDnNMEpPfdP4wizmesDxkko8
 managementProperty.Predictive\ Model\ Type=NotApplicable
 managementProperty.Source\ Reference.filterVH=
 managementProperty.Source\ Reference.locationVH=
@@ -12,8 +13,6 @@ managementProperty.Source\ Reference.releaseDateVH=
 managementProperty.Source\ Reference.repositoryAccessVH=
 managementProperty.Source\ Reference.repositoryNameVH=
 managementProperty.Source\ Reference.versionVH=
-managementProperty.Test\ Case=
-managementProperty.Test\ Role=None
-subType=None
+subType=Decision Table
 target=SRL
-type=SRL Function
+type=SRL Ruleset

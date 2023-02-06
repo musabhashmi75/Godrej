@@ -375,6 +375,14 @@
      <name>fn_ConsumerBureauVariableException</name>
      <type>boolean</type>
     </property>
+    <property>
+     <name>BL_JudgementalScorecardCheck</name>
+     <type>boolean</type>
+    </property>
+    <property>
+     <name>BL_CrifScorecardCheck</name>
+     <type>boolean</type>
+    </property>
    </properties>
    <initializer>cityCheck=false,<template:br/>isSingleSalariedApplicant=false,<template:br/>isSorp=false,<template:br/>isNonSorp=false</initializer>
   </class></template:content>

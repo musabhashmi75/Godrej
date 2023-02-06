@@ -477,8 +477,11 @@
       <value></value>
      </instance>
      <instance-selection ref='binding'>
-      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than' id='WSa1h6'>
-       <instance ref='value'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='V8dzk2'>
+       <instance ref='value1'>
+        <value>-20</value>
+       </instance>
+       <instance ref='value2'>
         <value>0</value>
        </instance>
       </item>
@@ -519,6 +522,63 @@
     <value></value>
    </instance>
   </item>
+  <item template='KNeIPzI6e9AyE3AOoalz7GNjpJJ.__ND_MetaphorRuleTemplate' id='PoJ1wG'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='KNeIPzI6e9AyE3AOoalz7GNjpJJ.Cell Template' id='19xQIK'>
+     <instance ref='CELL GROUP NAME'>
+      <value>All_Entities1</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than' id='S2CdwN'>
+       <instance ref='value'>
+        <value>-20</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>All_Entities1</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Turnover Stability</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Turnover_Stability_3</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
   <item template='KNeIPzI6e9AyE3AOoalz7GNjpJJ.__ND_MetaphorRuleTemplate' id='Q60fI8'>
    <instance ref='__ENTITY_PROPERTIES__VH__'>
    </instance>
@@ -536,7 +596,7 @@
      <instance-selection ref='binding'>
       <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='5Rwllb'>
        <instance ref='value'>
-        <value>SELF OWNED</value>
+        <value>Self Owned</value>
        </instance>
       </item>
      </instance-selection>
@@ -593,7 +653,7 @@
      <instance-selection ref='binding'>
       <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='GhhkXc'>
        <instance ref='value'>
-        <value>RENTED</value>
+        <value>Rented</value>
        </instance>
       </item>
      </instance-selection>
@@ -1814,7 +1874,7 @@
      <instance-selection ref='binding'>
       <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than' id='RLQuto'>
        <instance ref='value'>
-        <value>75000</value>
+        <value>750000</value>
        </instance>
       </item>
      </instance-selection>
@@ -1871,10 +1931,10 @@
      <instance-selection ref='binding'>
       <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='V26cSU'>
        <instance ref='value1'>
-        <value>75000</value>
+        <value>750000</value>
        </instance>
        <instance ref='value2'>
-        <value>150000</value>
+        <value>1500000</value>
        </instance>
       </item>
      </instance-selection>
@@ -1931,7 +1991,7 @@
      <instance-selection ref='binding'>
       <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='6UB8jz'>
        <instance ref='value1'>
-        <value>150000</value>
+        <value>1500000</value>
        </instance>
        <instance ref='value2'>
         <value>4000000</value>
@@ -2108,10 +2168,10 @@
      <instance-selection ref='binding'>
       <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='31L1LG'>
        <instance ref='value1'>
-        <value>75000</value>
+        <value>750000</value>
        </instance>
        <instance ref='value2'>
-        <value>150000</value>
+        <value>1500000</value>
        </instance>
       </item>
      </instance-selection>
@@ -2168,7 +2228,7 @@
      <instance-selection ref='binding'>
       <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='XGoSy8'>
        <instance ref='value1'>
-        <value>150000</value>
+        <value>1500000</value>
        </instance>
        <instance ref='value2'>
         <value>4000000</value>
@@ -2288,7 +2348,7 @@
      <instance-selection ref='binding'>
       <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than' id='UYQGjt'>
        <instance ref='value'>
-        <value>75000</value>
+        <value>750000</value>
        </instance>
       </item>
      </instance-selection>

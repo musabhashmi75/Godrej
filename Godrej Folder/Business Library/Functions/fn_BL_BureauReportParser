@@ -466,7 +466,7 @@ try {
                     } 
                     print("----> blazePaymentHistoryObj.paymentDate ::  " blazePaymentHistoryObj.paymentDate);
 					
-                    blazePaymentHistoryObj.REP_DATE  =blazeAccountDetails.dateReported - repCounter;
+                    blazePaymentHistoryObj.REP_DATE  =blazeAccountDetails.paymentHistoryStartDate - repCounter;
 					print("blazePaymentHistoryObj.REP_DATE ::"blazePaymentHistoryObj.REP_DATE);
                     blazePaymentHistoryObj.year = blazePaymentHistoryObj.paymentDate.year;
                     print("----> blazePaymentHistoryObj.year ::  " blazePaymentHistoryObj.year);

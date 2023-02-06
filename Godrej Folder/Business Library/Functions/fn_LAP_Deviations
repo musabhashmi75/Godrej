@@ -76,6 +76,9 @@ if(aBlazeApplication.businessErrorsFlag = false) then {
       aBlazeApplicant  is  some  BlazeApplicant  initially  it  as  a  BlazeApplicant;
        
       print("---->  aBlazeApplicant.customerCategory :: "  aBlazeApplicant.customerCategory);
+      
+       print("----> LAP_ApplicationDeviations called :: ");
+ 	   LAP_ApplicantDeviations(message,aBlazeApplicant);
      
         
       if(aBlazeApplicant.customerCategory<>unknown and aBlazeApplicant.customerCategory<>(ignoring case) "CORP") then {

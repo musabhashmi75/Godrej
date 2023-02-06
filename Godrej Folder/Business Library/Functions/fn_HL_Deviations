@@ -66,37 +66,14 @@ if(aBlazeApplication.businessErrorsFlag = false) then {
   print("----> aBlazeApplication.deviationsCheck :: " aBlazeApplication.deviationsCheck);
 
   if(aBlazeApplication.deviationsCheck is equal to true) then {
-
+    print("----> HL_ApplicationDeviations called :: ");
+    HL_ApplicationDeviations(message);
+    
     for  each  BlazeApplicant  in  BTCommonVar.termInput.blazeApplication.blazeApplicantArray
     do {
       aBlazeApplicant  is  some  BlazeApplicant  initially  it  as  a  BlazeApplicant;
-        print("----> HL_ApplicationDeviations called :: ");
-        //HL_ApplicationDeviations(aBlazeApplicant,message);
-      
-   //   HL_KarzaDeviations(message, aBlazeApplicant, aBlazeApplicant.karza);
-   //   print("----> HL_KarzaDeviations called :: ");
-        
-   //   HL_CommonDeviations(message, aBlazeApplicant);
-   //   print("----> HL_CommonDeviations called :: ");
-        
-   //   HL_BureauDeviations(message, aBlazeApplicant);
-   //   print("----> HL_BureauDeviations called :: ");
-        
-   //   if (aBlazeApplicant.employmentType=  (ignoring  case  )  "SALARIED") then {
-   //     HL_SalariedDeviations(message, aBlazeApplicant);
-   //     print("----> HL_SalariedDeviations called :: ");
-   //   }
-        
-   //   if (aBlazeApplicant.employmentType=  (ignoring  case  )  "SENP") then {
-   //     HL_SenpDeviations(message, aBlazeApplicant);
-   //     print("----> HL_SenpDeviations called :: ");
-   //   }
-        
-   //   if (aBlazeApplicant.employmentType=  (ignoring  case  )  "SEP") then {
-   //     HL_SepDeviations(message, aBlazeApplicant);
-   //     print("----> HL_SepDeviations called :: ");
-   //  }    
-
+       print("----> HL_ApplicantDeviations called :: ");
+   	   HL_ApplicantDeviations(message,aBlazeApplicant);  
     }
   }
 }

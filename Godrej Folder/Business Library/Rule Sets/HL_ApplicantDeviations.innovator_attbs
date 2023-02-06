@@ -1,10 +1,11 @@
-#Extended attributes for Innovator file-based repository (directory: 'fn_LAP_Deviations')
-#Fri Feb 03 07:39:56 UTC 2023
+#Extended attributes for Innovator file-based repository (directory: 'HL_ApplicantDeviations')
+#Fri Feb 03 07:31:27 UTC 2023
 contentType=Instance
-guid=XAGUcjVCrii6pwzDid8NX4bhzk7
-innovatorDisplayName=fn_LAP_Deviations
+guid=DdAJLsFB3XOEpoVZMfsHIZ1k4tW
+innovatorDisplayName=HL_ApplicantDeviations
+innovatorItemCreationId=admin
 innovatorLastModifiedUser=admin
-innovatorTemplateRef=Q8jH6kHdOYIZ1uG0WKXqvvejqv0
+innovatorTemplateRef=QzixEYa1EHH8Jr6Fk8nhguBcZtu
 managementProperty.Predictive\ Model\ Type=NotApplicable
 managementProperty.Source\ Reference.filterVH=
 managementProperty.Source\ Reference.locationVH=
@@ -16,4 +17,4 @@ managementProperty.Test\ Case=
 managementProperty.Test\ Role=None
 subType=None
 target=SRL
-type=SRL Function
+type=SRL Ruleset
