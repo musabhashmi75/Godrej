@@ -1,0 +1,298 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_Perfios_ABB_Dip_Expectation_Model'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_Perfios_ABB_Dip_Expectation_Model1</value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_Perfios_ABB_Dip_Expectation_Model</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("");
+print("++++> Entering function :: fn_Perfios_ABB_Dip_Expectation_Model");
+aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+try{
+  productCode is a string initially message.invocation.decisionService;
+  scoreCardDetailArray is some array of ScoreCardDetail initially message.response.scoreCardDetails;
+	aBB is a real;
+	sumBalAvg is a real initially 0;
+	first3MBalAvg is a real initially 0;
+	first3MBufferCount is an integer initially 0;
+	last3MBalAvg is a real initially 0;
+	last3MBufferCount is an integer initially 0;
+	balanceTrendDifference is a real;
+	thresholdAbb is a real;
+    applicantId is a string;
+    applicantType is a string;
+  	applicantId = aBlazeApplicant.customerCif as a string;
+	applicantType = aBlazeApplicant.applicantType;
+	
+	//Calculating Variable for last 12Months Count
+	bufferTwelveMonthCounter is a real;
+	if(perfiosData.data.accountAnalysis is not null and  perfiosData.data.accountAnalysis[0].monthlyDetails is not null)then{
+		print("---->monthlyDetails.count ::"perfiosData.data.accountAnalysis[0].monthlyDetails.count);
+		bufferTwelveMonthCounter =perfiosData.data.accountAnalysis[0].monthlyDetails.count -12;
+		if(bufferTwelveMonthCounter<=0)then{
+			bufferTwelveMonthCounter =0;
+		}
+		print("---->bufferTwelveMonthCounter ::"bufferTwelveMonthCounter);
+		
+		last3MBufferCount =perfiosData.data.accountAnalysis[0].monthlyDetails.count -3;
+		if(last3MBufferCount<=0)then{
+			last3MBufferCount =0;
+		}
+		print("---->last3MBufferCount ::"last3MBufferCount);
+		
+	monthCounter is an integer initially 0;
+	abbDivisor is an integer initially 0;
+	for each MonthlyDetail in perfiosData.data.accountAnalysis[0].monthlyDetails
+	do{
+	//Entering monthlyDetails Loop
+		aMonthlyDetail is some MonthlyDetail initially it as a MonthlyDetail;
+	  
+		//Condition to satisfy for only last 12 objects/months
+		if(bufferTwelveMonthCounter<=monthCounter and aMonthlyDetail.balAvg is known)then{
+			sumBalAvg =sumBalAvg +aMonthlyDetail.balAvg;
+			abbDivisor =abbDivisor +1;
+		
+			first3MBufferCount =first3MBufferCount+1;
+			
+			//Condition for first 3months of last 12 objects/months
+			if(first3MBufferCount<=3 and aMonthlyDetail.balAvg is known)then{
+				first3MBalAvg =first3MBalAvg +aMonthlyDetail.balAvg;
+			}
+			
+			if(last3MBufferCount<=monthCounter and aMonthlyDetail.balAvg is known)then{
+				last3MBalAvg =last3MBalAvg+aMonthlyDetail.balAvg;
+			}
+		}
+
+	  monthCounter =monthCounter+1;
+	//Exiting monthlyDetails Loop
+	}
+	print("---->sumBalAvg ::"sumBalAvg);
+	
+	//Clculating aBB
+	if(abbDivisor <>0)then{
+		aBB =sumBalAvg/abbDivisor;
+	}
+	print("aBB ::"aBB);
+	
+	if(aBB is known)then{
+		thresholdAbb =aBB/3;
+	}
+	print("---->thresholdAbb ::"thresholdAbb);
+	
+	//Calculating Average of first 3Months of last 12months
+	print("---->first3MBalAvg before division ::"first3MBalAvg);
+	first3MBalAvg =first3MBalAvg/3;
+	print("---->first3MBalAvg After division ::"first3MBalAvg);
+	
+	//Calculating Average of last 3Months
+	print("---->last3MBalAvg before division ::"last3MBalAvg);
+	last3MBalAvg =last3MBalAvg/3;
+	print("---->last3MBalAvg After division ::"last3MBalAvg);
+	
+	//Calcuting Differnce in percetage between first and last 3months of last 12Months
+	balanceTrendDifference =(last3MBalAvg-first3MBalAvg)/(first3MBalAvg*100);
+	print("---->balanceTrendDifference ::"balanceTrendDifference);
+	
+	monthCounter =0;
+	balConsitencyBreachCount is an integer initially 0;
+	for each MonthlyDetail in perfiosData.data.accountAnalysis[0].monthlyDetails
+	do{
+	//Entering monthlyDetails Loop
+	aMonthlyDetail is some MonthlyDetail initially it as a MonthlyDetail;
+	
+	if(bufferTwelveMonthCounter<monthCounter)then{
+		if(aMonthlyDetail.balAvg<thresholdAbb)then{
+			balConsitencyBreachCount =balConsitencyBreachCount+1;
+		}
+	}
+	print("---->balConsitencyBreachCount ::"balConsitencyBreachCount);
+
+	monthCounter =monthCounter+1;
+	//Exiting monthlyDetails Loop
+	}
+	
+	//Declaring Variables for MonthlyData1 Loop
+	cCBalConsistencyThreshold is a real;
+	cCBalConsistencyThresholdBreachCount is an integer initially 0;
+	aCCBreachCount is an integer initially 0;
+	aDCBreachCount is an integer initially 0;
+	//initialising cCBalConsistencyThreshold
+	
+	if(message.request.application.applicationAdditionalDetails.other.buffer2 is known and message.request.application.applicationAdditionalDetails.other.buffer2<>"")then{
+		cCBalConsistencyThreshold =message.request.application.applicationAdditionalDetails.other.buffer2 as a real/2.5;
+	}
+	
+	//Calculating Variable for last 12Months Count
+	print("---->MonthlyData1.count ::"perfiosData.data.additionalMonthlyDetails.monthlyData1.count);
+	bufferTwelveMonthCounter =perfiosData.data.additionalMonthlyDetails.monthlyData1.count -12;
+	
+	monthCounter =0;
+	
+	//Entering MonthlaData1 Loop
+	for each MonthlyData1 in perfiosData.data.additionalMonthlyDetails.monthlyData1
+	do{
+		aMonthlyData1 is some MonthlyData1 initially it as a MonthlyData1;
+		
+		if(bufferTwelveMonthCounter<= monthCounter)then{
+			
+			//Counting cCBalConsistencyThresholdBreachCount
+			if(cCBalConsistencyThreshold is known and aMonthlyData1.numberOfBusinessCreditTxns is known and
+			(cCBalConsistencyThreshold>aMonthlyData1.totalBusinessCreditTxns))then{
+				cCBalConsistencyThresholdBreachCount =cCBalConsistencyThresholdBreachCount+1;
+			}
+			
+			//Calculating Average Credit Count Consistency
+			if(aMonthlyData1.numberOfBusinessCreditTxns is known and aMonthlyData1.numberOfBusinessCreditTxns<5)then{
+				 aCCBreachCount =aCCBreachCount+1;
+			}
+			
+			//Calculating Average Credit Consistency Count
+			if(aMonthlyData1.numberOfBusinessDebitTxns is known and aMonthlyData1.numberOfBusinessDebitTxns<5)then{
+				aDCBreachCount =aDCBreachCount +1;
+			}
+		}
+		print("---->cCBalConsistencyThreshold ::"cCBalConsistencyThreshold);
+		print("---->aCCBreachCount ::"aCCBreachCount);
+		print("---->aDCBreachCount ::"aDCBreachCount);
+		
+		monthCounter =monthCounter+1;
+		print("monthCounter ::"monthCounter);
+	}
+	//Exiting MonthlyData1 Loop
+	
+	//Calculating Inward Cheque Bounces
+	inwardChequeBounceRate is a real;
+	if(perfiosData.data.accountAnalysis[0].summaryInfo.average.inwChqBounces is known and perfiosData.data.accountAnalysis[0].summaryInfo.average.chqIssues is known)then{
+      inwardChequeBounceRate =perfiosData.data.accountAnalysis[0].summaryInfo.average.inwChqBounces/perfiosData.data.accountAnalysis[0].summaryInfo.average.inwChqBounces;
+    }
+	print("---->inwardChequeBounceRate ::"inwardChequeBounceRate);
+	//Variables Calculations Ends
+	
+	//Calling Scorecard
+	aBBDinExpectationModelDecision is some NdScoreModelReturnInfo;
+	aBBDinExpectationModelDecision=ABB_Dip_Expectation_Score_Card_Instance(balConsitencyBreachCount,balanceTrendDifference,cCBalConsistencyThresholdBreachCount,
+	aCCBreachCount,aDCBreachCount,inwardChequeBounceRate);
+	aBBScore is a real initially 0; 
+    ragClassication is a string;
+	aBBScore=aBBDinExpectationModelDecision.score;
+	scoreCardCharacteristicsArray is some array of ScoreCardCharacteristicsDetail initially an array of ScoreCardCharacteristicsDetail;
+	for each NdScoredCharacteristic in aBBDinExpectationModelDecision.scoredCharacteristics do {
+		scoredCharacteristics  is  some  NdScoredCharacteristic  initially  it  as  a  NdScoredCharacteristic;
+		scoreCardCharacteristicsDetail is some ScoreCardCharacteristicsDetail initially a ScoreCardCharacteristicsDetail;     
+		scoreCardCharacteristicsDetail.characteristicName = scoredCharacteristics.characteristicName;    
+		scoreCardCharacteristicsDetail.characteristicValue =  scoredCharacteristics.binLabel;
+		scoreCardCharacteristicsDetail.reasonCode = scoredCharacteristics.reasonCode as a string;
+		scoreCardCharacteristicsDetail.partialScore = scoredCharacteristics.partialScore as a string;
+		scoreCardCharacteristicsArray.append(scoreCardCharacteristicsDetail);
+	}
+   print("----> scoreCardCharacteristicsArray count :: " scoreCardCharacteristicsArray.count);
+   scoreCardDetail is some ScoreCardDetail initially a ScoreCardDetail;  
+          if(scoreCardCharacteristicsArray <> unknown and scoreCardCharacteristicsArray <> null) then {
+            scoreCardDetail.scoreCardCharacteristics = scoreCardCharacteristicsArray;
+          }
+
+  scoreCardDetail.scorecardName = aBBDinExpectationModelDecision.scoreModelName;      
+     print("Final Score Card Name  ---> "scoreCardDetail.scorecardName);
+          scoreCardDetail.scorecardScore = aBBDinExpectationModelDecision.score;
+          scoreCardDetail.characteristicCount = aBBDinExpectationModelDecision.characteristicCount;
+          scoreCardDetail.scorecardKey = "appScore";
+          scoreCardDetail.purpose = "AverageBankBalance";
+          scoreCardDetail.entityType =applicantType;
+          scoreCardDetail.entityId = applicantId;  
+          scoreCardDetailArray.append(scoreCardDetail);
+		  ragClassication =ABB_Dip_Rag_Classification(aBBScore);
+      print("---->ragClassication ::"ragClassication);
+}
+  
+	print("++++> Exiting function :: fn_Perfios_ABB_Dip_Expectation_Model");
+	print("");
+  
+}catch an Exception with {
+  aBlazeApplication.fn_Perfios_ABB_Dip_Expectation_Model = true;  
+  print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");  
+}]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='NrfgjH'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='IM98RJ'>
+    <instance ref='ParameterNameVH'>
+     <value>perfiosData</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>PerfiosData</value>
+    </instance>
+   </item>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='9du98f'>
+    <instance ref='ParameterNameVH'>
+     <value>aBlazeApplicant</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeApplicant</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

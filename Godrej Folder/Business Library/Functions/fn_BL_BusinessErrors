@@ -102,6 +102,11 @@
         aBlazeApplication.fn_DecimalNumberPrecisionException = false;
 		aBlazeApplication.fn_BL_CRIF_ScoreCardException =false;
 		aBlazeApplication.fn_ConsumerBureauVariableException = false;
+		aBlazeApplication.fn_PerfiosMain = false;
+		aBlazeApplication.fn_Perfios_ABB_Dip_Expectation_Model = false;
+		aBlazeApplication.fn_Perfios_PoorBankingBehaviour = false;
+		aBlazeApplication.fn_Perfios_TransactionAnalytics = false;
+		aBlazeApplication.fn_Perfios_CustomerSupplierConcentration = false;
 
         businessErrorFlag is a boolean initially false;
 

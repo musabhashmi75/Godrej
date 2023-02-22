@@ -61,16 +61,89 @@
  </instance>
  <instance ref='rulesetInitialization'>
   <instance-list ref='newEntity'>
+   <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.New local entity template' id='BQdRDd'>
+    <instance ref='styleSheet'>
+    </instance>
+    <instance ref='comment'>
+     <value></value>
+    </instance>
+    <instance ref='entity'>
+     <value>Variable</value>
+    </instance>
+    <instance ref='name'>
+     <value>btMob</value>
+    </instance>
+    <instance ref='entitySrlType'>
+     <value>real</value>
+    </instance>
+    <instance ref='entityTemplateList'>
+     <value>QzixEYa1EHH8Jr6Fk8nhguBcZtu.New variable</value>
+    </instance>
+    <instance-selection ref='entityTemplate'>
+     <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.New variable' id='WESQyS'>
+      <instance ref='__ENTITY_PROPERTIES__VH__'>
+      </instance>
+      <instance ref='initialValue'>
+       <value>12</value>
+      </instance>
+     </item>
+    </instance-selection>
+   </item>
   </instance-list>
  </instance>
  <instance ref='initializationRule'>
   <instance ref='__ENTITY_PROPERTIES__VH__'>
   </instance>
   <instance ref='initializationAction'>
-   <value></value>
+   <value><![CDATA[print("___________________Entering HL_DEVIATION_RULESET____________________");
+if(message.request.application.applicationAdditionalDetails.balanceTransfer.btMob is known and message.request.application.applicationAdditionalDetails.balanceTransfer.btMob <>"")then{
+btMob =message.request.application.applicationAdditionalDetails.balanceTransfer.btMob as a real;
+}
+print("---->btMob ::"btMob);
+print("___________________Exiting HL_DEVIATION_RULESET____________________");]]></value>
   </instance>
  </instance>
  <instance-list ref='newRules'>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='DKnX2q'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>FICO_HAA_PRO10</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Loans with no co-applicant/guarantor (Only for Salaried)</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"boolean","elements":[{"valueType":"boolean","name":"isSingleSalariedApplicant","fqName":"BTCommonVar.termInput.blazeApplication.isSingleSalariedApplicant","externalType":"boolean","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"boolean","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"boolean","elements":[{"valueType":"boolean","instValue":"true","voType":"boolean","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="FICO_HAA_PRO10";
+responseDeviation.ruleName="FICO_HAA_PRO10";
+responseDeviation.ruleDescription="Loans with no co-applicant/guarantor (Only for Salaried)";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Product Norms";
+responseDeviation.reasonText="Loans with no co-applicant/guarantor (Only for Salaried)";
+responseDeviation.approvalLevel="L1,HL_CREDIT";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
   <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='7MNtWu'>
    <instance ref='__ENTITY_PROPERTIES__VH__'>
    </instance>
@@ -129,7 +202,7 @@ message.response.responseDeviations.append(responseDeviation);</value>
    <instance ref='styleSheet'>
    </instance>
    <instance ref='ruleCondition'>
-    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"loanType","fqName":"message.request.application.loanBasicDetail.loanType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"HT","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"btMob","fqName":"message.request.application.applicationAdditionalDetails.balanceTransfer.btMob","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is less than","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"6","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"loanType","fqName":"message.request.application.loanBasicDetail.loanType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"HT","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"btMob","fqName":"btMob","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"6","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
    </instance>
    <instance ref='ruleAction'>
     <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
@@ -249,7 +322,7 @@ message.response.responseDeviations.append(responseDeviation);</value>
    <instance ref='styleSheet'>
    </instance>
    <instance ref='ruleCondition'>
-    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"loanType","fqName":"message.request.application.loanBasicDetail.loanType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"LT","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"btMob","fqName":"message.request.application.applicationAdditionalDetails.balanceTransfer.btMob","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is less than","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"12","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"loanType","fqName":"message.request.application.loanBasicDetail.loanType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"LT","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"btMob","fqName":"btMob","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"12","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
    </instance>
    <instance ref='ruleAction'>
     <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;

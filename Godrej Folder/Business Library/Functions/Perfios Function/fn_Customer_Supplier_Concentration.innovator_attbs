@@ -1,0 +1,20 @@
+#Extended attributes for Innovator file-based repository (directory: 'fn_Customer_Supplier_Concentration')
+#Tue Feb 21 06:28:34 UTC 2023
+contentType=Instance
+guid=MCzznC6YFzFyoPx7Uj0C0kOD4XX
+innovatorDisplayName=fn_Perfios_CustomerSupplierConcentration
+innovatorItemCreationId=admin
+innovatorLastModifiedUser=admin
+innovatorTemplateRef=Q8jH6kHdOYIZ1uG0WKXqvvejqv0
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+managementProperty.Test\ Case=
+managementProperty.Test\ Role=None
+subType=None
+target=SRL
+type=SRL Function

@@ -81,39 +81,39 @@ if(aBlazeApplication.businessErrorsFlag = false) then {
  	   LAP_ApplicantDeviations(message,aBlazeApplicant);
      
         
-      if(aBlazeApplicant.customerCategory<>unknown and aBlazeApplicant.customerCategory<>(ignoring case) "CORP") then {
-            print("----> LAP_salaried  called :: ");
+     // if(aBlazeApplicant.customerCategory<>unknown and aBlazeApplicant.customerCategory<>(ignoring case) "CORP") then {
+    //        print("----> LAP_salaried  called :: ");
           
-        LAP_KarzaDeviations(message, aBlazeApplicant, aBlazeApplicant.karza);
-        print("----> LAP_KarzaDeviations called :: ");
+      //  LAP_KarzaDeviations(message, aBlazeApplicant, aBlazeApplicant.karza);
+    //    print("----> LAP_KarzaDeviations called :: ");
           
-        LAP_CommonDeviations(message, aBlazeApplicant);
-        print("----> LAP_CommonDeviations called :: ");
+      //  LAP_CommonDeviations(message, aBlazeApplicant);
+     //   print("----> LAP_CommonDeviations called :: ");
           
-        LAP_BureauDeviations(message, aBlazeApplicant);
-        print("----> LAP_BureauDeviations called :: ");
+   //     LAP_BureauDeviations(message, aBlazeApplicant);
+   //     print("----> LAP_BureauDeviations called :: ");
         
           
-        if (aBlazeApplicant.employmentType=  (ignoring  case  )  "SALARIED") then {
-          LAP_SalariedDeviations(message, aBlazeApplicant);
-          print("----> LAP_SalariedDeviations called :: ");
-        }
+     //   if (aBlazeApplicant.employmentType=  (ignoring  case  )  "SALARIED") then {
+     //     LAP_SalariedDeviations(message, aBlazeApplicant);
+     //     print("----> LAP_SalariedDeviations called :: ");
+   //     }
           
-        if (aBlazeApplicant.employmentType=  (ignoring  case  )  "SENP") then {
-          LAP_SenpDeviations(message, aBlazeApplicant);
-          print("----> LAP_SenpDeviations called :: ");
-        }
+   //     if (aBlazeApplicant.employmentType=  (ignoring  case  )  "SENP") then {
+    //      LAP_SenpDeviations(message, aBlazeApplicant);
+    //     print("----> LAP_SenpDeviations called :: ");
+     //   }
           
-        if (aBlazeApplicant.employmentType=  (ignoring  case  )  "SEP") then {
-          LAP_SepDeviations(message, aBlazeApplicant);
-          print("----> LAP_SepDeviations called :: ");
-        }       
+   //     if (aBlazeApplicant.employmentType=  (ignoring  case  )  "SEP") then {
+     //     LAP_SepDeviations(message, aBlazeApplicant);
+     //     print("----> LAP_SepDeviations called :: ");
+    //    }       
       
-      } else if(aBlazeApplicant.customerCategory<>unknown and aBlazeApplicant.customerCategory=(ignoring case) "CORP") then {
-            print("----> LAP_corp  called :: ");
-        LAP_CorporateDeviations(message, aBlazeApplicant);
-        print("----> LAP_CorporateDeviations called :: ");      
-      }      
+     // } else if(aBlazeApplicant.customerCategory<>unknown and aBlazeApplicant.customerCategory=(ignoring case) "CORP") then {
+   //         print("----> LAP_corp  called :: ");
+  //      LAP_CorporateDeviations(message, aBlazeApplicant);
+  //      print("----> LAP_CorporateDeviations called :: ");      
+ //     }      
 
     }
   }

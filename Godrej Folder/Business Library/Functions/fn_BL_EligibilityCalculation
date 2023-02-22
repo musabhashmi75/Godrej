@@ -326,10 +326,12 @@ print("---->additionalBuffer10 ::"additionalBuffer10);}
   
   //----------------------------------------------------------------emiPerLakh logic Begins----------------------------------------------------------------------
   
-    baseRate is a real initially 0;
+  baseRate is a real initially 0;
   tenor is a real initially 0;
-  if(aBlazeApplication.loanBasicDetail.paymentDetails.baseRate as a real <> unknown 
-     and aBlazeApplication.loanBasicDetail.paymentDetails.numberOfInstallments as a real <> unknown) then {
+    
+    print("---->aBlazeApplication.loanBasicDetail.paymentDetails.baseRate ::"aBlazeApplication.loanBasicDetail.paymentDetails.baseRate);
+  if(aBlazeApplication.loanBasicDetail.paymentDetails.baseRate is known and aBlazeApplication.loanBasicDetail.paymentDetails.baseRate<>""
+     and aBlazeApplication.loanBasicDetail.paymentDetails.numberOfInstallments is known) then {
     baseRate = aBlazeApplication.loanBasicDetail.paymentDetails.baseRate as a real;
     tenor = aBlazeApplication.loanBasicDetail.paymentDetails.numberOfInstallments as a real;
     message.request.application.applicationAdditionalDetails.finalOffer.ROINTR =baseRate;
@@ -452,7 +454,7 @@ emiPerLakh is a real initially 0;
   //Final Eligible Loan Amount - Banking Method
   finalEligLoAmtBankingSur is a real;
   if(finalEligLoAmtIncMethod<>unknown and bankingSurEligLoAmt1<>unknown and eligLoAmtCreditLoRatio<>unknown )then{
-  finalEligLoAmtBankingSur =math().min(maxPermissibleLoAmount,math().min(bankingSurEligLoAmt1,math().min((finalEligLoAmtIncMethod*2),eligLoAmtCreditLoRatio)));
+  finalEligLoAmtBankingSur =math().min(maxPermissibleLoAmount,math().min(bankingSurEligLoAmt1,eligLoAmtCreditLoRatio));
   message.request.application.applicationAdditionalDetails.buffer9 =finalEligLoAmtBankingSur as a string;
   print("----> finalEligLoAmtBankingSur :: " finalEligLoAmtBankingSur);
   }
@@ -465,7 +467,7 @@ emiPerLakh is a real initially 0;
     revisedTurnCap is a real;
   gstTurnCap is a real;
     if(otherSBIMet<>(unknown or unavailable) and additionalBuffer10<>(unknown or unavailable))then {
-  gstTurnCap=math().min(otherSBIMet,additionalBuffer10+(additionalBuffer10*2.5));
+  gstTurnCap=math().min(otherSBIMet,additionalBuffer10+(additionalBuffer10*1.25));
   print("----> gstTurnCap :: " gstTurnCap);
   
   //Revised Capped Turnover
@@ -516,7 +518,7 @@ emiPerLakh is a real initially 0;
   print("---->finalEligLoAmtIncMethod*2 ::"finalEligLoAmtIncMethod*2);
     
     if(finalEligLoAmtIncMethod<>unknown and eligLoAmtGSTProgram1<>unknown and gstMethodEligLoAmt2<>unknown)then{
-  finalEligLoAmtGSTProgram =math().min((finalEligLoAmtIncMethod*2),math().min(maxPermissibleLoAmount,math().min(eligLoAmtGSTProgram1,gstMethodEligLoAmt2)));}
+  finalEligLoAmtGSTProgram =math().min(maxPermissibleLoAmount,math().min(eligLoAmtGSTProgram1,gstMethodEligLoAmt2));}
   print("----> finalEligLoAmtGSTProgram :: " finalEligLoAmtGSTProgram);
   
   message.request.application.applicationAdditionalDetails.other.buffer22 =finalEligLoAmtGSTProgram as a string;
@@ -586,10 +588,7 @@ emiPerLakh is a real initially 0;
   aBlazeApplication.fn_BL_EligibilityCalculationException = true;  
   print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");  
 }
-
-
-  
-  ]]></value>
+]]></value>
  </instance>
  <instance ref='CommentsVH'>
   <value></value>

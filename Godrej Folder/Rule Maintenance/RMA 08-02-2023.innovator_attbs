@@ -1,0 +1,15 @@
+#Extended attributes for Eclipse file-based repository (directory: 'RMA 08-02-2023')
+#Wed Feb 08 09:25:59 UTC 2023
+contentType=Fixed
+guid=QtLBpOn7QPWxjAhcWIktOx1pZ25
+innovatorDisplayName=RMA 08-02-2023
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=RMA Definition
+target=Repository
+type=XML

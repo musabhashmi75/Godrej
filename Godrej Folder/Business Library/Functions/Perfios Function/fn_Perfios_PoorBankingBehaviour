@@ -1,0 +1,353 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_Perfios_PoorBankingBehaviour'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_Perfios_PoorBankingBehaviour1</value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_Perfios_PoorBankingBehaviour</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[//try catch on application level?
+print("Entering in fn_Perfios_PoorBankingBehaviour");
+//local variable initiallixation
+aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;;
+try{
+	
+//aBlazeApplicant is some BlazeApplicant initially a BlazeApplicant;
+
+avgBB is a real initially 0;
+monthCount is an integer initially 0;
+abbRate is a real initially 0;
+emiAmount is a real initially 0;
+sixMonthDetails is an integer initially 0;
+twelveMonthDetails is an integer initially 0;
+sixMonthData is an integer initially 0;
+twelveMonthData is an integer initially 0;
+inwardChqBncRate is a real initially 0;
+inwChqBounce is a real initially 0;
+chqIssue is a real initially 0;
+monthlyDataCount is an integer initially 0;
+bounceCount is a real initially 0;
+avgUtilization is a  real initially 0;
+overDrawnCount is a real initially 0;
+cashDepositToCredit is a real initially 0;
+penalChargesCount is a real initially 0;
+businessCreditCount is a real initially 0;
+businessDebitCount is a real initially 0;
+
+// flag variable initiallization
+abbRateFlag is a string initially "";
+inwardChqBncFlag is a string initially "";
+bounceFlag is a string initially "";
+avgUtilizationFlag is a string initially "";
+overDrawnFlag is a string initially "";
+cashDepositToCreditFlag is a string initially "";
+penalChargesFlag is a string initially "";
+businessCreditFlag is a string initially "";
+businessDebitFlag is a string initially "";
+
+
+//latest month details
+if(perfiosData.data.accountAnalysis is not null and perfiosData.data.accountAnalysis[0].monthlyDetails is not null)then{
+	sixMonthDetails = perfiosData.data.accountAnalysis[0].monthlyDetails.count - 6;
+    twelveMonthDetails = perfiosData.data.accountAnalysis[0].monthlyDetails.count - 12;
+ 
+}
+if(sixMonthDetails < 0)then{
+	sixMonthDetails = 0;
+}
+if(twelveMonthDetails < 0)then{
+	twelveMonthDetails = 0;
+}
+
+//Latest month Data
+if(perfiosData.data.additionalMonthlyDetails is known and perfiosData.data.additionalMonthlyDetails.monthlyData1 is not null )then{
+  sixMonthData = perfiosData.data.additionalMonthlyDetails.monthlyData1.count - 6;
+  twelveMonthData = perfiosData.data.additionalMonthlyDetails.monthlyData1.count - 12; 
+}
+if(sixMonthData<0)then{
+  sixMonthData = 0;
+}
+if(twelveMonthData<0)then{
+  twelveMonthData =0;
+}
+
+
+productCode is a string;
+productCode = message.invocation.decisionService;
+
+applicantId is a string;
+applicantType is a string;
+applicantId = aBlazeApplicant.customerCif as a string;
+applicantType = aBlazeApplicant.applicantType;
+print("applicantId------------> "applicantId);
+print("applicantType------------> "applicantType);
+
+
+
+
+
+
+//assigning inwChqBounces and chqIssues into local var 
+if(perfiosData.data.accountAnalysis[0] is not null and
+    perfiosData.data.accountAnalysis[0].summaryInfo is not null and
+     perfiosData.data.accountAnalysis[0].summaryInfo.average is not null and
+   	  perfiosData.data.accountAnalysis[0].summaryInfo.average.inwChqBounces is known and
+  	   perfiosData.data.accountAnalysis[0].summaryInfo.average.chqIssues is known)
+   then{
+     inwChqBounce = perfiosData.data.accountAnalysis[0].summaryInfo.average.inwChqBounces;
+     chqIssue = perfiosData.data.accountAnalysis[0].summaryInfo.average.chqIssues;
+}
+//inward Cheque Bounce
+if(chqIssue>0)then{
+ inwardChqBncRate = math().round(inwChqBounce / chqIssue, -2);
+}
+
+//assigning payment amount to local var emiAmount
+if((BTCommonVar.termInput.blazeApplication.loanBasicDetail is known) and
+    (BTCommonVar.termInput.blazeApplication.loanBasicDetail.paymentDetails is not null) and
+	(BTCommonVar.termInput.blazeApplication.loanBasicDetail.paymentDetails.paymentAmount is known))then{
+		emiAmount =  BTCommonVar.termInput.blazeApplication.loanBasicDetail.paymentDetails.paymentAmount
+}
+if(perfiosData.data.accountAnalysis is not null)then{
+for each MonthlyDetail in perfiosData.data.accountAnalysis[0].monthlyDetails such that( it is not null ) do{
+
+  if( monthCount >= sixMonthDetails )then{
+    //average bank balance
+    if(it.balAvg is known)then{
+  	avgBB = avgBB + it.balAvg;
+    }
+    //Emi bounce count
+     if(it.totalInwEMIBounce is known and it.totalInwEMIBounce <> 0)then{
+		bounceCount = bounceCount + 1;
+     }
+    //Over Drawn count
+    if(it.overdrawnInstances is known)then{
+		overDrawnCount  = overDrawnCount + it.overdrawnInstances;
+     }
+  }
+
+  
+   if( monthCount >= twelveMonthDetails and it.penalCharges is known)then{
+     //Penal Charges
+    penalChargesCount = penalChargesCount + it.penalCharges;
+  }
+  monthCount += 1;
+}
+}
+
+//average Bank Balance for latest 6 months
+avgBB = avgBB/6;
+if(emiAmount>0)then{
+abbRate = math().round(avgBB/emiAmount, -2);
+}
+
+if(perfiosData.data.additionalMonthlyDetails is not null)then{
+for each MonthlyData1 in perfiosData.data.additionalMonthlyDetails.monthlyData1 such that (it is not null)do{
+	
+  if(monthlyDataCount >= sixMonthData and it.averageLimitUtilization is known )then{
+   avgUtilization = avgUtilization + it.averageLimitUtilization;
+    
+  }
+  
+  
+     if( monthlyDataCount >= twelveMonthData )then{
+       //cash deposit
+       if(it.cashDepositToTotalCreditPercent is known)then{
+     	cashDepositToCredit =  cashDepositToCredit + it.cashDepositToTotalCreditPercent,;
+       }
+       //Business Credit Count
+       if(it.numberOfBusinessCreditTxns is known)then{
+        businessCreditCount = businessCreditCount + it.numberOfBusinessCreditTxns;
+         }
+       if(it.numberOfBusinessDebitTxns is known)then{
+       //Business Debit Count
+        businessDebitCount = businessDebitCount + it.numberOfBusinessDebitTxns;
+             }
+  }
+  
+  monthlyDataCount = monthlyDataCount + 1;
+}
+}
+// Average Limit Utilization Count
+avgUtilization = math().round(avgUtilization/6, -2);
+
+//Average Cash deposit
+cashDepositToCredit = math().round(cashDepositToCredit/12,-2);
+
+//Flag Assignment
+
+//Abb Rate Flag
+if(abbRate < 1)then{
+  abbRateFlag = "Red";
+}
+else{
+  abbRateFlag = "Green";
+}
+//Inward cheque Balance Flag
+if(inwardChqBncRate >= 1)then{
+  inwardChqBncFlag = "Red"
+}
+else{
+  inwardChqBncFlag = "Green"
+}
+// EMI Bounce Flag
+if(bounceCount >= 2)then{
+  bounceFlag = "Red"
+}
+else{
+    bounceFlag = "Green"
+}
+//Average Utilization Flag
+if(avgUtilization >= 95)then{
+  avgUtilizationFlag = "red"
+}
+else{
+   avgUtilizationFlag = "Green"
+}
+//Over Drwan Flag
+if(overDrawnCount > 1)then{
+  overDrawnFlag = "Red"
+}
+else{
+  overDrawnFlag = "Green"
+}
+//Cash Deposit Flag
+if(cashDepositToCredit > 10)then{
+  cashDepositToCreditFlag = "Red"
+}
+else{
+  cashDepositToCreditFlag = "Green"
+}
+//Penal Charges Flag
+if(penalChargesCount >= 1)then{
+  penalChargesFlag = "red"
+}
+else{
+  penalChargesFlag = "Green"
+}
+//Business Credit Flag
+if(businessCreditCount < 60)then{
+  businessCreditFlag = "Red"
+}
+else{
+    businessCreditFlag = "Green"
+}
+//Business Debit Flag
+if(businessDebitCount < 60)then{
+  businessDebitFlag = "Red"
+}
+else{
+    businessDebitFlag = "Green"
+}
+
+fn_AppendCalculatedVariable(message, "abbRate", "real", productCode, applicantId, applicantType, "PoorBanking", abbRate","abbRateFlag);
+fn_AppendCalculatedVariable(message, "inwardChqBncRate", "real", productCode, applicantId, applicantType, "PoorBanking", inwardChqBncRate","inwardChqBncFlag);
+fn_AppendCalculatedVariable(message, "bounceCount", "real", productCode, applicantId, applicantType, "PoorBanking", bounceCount","bounceFlag);
+fn_AppendCalculatedVariable(message, "avgUtilization", "real", productCode, applicantId, applicantType, "PoorBanking", avgUtilization","avgUtilizationFlag);
+fn_AppendCalculatedVariable(message, "overDrawnCount", "real", productCode, applicantId, applicantType, "PoorBanking", overDrawnCount","overDrawnFlag);
+fn_AppendCalculatedVariable(message, "cashDepositToCredit", "real", productCode, applicantId, applicantType, "PoorBanking", cashDepositToCredit","cashDepositToCreditFlag);
+fn_AppendCalculatedVariable(message, "penalChargesCount", "real", productCode, applicantId, applicantType, "PoorBanking", penalChargesCount","penalChargesFlag);
+fn_AppendCalculatedVariable(message, "businessCreditCount", "real", productCode, applicantId, applicantType, "PoorBanking", businessCreditCount","businessCreditFlag);
+fn_AppendCalculatedVariable(message,"businessDebitCount", "real", productCode, applicantId, applicantType, "PoorBanking", businessDebitCount","businessDebitFlag);
+
+
+print("abbRate----------------------------------->"abbRate);
+print("inwardChqBncRate----------------------------------->"inwardChqBncRate);
+print("bounceCount----------------------------------->"bounceCount);
+print("avgUtilization----------------------------------->"avgUtilization);
+print("overDrawnCount----------------------------------->"overDrawnCount);
+print("cashDepositToCredit----------------------------------->"cashDepositToCredit);
+print("penalChargesCount----------------------------------->"penalChargesCount);
+print("businessCreditCount----------------------------------->"businessCreditCount);
+print("businessDebitCount----------------------------------->"businessDebitCount);
+
+}catch an Exception with{
+	aBlazeApplication.fn_Perfios_PoorBankingBehaviour = true;  
+	print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");  
+}
+print("Exiting fn_Perfios_PoorBankingBehaviour");
+
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='M2LsN6'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='WDIAsR'>
+    <instance ref='ParameterNameVH'>
+     <value>perfiosData</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>PerfiosData</value>
+    </instance>
+   </item>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='GUZ4N1'>
+    <instance ref='ParameterNameVH'>
+     <value>aBlazeApplicant</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeApplicant</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

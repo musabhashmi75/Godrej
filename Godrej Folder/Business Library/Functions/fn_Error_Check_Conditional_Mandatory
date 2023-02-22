@@ -57,1212 +57,1212 @@
  </instance>
  <instance ref='FunctionBodyVH'>
   <value><![CDATA[print("");
-print("++++> Entering function :: fn_Conditional_Mandatory_Errors");
+        print("++++> Entering function :: fn_Conditional_Mandatory_Errors");
 
-aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+        aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
 
-errType is a string initially "";
-errId is a string initially "";
-errName is a string initially "";
-errAction is a string initially "";
-errCode is a string initially "";
-errText is a string initially "";
+        errType is a string initially "";
+        errId is a string initially "";
+        errName is a string initially "";
+        errAction is a string initially "";
+        errCode is a string initially "";
+        errText is a string initially "";
 
-try {
-  //--------------------------application level errors----------------------
-  loanReference is a string initially aBlazeApplication.loanBasicDetail.loanReference;
-  additionalLtv is a real initially aBlazeApplication.applicationAdditionalDetails.finalOffer.additionalLtv;
-  channelPartnerCode is a string initially aBlazeApplication.applicationAdditionalDetails.sourcingDetail.channelPartnerCode;
-  psl is a string initially aBlazeApplication.applicationAdditionalDetails.other.psl;
-  
-  borrowerType is a string initially aBlazeApplication.applicationAdditionalDetails.other.borrowerType;
-  lendingType is a string initially aBlazeApplication.applicationAdditionalDetails.other.lendingType;
-  riskCategorization is a string initially aBlazeApplication.applicationAdditionalDetails.other.riskCategorization;
-  finalFoirPercentage is a string initially aBlazeApplication.applicationAdditionalDetails.other.finalFoirPercentage;
-  
-  finalLtvPercentage  is a string initially aBlazeApplication.applicationAdditionalDetails.other.finalLtvPercentage;
-  finalLoanAmount is a string initially aBlazeApplication.applicationAdditionalDetails.other.finalLoanAmount;
-  eligibilityMethod is a string initially aBlazeApplication.applicationAdditionalDetails.other.eligibilityMethod;
-  sblMet is a string initially aBlazeApplication.applicationAdditionalDetails.other.sblMet;
-  
-  gblMet is a string initially aBlazeApplication.applicationAdditionalDetails.other.gblMet;
-  stageOfConstruction is a string initially aBlazeApplication.applicationAdditionalDetails.other.stageOfConstruction;
-  rentalIncomeProgram is a string initially aBlazeApplication.applicationAdditionalDetails.other.rentalIncomeProgram;
-  btLoanStartDate is a date initially aBlazeApplication.applicationAdditionalDetails.balanceTransfer.btLoanStartDate;
-  
-  queryCategory is a real initially aBlazeApplication.queryManagement.queryCategory;
-  assignedRole is a string initially aBlazeApplication.queryManagement.assignedRole;
-  queryDescription is a string initially aBlazeApplication.queryManagement.queryDescription;
-  division is a string initially aBlazeApplication.loanBasicDetail.division;
-  
-  productCategory is a string initially aBlazeApplication.loanBasicDetail.productCategory;
-  numberOfInstallments is a real initially aBlazeApplication.loanBasicDetail.paymentDetails.numberOfInstallments;
-  interestRateType is a string initially aBlazeApplication.loanBasicDetail.paymentDetails.interestRateType;
-  baseRate is a string initially aBlazeApplication.loanBasicDetail.paymentDetails.baseRate;
-  
-  fixedRate is a real initially aBlazeApplication.loanBasicDetail.paymentDetails.fixedRate;
-  actualInterestRate is a real initially aBlazeApplication.loanBasicDetail.paymentDetails.actualInterestRate;
-  scheduleMethod is a string initially aBlazeApplication.loanBasicDetail.paymentDetails.scheduleMethod;
-  interestFrequency is a string initially aBlazeApplication.loanBasicDetail.paymentDetails.interestFrequency;
-  
-  interestReviewFrequency is a string initially aBlazeApplication.loanBasicDetail.paymentDetails.interestReviewFrequency;
-  paymentFrequency is a real initially aBlazeApplication.loanBasicDetail.paymentDetails.paymentFrequency;
-  nextInterestFreqDate is a date initially aBlazeApplication.loanBasicDetail.paymentDetails.nextInterestFreqDate;
-  
-  nextInterestReviewFreqDate is a date initially aBlazeApplication.loanBasicDetail.paymentDetails.nextInterestReviewFreqDate;
-  nextPaymentFreqDate is a date initially aBlazeApplication.loanBasicDetail.paymentDetails.nextPaymentFreqDate;
-  maturityDate is a date initially aBlazeApplication.loanBasicDetail.paymentDetails.maturityDate;
-  
-  //--------------------------application level errors on array starts----------------------
-   print("----> Number of applicants :: "message.request.application.applicants.count);
-   if(message.request.application.applicants.count =0)then {
-      print("**Error :: ###>> No Applicants <<###");
-      errType = "CONDMAND ";
-      errText = "No Applicants";
-      errId = "ERROBJ001";
-      errName = errId;
+        try {
+        //--------------------------application level errors----------------------
+        loanReference is a string initially aBlazeApplication.loanBasicDetail.loanReference;
+        additionalLtv is a real initially aBlazeApplication.applicationAdditionalDetails.finalOffer.additionalLtv;
+        channelPartnerCode is a string initially aBlazeApplication.applicationAdditionalDetails.sourcingDetail.channelPartnerCode;
+        psl is a string initially aBlazeApplication.applicationAdditionalDetails.other.psl;
 
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-   }
-  
-  
-  //--------------------------application level errors on array ends----------------------
-  
-  //--------------------------------- application level errors starts-------------------------------
-  if(loanReference is equal to unknown or loanReference="")  then {
-    print("**Error :: ###>> Loan Reference is mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Loan Reference is mandatory";
-      errId = "ERROBJ014";
-      errName = errId;
+        borrowerType is a string initially aBlazeApplication.applicationAdditionalDetails.other.borrowerType;
+        lendingType is a string initially aBlazeApplication.applicationAdditionalDetails.other.lendingType;
+        riskCategorization is a string initially aBlazeApplication.applicationAdditionalDetails.other.riskCategorization;
+        finalFoirPercentage is a string initially aBlazeApplication.applicationAdditionalDetails.other.finalFoirPercentage;
 
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
+        finalLtvPercentage  is a string initially aBlazeApplication.applicationAdditionalDetails.other.finalLtvPercentage;
+        finalLoanAmount is a string initially aBlazeApplication.applicationAdditionalDetails.other.finalLoanAmount;
+        eligibilityMethod is a string initially aBlazeApplication.applicationAdditionalDetails.other.eligibilityMethod;
+        sblMet is a string initially aBlazeApplication.applicationAdditionalDetails.other.sblMet;
 
-  //if(additionalLtv is equal to unknown)  then {
-    //print("**Error :: ###>> Additional Ltv is mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Additional Ltv is mandatory is mandatory";
-      //errId = "ERROBJ121";
-      //errName = errId;
+        gblMet is a string initially aBlazeApplication.applicationAdditionalDetails.other.gblMet;
+        stageOfConstruction is a string initially aBlazeApplication.applicationAdditionalDetails.other.stageOfConstruction;
+        rentalIncomeProgram is a string initially aBlazeApplication.applicationAdditionalDetails.other.rentalIncomeProgram;
+        btLoanStartDate is a date initially aBlazeApplication.applicationAdditionalDetails.balanceTransfer.btLoanStartDate;
 
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
+        queryCategory is a real initially aBlazeApplication.queryManagement.queryCategory;
+        assignedRole is a string initially aBlazeApplication.queryManagement.assignedRole;
+        queryDescription is a string initially aBlazeApplication.queryManagement.queryDescription;
+        division is a string initially aBlazeApplication.loanBasicDetail.division;
 
-  //if(channelPartnerCode is equal to unknown or channelPartnerCode="")  then {
-    //print("**Error :: ###>> Channel Partner Code is mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Channel Partner Code is mandatory";
-      //errId = "ERROBJ0122";
-      //errName = errId;
+        productCategory is a string initially aBlazeApplication.loanBasicDetail.productCategory;
+        numberOfInstallments is a real initially aBlazeApplication.loanBasicDetail.paymentDetails.numberOfInstallments;
+        interestRateType is a string initially aBlazeApplication.loanBasicDetail.paymentDetails.interestRateType;
+        baseRate is a string initially aBlazeApplication.loanBasicDetail.paymentDetails.baseRate;
 
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
+        fixedRate is a real initially aBlazeApplication.loanBasicDetail.paymentDetails.fixedRate;
+        actualInterestRate is a real initially aBlazeApplication.loanBasicDetail.paymentDetails.actualInterestRate;
+        scheduleMethod is a string initially aBlazeApplication.loanBasicDetail.paymentDetails.scheduleMethod;
+        interestFrequency is a string initially aBlazeApplication.loanBasicDetail.paymentDetails.interestFrequency;
 
-  //if(psl is equal to unknown or psl="")  then {
-    //print("**Error :: ###>> PSL is mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "PSL is mandatory";
-      //errId = "ERROBJ0123";
-      //errName = errId;
+        interestReviewFrequency is a string initially aBlazeApplication.loanBasicDetail.paymentDetails.interestReviewFrequency;
+        paymentFrequency is a real initially aBlazeApplication.loanBasicDetail.paymentDetails.paymentFrequency;
+        nextInterestFreqDate is a date initially aBlazeApplication.loanBasicDetail.paymentDetails.nextInterestFreqDate;
 
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
+        nextInterestReviewFreqDate is a date initially aBlazeApplication.loanBasicDetail.paymentDetails.nextInterestReviewFreqDate;
+        nextPaymentFreqDate is a date initially aBlazeApplication.loanBasicDetail.paymentDetails.nextPaymentFreqDate;
+        maturityDate is a date initially aBlazeApplication.loanBasicDetail.paymentDetails.maturityDate;
 
-  //if(borrowerType is equal to unknown or borrowerType="")  then {
-    //print("**Error :: ###>> Borrower Type is mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Borrower Type is mandatory";
-      //errId = "ERROBJ0124";
-      //errName = errId;
+        //--------------------------application level errors on array starts----------------------
+//        print("----> Number of applicants :: "message.request.application.applicants.count);
+//        if(message.request.application.applicants.count =0)then {
+//        print("**Error :: ###>> No Applicants <<###");
+//        errType = "CONDMAND ";
+//        errText = "No Applicants";
+//        errId = "ERROBJ001";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//
+//
+//        //--------------------------application level errors on array ends----------------------
+//
+//        //--------------------------------- application level errors starts-------------------------------
+//        if(loanReference is equal to unknown or loanReference="")  then {
+//        print("**Error :: ###>> Loan Reference is mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Loan Reference is mandatory";
+//        errId = "ERROBJ014";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
 
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
+        //if(additionalLtv is equal to unknown)  then {
+        //print("**Error :: ###>> Additional Ltv is mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Additional Ltv is mandatory is mandatory";
+        //errId = "ERROBJ121";
+        //errName = errId;
 
-  //if(lendingType is equal to unknown or lendingType="")  then {
-    //print("**Error :: ###>> Lending Type is mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Lending Type is mandatory";
-      //errId = "ERROBJ0125";
-      //errName = errId;
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
 
-     // fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
+        //if(channelPartnerCode is equal to unknown or channelPartnerCode="")  then {
+        //print("**Error :: ###>> Channel Partner Code is mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Channel Partner Code is mandatory";
+        //errId = "ERROBJ0122";
+        //errName = errId;
 
-  //if(riskCategorization is equal to unknown or riskCategorization="")  then {
-    //print("**Error :: ###>> Risk Categorization is mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Risk Categorization is mandatory";
-      //errId = "ERROBJ0126";
-      //errName = errId;
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
 
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-   //}
+        //if(psl is equal to unknown or psl="")  then {
+        //print("**Error :: ###>> PSL is mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "PSL is mandatory";
+        //errId = "ERROBJ0123";
+        //errName = errId;
 
-  //if(finalFoirPercentage is equal to unknown or finalFoirPercentage="")  then {
-    //print("**Error :: ###>> Final Foir Percentage is mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Final Foir Percentage is mandatory";
-      //errId = "ERROBJ127";
-      //errName = errId;
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
 
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
+        //if(borrowerType is equal to unknown or borrowerType="")  then {
+        //print("**Error :: ###>> Borrower Type is mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Borrower Type is mandatory";
+        //errId = "ERROBJ0124";
+        //errName = errId;
 
-  //if(finalLtvPercentage is equal to unknown or finalLtvPercentage="")  then {
-    //print("**Error :: ###>> Final Ltv Percentage is mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Final Ltv Percentage is mandatory";
-      //errId = "ERROBJ128";
-      //errName = errId;
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
 
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
+        //if(lendingType is equal to unknown or lendingType="")  then {
+        //print("**Error :: ###>> Lending Type is mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Lending Type is mandatory";
+        //errId = "ERROBJ0125";
+        //errName = errId;
 
-  //if(finalLoanAmount is equal to unknown or finalLoanAmount="")  then {
-    //print("**Error :: ###>> Final Loan Amount is mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Final Loan Amount is mandatory";
-      //errId = "ERROBJ0129";
-      //errName = errId;
+        // fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
 
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
+        //if(riskCategorization is equal to unknown or riskCategorization="")  then {
+        //print("**Error :: ###>> Risk Categorization is mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Risk Categorization is mandatory";
+        //errId = "ERROBJ0126";
+        //errName = errId;
 
-  //if(eligibilityMethod is equal to unknown or eligibilityMethod="")  then {
-    //print("**Error :: ###>> Eligibility Method is mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Eligibility Method is mandatory";
-      //errId = "ERROBJ130";
-      //errName = errId;
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
 
-     //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
+        //if(finalFoirPercentage is equal to unknown or finalFoirPercentage="")  then {
+        //print("**Error :: ###>> Final Foir Percentage is mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Final Foir Percentage is mandatory";
+        //errId = "ERROBJ127";
+        //errName = errId;
 
-  //if(sblMet is equal to unknown or sblMet="")  then {
-    //print("**Error :: ###>> Eligibility Method is mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Eligibility Method is mandatory";
-      //errId = "ERROBJ131";
-      //errName = errId;
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
 
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
+        //if(finalLtvPercentage is equal to unknown or finalLtvPercentage="")  then {
+        //print("**Error :: ###>> Final Ltv Percentage is mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Final Ltv Percentage is mandatory";
+        //errId = "ERROBJ128";
+        //errName = errId;
 
-  if(gblMet is equal to unknown or gblMet="")  then {
-    print("**Error :: ###>> Gbl Met is mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Gbl Met Method is mandatory";
-      errId = "ERROBJ132";
-      errName = errId;
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
 
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
+        //if(finalLoanAmount is equal to unknown or finalLoanAmount="")  then {
+        //print("**Error :: ###>> Final Loan Amount is mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Final Loan Amount is mandatory";
+        //errId = "ERROBJ0129";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+
+        //if(eligibilityMethod is equal to unknown or eligibilityMethod="")  then {
+        //print("**Error :: ###>> Eligibility Method is mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Eligibility Method is mandatory";
+        //errId = "ERROBJ130";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+
+        //if(sblMet is equal to unknown or sblMet="")  then {
+        //print("**Error :: ###>> Eligibility Method is mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Eligibility Method is mandatory";
+        //errId = "ERROBJ131";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+
+//        if(gblMet is equal to unknown or gblMet="")  then {
+//        print("**Error :: ###>> Gbl Met is mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Gbl Met Method is mandatory";
+//        errId = "ERROBJ132";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
 
 //  if(stageOfConstruction is equal to unknown or stageOfConstruction="")  then {
-  //  print("**Error :: ###>> Stage Of Construction is mandatory <<###");
-    //  errType = "CONDMAND ";
-      //errText = "Stage Of Construction is mandatory";
-      //errId = "ERROBJ133";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-//gaurav 
- // if(rentalIncomeProgram is equal to unknown or rentalIncomeProgram="")  then {
-    //print("**Error :: ###>> Rental Income Program is mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Rental Income Method is mandatory";
-      //errId = "ERROBJ134";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-
-
-  //if(btLoanStartDate is equal to unknown)  then {
-    //print("**Error :: ###>> bt Loan Start Date is mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "bt Loan Start Date is mandatory";
-      //errId = "ERROBJ160";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-
-  //if(queryCategory is equal to unknown)  then {
-    //print("**Error :: ###>> Query Category is mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Query Category is mandatory";
-      //errId = "ERROBJ161";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-
- // if(assignedRole is equal to unknown or assignedRole="")  then {
-   // print("**Error :: ###>> Assigned Role is mandatory <<###");
-     // errType = "CONDMAND ";
-      //errText = "Assigned Role is mandatory";
-      //errId = "ERROBJ162";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-   // }
-
-  //if(queryDescription is equal to unknown or queryDescription="")  then {
-    //print("**Error :: ###>> Query Description is mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Query Description is mandatory";
-      //errId = "ERROBJ163";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-
-  //if(aBlazeApplication.loanBasicDetail.division is equal to unknown or division="")  then {
-    //print("**Error :: ###>> Division is mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Division is mandatory";
-      //errId = "ERROBJ105";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-
-  //if(productCategory is equal to unknown or productCategory="")  then {
-    //print("**Error :: ###>> Product Category is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Product Category is Mandatory";
-      //errId = "ERROBJ107";
-      //errName = errId;
-
-     // fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-
-  //if(numberOfInstallments is equal to unknown)  then {
-    //print("**Error :: ###>> Number Of Installments is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Number Of Installments is Mandatory";
-      //errId = "ERROBJ108";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-
-  //if(interestRateType is equal to unknown or interestRateType="")  then {
-    //print("**Error :: ###>> Interest Rate Type is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Interest Rate Type is Mandatory";
-      //errId = "ERROBJ109";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-  //if(baseRate is equal to unknown or baseRate="")  then {
-    //print("**Error :: ###>> Base Rate is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Base Rate is Mandatory";
-      //errId = "ERROBJ110";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-
-  //if(scheduleMethod is equal to unknown or scheduleMethod="")  then {
-    //print("**Error :: ###>> Schedule Method is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Schedule Method is Mandatory";
-      //errId = "ERROBJ113";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-
-  //if(interestFrequency is equal to unknown or interestFrequency="")  then {
-    //print("**Error :: ###>> Interest Frequency is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Interest Frequency is Mandatory";
-      //errId = "ERROBJ114";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-  
-    //minInterestRate
-   // if(aBlazeApplication.loanBasicDetail.paymentDetails.minInterestRate is equal to unknown)  then {
-     // print("**Error :: ###>> Min Interest Rate is Mandatory <<###");
-      //errType = "CONDMAND ";
-     // errText = "Min Interest Rate is Mandatory";
-      //errId = "ERROBJ192";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-
-    //maxInterestRate
-    //if(aBlazeApplication.loanBasicDetail.paymentDetails.maxInterestRate is equal to unknown)  then {
-      //print("**Error :: ###>> Max Interest Rate is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Max Interest Rate is Mandatory";
-      //errId = "ERROBJ193";
-      //errName = errId;
-
-     // fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-
-    //finalLoanAmount
-    //if(aBlazeApplication.applicationAdditionalDetails.other.finalLoanAmount is equal to unknown or aBlazeApplication.applicationAdditionalDetails.other.finalLoanAmount="")  then {
-      //print("**Error :: ###>> Final Loan Amount is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Final Loan Amount is Mandatory";
-      //errId = "ERROBJ194";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}   
-  
-  //if(fixedRate is equal to unknown )  then {
-    //print("**Error :: ###>> Fixed Rate is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Fixed Rate is Mandatory";
-      //errId = "ERROBJ111";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-
-  //if(actualInterestRate is equal to unknown)  then {
-    //print("**Error :: ###>> Actual Interest Rate is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Actual Interest Rate is Mandatory";
-      //errId = "ERROBJ112";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-
-  //if(interestReviewFrequency is equal to unknown or interestReviewFrequency="")  then {
-    //print("**Error :: ###>> Actual Interest Rate is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Actual Interest Rate is Mandatory";
-      //errId = "ERROBJ112";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-  
-  //if(scheduleMethod is equal to unknown or scheduleMethod="")  then {
-    //print("**Error :: ###>> Schedule Method is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Schedule Method is Mandatory";
-      //errId = "ERROBJ113";
-      //errName = errId;
-
-     // fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-
-  if(interestFrequency is equal to unknown or interestFrequency="")  then {
-    print("**Error :: ###>> Interest Frequency is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Interest Frequency is Mandatory";
-      errId = "ERROBJ114";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-
-  if(interestReviewFrequency is equal to unknown or interestReviewFrequency="")  then {
-    print("**Error :: ###>> Interest Frequency is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Interest Review Frequency is Mandatory";
-      errId = "ERROBJ115";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-  if(paymentFrequency is equal to unknown)  then {
-    print("**Error :: ###>> Payment Frequency is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Payment Frequency is Mandatory";
-      errId = "ERROBJ116";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-  if(nextInterestFreqDate is equal to unknown)  then {
-    print("**Error :: ###>> Next Interest Freq Date is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Next Interest Freq Date is Mandatory";
-      errId = "ERROBJ117";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-
-  if(nextInterestReviewFreqDate is equal to unknown)  then {
-    print("**Error :: ###>> Next Interest Review Freq Date is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Next Interest Review Freq Date is Mandatory";
-      errId = "ERROBJ118";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-
-  if(nextPaymentFreqDate is equal to unknown)  then {
-    print("**Error :: ###>> Next Payment Freq Date is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Next Payment Freq Date is Mandatory";
-      errId = "ERROBJ119";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-
-  if(maturityDate is equal to unknown)  then {
-    print("**Error :: ###>> Maturity Date is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Maturity Date is Mandatory";
-      errId = "ERROBJ120";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }  
-  //--------------------------application level errors ends----------------------
-
-
-  //--------------------------applicant level errors starts------------------------
-  for  each  BlazeApplicant  in  BTCommonVar.termInput.blazeApplication.blazeApplicantArray
-   do{
-     aBlazeApplicant  is  some  BlazeApplicant  initially  it  as  a  BlazeApplicant;
-     
-     //-------------------applicant level array errors starts--------------------------
-     for each EmploymentDetails in aBlazeApplicant.kycDetails.employmentDetails
-     do{
-       if(it.currentEmployer is equal to unknown or it.currentEmployer="") then {
-         print("**Error :: ###>> Current Employer is Mandatory <<###");
-         errType = "CONDMAND ";
-         errText = "Current Employer is Mandatory";
-         errId = "ERROBJ179";
-         errName = errId;
-         fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-       }
-       
-       if(it.kycEmploymentType is equal to unknown or it.kycEmploymentType="") then {
-         print("**Error :: ###>> Kyc Employment Type is Mandatory <<###");
-         errType = "CONDMAND ";
-         errText = "Kyc Employment Type is Mandatory";
-         errId = "ERROBJ178";
-         errName = errId;
-         fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-       }
-     }
-     
-     for each CustomerIds in aBlazeApplicant.kycDetails.customerIds
-     do{
-       if(it.customerCif is equal to unknown or it.customerCif="") then {
-         print("**Error :: ###>> Customer Cif is mandatory <<###");
-         errType = "CONDMAND ";
-         errText = "Customer Cif is mandatory";
-         errId = "ERROBJ016";
-         errName = errId;
-         fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-       }
-       
-     //  if(it.idType is equal to unknown or it.idType="") then {
-       //  print("**Error :: ###>> Id Type is mandatory <<###");
-         //errType = "CONDMAND ";
-         //errText = "Id Type is mandatory";
-         //errId = "ERROBJ017";
-         //errName = errId;
-         //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-       //}
-       
-       if(it.issuedCountry is equal to unknown or it.issuedCountry="") then {         
-        print("**Error :: ###>> Issued Country is mandatory <<###");
-         errType = "CONDMAND ";
-         errText = "Issued Country is mandatory";
-         errId = "ERROBJ018";
-         errName = errId;
-         fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-       }     
-     }
-     //-------------------applicant level array errors ends--------------------------     
-     
-     addressOwnershipType is a string initially aBlazeApplicant.addressOwnershipType;
-     subSector is a string initially aBlazeApplicant.subSector;
-     dsaCode is a string initially aBlazeApplicant.dsaCode;
-     
-     // grossAnnualRecieptsLatestYear
-     grossAnnualRecieptsLatestYear is a real initially aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsLatestYear;
-     grossAnnualRecieptsPreviousYear is a real initially aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsPreviousYear;
-     isGrowthSustainable is a boolean initially aBlazeApplicant.applicantAdditionalDetails.sepEligibility.isGrowthSustainable;
-
-     additionalMultiplier is a real initially aBlazeApplicant.applicantAdditionalDetails.sepEligibility.additionalMultiplier;
-     additionalFoir is a real initially aBlazeApplicant.applicantAdditionalDetails.sepEligibility.additionalFoir;
-     ccOdUtilization is a string initially aBlazeApplicant.applicantAdditionalDetails.senpRiskScoreEligibility.ccOdUtilization;
-     debtEquityRatio is a real initially aBlazeApplicant.applicantAdditionalDetails.senpRiskScoreEligibility.debtEquityRatio;
-
-     abbEmiRatio is a real initially aBlazeApplicant.applicantAdditionalDetails.senpRiskScoreEligibility.abbEmiRatio;
-     processBelowRiskCutOff is a string initially aBlazeApplicant.applicantAdditionalDetails.senpRiskScoreEligibility.processBelowRiskCutOff;
-
-    //SenpLatestYearEligibility
-      turnover is a real initially aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.turnover;
-      grossProfit is a real initially aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.grossProfit;
-      netPbt is a real initially aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.netPbt;
-      depreciation is a real initially aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.depreciation;
-
-      oneTimeIncome is a real initially aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.oneTimeIncome;
-      oneTimeExpense is a real initially aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.oneTimeExpense;
-      salaryPartner is a real initially aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.salaryPartner;
-      interestPartner is a real initially aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.interestPartner;
-
-      interestRelative is a real initially aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.interestRelative;
-      interestBank is a real initially aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.interestBank;
-
-     //SenpGrowthPercentageEligibility
-      isTurnoverGrowthSutainable is a boolean initially aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.isTurnoverGrowthSutainable;
-      isGrossProfitGrowthSutainable is a boolean initially aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.isGrossProfitGrowthSutainable;
-      isCashProfitGrowthSutainable is a boolean initially aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.isCashProfitGrowthSutainable;
-
-      inwardChequeReturnWithinNorms is a string initially aBlazeApplicant.applicantAdditionalDetails.additionalDetail.inwardChequeReturnWithinNorms;
-
-     if(grossAnnualRecieptsLatestYear is equal to unknown) then {
-      print("**Error :: ###>> Gross AnnualRecieptsLatestYearis mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Invalid Decision Point in Invocation";
-      errId = "ERROBJ001";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-  
-      //grossAnnualRecieptsPreviousYear
-     if(grossAnnualRecieptsPreviousYear is equal to unknown)  then {
-      print("**Error :: ###>> Gross Annual Reciepts Previous Year is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Gross Annual Reciepts Previous Year is Mandatory";
-      errId = "ERROBJ045";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-     //isGrowthSustainable
-    if(isGrowthSustainable is equal to unknown)  then {
-      print("**Error :: ###>> Is Gross Sustainable is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Is Gross Sustainable is Mandatory";
-      errId = "ERROBJ046";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-
-     //additionalMultiplier
-    if(additionalMultiplier is equal to unknown)  then {
-      print("**Error :: ###>> Additional Multiplier is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Additional Multiplier is Mandatory";
-      errId = "ERROBJ047";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-      //additionalFoir
-  if(additionalFoir is equal to unknown)  then {
-      print("**Error :: ###>> Additional Foir is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Additional Foir is Mandatory";
-      errId = "ERROBJ048";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-     //ccOdUtilization
-    if(ccOdUtilization is equal to unknown or ccOdUtilization="")  then {
-      print("**Error :: ###>> ccOd Utilization is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "ccOd Utilization is Mandatory";
-      errId = "ERROBJ049";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-    //debtEquityRatio
-  if(debtEquityRatio is equal to unknown)  then {
-      print("**Error :: ###>> Debt Equity Ratio is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Debt Equity Ratio is Mandatory";
-      errId = "ERROBJ050";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-    //abbEmiRatio
-    if(abbEmiRatio is equal to unknown)  then {
-      print("**Error :: ###>> abb Emi Ratio is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "abb Emi Ratio is Mandatory";
-      errId = "ERROBJ051";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-    //processBelowRiskCutOff
-    if(processBelowRiskCutOff is equal to unknown or processBelowRiskCutOff="")  then {
-      print("**Error :: ###>> Process Below Risk Cut Off is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Process Below Risk Cut Off is Mandatory";
-      errId = "ERROBJ052";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-  //SenpLatestYearEligibility
-     //turnover
-    if(turnover is equal to unknown)  then {
-      print("**Error :: ###>> Turnover is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Turnover is Mandatory";
-      errId = "ERROBJ053";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-    //grossProfit
-    if(grossProfit is equal to unknown)  then {
-      print("**Error :: ###>> Gross Profit is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Gross Profit is Mandatory";
-      errId = "ERROBJ054";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-     //netPbt
-    if(netPbt is equal to unknown)  then {
-      print("**Error :: ###>> Net Pbt is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Net Pbt is Mandatory";
-      errId = "ERROBJ055";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-     //depreciation
-    if(depreciation is equal to unknown)  then {
-      print("**Error :: ###>> Depreciation is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Depreciation is Mandatory";
-      errId = "ERROBJ055";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-
-     //salaryPartner
-    if(salaryPartner is equal to unknown)  then {
-      print("**Error :: ###>> Salary Partner is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Salary Partner is Mandatory";
-      errId = "ERROBJ057";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-     //interestPartner
-    if(interestPartner is equal to unknown)  then {
-      print("**Error :: ###>> Interest Partner is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Interest Partner is Mandatory";
-      errId = "ERROBJ058";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-     //interestRelative
-    //if(interestRelative is equal to unknown)  then {
-      //print("**Error :: ###>> Interest Relative is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Interest Relative is Mandatory";
-      //errId = "ERROBJ059";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-   // }
-     //interestBank
-    //if(interestBank is equal to unknown)  then {
-      //print("**Error :: ###>> Interest Bank is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Interest Bank is Mandatory";
-      //errId = "ERROBJ060";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-
-    //oneTimeExpense
-    if(oneTimeExpense is equal to unknown)  then {
-      print("**Error :: ###>> One Time Expense is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "One Time Expense is Mandatory";
-      errId = "ERROBJ061";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-   //oneTimeIncome
-    //if(oneTimeIncome is equal to unknown)  then {
-      //print("**Error :: ###>> One Time Income is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "One Time Income is Mandatory";
-      //errId = "ERROBJ062";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-
-    //SenpPreviousYearEligibility
-    //turnover
-    if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.turnover is equal to unknown)  then {
-      print("**Error :: ###>> Turnover is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Turnover is Mandatory";
-      errId = "ERROBJ063";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-    //grossProfit
-    if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.grossProfit is equal to unknown)  then {
-      print("**Error :: ###>> Gross Profit is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Gross Profit is Mandatory";
-      errId = "ERROBJ064";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-     //netPbt
-    if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.netPbt is equal to unknown)  then {
-      print("**Error :: ###>> Net Pbt is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Net Pbt is Mandatory";
-      errId = "ERROBJ065";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-     //depreciation
-    if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.depreciation is equal to unknown)  then {
-      print("**Error :: ###>> Depreciation is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Depreciation is Mandatory";
-      errId = "ERROBJ066";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-
-
-     //salaryPartner
-    if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.salaryPartner is equal to unknown)  then {
-      print("**Error :: ###>> Salary Partner is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Salary Partner is Mandatory";
-      errId = "ERROBJ067";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-     //interestPartner
-    if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.interestPartner is equal to unknown)  then {
-      print("**Error :: ###>> Interest Partner is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Interest Partner is Mandatory";
-      errId = "ERROBJ068";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-     //interestRelative
-    if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.interestRelative is equal to unknown)  then {
-      print("**Error :: ###>> Interest Relative is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Interest Relative is Mandatory";
-      errId = "ERROBJ069";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-     //interestBank
-    if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.interestBank is equal to unknown)  then {
-      print("**Error :: ###>> Interest Bank is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Interest Bank is Mandatory";
-      errId = "ERROBJ070";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-
-    //oneTimeExpense
-   // if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.oneTimeExpense is equal to unknown)  then {
-     // print("**Error :: ###>> One Time Expense is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "One Time Expense is Mandatory";
-      //errId = "ERROBJ071";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-   //oneTimeIncome
-    if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.oneTimeIncome is equal to unknown)  then {
-      print("**Error :: ###>> One Time Income is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "One Time Income is Mandatory";
-      errId = "ERROBJ072";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-  //SenpGrowthPercentageEligibility
-    //isTurnoverGrowthSutainable
-    if(isTurnoverGrowthSutainable is equal to unknown)  then {
-      print("**Error :: ###>> Is Turnover Growth Sutainable is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Is Turnover Growth Sutainable is Mandatory";
-      errId = "ERROBJ073";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-    //isGrossProfitGrowthSutainable
-    if(isGrossProfitGrowthSutainable is equal to unknown)  then {
-      print("**Error :: ###>> Is Gross Profit Growth Sutainable is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Is Gross Profit Growth Sutainable is Mandatory";
-      errId = "ERROBJ074";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-    //isCashProfitGrowthSutainable
-    if(isCashProfitGrowthSutainable is equal to unknown)  then {
-      print("**Error :: ###>> Is Cash Profit Growth Sutainable is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Is Cash Profit Growth Sutainable is Mandatory";
-      errId = "ERROBJ075";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-  //OtherSenpInputEligibility
-
-    //industryMarginCRISIL
-    if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.industryMarginCRISIL is equal to unknown)  then {
-      print("**Error :: ###>> Industry Margin CRISIL is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Industry Margin CRISIL is Mandatory";
-      errId = "ERROBJ076";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-    //annulisedSalaryDirector
-    if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.annulisedSalaryDirector is equal to unknown)  then {
-      print("**Error :: ###>> Annulised Salary Director is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Annulised Salary Director is Mandatory";
-      errId = "ERROBJ077";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-    //avgMonthlyBalancePerfios
-    if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.avgMonthlyBalancePerfios is equal to unknown)  then {
-      print("**Error :: ###>> Avg Monthly Balance Perfios is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Avg Monthly Balance Perfios is Mandatory";
-      errId = "ERROBJ078";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-    //maxAbbEmiRatioAllowed
-    if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.maxAbbEmiRatioAllowed is equal to unknown)  then {
-      print("**Error :: ###>> Max Abb Emi Ratio Allowed is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Max Abb Emi Ratio Allowed is Mandatory";
-      errId = "ERROBJ079";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-    //additionalFoir
-    if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.additionalFoir is equal to unknown)  then {
-      print("**Error :: ###>> Additional Foir is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Additional Foir is Mandatory";
-      errId = "ERROBJ080";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-    //overrideAbbEmiRatio
-    if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.overrideAbbEmiRatio is equal to unknown or aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.overrideAbbEmiRatio="")  then {
-      print("**Error :: ###>> Override Abb Emi Ratio is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Override Abb Emi Ratio is Mandatory";
-      errId = "ERROBJ081";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-    //additionalGrossMargin
-    if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.additionalGrossMargin is equal to unknown)  then {
-      print("**Error :: ###>> Additional Gross Margin is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Additional Gross Margin is Mandatory";
-      errId = "ERROBJ082";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-    //processBelowRiskCutOff
-    if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.processBelowRiskCutOff is equal to unknown or aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.processBelowRiskCutOff="")  then {
-      print("**Error :: ###>> Process Below Risk CutOff is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Process Below Risk CutOff is Mandatory";
-      errId = "ERROBJ083";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-  //SalariedEligibility
-
-   //latestYearBonus
-    if(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.latestYearBonus is equal to unknown)  then {
-      print("**Error :: ###>> Latest Year Bonus is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Latest Year Bonus is Mandatory";
-      errId = "ERROBJ084";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-    //previousYearBonus
-    if(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.previousYearBonus is equal to unknown)  then {
-      print("**Error :: ###>> Previous Year Bonus is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Previous Year Bonus is Mandatory";
-      errId = "ERROBJ085";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-    //incentiveMonth1
-    //if(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth1 is equal to unknown)  then {
-      //print("**Error :: ###>> Incentive Month1 is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Incentive Month1 is Mandatory";
-      //errId = "ERROBJ086";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-    //incentiveMonth2
-    //if(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth2 is equal to unknown)  then {
-      //print("**Error :: ###>> Incentive Month2 is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Incentive Month2 is Mandatory";
-      //errId = "ERROBJ087";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-    //incentiveMonth3
-    //if(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth3 is equal to unknown)  then {
-      //print("**Error :: ###>> Incentive Month3 is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Incentive Month3 is Mandatory";
-      //errId = "ERROBJ088";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-    //incentiveMonth4
-    //if(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth4 is equal to unknown)  then {
-      //print("**Error :: ###>> Incentive Month4 is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Incentive Month4 is Mandatory";
-      //errId = "ERROBJ089";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-    //incentiveMonth5
-    //if(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth5 is equal to unknown)  then {
-      //print("**Error :: ###>> Incentive Month5 is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Incentive Month5 is Mandatory";
-      //errId = "ERROBJ090";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-    //incentiveMonth6
-    //if(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth6 is equal to unknown)  then {
-      //print("**Error :: ###>> Incentive Month6 is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Incentive Month6 is Mandatory";
-      //errId = "ERROBJ091";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-     //additionalFoir
-    if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.additionalFoir is equal to unknown)  then {
-      print("**Error :: ###>> Industry Margin CRISIL is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Industry Margin CRISIL is Mandatory";
-      errId = "ERROBJ092";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-    //processBelowRiskCutOff
-    if(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.processCaseRiskCutoff is equal to unknown or aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.processCaseRiskCutoff="")  then {
-      print("**Error :: ###>> Process Below Risk CutOff is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Process Below Risk CutOff is Mandatory";
-      errId = "ERROBJ093";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-
-  //AdditionalDetail
-    //inwardChequeReturnWithinNorms
-    //if(inwardChequeReturnWithinNorms is equal to unknown or inwardChequeReturnWithinNorms="")  then {
-      //print("**Error :: ###>> Inward Cheque Return Within Norms is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "inwardChequeReturnWithinNorms is Mandatory";
-      //errId = "ERROBJ104";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-   // }
-
-     //addressOwnershipType
-    if(addressOwnershipType is equal to unknown or addressOwnershipType="")  then {
-      print("**Error :: ###>> Address Ownership Type is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Address Ownership Type is Mandatory";
-      errId = "ERROBJ175";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-
-    //subSector
- //   if(subSector is equal to unknown or subSector="")  then {
-   //   print("**Error :: ###>> Sub Sector is Mandatory <<###");
-     // errType = "CONDMAND ";
-      //errText = "Sub Sector is Mandatory";
-      //errId = "ERROBJ176";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-   // }*/
-
-    //totalWorkExperience
-    if(aBlazeApplicant.applicantAdditionalDetails.customerSep.totalWorkExperience is equal to unknown)  then {
-      print("**Error :: ###>> Total Work Experience is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Total Work Experience";
-      errId = "ERROBJ180";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-
-   //totalWorkExperience
-    if(aBlazeApplicant.applicantAdditionalDetails.customerSenp.totalWorkExperience is equal to unknown)  then {
-      print("**Error :: ###>> Total Work Experience is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Total Work Experience";
-      errId = "ERROBJ181";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-
-    //dsaCode
-    //if(dsaCode is equal to unknown or dsaCode="")  then {
-      //print("**Error :: ###>> Dsa Code is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Dsa Code is Mandatory";
-      //errId = "ERROBJ177";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-   // }  
-     //grossTurnOver
-    if(aBlazeApplicant.applicantAdditionalDetails.customerSelfEmployedProfesional.grossTurnOver is equal to unknown)  then {
-      print("**Error :: ###>> Gross TurnOver is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Gross TurnOver is Mandatory";
-      errId = "ERROBJ182";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-
-    //profession
-    if(aBlazeApplicant.applicantAdditionalDetails.customerSelfEmployedProfesional.profession is equal to unknown or aBlazeApplicant.applicantAdditionalDetails.customerSelfEmployedProfesional.profession="")  then {
-      print("**Error :: ###>> Profession is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Profession is Mandatory";
-      errId = "ERROBJ183";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-
-    //profession
-    if(aBlazeApplicant.applicantAdditionalDetails.customerNonIndividual.profession is equal to unknown or aBlazeApplicant.applicantAdditionalDetails.customerNonIndividual.profession="")  then {
-      print("**Error :: ###>> Profession is Mandatory <<###");
-      errType = "CONDMAND ";
-      errText = "Profession is Mandatory";
-      errId = "ERROBJ184";
-      errName = errId;
-
-      fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    }
-
-    //country
-    //if(aBlazeApplicant.applicantAdditionalDetails.poaHolderDetails.country is equal to unknown or aBlazeApplicant.applicantAdditionalDetails.poaHolderDetails.country="")  then {
-      //print("**Error :: ###>> Country is Mandatory <<###");
-      //errType = "CONDMAND ";
-      //errText = "Country is Mandatory";
-      //errId = "ERROBJ185";
-      //errName = errId;
-
-      //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
-    //}
-
-  }
-  //--------------------------applicant level errors ends----------------------
-  
-  print("++++> Exiting function :: fn_Conditional_Mandatory_Errors");
-  print("");
-  
-}catch an Exception with {
-  aBlazeApplication.fn_ConditionalMandatoryErrorsException = true;  
-  print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");  
-}
+        //  print("**Error :: ###>> Stage Of Construction is mandatory <<###");
+        //  errType = "CONDMAND ";
+        //errText = "Stage Of Construction is mandatory";
+        //errId = "ERROBJ133";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+//gaurav
+        // if(rentalIncomeProgram is equal to unknown or rentalIncomeProgram="")  then {
+        //print("**Error :: ###>> Rental Income Program is mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Rental Income Method is mandatory";
+        //errId = "ERROBJ134";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+
+
+        //if(btLoanStartDate is equal to unknown)  then {
+        //print("**Error :: ###>> bt Loan Start Date is mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "bt Loan Start Date is mandatory";
+        //errId = "ERROBJ160";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+
+        //if(queryCategory is equal to unknown)  then {
+        //print("**Error :: ###>> Query Category is mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Query Category is mandatory";
+        //errId = "ERROBJ161";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+
+        // if(assignedRole is equal to unknown or assignedRole="")  then {
+        // print("**Error :: ###>> Assigned Role is mandatory <<###");
+        // errType = "CONDMAND ";
+        //errText = "Assigned Role is mandatory";
+        //errId = "ERROBJ162";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        // }
+
+        //if(queryDescription is equal to unknown or queryDescription="")  then {
+        //print("**Error :: ###>> Query Description is mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Query Description is mandatory";
+        //errId = "ERROBJ163";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+
+        //if(aBlazeApplication.loanBasicDetail.division is equal to unknown or division="")  then {
+        //print("**Error :: ###>> Division is mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Division is mandatory";
+        //errId = "ERROBJ105";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+
+        //if(productCategory is equal to unknown or productCategory="")  then {
+        //print("**Error :: ###>> Product Category is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Product Category is Mandatory";
+        //errId = "ERROBJ107";
+        //errName = errId;
+
+        // fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+
+        //if(numberOfInstallments is equal to unknown)  then {
+        //print("**Error :: ###>> Number Of Installments is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Number Of Installments is Mandatory";
+        //errId = "ERROBJ108";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+
+        //if(interestRateType is equal to unknown or interestRateType="")  then {
+        //print("**Error :: ###>> Interest Rate Type is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Interest Rate Type is Mandatory";
+        //errId = "ERROBJ109";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+        //if(baseRate is equal to unknown or baseRate="")  then {
+        //print("**Error :: ###>> Base Rate is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Base Rate is Mandatory";
+        //errId = "ERROBJ110";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+
+        //if(scheduleMethod is equal to unknown or scheduleMethod="")  then {
+        //print("**Error :: ###>> Schedule Method is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Schedule Method is Mandatory";
+        //errId = "ERROBJ113";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+
+        //if(interestFrequency is equal to unknown or interestFrequency="")  then {
+        //print("**Error :: ###>> Interest Frequency is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Interest Frequency is Mandatory";
+        //errId = "ERROBJ114";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+
+        //minInterestRate
+        // if(aBlazeApplication.loanBasicDetail.paymentDetails.minInterestRate is equal to unknown)  then {
+        // print("**Error :: ###>> Min Interest Rate is Mandatory <<###");
+        //errType = "CONDMAND ";
+        // errText = "Min Interest Rate is Mandatory";
+        //errId = "ERROBJ192";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+
+        //maxInterestRate
+        //if(aBlazeApplication.loanBasicDetail.paymentDetails.maxInterestRate is equal to unknown)  then {
+        //print("**Error :: ###>> Max Interest Rate is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Max Interest Rate is Mandatory";
+        //errId = "ERROBJ193";
+        //errName = errId;
+
+        // fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+
+        //finalLoanAmount
+        //if(aBlazeApplication.applicationAdditionalDetails.other.finalLoanAmount is equal to unknown or aBlazeApplication.applicationAdditionalDetails.other.finalLoanAmount="")  then {
+        //print("**Error :: ###>> Final Loan Amount is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Final Loan Amount is Mandatory";
+        //errId = "ERROBJ194";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+
+        //if(fixedRate is equal to unknown )  then {
+        //print("**Error :: ###>> Fixed Rate is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Fixed Rate is Mandatory";
+        //errId = "ERROBJ111";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+
+        //if(actualInterestRate is equal to unknown)  then {
+        //print("**Error :: ###>> Actual Interest Rate is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Actual Interest Rate is Mandatory";
+        //errId = "ERROBJ112";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+
+        //if(interestReviewFrequency is equal to unknown or interestReviewFrequency="")  then {
+        //print("**Error :: ###>> Actual Interest Rate is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Actual Interest Rate is Mandatory";
+        //errId = "ERROBJ112";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+
+        //if(scheduleMethod is equal to unknown or scheduleMethod="")  then {
+        //print("**Error :: ###>> Schedule Method is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Schedule Method is Mandatory";
+        //errId = "ERROBJ113";
+        //errName = errId;
+
+        // fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+
+//        if(interestFrequency is equal to unknown or interestFrequency="")  then {
+//        print("**Error :: ###>> Interest Frequency is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Interest Frequency is Mandatory";
+//        errId = "ERROBJ114";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//
+//        if(interestReviewFrequency is equal to unknown or interestReviewFrequency="")  then {
+//        print("**Error :: ###>> Interest Frequency is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Interest Review Frequency is Mandatory";
+//        errId = "ERROBJ115";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        if(paymentFrequency is equal to unknown)  then {
+//        print("**Error :: ###>> Payment Frequency is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Payment Frequency is Mandatory";
+//        errId = "ERROBJ116";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        if(nextInterestFreqDate is equal to unknown)  then {
+//        print("**Error :: ###>> Next Interest Freq Date is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Next Interest Freq Date is Mandatory";
+//        errId = "ERROBJ117";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//
+//        if(nextInterestReviewFreqDate is equal to unknown)  then {
+//        print("**Error :: ###>> Next Interest Review Freq Date is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Next Interest Review Freq Date is Mandatory";
+//        errId = "ERROBJ118";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//
+//        if(nextPaymentFreqDate is equal to unknown)  then {
+//        print("**Error :: ###>> Next Payment Freq Date is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Next Payment Freq Date is Mandatory";
+//        errId = "ERROBJ119";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//
+//        if(maturityDate is equal to unknown)  then {
+//        print("**Error :: ###>> Maturity Date is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Maturity Date is Mandatory";
+//        errId = "ERROBJ120";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //--------------------------application level errors ends----------------------
+//
+//
+//        //--------------------------applicant level errors starts------------------------
+//        for  each  BlazeApplicant  in  BTCommonVar.termInput.blazeApplication.blazeApplicantArray
+//        do{
+//        aBlazeApplicant  is  some  BlazeApplicant  initially  it  as  a  BlazeApplicant;
+//
+//        //-------------------applicant level array errors starts--------------------------
+//        for each EmploymentDetails in aBlazeApplicant.kycDetails.employmentDetails
+//        do{
+//        if(it.currentEmployer is equal to unknown or it.currentEmployer="") then {
+//        print("**Error :: ###>> Current Employer is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Current Employer is Mandatory";
+//        errId = "ERROBJ179";
+//        errName = errId;
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//
+//        if(it.kycEmploymentType is equal to unknown or it.kycEmploymentType="") then {
+//        print("**Error :: ###>> Kyc Employment Type is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Kyc Employment Type is Mandatory";
+//        errId = "ERROBJ178";
+//        errName = errId;
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        }
+//
+//        for each CustomerIds in aBlazeApplicant.kycDetails.customerIds
+//        do{
+//        if(it.customerCif is equal to unknown or it.customerCif="") then {
+//        print("**Error :: ###>> Customer Cif is mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Customer Cif is mandatory";
+//        errId = "ERROBJ016";
+//        errName = errId;
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//
+//        //  if(it.idType is equal to unknown or it.idType="") then {
+//        //  print("**Error :: ###>> Id Type is mandatory <<###");
+//        //errType = "CONDMAND ";
+//        //errText = "Id Type is mandatory";
+//        //errId = "ERROBJ017";
+//        //errName = errId;
+//        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        //}
+//
+//        if(it.issuedCountry is equal to unknown or it.issuedCountry="") then {
+//        print("**Error :: ###>> Issued Country is mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Issued Country is mandatory";
+//        errId = "ERROBJ018";
+//        errName = errId;
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        }
+        //-------------------applicant level array errors ends--------------------------
+
+       // addressOwnershipType is a string initially aBlazeApplicant.addressOwnershipType;
+       // subSector is a string initially aBlazeApplicant.subSector;
+       // dsaCode is a string initially aBlazeApplicant.dsaCode;
+
+        // grossAnnualRecieptsLatestYear
+//        grossAnnualRecieptsLatestYear is a real initially aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsLatestYear;
+//        grossAnnualRecieptsPreviousYear is a real initially aBlazeApplicant.applicantAdditionalDetails.sepEligibility.grossAnnualRecieptsPreviousYear;
+//        isGrowthSustainable is a boolean initially aBlazeApplicant.applicantAdditionalDetails.sepEligibility.isGrowthSustainable;
+//
+//        additionalMultiplier is a real initially aBlazeApplicant.applicantAdditionalDetails.sepEligibility.additionalMultiplier;
+//        additionalFoir is a real initially aBlazeApplicant.applicantAdditionalDetails.sepEligibility.additionalFoir;
+//        ccOdUtilization is a string initially aBlazeApplicant.applicantAdditionalDetails.senpRiskScoreEligibility.ccOdUtilization;
+//        debtEquityRatio is a real initially aBlazeApplicant.applicantAdditionalDetails.senpRiskScoreEligibility.debtEquityRatio;
+//
+//        abbEmiRatio is a real initially aBlazeApplicant.applicantAdditionalDetails.senpRiskScoreEligibility.abbEmiRatio;
+//        processBelowRiskCutOff is a string initially aBlazeApplicant.applicantAdditionalDetails.senpRiskScoreEligibility.processBelowRiskCutOff;
+//
+//        //SenpLatestYearEligibility
+//        turnover is a real initially aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.turnover;
+//        grossProfit is a real initially aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.grossProfit;
+//        netPbt is a real initially aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.netPbt;
+//        depreciation is a real initially aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.depreciation;
+//
+//        oneTimeIncome is a real initially aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.oneTimeIncome;
+//        oneTimeExpense is a real initially aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.oneTimeExpense;
+//        salaryPartner is a real initially aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.salaryPartner;
+//        interestPartner is a real initially aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.interestPartner;
+//
+//        interestRelative is a real initially aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.interestRelative;
+//        interestBank is a real initially aBlazeApplicant.applicantAdditionalDetails.senpLatestYearEligibility.interestBank;
+//
+//        //SenpGrowthPercentageEligibility
+//        isTurnoverGrowthSutainable is a boolean initially aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.isTurnoverGrowthSutainable;
+//        isGrossProfitGrowthSutainable is a boolean initially aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.isGrossProfitGrowthSutainable;
+//        isCashProfitGrowthSutainable is a boolean initially aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.isCashProfitGrowthSutainable;
+//
+//        inwardChequeReturnWithinNorms is a string initially aBlazeApplicant.applicantAdditionalDetails.additionalDetail.inwardChequeReturnWithinNorms;
+
+//        if(grossAnnualRecieptsLatestYear is equal to unknown) then {
+//        print("**Error :: ###>> Gross AnnualRecieptsLatestYearis mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Invalid Decision Point in Invocation";
+//        errId = "ERROBJ001";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//
+//        //grossAnnualRecieptsPreviousYear
+//        if(grossAnnualRecieptsPreviousYear is equal to unknown)  then {
+//        print("**Error :: ###>> Gross Annual Reciepts Previous Year is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Gross Annual Reciepts Previous Year is Mandatory";
+//        errId = "ERROBJ045";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //isGrowthSustainable
+//        if(isGrowthSustainable is equal to unknown)  then {
+//        print("**Error :: ###>> Is Gross Sustainable is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Is Gross Sustainable is Mandatory";
+//        errId = "ERROBJ046";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//
+//        //additionalMultiplier
+//        if(additionalMultiplier is equal to unknown)  then {
+//        print("**Error :: ###>> Additional Multiplier is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Additional Multiplier is Mandatory";
+//        errId = "ERROBJ047";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //additionalFoir
+//        if(additionalFoir is equal to unknown)  then {
+//        print("**Error :: ###>> Additional Foir is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Additional Foir is Mandatory";
+//        errId = "ERROBJ048";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //ccOdUtilization
+//        if(ccOdUtilization is equal to unknown or ccOdUtilization="")  then {
+//        print("**Error :: ###>> ccOd Utilization is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "ccOd Utilization is Mandatory";
+//        errId = "ERROBJ049";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //debtEquityRatio
+//        if(debtEquityRatio is equal to unknown)  then {
+//        print("**Error :: ###>> Debt Equity Ratio is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Debt Equity Ratio is Mandatory";
+//        errId = "ERROBJ050";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //abbEmiRatio
+//        if(abbEmiRatio is equal to unknown)  then {
+//        print("**Error :: ###>> abb Emi Ratio is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "abb Emi Ratio is Mandatory";
+//        errId = "ERROBJ051";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //processBelowRiskCutOff
+//        if(processBelowRiskCutOff is equal to unknown or processBelowRiskCutOff="")  then {
+//        print("**Error :: ###>> Process Below Risk Cut Off is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Process Below Risk Cut Off is Mandatory";
+//        errId = "ERROBJ052";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //SenpLatestYearEligibility
+//        //turnover
+//        if(turnover is equal to unknown)  then {
+//        print("**Error :: ###>> Turnover is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Turnover is Mandatory";
+//        errId = "ERROBJ053";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //grossProfit
+//        if(grossProfit is equal to unknown)  then {
+//        print("**Error :: ###>> Gross Profit is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Gross Profit is Mandatory";
+//        errId = "ERROBJ054";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //netPbt
+//        if(netPbt is equal to unknown)  then {
+//        print("**Error :: ###>> Net Pbt is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Net Pbt is Mandatory";
+//        errId = "ERROBJ055";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //depreciation
+//        if(depreciation is equal to unknown)  then {
+//        print("**Error :: ###>> Depreciation is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Depreciation is Mandatory";
+//        errId = "ERROBJ055";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//
+//        //salaryPartner
+//        if(salaryPartner is equal to unknown)  then {
+//        print("**Error :: ###>> Salary Partner is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Salary Partner is Mandatory";
+//        errId = "ERROBJ057";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //interestPartner
+//        if(interestPartner is equal to unknown)  then {
+//        print("**Error :: ###>> Interest Partner is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Interest Partner is Mandatory";
+//        errId = "ERROBJ058";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+        //interestRelative
+        //if(interestRelative is equal to unknown)  then {
+        //print("**Error :: ###>> Interest Relative is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Interest Relative is Mandatory";
+        //errId = "ERROBJ059";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        // }
+        //interestBank
+        //if(interestBank is equal to unknown)  then {
+        //print("**Error :: ###>> Interest Bank is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Interest Bank is Mandatory";
+        //errId = "ERROBJ060";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+
+        //oneTimeExpense
+//        if(oneTimeExpense is equal to unknown)  then {
+//        print("**Error :: ###>> One Time Expense is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "One Time Expense is Mandatory";
+//        errId = "ERROBJ061";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+        //oneTimeIncome
+        //if(oneTimeIncome is equal to unknown)  then {
+        //print("**Error :: ###>> One Time Income is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "One Time Income is Mandatory";
+        //errId = "ERROBJ062";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+
+        //SenpPreviousYearEligibility
+        //turnover
+//        if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.turnover is equal to unknown)  then {
+//        print("**Error :: ###>> Turnover is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Turnover is Mandatory";
+//        errId = "ERROBJ063";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //grossProfit
+//        if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.grossProfit is equal to unknown)  then {
+//        print("**Error :: ###>> Gross Profit is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Gross Profit is Mandatory";
+//        errId = "ERROBJ064";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //netPbt
+//        if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.netPbt is equal to unknown)  then {
+//        print("**Error :: ###>> Net Pbt is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Net Pbt is Mandatory";
+//        errId = "ERROBJ065";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //depreciation
+//        if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.depreciation is equal to unknown)  then {
+//        print("**Error :: ###>> Depreciation is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Depreciation is Mandatory";
+//        errId = "ERROBJ066";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//
+//
+//        //salaryPartner
+//        if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.salaryPartner is equal to unknown)  then {
+//        print("**Error :: ###>> Salary Partner is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Salary Partner is Mandatory";
+//        errId = "ERROBJ067";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //interestPartner
+//        if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.interestPartner is equal to unknown)  then {
+//        print("**Error :: ###>> Interest Partner is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Interest Partner is Mandatory";
+//        errId = "ERROBJ068";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //interestRelative
+//        if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.interestRelative is equal to unknown)  then {
+//        print("**Error :: ###>> Interest Relative is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Interest Relative is Mandatory";
+//        errId = "ERROBJ069";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //interestBank
+//        if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.interestBank is equal to unknown)  then {
+//        print("**Error :: ###>> Interest Bank is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Interest Bank is Mandatory";
+//        errId = "ERROBJ070";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+
+        //oneTimeExpense
+        // if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.oneTimeExpense is equal to unknown)  then {
+        // print("**Error :: ###>> One Time Expense is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "One Time Expense is Mandatory";
+        //errId = "ERROBJ071";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+        //oneTimeIncome
+//        if(aBlazeApplicant.applicantAdditionalDetails.senpPreviousYearEligibility.oneTimeIncome is equal to unknown)  then {
+//        print("**Error :: ###>> One Time Income is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "One Time Income is Mandatory";
+//        errId = "ERROBJ072";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //SenpGrowthPercentageEligibility
+//        //isTurnoverGrowthSutainable
+//        if(isTurnoverGrowthSutainable is equal to unknown)  then {
+//        print("**Error :: ###>> Is Turnover Growth Sutainable is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Is Turnover Growth Sutainable is Mandatory";
+//        errId = "ERROBJ073";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //isGrossProfitGrowthSutainable
+//        if(isGrossProfitGrowthSutainable is equal to unknown)  then {
+//        print("**Error :: ###>> Is Gross Profit Growth Sutainable is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Is Gross Profit Growth Sutainable is Mandatory";
+//        errId = "ERROBJ074";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //isCashProfitGrowthSutainable
+//        if(isCashProfitGrowthSutainable is equal to unknown)  then {
+//        print("**Error :: ###>> Is Cash Profit Growth Sutainable is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Is Cash Profit Growth Sutainable is Mandatory";
+//        errId = "ERROBJ075";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //OtherSenpInputEligibility
+//
+//        //industryMarginCRISIL
+//        if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.industryMarginCRISIL is equal to unknown)  then {
+//        print("**Error :: ###>> Industry Margin CRISIL is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Industry Margin CRISIL is Mandatory";
+//        errId = "ERROBJ076";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //annulisedSalaryDirector
+//        if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.annulisedSalaryDirector is equal to unknown)  then {
+//        print("**Error :: ###>> Annulised Salary Director is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Annulised Salary Director is Mandatory";
+//        errId = "ERROBJ077";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //avgMonthlyBalancePerfios
+//        if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.avgMonthlyBalancePerfios is equal to unknown)  then {
+//        print("**Error :: ###>> Avg Monthly Balance Perfios is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Avg Monthly Balance Perfios is Mandatory";
+//        errId = "ERROBJ078";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //maxAbbEmiRatioAllowed
+//        if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.maxAbbEmiRatioAllowed is equal to unknown)  then {
+//        print("**Error :: ###>> Max Abb Emi Ratio Allowed is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Max Abb Emi Ratio Allowed is Mandatory";
+//        errId = "ERROBJ079";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //additionalFoir
+//        if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.additionalFoir is equal to unknown)  then {
+//        print("**Error :: ###>> Additional Foir is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Additional Foir is Mandatory";
+//        errId = "ERROBJ080";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //overrideAbbEmiRatio
+//        if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.overrideAbbEmiRatio is equal to unknown or aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.overrideAbbEmiRatio="")  then {
+//        print("**Error :: ###>> Override Abb Emi Ratio is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Override Abb Emi Ratio is Mandatory";
+//        errId = "ERROBJ081";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //additionalGrossMargin
+//        if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.additionalGrossMargin is equal to unknown)  then {
+//        print("**Error :: ###>> Additional Gross Margin is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Additional Gross Margin is Mandatory";
+//        errId = "ERROBJ082";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //processBelowRiskCutOff
+//        if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.processBelowRiskCutOff is equal to unknown or aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.processBelowRiskCutOff="")  then {
+//        print("**Error :: ###>> Process Below Risk CutOff is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Process Below Risk CutOff is Mandatory";
+//        errId = "ERROBJ083";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //SalariedEligibility
+//
+//        //latestYearBonus
+//        if(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.latestYearBonus is equal to unknown)  then {
+//        print("**Error :: ###>> Latest Year Bonus is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Latest Year Bonus is Mandatory";
+//        errId = "ERROBJ084";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //previousYearBonus
+//        if(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.previousYearBonus is equal to unknown)  then {
+//        print("**Error :: ###>> Previous Year Bonus is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Previous Year Bonus is Mandatory";
+//        errId = "ERROBJ085";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+        //incentiveMonth1
+        //if(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth1 is equal to unknown)  then {
+        //print("**Error :: ###>> Incentive Month1 is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Incentive Month1 is Mandatory";
+        //errId = "ERROBJ086";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+        //incentiveMonth2
+        //if(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth2 is equal to unknown)  then {
+        //print("**Error :: ###>> Incentive Month2 is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Incentive Month2 is Mandatory";
+        //errId = "ERROBJ087";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+        //incentiveMonth3
+        //if(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth3 is equal to unknown)  then {
+        //print("**Error :: ###>> Incentive Month3 is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Incentive Month3 is Mandatory";
+        //errId = "ERROBJ088";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+        //incentiveMonth4
+        //if(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth4 is equal to unknown)  then {
+        //print("**Error :: ###>> Incentive Month4 is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Incentive Month4 is Mandatory";
+        //errId = "ERROBJ089";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+        //incentiveMonth5
+        //if(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth5 is equal to unknown)  then {
+        //print("**Error :: ###>> Incentive Month5 is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Incentive Month5 is Mandatory";
+        //errId = "ERROBJ090";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+        //incentiveMonth6
+        //if(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.incentiveMonth6 is equal to unknown)  then {
+        //print("**Error :: ###>> Incentive Month6 is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Incentive Month6 is Mandatory";
+        //errId = "ERROBJ091";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+        //additionalFoir
+//        if(aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.additionalFoir is equal to unknown)  then {
+//        print("**Error :: ###>> Industry Margin CRISIL is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Industry Margin CRISIL is Mandatory";
+//        errId = "ERROBJ092";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//        //processBelowRiskCutOff
+//        if(aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.processCaseRiskCutoff is equal to unknown or aBlazeApplicant.applicantAdditionalDetails.salariedEligibility.processCaseRiskCutoff="")  then {
+//        print("**Error :: ###>> Process Below Risk CutOff is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Process Below Risk CutOff is Mandatory";
+//        errId = "ERROBJ093";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+
+        //AdditionalDetail
+        //inwardChequeReturnWithinNorms
+        //if(inwardChequeReturnWithinNorms is equal to unknown or inwardChequeReturnWithinNorms="")  then {
+        //print("**Error :: ###>> Inward Cheque Return Within Norms is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "inwardChequeReturnWithinNorms is Mandatory";
+        //errId = "ERROBJ104";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        // }
+
+        //addressOwnershipType
+//        if(addressOwnershipType is equal to unknown or addressOwnershipType="")  then {
+//        print("**Error :: ###>> Address Ownership Type is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Address Ownership Type is Mandatory";
+//        errId = "ERROBJ175";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+
+        //subSector
+        //   if(subSector is equal to unknown or subSector="")  then {
+        //   print("**Error :: ###>> Sub Sector is Mandatory <<###");
+        // errType = "CONDMAND ";
+        //errText = "Sub Sector is Mandatory";
+        //errId = "ERROBJ176";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        // }*/
+
+        //totalWorkExperience
+//        if(aBlazeApplicant.applicantAdditionalDetails.customerSep.totalWorkExperience is equal to unknown)  then {
+//        print("**Error :: ###>> Total Work Experience is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Total Work Experience";
+//        errId = "ERROBJ180";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//
+//        //totalWorkExperience
+//        if(aBlazeApplicant.applicantAdditionalDetails.customerSenp.totalWorkExperience is equal to unknown)  then {
+//        print("**Error :: ###>> Total Work Experience is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Total Work Experience";
+//        errId = "ERROBJ181";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+
+        //dsaCode
+        //if(dsaCode is equal to unknown or dsaCode="")  then {
+        //print("**Error :: ###>> Dsa Code is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Dsa Code is Mandatory";
+        //errId = "ERROBJ177";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        // }
+        //grossTurnOver
+//        if(aBlazeApplicant.applicantAdditionalDetails.customerSelfEmployedProfesional.grossTurnOver is equal to unknown)  then {
+//        print("**Error :: ###>> Gross TurnOver is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Gross TurnOver is Mandatory";
+//        errId = "ERROBJ182";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//
+//        //profession
+//        if(aBlazeApplicant.applicantAdditionalDetails.customerSelfEmployedProfesional.profession is equal to unknown or aBlazeApplicant.applicantAdditionalDetails.customerSelfEmployedProfesional.profession="")  then {
+//        print("**Error :: ###>> Profession is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Profession is Mandatory";
+//        errId = "ERROBJ183";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+//
+//        //profession
+//        if(aBlazeApplicant.applicantAdditionalDetails.customerNonIndividual.profession is equal to unknown or aBlazeApplicant.applicantAdditionalDetails.customerNonIndividual.profession="")  then {
+//        print("**Error :: ###>> Profession is Mandatory <<###");
+//        errType = "CONDMAND ";
+//        errText = "Profession is Mandatory";
+//        errId = "ERROBJ184";
+//        errName = errId;
+//
+//        fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+//        }
+
+        //country
+        //if(aBlazeApplicant.applicantAdditionalDetails.poaHolderDetails.country is equal to unknown or aBlazeApplicant.applicantAdditionalDetails.poaHolderDetails.country="")  then {
+        //print("**Error :: ###>> Country is Mandatory <<###");
+        //errType = "CONDMAND ";
+        //errText = "Country is Mandatory";
+        //errId = "ERROBJ185";
+        //errName = errId;
+
+        //fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+        //}
+
+        //}
+        //--------------------------applicant level errors ends----------------------
+
+        print("++++> Exiting function :: fn_Conditional_Mandatory_Errors");
+        print("");
+
+        }catch an Exception with {
+        aBlazeApplication.fn_ConditionalMandatoryErrorsException = true;
+        print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");
+        }
 ]]></value>
  </instance>
  <instance ref='CommentsVH'>

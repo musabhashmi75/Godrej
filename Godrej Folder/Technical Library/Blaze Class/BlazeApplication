@@ -383,6 +383,30 @@
      <name>BL_CrifScorecardCheck</name>
      <type>boolean</type>
     </property>
+    <property>
+     <name>roiAsPerGrid</name>
+     <type>real</type>
+    </property>
+    <property>
+     <name>fn_Perfios_ABB_Dip_Expectation_Model</name>
+     <type>boolean</type>
+    </property>
+    <property>
+     <name>fn_Perfios_PoorBankingBehaviour</name>
+     <type>boolean</type>
+    </property>
+    <property>
+     <name>fn_Perfios_TransactionAnalytics</name>
+     <type>boolean</type>
+    </property>
+    <property>
+     <name>fn_Perfios_CustomerSupplierConcentration</name>
+     <type>boolean</type>
+    </property>
+    <property>
+     <name>fn_PerfiosMain</name>
+     <type>boolean</type>
+    </property>
    </properties>
    <initializer>cityCheck=false,<template:br/>isSingleSalariedApplicant=false,<template:br/>isSorp=false,<template:br/>isNonSorp=false</initializer>
   </class></template:content>

@@ -73,12 +73,9 @@
       <value>All_Entities1</value>
      </instance>
      <instance-selection ref='binding'>
-      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range' id='1QGkDS'>
-       <instance ref='value1'>
-        <value>539</value>
-       </instance>
-       <instance ref='value2'>
-        <value>636</value>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than or equal to' id='Ub0q0t'>
+       <instance ref='value'>
+        <value>637</value>
        </instance>
       </item>
      </instance-selection>
@@ -134,10 +131,10 @@
      <instance-selection ref='binding'>
       <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range' id='1QGkDS'>
        <instance ref='value1'>
-        <value>637</value>
+        <value>638</value>
        </instance>
        <instance ref='value2'>
-        <value>653</value>
+        <value>659</value>
        </instance>
       </item>
      </instance-selection>
@@ -193,10 +190,10 @@
      <instance-selection ref='binding'>
       <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range' id='1QGkDS'>
        <instance ref='value1'>
-        <value>654</value>
+        <value>660</value>
        </instance>
        <instance ref='value2'>
-        <value>668</value>
+        <value>671</value>
        </instance>
       </item>
      </instance-selection>
@@ -252,10 +249,10 @@
      <instance-selection ref='binding'>
       <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range' id='1QGkDS'>
        <instance ref='value1'>
-        <value>669</value>
+        <value>672</value>
        </instance>
        <instance ref='value2'>
-        <value>682</value>
+        <value>685</value>
        </instance>
       </item>
      </instance-selection>
@@ -311,10 +308,10 @@
      <instance-selection ref='binding'>
       <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range' id='1QGkDS'>
        <instance ref='value1'>
-        <value>683</value>
+        <value>686</value>
        </instance>
        <instance ref='value2'>
-        <value>701</value>
+        <value>706</value>
        </instance>
       </item>
      </instance-selection>
@@ -368,12 +365,9 @@
       <value>All_Entities1</value>
      </instance>
      <instance-selection ref='binding'>
-      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range' id='1QGkDS'>
-       <instance ref='value1'>
-        <value>702</value>
-       </instance>
-       <instance ref='value2'>
-        <value>753</value>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='UyQmaV'>
+       <instance ref='value'>
+        <value>707</value>
        </instance>
       </item>
      </instance-selection>

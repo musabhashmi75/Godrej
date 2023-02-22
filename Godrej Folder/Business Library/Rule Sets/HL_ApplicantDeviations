@@ -61,16 +61,169 @@
  </instance>
  <instance ref='rulesetInitialization'>
   <instance-list ref='newEntity'>
+   <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.New local entity template' id='5gmz5V'>
+    <instance ref='styleSheet'>
+    </instance>
+    <instance ref='comment'>
+     <value></value>
+    </instance>
+    <instance ref='entity'>
+     <value>Variable</value>
+    </instance>
+    <instance ref='name'>
+     <value>cibillScore</value>
+    </instance>
+    <instance ref='entitySrlType'>
+     <value>real</value>
+    </instance>
+    <instance ref='entityTemplateList'>
+     <value>QzixEYa1EHH8Jr6Fk8nhguBcZtu.New variable</value>
+    </instance>
+    <instance-selection ref='entityTemplate'>
+     <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.New variable' id='5jrac8'>
+      <instance ref='__ENTITY_PROPERTIES__VH__'>
+      </instance>
+      <instance ref='initialValue'>
+       <value>0</value>
+      </instance>
+     </item>
+    </instance-selection>
+   </item>
   </instance-list>
  </instance>
  <instance ref='initializationRule'>
   <instance ref='__ENTITY_PROPERTIES__VH__'>
   </instance>
   <instance ref='initializationAction'>
-   <value></value>
+   <value><![CDATA[print("___________________Entering HL_DEVIATION_RULESET____________________");
+if(aBlazeApplicant.applicantAdditionalDetails.cibil.score is known and aBlazeApplicant.applicantAdditionalDetails.cibil.score <>"")then{
+cibillScore =aBlazeApplicant.applicantAdditionalDetails.cibil.score as a real;
+}
+print("---->cibillScore ::"cibillScore);
+print("___________________Exiting HL_DEVIATION_RULESET____________________");]]></value>
   </instance>
  </instance>
  <instance-list ref='newRules'>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='52AfhW'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>FICO_HAA_ELE41</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Additional FOIR for Self Employed above 5% within 100%</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[],"subGroups":[{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SENP","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"additionalFoir","fqName":"aBlazeApplicant.applicantAdditionalDetails.otherSenpInputEligibility.additionalFoir","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"5","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"foirOfferedSENP","fqName":"aBlazeApplicant.foirOfferedSENP","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"100","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SEP","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"additionalFoir","fqName":"aBlazeApplicant.applicantAdditionalDetails.sepEligibility.additionalFoir","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"5","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"foirOfferedSEP","fqName":"aBlazeApplicant.foirOfferedSEP","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"100","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"}],"operator":"or","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="FICO_HAA_ELE41";
+responseDeviation.ruleName="FICO_HAA_ELE41";
+responseDeviation.ruleDescription="Additional FOIR for Self Employed above 5% within 100%";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Eligibility";
+responseDeviation.reasonText="Additional FOIR for Self Employed above 5% within 100%";
+responseDeviation.approvalLevel="L6,HL_CREDIT";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='ITD6vI'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>FICO_HAA_CP29</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Self-employed customers from Non-target Borrower Profiles</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"rag","fqName":"aBlazeApplicant.rag","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"RED","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="FICO_HAA_CP29";
+responseDeviation.ruleName="FICO_HAA_CP29";
+responseDeviation.ruleDescription="Self-employed customers from Non-target Borrower Profiles";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Client Profile";
+responseDeviation.reasonText="Borrower residing out of defined geo limits";
+responseDeviation.approvalLevel="L6,HL_CREDIT";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='OC4CJo'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>FICO_HAA_CP33</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Borrower residing out of defined geo limits for said location subject to positive FI</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"boolean","elements":[{"valueType":"boolean","name":"pinCodeServicability","fqName":"aBlazeApplicant.highPriorityAddress.pinCodeServicability","externalType":"boolean","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"boolean","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"boolean","elements":[{"valueType":"boolean","instValue":"false","voType":"boolean","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="FICO_HAA_CP33";
+responseDeviation.ruleName="FICO_HAA_CP33";
+responseDeviation.ruleDescription="Borrower residing out of defined geo limits for said location subject to positive FI";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Client Profile";
+responseDeviation.reasonText="Borrower residing out of defined geo limits";
+responseDeviation.approvalLevel="L6,HL_CREDIT";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
   <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='1hfs1g'>
    <instance ref='__ENTITY_PROPERTIES__VH__'>
    </instance>
@@ -409,7 +562,7 @@ message.response.responseDeviations.append(responseDeviation);</value>
    <instance ref='styleSheet'>
    </instance>
    <instance ref='ruleCondition'>
-    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"NON_WORKING","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"ageAtMaturity","fqName":"aBlazeApplicant.ageAtMaturity","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"80","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"NON-WORKING","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"ageAtMaturity","fqName":"aBlazeApplicant.ageAtMaturity","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"80","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
    </instance>
    <instance ref='ruleAction'>
     <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
@@ -540,46 +693,6 @@ responseDeviation.ruleDescription="Age on loan maturity considered above 63yrs u
 responseDeviation.ruleAction="DEVIATION";
 responseDeviation.ruleCategory="Client Profile";
 responseDeviation.reasonText="Age on loan maturity considered above 63yrs up to 65 yrs for Salaried borrower";
-responseDeviation.approvalLevel="L2,HL_CREDIT";
-responseDeviation.deviationType="Higher authority approval";
-responseDeviation.ruleLevel="";
-responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
-responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
-responseDeviation.accountNo="";
-responseDeviation.recommendationText="";
-
-message.response.responseDeviations.append(responseDeviation);</value>
-   </instance>
-  </item>
-  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='Q5SZVp'>
-   <instance ref='__ENTITY_PROPERTIES__VH__'>
-   </instance>
-   <instance ref='name'>
-    <value>FICO_HAA_CP30</value>
-   </instance>
-   <instance ref='startDate'>
-    <value></value>
-   </instance>
-   <instance ref='endDate'>
-    <value></value>
-   </instance>
-   <instance ref='comment'>
-    <value>Work Experience Norms not met for Salaried</value>
-   </instance>
-   <instance ref='styleSheet'>
-   </instance>
-   <instance ref='ruleCondition'>
-    <value>{"rootGroup":{"exprs":[],"subGroups":[{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SALARIED","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"kycEmploymentType","externalType":"string","ancestry":{"members":[{"name":"aBlazeApplicant"},{"name":"kycDetails"},{"name":"employmentDetails","index":0},{"name":"kycEmploymentType"}],"__meta_klass":"PA"},"__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SAL-CONT","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"integer","elements":[{"valueType":"integer","name":"totalWorkExperience","fqName":"aBlazeApplicant.applicantAdditionalDetails.customerSalaried.totalWorkExperience","externalType":"integer","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"integer","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"5","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SALARIED","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"kycEmploymentType","externalType":"string","ancestry":{"members":[{"name":"aBlazeApplicant"},{"name":"kycDetails"},{"name":"employmentDetails","index":0},{"name":"kycEmploymentType"}],"__meta_klass":"PA"},"__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SAL-PERM","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"integer","elements":[{"valueType":"integer","name":"totalWorkExperience","fqName":"aBlazeApplicant.applicantAdditionalDetails.customerSalaried.totalWorkExperience","externalType":"integer","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"integer","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"2","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"}],"operator":"or","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
-   </instance>
-   <instance ref='ruleAction'>
-    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
-
-responseDeviation.ruleId="FICO_HAA_CP30";
-responseDeviation.ruleName="FICO_HAA_CP30";
-responseDeviation.ruleDescription="Work Experience Norms not met for Salaried";
-responseDeviation.ruleAction="DEVIATION";
-responseDeviation.ruleCategory="Client Profile";
-responseDeviation.reasonText="Work Experience Norms not met for Salaried";
 responseDeviation.approvalLevel="L2,HL_CREDIT";
 responseDeviation.deviationType="Higher authority approval";
 responseDeviation.ruleLevel="";
@@ -951,86 +1064,6 @@ responseDeviation.recommendationText="";
 message.response.responseDeviations.append(responseDeviation);</value>
    </instance>
   </item>
-  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='FeTLRt'>
-   <instance ref='__ENTITY_PROPERTIES__VH__'>
-   </instance>
-   <instance ref='name'>
-    <value>FICO_HAA_CP32</value>
-   </instance>
-   <instance ref='startDate'>
-    <value></value>
-   </instance>
-   <instance ref='endDate'>
-    <value></value>
-   </instance>
-   <instance ref='comment'>
-    <value>Business Continuity Norms not met for Self Employed (Less than 3 Years)</value>
-   </instance>
-   <instance ref='styleSheet'>
-   </instance>
-   <instance ref='ruleCondition'>
-    <value>{"rootGroup":{"exprs":[],"subGroups":[{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SEP","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"integer","elements":[{"valueType":"integer","name":"totalWorkExperience","fqName":"aBlazeApplicant.applicantAdditionalDetails.customerSep.totalWorkExperience","externalType":"integer","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"integer","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"3","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SENP","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"integer","elements":[{"valueType":"integer","name":"totalWorkExperience","fqName":"aBlazeApplicant.applicantAdditionalDetails.customerSenp.totalWorkExperience","externalType":"integer","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"integer","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"3","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"}],"operator":"or","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
-   </instance>
-   <instance ref='ruleAction'>
-    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
-
-responseDeviation.ruleId="FICO_HAA_CP32";
-responseDeviation.ruleName="FICO_HAA_CP32";
-responseDeviation.ruleDescription="Business Continuity Norms not met for Self Employed (Less than 3 Years)";
-responseDeviation.ruleAction="DEVIATION";
-responseDeviation.ruleCategory="Bureau";
-responseDeviation.reasonText="Business Continuity Norms not met for Self Employed (Less than 3 Years)";
-responseDeviation.approvalLevel="L6,HL_CREDIT";
-responseDeviation.deviationType="Higher authority approval";
-responseDeviation.ruleLevel="";
-responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
-responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
-responseDeviation.accountNo="";
-responseDeviation.recommendationText="";
-
-message.response.responseDeviations.append(responseDeviation);</value>
-   </instance>
-  </item>
-  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='6UoVyG'>
-   <instance ref='__ENTITY_PROPERTIES__VH__'>
-   </instance>
-   <instance ref='name'>
-    <value>FICO_HAA_CP31</value>
-   </instance>
-   <instance ref='startDate'>
-    <value></value>
-   </instance>
-   <instance ref='endDate'>
-    <value></value>
-   </instance>
-   <instance ref='comment'>
-    <value>Business Continuity Norms not met for Self Employed (3-7 Years) </value>
-   </instance>
-   <instance ref='styleSheet'>
-   </instance>
-   <instance ref='ruleCondition'>
-    <value>{"rootGroup":{"exprs":[],"subGroups":[{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SEP","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"integer","elements":[{"valueType":"integer","name":"totalWorkExperience","fqName":"aBlazeApplicant.applicantAdditionalDetails.customerSep.totalWorkExperience","externalType":"integer","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"integer","__meta_klass":"Expr"},{"opValue":"is larger than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"3","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"integer","elements":[{"valueType":"integer","name":"totalWorkExperience","fqName":"aBlazeApplicant.applicantAdditionalDetails.customerSep.totalWorkExperience","externalType":"integer","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"integer","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"7","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SENP","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"integer","elements":[{"valueType":"integer","name":"totalWorkExperience","fqName":"aBlazeApplicant.applicantAdditionalDetails.customerSenp.totalWorkExperience","externalType":"integer","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"integer","__meta_klass":"Expr"},{"opValue":"is larger than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"3","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"integer","elements":[{"valueType":"integer","name":"totalWorkExperience","fqName":"aBlazeApplicant.applicantAdditionalDetails.customerSenp.totalWorkExperience","externalType":"integer","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"integer","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"7","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"}],"operator":"or","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
-   </instance>
-   <instance ref='ruleAction'>
-    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
-
-responseDeviation.ruleId="FICO_HAA_CP31";
-responseDeviation.ruleName="FICO_HAA_CP31";
-responseDeviation.ruleDescription="Business Continuity Norms not met for Self Employed (3-5 Years)";
-responseDeviation.ruleAction="DEVIATION";
-responseDeviation.ruleCategory="Bureau";
-responseDeviation.reasonText="Business Continuity Norms not met for Self Employed (3-5 Years)";
-responseDeviation.approvalLevel="L3,HL_CREDIT";
-responseDeviation.deviationType="Higher authority approval";
-responseDeviation.ruleLevel="";
-responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
-responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
-responseDeviation.accountNo="";
-responseDeviation.recommendationText="";
-
-message.response.responseDeviations.append(responseDeviation);</value>
-   </instance>
-  </item>
   <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='N8PPKg'>
    <instance ref='__ENTITY_PROPERTIES__VH__'>
    </instance>
@@ -1049,7 +1082,7 @@ message.response.responseDeviations.append(responseDeviation);</value>
    <instance ref='styleSheet'>
    </instance>
    <instance ref='ruleCondition'>
-    <value>{"rootGroup":{"exprs":[],"subGroups":[{"exprs":[],"disposeWhenEmpty":true,"subGroups":[{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"customerCategory","fqName":"aBlazeApplicant.customerCategory","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"CORP","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"score","fqName":"aBlazeApplicant.applicantAdditionalDetails.cibil.score","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is less than","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"675","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"score","fqName":"aBlazeApplicant.applicantAdditionalDetails.cibil.score","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is greater than or equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"0","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"customerCategory","fqName":"aBlazeApplicant.customerCategory","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"RETAIL","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"score","fqName":"aBlazeApplicant.applicantAdditionalDetails.cibil.score","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is less than","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"675","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"score","fqName":"aBlazeApplicant.applicantAdditionalDetails.cibil.score","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is greater than or equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"0","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is not equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"Non-Working","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"}],"operator":"or","__meta_klass":"ConditionGroup"}],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+    <value>{"rootGroup":{"exprs":[],"subGroups":[{"exprs":[],"disposeWhenEmpty":true,"subGroups":[{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"customerCategory","fqName":"aBlazeApplicant.customerCategory","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"CORP","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"cibillScore","fqName":"cibillScore","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"675","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"cibillScore","fqName":"cibillScore","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"0","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"customerCategory","fqName":"aBlazeApplicant.customerCategory","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"RETAIL","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is not equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"Non-Working","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"cibillScore","fqName":"cibillScore","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"675","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"cibillScore","fqName":"cibillScore","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"0","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"}],"operator":"or","__meta_klass":"ConditionGroup"}],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
    </instance>
    <instance ref='ruleAction'>
     <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
@@ -1169,7 +1202,7 @@ message.response.responseDeviations.append(responseDeviation);</value>
    <instance ref='styleSheet'>
    </instance>
    <instance ref='ruleCondition'>
-    <value>{"rootGroup":{"exprs":[],"subGroups":[{"exprs":[],"disposeWhenEmpty":true,"subGroups":[{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"customerCategory","fqName":"aBlazeApplicant.customerCategory","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"CORP","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"score","fqName":"aBlazeApplicant.applicantAdditionalDetails.cibil.score","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is less than","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"700","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"score","fqName":"aBlazeApplicant.applicantAdditionalDetails.cibil.score","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is greater than or equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"675","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"customerCategory","fqName":"aBlazeApplicant.customerCategory","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"RETAIL","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"score","fqName":"aBlazeApplicant.applicantAdditionalDetails.cibil.score","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is less than","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"700","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"score","fqName":"aBlazeApplicant.applicantAdditionalDetails.cibil.score","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is greater than or equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"675","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is not equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"Non-Working","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"}],"operator":"or","__meta_klass":"ConditionGroup"}],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+    <value>{"rootGroup":{"exprs":[],"subGroups":[{"exprs":[],"disposeWhenEmpty":true,"subGroups":[{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"customerCategory","fqName":"aBlazeApplicant.customerCategory","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"CORP","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"cibillScore","fqName":"cibillScore","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"700","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"cibillScore","fqName":"cibillScore","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"675","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"customerCategory","fqName":"aBlazeApplicant.customerCategory","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"RETAIL","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is not equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"Non-Working","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"cibillScore","fqName":"cibillScore","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is larger than or equal to","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"675","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"real","elements":[{"valueType":"real","name":"cibillScore","fqName":"cibillScore","externalType":"real","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"real","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"700","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"}],"operator":"or","__meta_klass":"ConditionGroup"}],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
    </instance>
    <instance ref='ruleAction'>
     <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;

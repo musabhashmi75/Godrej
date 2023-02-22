@@ -267,14 +267,7 @@ try {
 
           if(Account.isCreditCard = true and Account.isSettled = true)  then  {
             ccOverDueAmount  =  ccOverDueAmount  +  Account.amountOverdue;
-          }
-		  
-																	  
-														
-									   
-																   
-		   
-														
+          }								
           print("------------------------------------Derog For Individual Account Starts-----------------------------------------");
 		  
 	if(aBlazeApplicant.bureauScore is known and aBlazeApplicant.bureauScore >0)then{	
@@ -289,14 +282,11 @@ try {
 	if(Account.lastPaymentDate is known)then{
 	dateOfLastPayment =Account.lastPaymentDate;
 	}
-	print("--->dateOfLastPayment ::"dateOfLastPayment);
-	
-									   
-	print("---->dateProcessed.subtractInMonths(dateOfLastPayment).months ::"dateProcessed.subtractInMonths(dateOfLastPayment).months);
-  
-	  
+	print("--->dateOfLastPayment ::"dateOfLastPayment);	
+ 
 	isPaidInL36M is a boolean initially false;
 	if(dateProcessed is known and dateOfLastPayment is known and dateProcessed.subtractInMonths(dateOfLastPayment).months<=36)then{
+      print("---->dateProcessed.subtractInMonths(dateOfLastPayment).months ::"dateProcessed.subtractInMonths(dateOfLastPayment).months);
 	isPaidInL36M =true;
 	}
 	
@@ -389,10 +379,16 @@ try {
              // Non-CC Accounts       
              if(Account.dateClosed = unknown and Account.lastPaymentDate <> unknown) then {
                
-               if(Account.currentDate.subtractInMonths(Account.lastPaymentDate).months <= 24 
-                  and Account.isSettled = true) then {           
-                 
-                 monthsCounterLocal  is  a  integer  initially  0;           
+               if(Account.currentDate.subtractInMonths(Account.lastPaymentDate).months <= 24 and Account.isSettled = true) then {           
+		
+		monthsCounterLocal  is  an  integer  initially  1;
+		print("---->Account.paymentHistoryStartDate ::"Account.paymentHistoryStartDate);
+		print("---->Account.currentDate ::"Account.currentDate);
+		if(Account.paymentHistoryStartDate is known and Account.currentDate is known)then{
+			monthsCounterLocal =Account.currentDate.subtractInMonths(Account.paymentHistoryStartDate).months;
+            monthsCounterLocal =monthsCounterLocal+1;
+		}
+		print("---->Derived monthsCounterLocal ::"monthsCounterLocal);
                  // 90 dpd ever logic
                  for  each  BlazePaymentHistory  in    Account.blazePaymentHistoryArray do {             
                    PaymentHistory  is  some  BlazePaymentHistory  initially  it  as  a  BlazePaymentHistory;             

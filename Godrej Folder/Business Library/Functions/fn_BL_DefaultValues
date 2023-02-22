@@ -230,7 +230,8 @@ try {
 	 aBlazeApplicant.countOf30PlusNonCCAcctLast24m=0;
 	 aBlazeApplicant.totalSumOf30PlusLast24m =0;
 	 aBlazeApplicant.sumOf30PlusCCAcctLast24m=0;
-	 aBlazeApplicant.sumOf30PlusCCAcctLast24m=0;
+     aBlazeApplicant.sumOf30PlusNonCCAcctLast24m=0;
+	 aBlazeApplicant.totalSumOf30PlusLast24m=0;
 	 aBlazeApplicant.totalCountwrittenOff_Settled=0;
 	 aBlazeApplicant.countOfwrittenOff_SettledCC=0;
 	 aBlazeApplicant.countOfwrittenOff_SettledNonCC=0;

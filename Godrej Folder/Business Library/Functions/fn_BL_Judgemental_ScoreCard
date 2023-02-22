@@ -60,6 +60,7 @@
 print("++++> Entering function :: fn_BL_Judgemental_ScoreCard");
 
 aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+productCode is a string initially message1.invocation.applicationNumber;
 print("---->aBlazeApplication ::"
     aBlazeApplication);
 try {
@@ -417,17 +418,26 @@ try {
                 print("---->aBlazeApplicant.CRIF_score ::"aBlazeApplicant.CRIF_score);
 				print("---->scoreCardDetail1.scorecardScore ::"scoreCardDetail.scorecardScore);
                 print("---->scoreCardDetail1.scorecardScore1 ::"scoreCardDetail1.scorecardScore);
-                  
+
 				if(isCrif)then{
 					aBlazeApplication.riskSegment = BL_Judgemental_Score(scoreCardDetail1.scorecardScore);
 				}
 				else if(isCrif =false)then{
 					aBlazeApplication.riskSegment = BL_Judgemental_Score(scoreCardDetail.scorecardScore);
 				}
-				
                 print("aBlazeApplication.riskSegment  (total) ::"aBlazeApplication.riskSegment);
                 message1.request.application.loanBasicDetail.keyDetails.stepLoan = aBlazeApplication.riskSegment;
-
+                aBlazeApplication.roiAsPerGrid =BL_Judgemnetal_Based_ROI(aBlazeApplication.riskSegment);
+                print("---->aBlazeApplication.roiAsPerGrid ::"aBlazeApplication.roiAsPerGrid);
+                 
+                  print("---->message1.request.application.applicationAdditionalDetails.finalOffer.ROINTR ::"message1.request.application.applicationAdditionalDetails.finalOffer.ROINTR);
+                  print("---->aBlazeApplication.loanBasicDetail.paymentDetails.baseRate ::"aBlazeApplication.loanBasicDetail.paymentDetails.baseRate);
+                if(aBlazeApplication.loanBasicDetail.paymentDetails.baseRate = unknown or aBlazeApplication.loanBasicDetail.paymentDetails.baseRate="")then{
+                  aBlazeApplication.loanBasicDetail.paymentDetails.baseRate =aBlazeApplication.roiAsPerGrid as a string;
+                  aBlazeApplication.applicationAdditionalDetails.finalOffer.ROINTR =aBlazeApplication.roiAsPerGrid;
+                }
+                  print("---->message1.request.application.applicationAdditionalDetails.finalOffer.ROINTR ::"message1.request.application.applicationAdditionalDetails.finalOffer.ROINTR);
+                  print("---->aBlazeApplication.loanBasicDetail.paymentDetails.baseRate ::"aBlazeApplication.loanBasicDetail.paymentDetails.baseRate);
             }
         }
     }

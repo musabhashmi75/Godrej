@@ -95,7 +95,7 @@
      <instance-selection ref='binding'>
       <item template='6wJBDnNMEpPfdP4wizmesDxkko8.Return' id='XEmk3U'>
        <instance ref='value'>
-        <value>4</value>
+        <value>3.5</value>
        </instance>
       </item>
      </instance-selection>
@@ -151,7 +151,7 @@
      <instance-selection ref='binding'>
       <item template='6wJBDnNMEpPfdP4wizmesDxkko8.Return' id='AZV7nw'>
        <instance ref='value'>
-        <value>3.5</value>
+        <value>3</value>
        </instance>
       </item>
      </instance-selection>
@@ -207,7 +207,7 @@
      <instance-selection ref='binding'>
       <item template='6wJBDnNMEpPfdP4wizmesDxkko8.Return' id='80sxLM'>
        <instance ref='value'>
-        <value>3</value>
+        <value>2</value>
        </instance>
       </item>
      </instance-selection>

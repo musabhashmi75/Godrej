@@ -157,6 +157,16 @@ if(aBlazeApplication.businessErrorsFlag = false) then {
       calculatedVariable36.fieldValue ="";
     calculatedVariablesArray.append(calculatedVariable36);
     
+      calculatedVariable37 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable37.fieldName = "ROI_As_Per_Grid";
+      calculatedVariable37.fieldType = "String";
+      calculatedVariable37.productCode = productCode; 
+      calculatedVariable37.entityId = applicationNumber;
+      calculatedVariable37.entityType = "Application";
+      calculatedVariable37.purpose = "AutoPopulate";
+      calculatedVariable37.fieldValue =aBlazeApplication.roiAsPerGrid as a string;
+    calculatedVariablesArray.append(calculatedVariable37);
+    
      //----------------------------------------------------BL Calculated Variables Ends --------------------------------------------------
   }
    else{ 
@@ -444,7 +454,24 @@ if(aBlazeApplication.businessErrorsFlag = false) then {
       } else {
         calculatedVariable11.fieldValue = "-1";
       }
-      calculatedVariablesArray.append(calculatedVariable11);      
+      calculatedVariablesArray.append(calculatedVariable11);
+      
+      
+       calculatedVariable32 is some CalculatedVariable initially a CalculatedVariable;
+      calculatedVariable32.fieldName = "percentageOfDelqAcc";
+      calculatedVariable32.fieldType = "Double";    
+      calculatedVariable32.productCode = productCode;
+      calculatedVariable32.entityId = customerCIF;
+      calculatedVariable32.entityType = applicantType;
+      calculatedVariable32.purpose = "AutoPopulate";
+      if(aBlazeApplicant.percentageOfDelqAcc <> unknown) then {
+        value  is some BigDecimal initially BigDecimal.newInstance(aBlazeApplicant.percentageOfDelqAcc);
+        calculatedVariable32.fieldValue = fn_DecimalNumberPrecision(value as a string, precision);  
+      } else {
+        calculatedVariable32.fieldValue = "-1";
+      }
+      calculatedVariablesArray.append(calculatedVariable32);
+      
     } 
     // ----------------------------------------------------applicant level variables ends---------------------------------------------------
     

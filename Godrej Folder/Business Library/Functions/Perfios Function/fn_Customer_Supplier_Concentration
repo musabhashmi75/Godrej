@@ -1,0 +1,455 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_Perfios_CustomerSupplierConcentration'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_Customer_Supplier_Concentration1</value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_Perfios_CustomerSupplierConcentration</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("");
+print("++++> Entering function :: fn_Customer_Supplier_Concentration");
+
+aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+applicantId is a string;
+applicantType is a string;
+//aBlazeApplicant is some BlazeApplicant initially a BlazeApplicant;
+applicantId = aBlazeApplicant.customerCif as a string;
+applicantType = aBlazeApplicant.applicantType; 
+productCode is a string;
+productCode = message.invocation.decisionService;
+try{
+	print("aBlazeApplication.businessErrorsFlag---------------> "aBlazeApplication.businessErrorsFlag);
+	
+	if(aBlazeApplication.businessErrorsFlag = false) then{
+	//Creating BlazeAccountAnalysis Object before Account Loop because AccountAnalysis Array always have one Element(object)
+	blazeAccountAnalysis is some BlazeAccountAnalysis initially a BlazeAccountAnalysis;
+	
+	//Entering AccountAnalysis LOOP
+	for each AccountAnalysis in perfiosData.data.accountAnalysis
+	do{
+	print("---------------------Enter in AccountAnalysis loop---------------------");
+	//AccountAnalysis Object
+	AccountAnalysis is some AccountAnalysis initially it as a AccountAnalysis;
+	
+	//Creating BlazeCreditors LocalArray to later append it on global one
+	blazeCreditorsTempArr is some array of BlazeCreditor initially an array of BlazeCreditor;
+	blazeDebtorTempArr is some array of BlazeDebtor initially an array of BlazeDebtor;
+	
+	//Entering Loop for Top10PaymentsmadeMonthwise
+	for each Top10PaymentsmadeMonthwise in it.top10PaymentsmadeMonthwise such that (it<>null or it<>unknown)
+	do{
+		print("---------------------Enter in Top10PaymentsmadeMonthwise loop---------------------");
+		//Creating Top10PaymentsmadeMonthwise literative object for loop
+		aTop10PaymentsmadeMonthwise is some Top10PaymentsmadeMonthwise initially it as a Top10PaymentsmadeMonthwise;
+		
+		//Creating BlazeCreditors local object inside the loop to append it on localArray and then initialising it again
+		blazeCreditorsObj is some BlazeCreditor initially a BlazeCreditor;
+   
+		//Creating a flag that specifies if the party name has appeared for the first time in loop or has been appeared before
+		isRepeated is a boolean initially false;
+		
+		//Check to trigger for first loop in which blazeCreditorsTempArr will be initialised with its first object
+		if(blazeCreditorsTempArr is null or blazeCreditorsTempArr is unknown or blazeCreditorsTempArr is unavailable)then{
+			blazeCreditorsObj.party =aTop10PaymentsmadeMonthwise.party;
+			blazeCreditorsObj.amount =aTop10PaymentsmadeMonthwise.amount;
+		}
+		//else condition will be triggered for every single loop except for the first one where initilisation happens for array
+		else{
+			
+			//initialising a counter for while loop which gives index to blazeCreditorsTempArr inside the loop
+			counter is an integer initially 0;
+			
+			//Entering while loop to check if the party name has appeared before or not
+			print("---->counter ::"counter);
+			print("---->blazeCreditorsTempArr.count ::"blazeCreditorsTempArr.count);
+			while (counter<blazeCreditorsTempArr.count)
+				do{
+                  print("blazeCreditorsTempArr.count----------------------"blazeCreditorsTempArr.count);
+					if(aTop10PaymentsmadeMonthwise.party =blazeCreditorsTempArr[counter].party)then{
+						blazeCreditorsTempArr[counter].amount =blazeCreditorsTempArr[counter].amount +aTop10PaymentsmadeMonthwise.amount;
+						isRepeated =true;
+					}
+					counter = counter +1;
+				}
+			//Exiting while loop
+			
+			//if the party name is repeated then flag will be true and condition wont be triggered 
+			if(isRepeated =false)then{
+				blazeCreditorsObj.party =aTop10PaymentsmadeMonthwise.party;
+				blazeCreditorsObj.amount =aTop10PaymentsmadeMonthwise.amount;
+			}
+		}
+		
+		//if the party name is repeated the object wont be appended to the array as there is already an object in the array with the same party name
+		if(isRepeated =false)then{
+			blazeCreditorsTempArr.append(blazeCreditorsObj);
+		}
+		
+			//Appending temporary blazeCreditorsArray to Global blazeCreditorsArray
+			if(blazeCreditorsTempArr is not equal to null and blazeCreditorsTempArr is not unknown) then {
+		blazeAccountAnalysis.blazeCreditorsArray = blazeCreditorsTempArr;
+		} else {
+			print("----> blazePaymentHistoryObj is null");
+		}
+
+	}
+      	print("---------------------Exit in Top10PaymentsmadeMonthwise loop---------------------");
+		//+++++++++++++++++++++++++++++++++++++++Debtor Concentration Logic++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+		
+		//entering loop of top10PaymentsReceivedMonthwise
+		for each Top10PaymentsReceivedMonthwise in it.top10PaymentsReceivedMonthwise such that (it<>null or it<>unknown)
+	do{
+      print("---------------------Enter in Top10PaymentsReceivedMonthwise loop---------------------");
+		//Creating Top10PaymentsReceivedMonthwise literative object for loop
+		aTop10PaymentsReceivedMonthwise is some Top10PaymentsReceivedMonthwise initially it as a Top10PaymentsReceivedMonthwise;
+		
+		//Creating BlazeCreditors local object inside the loop to append it on localArray and then initialising it again
+		blazeDebtorObj is some BlazeDebtor initially a BlazeDebtor;
+		
+		//Creating a flag that specifies if the party name has appeared for the first time in loop or has been appeared before
+		isRepeated is a boolean initially false;
+		
+		//Check to trigger for first loop in which blazeDebtorTempArr will be initialised with its first object
+		if(blazeDebtorTempArr is null or blazeDebtorTempArr is unknown or blazeDebtorTempArr is unavailable)then{
+			blazeDebtorObj.party =aTop10PaymentsReceivedMonthwise.party;
+			blazeDebtorObj.amount =aTop10PaymentsReceivedMonthwise.amount;
+		}
+		//else condition will be triggered for every single loop except for the first one where initilisation happens for array
+		else{
+			
+			//initialising a counter for while loop which gives index to blazeDebtorTempArr inside the loop
+			counter1 is an integer initially 0;
+			
+			//Entering while loop to check if the party name has appeared before or not
+			while (counter1<+blazeDebtorTempArr.count)
+				do{
+					if(aTop10PaymentsReceivedMonthwise.party =blazeDebtorTempArr[counter1].party)then{
+						blazeDebtorTempArr[counter1].amount =blazeDebtorTempArr[counter1].amount +aTop10PaymentsReceivedMonthwise.amount;
+						isRepeated =true;
+					}
+					counter1 = counter1+1;
+				}
+			//Exiting while loop
+			
+			//if the party name is repeated then flag will be true and condition wont be triggered 
+			if(isRepeated =false)then{
+				blazeDebtorObj.party =aTop10PaymentsReceivedMonthwise.party;
+				blazeDebtorObj.amount =aTop10PaymentsReceivedMonthwise.amount;
+			}
+		}
+		
+		//if the party name is repeated the object wont be appended to the array as there is already an object in the array with the same party name
+		if(isRepeated =false)then{
+			blazeDebtorTempArr.append(blazeDebtorObj);
+		}
+				//Appending temporary blazeCreditorsArray to Global blazeCreditorsArray
+				if(blazeDebtorTempArr is not equal to null and blazeDebtorTempArr is not unknown) then {
+		blazeAccountAnalysis.blazeDebtorsArray = blazeDebtorTempArr;
+	} else {
+		print("----> blazePaymentHistoryObj is null");
+	}
+        print("---------------------Exit in Top10PaymentsReceivedMonthwise loop---------------------");
+	}
+	
+	
+	print("---------------------Exit in AccountAnalysis loop---------------------");
+	}
+	
+	
+	
+	//initilsing a buffer month variable that will find out the number of extra month present in array -months other than last 12Months
+	bufferMonthCounter is an integer initially 0;
+	
+	//initialising a variable to sum of TotalBusinessDebitTxnsinL12M
+	sumOfTotalBusinessDebitTxnsinL12M is a real initially 0;
+	
+	//initialising a variable to sum of TotalBusinessCreditTxnsinL12M
+	sumOfTotalBusinessCreditTxnsinL12M is a real initially 0;
+	
+	
+	//initialising a variable to sum of totalCashWithdrawalsInL12M
+	sumOfTotalCashWithdrawalsInL12M is a real initially 0;
+	
+	//initialising a variable to sum of totalCashWithdrawalsInL12M
+	sumOfTotalCashDepositInL12M is a real initially 0;
+	
+	//Declaring variable to store Net Debit Amount
+	netDebitAmount is a real;
+  
+  //Declaring variable to store Net Credit Amount
+	netCreditAmount is a real;
+	
+	//Initialising a variable to iterate through months in MonthlyData1 and MonthlyDetails
+	monthsCounterLocal is an integer initially 0;
+	
+	//Checking if the monthlyData1 is available or not
+	if(perfiosData.data.additionalMonthlyDetails.monthlyData1 is known and perfiosData.data.additionalMonthlyDetails.monthlyData1 is not null)then{
+		
+		//Calculating buffer months
+		bufferMonthCounter =perfiosData.data.additionalMonthlyDetails.monthlyData1.count -12;
+		if(bufferMonthCounter<0)then{bufferMonthCounter =0};
+		
+
+		
+		//Entering Loop for MonthlyData1
+		for each MonthlyData1 in perfiosData.data.additionalMonthlyDetails.monthlyData1
+		do{
+			//initialising MonthlyData1 object
+			aMonthlyData1 is some MonthlyData1 initially it as a MonthlyData1;
+			
+			//skipping buffer months
+			if(monthsCounterLocal>=bufferMonthCounter)then{
+				
+				//Adding all totalBusinessDebitTxns to a single variable
+				sumOfTotalBusinessDebitTxnsinL12M =sumOfTotalBusinessDebitTxnsinL12M +aMonthlyData1.totalBusinessDebitTxns;
+				sumOfTotalBusinessCreditTxnsinL12M =sumOfTotalBusinessCreditTxnsinL12M +aMonthlyData1.totalBusinessCreditTxns;	
+			}
+			
+			//Incrementing months
+			monthsCounterLocal =monthsCounterLocal+1;
+		}
+		//Exiting Loop for MonthlyData1
+	}
+	
+	//Reinitialising buffer month variable to use it for another loop
+	bufferMonthCounter =0;
+  	 //Reinitialising monthCounter
+    monthsCounterLocal =0;
+	
+	//Checking if the accountAnalysis and monthlyDetails are available or not
+	if(perfiosData.data.accountAnalysis is known and perfiosData.data.accountAnalysis is not null and 
+	perfiosData.data.accountAnalysis[0].monthlyDetails is known and perfiosData.data.accountAnalysis[0].monthlyDetails is not null)then{
+      
+		//Calculating buffer months
+		bufferMonthCounter =perfiosData.data.accountAnalysis[0].monthlyDetails.count -12;
+      
+		if(bufferMonthCounter<0)then{bufferMonthCounter =0}
+		
+		//Entering Loop for MonthlyDetails
+		for each MonthlyDetail in perfiosData.data.accountAnalysis[0].monthlyDetails
+		do{
+		
+			//Skipping buffer months
+			if(monthsCounterLocal>=bufferMonthCounter)then{
+			aMonthlyDetails is some MonthlyDetail initially it as a MonthlyDetail;
+			sumOfTotalCashWithdrawalsInL12M =sumOfTotalCashWithdrawalsInL12M +aMonthlyDetails.totalCashWithdrawal;
+			sumOfTotalCashDepositInL12M =sumOfTotalCashDepositInL12M +aMonthlyDetails.totalCashDeposit;
+			
+			}
+			
+			//Incrementing months
+			monthsCounterLocal =monthsCounterLocal+1;
+		}
+		//Exiting Loop for MonthlyDetails
+	}
+	//calculating net debit amount
+	if(sumOfTotalBusinessDebitTxnsinL12M is known and sumOfTotalCashWithdrawalsInL12M is known)then{
+		netDebitAmount =sumOfTotalBusinessDebitTxnsinL12M - sumOfTotalCashWithdrawalsInL12M;
+	}
+	//calculating net credit amount
+	if(sumOfTotalBusinessCreditTxnsinL12M is known and sumOfTotalCashDepositInL12M is known)then{
+		netCreditAmount =sumOfTotalBusinessCreditTxnsinL12M - sumOfTotalCashDepositInL12M;
+	}
+	
+	//Bubble sorting Debtiors array
+      i is a integer initially 0;
+   	  n is a integer initially 0;
+
+	n=blazeAccountAnalysis.blazeDebtorsArray.count;
+
+	while(i < n)do
+	{
+		if((i < blazeAccountAnalysis.blazeDebtorsArray.count -1))then{
+		if(((blazeAccountAnalysis.blazeDebtorsArray[i].amount) < blazeAccountAnalysis.blazeDebtorsArray[i+1].amount)) then
+			{
+				tempAllocationDetails is some BlazeDebtor initially a BlazeDebtor;
+				tempAllocationDetails = blazeAccountAnalysis.blazeDebtorsArray[i+1];
+				blazeAccountAnalysis.blazeDebtorsArray[i+1] = blazeAccountAnalysis.blazeDebtorsArray[i];
+				blazeAccountAnalysis.blazeDebtorsArray[i] = tempAllocationDetails;
+				
+              // reinitiallizing i
+				i = -1;
+			}
+        }
+		
+		i = i+1;
+	}
+      
+      //Bubble sorting Creditors Array
+      i = 0;
+      n = blazeAccountAnalysis.blazeCreditorsArray.count;
+      	while(i < n)do
+	{
+		if((i < blazeAccountAnalysis.blazeCreditorsArray.count -1))then{
+		if(((blazeAccountAnalysis.blazeCreditorsArray[i].amount) < blazeAccountAnalysis.blazeCreditorsArray[i+1].amount)) then
+			{
+				tempAllocationDetails is some BlazeCreditor initially a BlazeCreditor;
+				tempAllocationDetails = blazeAccountAnalysis.blazeCreditorsArray[i+1];
+				blazeAccountAnalysis.blazeCreditorsArray[i+1] = blazeAccountAnalysis.blazeCreditorsArray[i];
+				blazeAccountAnalysis.blazeCreditorsArray[i] = tempAllocationDetails;
+				
+              // reinitiallizing i
+				i = -1;
+			}
+        }
+		
+		i = i+1;
+	}
+      
+      print("blazeAccountAnalysis.blazeDebtorsArray[0].amount------------------------------------------------->"blazeAccountAnalysis.blazeDebtorsArray[0].amount);
+            print("blazeAccountAnalysis.blazeDebtorsArray[1].amount------------------------------------------------->"blazeAccountAnalysis.blazeDebtorsArray[1].amount);
+            print("blazeAccountAnalysis.blazeDebtorsArray[2].amount------------------------------------------------->"blazeAccountAnalysis.blazeDebtorsArray[2].amount);
+      print("blazeAccountAnalysis.blazeDebtorsArray[3].amount------------------------------------------------->"blazeAccountAnalysis.blazeDebtorsArray[3].amount);
+     print("blazeAccountAnalysis.blazeDebtorsArray[4].amount------------------------------------------------->"blazeAccountAnalysis.blazeDebtorsArray[4].amount);
+       print("blazeAccountAnalysis.blazeDebtorsArray[5].amount------------------------------------------------->"blazeAccountAnalysis.blazeDebtorsArray[5].amount);
+       print("blazeAccountAnalysis.blazeDebtorsArray[6].amount------------------------------------------------->"blazeAccountAnalysis.blazeDebtorsArray[6].amount);
+       print("blazeAccountAnalysis.blazeDebtorsArray[7].amount------------------------------------------------->"blazeAccountAnalysis.blazeDebtorsArray[7].amount);
+       print("blazeAccountAnalysis.blazeDebtorsArray[8].amount------------------------------------------------->"blazeAccountAnalysis.blazeDebtorsArray[8].amount);
+       print("blazeAccountAnalysis.blazeDebtorsArray[9].amount------------------------------------------------->"blazeAccountAnalysis.blazeDebtorsArray[9].amount);
+      
+      
+            print("blazeAccountAnalysis.blazeCreditorsArray[0].amount------------------------------------------------->"blazeAccountAnalysis.blazeCreditorsArray[0].amount);
+            print("blazeAccountAnalysis.blazeCreditorsArray[1].amount------------------------------------------------->"blazeAccountAnalysis.blazeCreditorsArray[1].amount);
+            print("blazeAccountAnalysis.blazeCreditorsArray[2].amount------------------------------------------------->"blazeAccountAnalysis.blazeCreditorsArray[2].amount);
+      print("blazeAccountAnalysis.blazeCreditorsArray[3].amount------------------------------------------------->"blazeAccountAnalysis.blazeCreditorsArray[3].amount);
+            print("blazeAccountAnalysis.blazeCreditorsArray[4].amount------------------------------------------------->"blazeAccountAnalysis.blazeCreditorsArray[4].amount);
+print("blazeAccountAnalysis.blazeCreditorsArray[5].amount------------------------------------------------->"blazeAccountAnalysis.blazeCreditorsArray[5].amount);
+       print("blazeAccountAnalysis.blazeCreditorsArray[6].amount------------------------------------------------->"blazeAccountAnalysis.blazeCreditorsArray[6].amount);
+       print("blazeAccountAnalysis.blazeCreditorsArray[7].amount------------------------------------------------->"blazeAccountAnalysis.blazeCreditorsArray[7].amount);
+       print("blazeAccountAnalysis.blazeCreditorsArray[8].amount------------------------------------------------->"blazeAccountAnalysis.blazeCreditorsArray[8].amount);
+       print("blazeAccountAnalysis.blazeCreditorsArray[9].amount------------------------------------------------->"blazeAccountAnalysis.blazeCreditorsArray[9].amount);
+      
+      //Counter to get top 10 Amount in creditor and Debtior
+	blazeTop10Counter is an integer initially 0;
+	//Initialising loop to add creditorConcentration
+	for each BlazeCreditor in blazeAccountAnalysis.blazeCreditorsArray such that(it<>null and blazeTop10Counter<10)
+	do{
+		aBlazeCreditor is some BlazeCreditor initially it as a BlazeCreditor;
+		
+		//Calculating Creditors Conditors for each Creditor
+		aBlazeCreditor.creditorPercent =(aBlazeCreditor.amount/netDebitAmount)*100;
+      
+      //setting flag for each creditor
+      if(aBlazeCreditor.creditorPercent > 25) then{
+        aBlazeCreditor.creditorFlag = "Red";
+      }else{
+        aBlazeCreditor.creditorFlag = "Green";
+      }
+      
+      fn_AppendCalculatedVariable(message, "CreditorConcentration", "real", productCode, applicantId, applicantType, "CustomerSupplier", aBlazeCreditor.party","aBlazeCreditor.creditorFlag);
+      blazeTop10Counter = blazeTop10Counter +1;
+	}
+	      print("blazeDebtorsArray.count-------------------------"blazeAccountAnalysis.blazeDebtorsArray.count);
+      
+    //reinitallizing BlazeCounter  For Debtors Array
+        blazeTop10Counter = 0;
+	//Initialising loop to add DebtorConcentration 
+	for each BlazeDebtor in blazeAccountAnalysis.blazeDebtorsArray such that(it<>null and blazeTop10Counter < 10)
+	do{
+		aBlazeDebtor is some BlazeDebtor initially it as a BlazeDebtor;
+		
+		//Calculating Creditors Conditors for each Creditor
+		aBlazeDebtor.debtorPercent =(aBlazeDebtor.amount/netCreditAmount)*100;
+      
+            //setting flag for each creditor
+      if(aBlazeDebtor.debtorPercent > 25) then{
+        aBlazeDebtor.debtorFlag = "Red";
+      }
+      else{
+        aBlazeDebtor.debtorFlag = "Green";
+      }
+      blazeTop10Counter = blazeTop10Counter +1;
+      fn_AppendCalculatedVariable(message, "DebtorConcentration", "real", productCode, applicantId, applicantType, "CustomerSupplier", aBlazeDebtor.party","aBlazeDebtor.debtorFlag);
+	}
+      
+}
+}
+catch an Exception with {
+  aBlazeApplication.fn_Perfios_CustomerSupplierConcentration  = true;  
+  print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");
+}
+print("++++> Exiting function :: fn_Customer_Supplier_Concentration");
+print("");]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='aLyWgm'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='LNaB1C'>
+    <instance ref='ParameterNameVH'>
+     <value>perfiosData</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>PerfiosData</value>
+    </instance>
+   </item>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='CZyhg7'>
+    <instance ref='ParameterNameVH'>
+     <value>aBlazeApplicant</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeApplicant</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

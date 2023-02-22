@@ -562,6 +562,65 @@ if(aBlazeApplication.fn_CalculatedVariablesException= true)  then {
 }
 //--------------------------------------------------------------------------------------------------BL Exception Ends--------------------------------------------------------------------------------------------------------
 
+//-----------------------------------------------------------------------------------------------Perfios Function-------------------------------------------------------------------------------//
+
+	//BL Calulated Variable Exception
+print("----> aBlazeApplication.fn_PerfiosMain :: "aBlazeApplication.fn_PerfiosMain);
+if(aBlazeApplication.fn_PerfiosMain= true)  then {
+  print("**Error :: ###>> Exception occured in fn_PerfiosMain <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_PerfiosMain check logs for more info";
+    errId = "EXCEPTION_PF0";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+	//BL Calulated Variable Exception
+print("----> aBlazeApplication.fn_Perfios_ABB_Dip_Expectation_Model :: "aBlazeApplication.fn_Perfios_ABB_Dip_Expectation_Model);
+if(aBlazeApplication.fn_Perfios_ABB_Dip_Expectation_Model= true)  then {
+  print("**Error :: ###>> Exception occured in fn_Perfios_ABB_Dip_Expectation_Model <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_Perfios_ABB_Dip_Expectation_Model check logs for more info";
+    errId = "EXCEPTION_PF1";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+	//BL Calulated Variable Exception
+print("----> aBlazeApplication.fn_Perfios_PoorBankingBehaviour :: "aBlazeApplication.fn_Perfios_PoorBankingBehaviour);
+if(aBlazeApplication.fn_Perfios_PoorBankingBehaviour= true)  then {
+  print("**Error :: ###>> Exception occured in fn_Perfios_PoorBankingBehaviour <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_Perfios_PoorBankingBehaviour check logs for more info";
+    errId = "EXCEPTION_PF2";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+	//BL Calulated Variable Exception
+print("----> aBlazeApplication.fn_Perfios_TransactionAnalytics :: "aBlazeApplication.fn_Perfios_TransactionAnalytics);
+if(aBlazeApplication.fn_Perfios_TransactionAnalytics= true)  then {
+  print("**Error :: ###>> Exception occured in fn_Perfios_TransactionAnalytics <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_Perfios_TransactionAnalytics check logs for more info";
+    errId = "EXCEPTION_PF3";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+	//BL Calulated Variable Exception
+print("----> aBlazeApplication.fn_Perfios_CustomerSupplierConcentration :: "aBlazeApplication.fn_Perfios_CustomerSupplierConcentration);
+if(aBlazeApplication.fn_Perfios_CustomerSupplierConcentration= true)  then {
+  print("**Error :: ###>> Exception occured in fn_Perfios_CustomerSupplierConcentration <<###");
+    errType = "Exception";
+    errText = "Exception occured in fn_Perfios_CustomerSupplierConcentration check logs for more info";
+    errId = "EXCEPTION_PF4";
+    errName = errId;    
+    fn_SetErrorInResponse(message,errType,errId,errName,errAction,errCode,errText);
+}
+
+//--------------------------------------------------------------------------------Perfios Function end--------------------------------------------------------------------------------------------------//
+
 print("++++> Exiting function :: fn_HandleException");
 print("");
 ]]></value>

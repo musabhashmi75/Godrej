@@ -143,8 +143,12 @@ if(aBlazeApplication.businessErrorsFlag = false) then {
       
       
       //Cash Profit Growth Percentage
-      cashProfitGrowthPercentage is a real initially 0;    
+      cashProfitGrowthPercentage =0;    
       if(latestYearCashProfit <> unknown and previousYearCashProfit <> unknown and previousYearCashProfit > 0 ) then {
+		  print("Entered Here+++++++++++++++++++++");
+		  print("Entered Here+++++++++++++++++++++");
+		  print("Entered Here+++++++++++++++++++++");
+		  print("Entered Here+++++++++++++++++++++");
         cashProfitGrowthPercentage = ((latestYearCashProfit - previousYearCashProfit) / previousYearCashProfit)*100;
         aBlazeApplicant.applicantAdditionalDetails.senpGrowthPercentageEligibility.CASFPRGPER = cashProfitGrowthPercentage;
       }   

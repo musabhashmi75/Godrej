@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_PerfiosMain'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_PerfiosMain1</value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_PerfiosMain</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("");
+print("++++> Entering function :: fn_PerfiosMain");
+blazeApplicantArr  is  some  array  of  BlazeApplicant  initially  an  array  of  BlazeApplicant;
+aBlazeApplication is some BlazeApplication initially BTCommonVar.termInput.blazeApplication as a BlazeApplication;
+
+today is a date initially calendar().currentDate();
+try {
+  if(aBlazeApplication.businessErrorsFlag = false) then {
+    print("----> Number of Applicants :: " BTCommonVar.termInput.blazeApplication.blazeApplicantArray.count);
+    
+	//-----------------------------------Entering Applicant Loop--------------------------------------------------
+    for  each  BlazeApplicant  in  BTCommonVar.termInput.blazeApplication.blazeApplicantArray do {
+	  aBlazeApplicant  is  some  BlazeApplicant  initially  it  as  a  BlazeApplicant;
+      applicantId is a string;
+      applicantType is a string;
+      applicantId = aBlazeApplicant.customerCif as a string;
+      applicantType = aBlazeApplicant.applicantType;
+      print("applicantId------------> "applicantId);
+      print("applicantType------------> "applicantType);
+		//Entering BankDetails
+		for each BankingDetails in it.bankingDetails such that(it<>null) do{
+			aBankingDetails is some BankingDetails initially it as a BankingDetails;
+            perfiosData is some PerfiosData initially a PerfiosData;
+          if(aBankingDetails.bankName <>unknown and aBankingDetails.bankName <>"")then{
+			referenceId is a string initially aBankingDetails.bankName;
+			print("referenceId--------------> "referenceId);
+            if(referenceId is (known and available) and referenceId is not null and referenceId <> "") then {
+              perfiosData = JsonToObject.convertJsonToObject(referenceId);
+			  
+			  if(perfiosData is not null) then {
+                print("PerfiosData--------> "perfiosData);
+                print("PerfiosData.message------------> "perfiosData.message);
+                print("PerfiosData.status------------> "perfiosData.status);
+                print("perfiosData.data ::"perfiosData.data);
+                print("perfiosData.data.customerInfo.name------------> "perfiosData.data.customerInfo.name);
+            
+			    fn_Perfios_ABB_Dip_Expectation_Model(message,perfiosData,aBlazeApplicant);
+                fn_Perfios_PoorBankingBehaviour(message,perfiosData,aBlazeApplicant);
+                fn_Perfios_TransactionAnalytics(message,perfiosData,aBlazeApplicant);
+                fn_Perfios_CustomerSupplierConcentration(message,perfiosData,aBlazeApplicant);
+			  }
+			}
+          }
+		}
+	}
+	//-----------------------------------Exiting Applicant Loop--------------------------------------------------
+  }
+  
+  print("++++> Exiting function :: fn_PerfiosMain");
+  print("");
+  
+}catch an Exception with {
+  aBlazeApplication.fn_PerfiosMain = true;  
+  print("\n***Exception :: \n>>@@@<<\n" evaluationException().toString()"\n>>@@@<<\n");
+}]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='ND4KNs'>
+    <instance ref='ParameterNameVH'>
+     <value>message</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Message</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

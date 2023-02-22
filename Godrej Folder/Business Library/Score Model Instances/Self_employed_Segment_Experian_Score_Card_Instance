@@ -532,7 +532,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>1. TW,2. GL , 4. STPL , 9. Others</value>
+    <value>1. TW,2. GL , 4. STPL , 9. Others_The Applicant has a X product</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -544,7 +544,7 @@
     <value>worstProductHolding</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>worstProductHolding_0_1__TW_2__GL___4__STPL___9__Others</value>
+    <value>worstProductHolding_0_1__TW_2__GL___4__STPL___9__Others_The_Applicant_has_a_X_product</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -589,7 +589,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>3. CL,4. PL</value>
+    <value>3. CL,4. PL_The Applicant has a X product</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -601,7 +601,7 @@
     <value>worstProductHolding</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>worstProductHolding_1_3__CL_4__PL</value>
+    <value>worstProductHolding_1_3__CL_4__PL_The_Applicant_has_a_X_product</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -646,7 +646,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>5. AL</value>
+    <value>5. AL_The Applicant has a X product</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -658,7 +658,7 @@
     <value>worstProductHolding</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>worstProductHolding_2_5__AL</value>
+    <value>worstProductHolding_2_5__AL_The_Applicant_has_a_X_product</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -703,7 +703,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>6. LAP, 7. CC,8. HL</value>
+    <value>6. LAP, 7. CC,8. HL_The Applicant has a X product</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -715,7 +715,7 @@
     <value>worstProductHolding</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>worstProductHolding_3_6__LAP__7__CC_8__HL</value>
+    <value>worstProductHolding_3_6__LAP__7__CC_8__HL_The_Applicant_has_a_X_product</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -760,7 +760,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>A.NO LIVE</value>
+    <value>A.NO LIVE_The applicant does not have any live accounts</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -772,7 +772,7 @@
     <value>currAvgUtilizationOnAllAccSESegment</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>currAvgUtilizationOnAllAccSESegment_0_A_NO_LIVE</value>
+    <value>currAvgUtilizationOnAllAccSESegment_0_A_NO_LIVE_The_applicant_does_not_have_any_live_accounts</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -817,7 +817,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>C. LE 23%</value>
+    <value>C. LE 23%_The applicant’s average utilization on all live accounts is X</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -829,7 +829,7 @@
     <value>currAvgUtilizationOnAllAccSESegment</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>currAvgUtilizationOnAllAccSESegment_1_C__LE_23_</value>
+    <value>currAvgUtilizationOnAllAccSESegment_1_C__LE_23__The_applicant_s_average_utilization_on_all_live_accounts_is_X</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -874,7 +874,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>D. LE 48%</value>
+    <value>D. LE 48%_The applicant’s average utilization on all live accounts is X</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -886,7 +886,7 @@
     <value>currAvgUtilizationOnAllAccSESegment</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>currAvgUtilizationOnAllAccSESegment_2_D__LE_48_</value>
+    <value>currAvgUtilizationOnAllAccSESegment_2_D__LE_48__The_applicant_s_average_utilization_on_all_live_accounts_is_X</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -931,7 +931,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>E. GT 48%</value>
+    <value>E. GT 48%_The applicant’s average utilization on all live accounts is X</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -943,7 +943,7 @@
     <value>currAvgUtilizationOnAllAccSESegment</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>currAvgUtilizationOnAllAccSESegment_3_E__GT_48_</value>
+    <value>currAvgUtilizationOnAllAccSESegment_3_E__GT_48__The_applicant_s_average_utilization_on_all_live_accounts_is_X</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -988,7 +988,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>1</value>
+    <value>1_The applicant has had a max DPD of X on Home Loans and Y on all products</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -1000,7 +1000,7 @@
     <value>maxDpdInL12mScore</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>maxDpdInL12mScore_0_1</value>
+    <value>maxDpdInL12mScore_0_1_The_applicant_has_had_a_max_DPD_of_X_on_Home_Loans_and_Y_on_all_products</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -1045,7 +1045,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>2</value>
+    <value>2_The applicant has had a max DPD of X on Home Loans and Y on all products</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -1057,7 +1057,7 @@
     <value>maxDpdInL12mScore</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>maxDpdInL12mScore_1_2</value>
+    <value>maxDpdInL12mScore_1_2_The_applicant_has_had_a_max_DPD_of_X_on_Home_Loans_and_Y_on_all_products</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -1102,7 +1102,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>3</value>
+    <value>3_The applicant has had a max DPD of X on Home Loans and Y on all products</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -1114,7 +1114,7 @@
     <value>maxDpdInL12mScore</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>maxDpdInL12mScore_2_3</value>
+    <value>maxDpdInL12mScore_2_3_The_applicant_has_had_a_max_DPD_of_X_on_Home_Loans_and_Y_on_all_products</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -1159,7 +1159,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>4</value>
+    <value>4_The applicant has had a max DPD of X on Home Loans and Y on all products</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -1171,7 +1171,7 @@
     <value>maxDpdInL12mScore</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>maxDpdInL12mScore_3_4</value>
+    <value>maxDpdInL12mScore_3_4_The_applicant_has_had_a_max_DPD_of_X_on_Home_Loans_and_Y_on_all_products</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -1216,7 +1216,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>1</value>
+    <value>1_The applicant has a Home-loan for X months and a recent secured product for Y months</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -1228,7 +1228,7 @@
     <value>mobScore</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>mobScore_0_1</value>
+    <value>mobScore_0_1_The_applicant_has_a_Home_loan_for_X_months_and_a_recent_secured_product_for_Y_months</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -1273,7 +1273,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>2</value>
+    <value>2_The applicant has a Home-loan for X months and a recent secured product for Y months</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -1285,7 +1285,7 @@
     <value>mobScore</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>mobScore_1_2</value>
+    <value>mobScore_1_2_The_applicant_has_a_Home_loan_for_X_months_and_a_recent_secured_product_for_Y_months</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -1330,7 +1330,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>3</value>
+    <value>3_The applicant has a Home-loan for X months and a recent secured product for Y months</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -1342,7 +1342,7 @@
     <value>mobScore</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>mobScore_2_3</value>
+    <value>mobScore_2_3_The_applicant_has_a_Home_loan_for_X_months_and_a_recent_secured_product_for_Y_months</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -1387,7 +1387,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>4</value>
+    <value>4_The applicant has a Home-loan for X months and a recent secured product for Y months</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -1399,7 +1399,7 @@
     <value>mobScore</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>mobScore_3_4</value>
+    <value>mobScore_3_4_The_applicant_has_a_Home_loan_for_X_months_and_a_recent_secured_product_for_Y_months</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -1444,7 +1444,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>5</value>
+    <value>5_The applicant has a Home-loan for X months and a recent secured product for Y months</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -1456,7 +1456,7 @@
     <value>mobScore</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>mobScore_4_5</value>
+    <value>mobScore_4_5_The_applicant_has_a_Home_loan_for_X_months_and_a_recent_secured_product_for_Y_months</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -1501,7 +1501,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>1</value>
+    <value>1_The applicant has opened X account in the last 12 months and Y unsecured accounts in the last 24 months</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -1513,7 +1513,7 @@
     <value>accOpenedScore</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>accOpenedScore_0_1</value>
+    <value>accOpenedScore_0_1_The_applicant_has_opened_X_account_in_the_last_12_months_and_Y_unsecured_accounts_in_the_last_24_months</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -1558,7 +1558,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>2</value>
+    <value>2_The applicant has opened X account in the last 12 months and Y unsecured accounts in the last 24 months</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -1570,7 +1570,7 @@
     <value>accOpenedScore</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>accOpenedScore_1_2</value>
+    <value>accOpenedScore_1_2_The_applicant_has_opened_X_account_in_the_last_12_months_and_Y_unsecured_accounts_in_the_last_24_months</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -1615,7 +1615,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>3</value>
+    <value>3_The applicant has opened X account in the last 12 months and Y unsecured accounts in the last 24 months</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -1627,7 +1627,7 @@
     <value>accOpenedScore</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>accOpenedScore_2_3</value>
+    <value>accOpenedScore_2_3_The_applicant_has_opened_X_account_in_the_last_12_months_and_Y_unsecured_accounts_in_the_last_24_months</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -1672,7 +1672,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>4</value>
+    <value>4_The applicant has opened X account in the last 12 months and Y unsecured accounts in the last 24 months</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -1684,7 +1684,7 @@
     <value>accOpenedScore</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>accOpenedScore_3_4</value>
+    <value>accOpenedScore_3_4_The_applicant_has_opened_X_account_in_the_last_12_months_and_Y_unsecured_accounts_in_the_last_24_months</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -1729,7 +1729,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>LT_1</value>
+    <value>LT_1_The applicant has had X enquiries in the last 6 months</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -1741,7 +1741,7 @@
     <value>noOfEnqInL6m</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>noOfEnqInL6m_0_LT_1</value>
+    <value>noOfEnqInL6m_0_LT_1_The_applicant_has_had_X_enquiries_in_the_last_6_months</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -1786,7 +1786,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>EQUALS_1</value>
+    <value>EQUALS_1_The applicant has had X enquiries in the last 6 months</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -1798,7 +1798,7 @@
     <value>noOfEnqInL6m</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>noOfEnqInL6m_1_EQUALS_1</value>
+    <value>noOfEnqInL6m_1_EQUALS_1_The_applicant_has_had_X_enquiries_in_the_last_6_months</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -1843,7 +1843,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>GT_1</value>
+    <value>GT_1_The applicant has had X enquiries in the last 6 months</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -1855,7 +1855,7 @@
     <value>noOfEnqInL6m</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>noOfEnqInL6m_2_GT_1</value>
+    <value>noOfEnqInL6m_2_GT_1_The_applicant_has_had_X_enquiries_in_the_last_6_months</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -1900,7 +1900,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>ZERO</value>
+    <value>ZERO_</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -1912,7 +1912,7 @@
     <value>percentageOfDelqAcc</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>percentageOfDelqAcc_0_ZERO</value>
+    <value>percentageOfDelqAcc_0_ZERO_</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -2074,7 +2074,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>A.NO LIVE</value>
+    <value>A.NO LIVE_The applicant has X% balance on regular unsecured products</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -2086,7 +2086,7 @@
     <value>currUtilizationOnLiveRegUnSecAccSegment</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>currUtilizationOnLiveRegUnSecAccSegment_0_A_NO_LIVE</value>
+    <value>currUtilizationOnLiveRegUnSecAccSegment_0_A_NO_LIVE_The_applicant_has_X__balance_on_regular_unsecured_products</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -2131,7 +2131,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>B. LE 10%</value>
+    <value>B. LE 10%_The applicant has X% balance on regular unsecured products</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -2143,7 +2143,7 @@
     <value>currUtilizationOnLiveRegUnSecAccSegment</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>currUtilizationOnLiveRegUnSecAccSegment_1_B__LE_10_</value>
+    <value>currUtilizationOnLiveRegUnSecAccSegment_1_B__LE_10__The_applicant_has_X__balance_on_regular_unsecured_products</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -2188,7 +2188,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>C. LE 33%</value>
+    <value>C. LE 33%_The applicant has X% balance on regular unsecured products</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -2200,7 +2200,7 @@
     <value>currUtilizationOnLiveRegUnSecAccSegment</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>currUtilizationOnLiveRegUnSecAccSegment_2_C__LE_33_</value>
+    <value>currUtilizationOnLiveRegUnSecAccSegment_2_C__LE_33__The_applicant_has_X__balance_on_regular_unsecured_products</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -2245,7 +2245,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>D. LE 63%</value>
+    <value>D. LE 63%_The applicant has X% balance on regular unsecured products</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -2257,7 +2257,7 @@
     <value>currUtilizationOnLiveRegUnSecAccSegment</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>currUtilizationOnLiveRegUnSecAccSegment_3_D__LE_63_</value>
+    <value>currUtilizationOnLiveRegUnSecAccSegment_3_D__LE_63__The_applicant_has_X__balance_on_regular_unsecured_products</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>
@@ -2302,7 +2302,7 @@
     <value></value>
    </instance>
    <instance ref='__ND_BinLabelVH'>
-    <value>E. GT 63%</value>
+    <value>E. GT 63%_The applicant has X% balance on regular unsecured products</value>
    </instance>
    <instance ref='__ND_UnexpectedVH'>
     <value>false</value>
@@ -2314,7 +2314,7 @@
     <value>currUtilizationOnLiveRegUnSecAccSegment</value>
    </instance>
    <instance ref='__ND_MetaphorRuleNameVH'>
-    <value>currUtilizationOnLiveRegUnSecAccSegment_4_E__GT_63_</value>
+    <value>currUtilizationOnLiveRegUnSecAccSegment_4_E__GT_63__The_applicant_has_X__balance_on_regular_unsecured_products</value>
    </instance>
    <instance ref='__ND_MetaphorRuleCreatedVH'>
     <value></value>

@@ -1,0 +1,18 @@
+#Extended attributes for Innovator file-based repository (directory: 'ABB_Dip_Expectation_Score_Card_Instance')
+#Fri Feb 17 11:01:43 IST 2023
+contentType=Instance
+guid=9fJHt8fUITAomvX6NVqsPbMfq6l
+innovatorDisplayName=ABB_Dip_Expectation_Score_Card_Instance
+innovatorItemCreationId=admin
+innovatorLastModifiedUser=ADMIN
+innovatorTemplateRef=KNeIPzI6e9AyE3AOoalz7GNjpJJ
+managementProperty.Predictive\ Model\ Type=NotApplicable
+managementProperty.Source\ Reference.filterVH=
+managementProperty.Source\ Reference.locationVH=
+managementProperty.Source\ Reference.releaseDateVH=
+managementProperty.Source\ Reference.repositoryAccessVH=
+managementProperty.Source\ Reference.repositoryNameVH=
+managementProperty.Source\ Reference.versionVH=
+subType=Score Model
+target=SRL
+type=SRL Ruleset

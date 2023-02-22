@@ -71,6 +71,174 @@
   </instance>
  </instance>
  <instance-list ref='newRules'>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='DEyh4X'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>FICO_HAA_CP30</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Work Experience Norms not met for Salaried</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[],"subGroups":[{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SALARIED","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"kycEmploymentType","externalType":"string","ancestry":{"members":[{"name":"aBlazeApplicant"},{"name":"kycDetails"},{"name":"employmentDetails","index":0},{"name":"kycEmploymentType"}],"__meta_klass":"PA"},"__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SAL-CONT","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"integer","elements":[{"valueType":"integer","name":"totalWorkExperience","fqName":"aBlazeApplicant.applicantAdditionalDetails.customerSalaried.totalWorkExperience","externalType":"integer","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"integer","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"5","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employmentType","fqName":"aBlazeApplicant.employmentType","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SALARIED","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"kycEmploymentType","externalType":"string","ancestry":{"members":[{"name":"aBlazeApplicant"},{"name":"kycDetails"},{"name":"employmentDetails","index":0},{"name":"kycEmploymentType"}],"__meta_klass":"PA"},"__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"SAL-PERM","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"integer","elements":[{"valueType":"integer","name":"totalWorkExperience","fqName":"aBlazeApplicant.applicantAdditionalDetails.customerSalaried.totalWorkExperience","externalType":"integer","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"integer","__meta_klass":"Expr"},{"opValue":"is smaller than","__meta_klass":"Operator"},{"valueType":"integer","elements":[{"valueType":"integer","instValue":"2","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"disposeWhenEmpty":true,"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"}],"operator":"or","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="FICO_HAA_CP30";
+responseDeviation.ruleName="FICO_HAA_CP30";
+responseDeviation.ruleDescription="Work Experience Norms not met for Salaried";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Client Profile";
+responseDeviation.reasonText="Work Experience Norms not met for Salaried";
+responseDeviation.approvalLevel="L2,HL_CREDIT";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=aBlazeApplicant.customerCif as a string;
+responseDeviation.entityType=aBlazeApplicant.applicantType as a string;
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='8Chivi'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>HAA_LAA21_LP</value>
+   </instance>
+   <instance ref='startDate'>
+    <value>30-Jun-2022</value>
+   </instance>
+   <instance ref='endDate'>
+    <value>1-Jul-2022</value>
+   </instance>
+   <instance ref='comment'>
+    <value></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"boolean","elements":[{"valueType":"boolean","name":"pinCodeServicability","externalType":"boolean","ancestry":{"members":[{"name":"BTCommonVar"},{"name":"termInput"},{"name":"blazeApplication"},{"name":"blazeApplicantArray","index":0},{"name":"highPriorityAddress"},{"name":"pinCodeServicability"}],"__meta_klass":"PA"},"__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"boolean","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"boolean","elements":[{"valueType":"boolean","instValue":"false","voType":"boolean","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="HAA_LAA21_LP";
+responseDeviation.ruleName="HAA_LAA21_LP";
+responseDeviation.ruleDescription="Borrower residing out of defined geo limits for said location _ subject to collection feedback";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Client Profile";
+responseDeviation.reasonText="Borrower residing out of defined geo limits for said location _ subject to collection feedback";
+responseDeviation.approvalLevel="L1,LAP_CREDIT";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='5bDitP'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>HAA_LTV1_LP</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value><![CDATA[Higher LTV approval in LAP cases upto 5% subject to cap of 73% (except Low LTV programme & Elite developers LAP program)]]></value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>(
+    (
+        BTCommonVar.termInput.blazeApplication.applicationAdditionalDetails.finalOffer.additionalLtv is larger than 0 and 
+        BTCommonVar.termInput.blazeApplication.applicationAdditionalDetails.finalOffer.additionalLtv is smaller than or equal to 5
+    ) and 
+    (
+        BTCommonVar.termInput.blazeApplication.applicationAdditionalDetails.finalOffer.MAXLTV is smaller than or equal to 73
+    )
+)</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value><![CDATA[responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="HAA_LTV1_LP";
+responseDeviation.ruleName="HAA_LTV1_LP";
+responseDeviation.ruleDescription="Higher LTV approval in LAP cases upto 5% subject to cap of 73% (except Low LTV programme & Elite developers LAP program)";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Collateral";
+responseDeviation.reasonText="LTV up to 5% more than norms except for LAP refinance and Low LTV Program";
+responseDeviation.approvalLevel="L2,CREDIT_LOCATION_HEAD";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);]]></value>
+   </instance>
+  </item>
+  <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='JNnnAa'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='name'>
+    <value>FCU4_LP</value>
+   </instance>
+   <instance ref='startDate'>
+    <value></value>
+   </instance>
+   <instance ref='endDate'>
+    <value></value>
+   </instance>
+   <instance ref='comment'>
+    <value>Match with Politically exposed database</value>
+   </instance>
+   <instance ref='styleSheet'>
+   </instance>
+   <instance ref='ruleCondition'>
+    <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"pep","fqName":"message.request.application.applicationAdditionalDetails.other.pep","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to ( ignoring case )","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"\"Yes\"","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+   </instance>
+   <instance ref='ruleAction'>
+    <value>responseDeviation is some ResponseDeviation initially a ResponseDeviation;
+
+responseDeviation.ruleId="FCU4_LP";
+responseDeviation.ruleName="FCU4_LP";
+responseDeviation.ruleDescription="Match with Politically exposed database";
+responseDeviation.ruleAction="DEVIATION";
+responseDeviation.ruleCategory="Verifications";
+responseDeviation.reasonText="Match with Politically exposed database";
+responseDeviation.approvalLevel="L5,LAP_COMMITTEE";
+responseDeviation.deviationType="Higher authority approval";
+responseDeviation.ruleLevel="";
+responseDeviation.entityId=message.invocation.applicationNumber;
+responseDeviation.entityType="Application";
+responseDeviation.accountNo="";
+responseDeviation.recommendationText="";
+
+message.response.responseDeviations.append(responseDeviation);</value>
+   </instance>
+  </item>
   <item template='QzixEYa1EHH8Jr6Fk8nhguBcZtu.Generic Rule Template' id='G4nGnw'>
    <instance ref='__ENTITY_PROPERTIES__VH__'>
    </instance>

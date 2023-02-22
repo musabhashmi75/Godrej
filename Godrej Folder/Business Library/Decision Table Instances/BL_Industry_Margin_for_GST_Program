@@ -95,7 +95,7 @@
      <instance-selection ref='binding'>
       <item template='6wJBDnNMEpPfdP4wizmesDxkko8.Return' id='CcBUhr'>
        <instance ref='value'>
-        <value>7.5</value>
+        <value>9</value>
        </instance>
       </item>
      </instance-selection>
@@ -151,7 +151,7 @@
      <instance-selection ref='binding'>
       <item template='6wJBDnNMEpPfdP4wizmesDxkko8.Return' id='4ckVa7'>
        <instance ref='value'>
-        <value>6</value>
+        <value>7</value>
        </instance>
       </item>
      </instance-selection>
@@ -207,7 +207,7 @@
      <instance-selection ref='binding'>
       <item template='6wJBDnNMEpPfdP4wizmesDxkko8.Return' id='XteWDj'>
        <instance ref='value'>
-        <value>6</value>
+        <value>7</value>
        </instance>
       </item>
      </instance-selection>
@@ -263,7 +263,7 @@
      <instance-selection ref='binding'>
       <item template='6wJBDnNMEpPfdP4wizmesDxkko8.Return' id='15z2YZ'>
        <instance ref='value'>
-        <value>3.5</value>
+        <value>5</value>
        </instance>
       </item>
      </instance-selection>
@@ -319,7 +319,7 @@
      <instance-selection ref='binding'>
       <item template='6wJBDnNMEpPfdP4wizmesDxkko8.Return' id='VvNpC6'>
        <instance ref='value'>
-        <value>3.5</value>
+        <value>5</value>
        </instance>
       </item>
      </instance-selection>

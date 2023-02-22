@@ -70,7 +70,7 @@
    <value>2</value>
   </instance>
   <instance ref='EngineOptimizations'>
-   <value>19</value>
+   <value>23</value>
   </instance>
   <instance ref='WarningOptions'>
    <value>339</value>
@@ -97,7 +97,7 @@
    <value></value>
   </instance>
   <instance ref='AdditionalClasspathEntries'>
-   <value>C:/Users/ghfl.fico/Downloads/log4j.jar</value>
+   <value>C:/Users/ghfl.fico/Downloads/log4j.jar;C:/Users/ghfl.fico/Downloads/perfiosDB.jar;C:/Users/ghfl.fico/Downloads/postgresql-42.5.2.jar</value>
   </instance>
   <instance ref='ProjectAdditionalExternalClasspath'>
    <value></value>

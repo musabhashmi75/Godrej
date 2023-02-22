@@ -86,8 +86,10 @@ try {
 		print("---->scoreCardDetailArray ::"scoreCardDetailArray);
 		
 		//Initialise these variables later on DefaultValues
-		aBlazeApplicant.N_CTR_L24M_CC =0;
-		aBlazeApplicant.N_CTR_L24M_ALL =0;
+		if(at least 1 BlazeAccountDetails in aBlazeApplicant.creditBureauData.blazeAccountDetailsArray satisfy(it.MOB is known)) then{
+		  aBlazeApplicant.N_CTR_L24M_CC =0;
+		  aBlazeApplicant.N_CTR_L24M_ALL =0;
+		}
 		aBlazeApplicant.N_CTR_A_OVD_UNSEC =0;
 		
 		//Initialising local variables Appliant level
@@ -115,15 +117,17 @@ try {
 		exclusionFlag2 is a boolean initially false;
 		exclusionFlag3 is a boolean initially false;
 		ccCount is an integer initially 0;
+		MS_REP_flag is a boolean initially false;
 		
 		for  each  BlazeAccountDetails  in  aBlazeApplicant.creditBureauData.blazeAccountDetailsArray do{
 		Account  is  some  BlazeAccountDetails  initially  it  as  a  BlazeAccountDetails;
 		
 		//Initialising local variables Account level
-		CURRENT_BAL1 is a real;
+		initVarAcc is a real;
+		CURRENT_BAL1 is a real initially initVarAcc;
 		ACTIVE_FLAG is a boolean initially false;
 		DA_ISSUE_FLAG is a boolean initially false;
-		MS_L30P is a real;
+		MIN_MS_L30P is a real;
 		MAX_DELQ is a real;
 		MAX_DELQ_L24M is a real;
 		MAX_DELQ_L36M is a real;
@@ -267,6 +271,9 @@ try {
 		print("------------------Entering Payment History---------------------------------");
 		PaymentHistory  is  some  BlazePaymentHistory  initially  it  as  a  BlazePaymentHistory;
 		
+		initVar is a real;
+		MS_L30P is a real initially initVar;
+		
 		//Calculating MS_L30P
 		if(PaymentHistory.DELQ is known and PaymentHistory.MS_REP is known and PaymentHistory.DELQ >30 and PaymentHistory.MS_REP <=36)then{
 			MS_L30P =PaymentHistory.MS_REP;
@@ -274,6 +281,14 @@ try {
 			MS_L30P_SPECIAL =-777.79;
 		}
 		
+		//Calculating MIN_MS_L30P
+		if(MIN_MS_L30P is unknown and MS_L30P is known) then {
+			MIN_MS_L30P = MS_L30P;
+		}
+		else if(MIN_MS_L30P is known and MS_L30P is known and MIN_MS_L30P>MS_L30P) then{
+			MIN_MS_L30P = MS_L30P;
+		}
+
 		//Calculating MAX_DELQ_L24M
 		if(PaymentHistory.MS_REP is known and PaymentHistory.MS_REP <=24 and PaymentHistory.DELQ is known)then{
 			if(MAX_DELQ_L24M_FLAG =false)then{
@@ -282,6 +297,7 @@ try {
 			}else if (MAX_DELQ_L24M_FLAG =true and MAX_DELQ_L24M <PaymentHistory.DELQ)then{
 				MAX_DELQ_L24M =PaymentHistory.DELQ;
 			}
+			MS_REP_flag=true;
 		}
 		
 		//Calculating MAX_DELQ_L36M
@@ -303,6 +319,7 @@ try {
 				MAX_DELQ_L6M =PaymentHistory.DELQ;
 			}
 			print("PaymentHistory.DELQ="PaymentHistory.DELQ);
+			MS_REP_flag=true;
 		}
 		print("PaymentHistory.DELQ="PaymentHistory.DELQ);
 		print("MS_REP="MS_REP);
@@ -327,13 +344,13 @@ try {
 	if (accountSecuredFlag=false and MAX_DELQ_L24M is known and MAX_DELQ_L24M>90) then {
 		MAX_DELQ_special  = -999.99;
 	}
-    else if (accountSecuredFlag =true and MAX_DELQ_L24M is known and MAX_DELQ_L24M>30) then {
+    else if (accountSecuredFlag =false and MAX_DELQ_L24M is known and MAX_DELQ_L24M>30) then {
 		MAX_DELQ_special  = -999.98;
 	}
     else if (accountSecuredFlag =true and MAX_DELQ_L36M is known and MAX_DELQ_L36M>90) then{
 		MAX_DELQ_special  = -888.89;
 		}
-	else if (accountSecuredFlag =true and MAX_DELQ_L36M is known and MAX_DELQ_L36M>90) then{
+	else if (accountSecuredFlag =false and MAX_DELQ_L36M is known and MAX_DELQ_L36M>90) then{
 		MAX_DELQ_special  = -888.88;
 	}
 	else if (accountSecuredFlag =true and MAX_DELQ_L36M is known and MAX_DELQ_L36M>30) then{
@@ -360,14 +377,14 @@ try {
 	}
 	
 	//Calculating MON_SIN_L30P_ALL ----"SCORECARDVARIABLE"----
-	if(MS_L30P is unknown and MS_L30P_SPECIAL is known)then{
+	if(MIN_MS_L30P is unknown and MS_L30P_SPECIAL is known)then{
 		aBlazeApplicant.MON_SIN_L30P_ALL =MS_L30P_SPECIAL;
-	}else if(MS_L30P is known)then{
+	}else if(MIN_MS_L30P is known)then{
 		if(MON_SIN_L30P_ALL_FLAG =false)then{
-			aBlazeApplicant.MON_SIN_L30P_ALL =MS_L30P;
+			aBlazeApplicant.MON_SIN_L30P_ALL =MIN_MS_L30P;
 			MON_SIN_L30P_ALL_FLAG =true;
-		}else if(MON_SIN_L30P_ALL_FLAG =true and aBlazeApplicant.MON_SIN_L30P_ALL >MS_L30P)then{
-			aBlazeApplicant.MON_SIN_L30P_ALL =MS_L30P;
+		}else if(MON_SIN_L30P_ALL_FLAG =true and aBlazeApplicant.MON_SIN_L30P_ALL >MIN_MS_L30P)then{
+			aBlazeApplicant.MON_SIN_L30P_ALL =MIN_MS_L30P;
 		}
 	}
 	
@@ -461,16 +478,17 @@ try {
 	//End of account iteration
 	}
 	
-	if(ccCount=0) then {
+	if(at least 1 BlazeAccountDetails in aBlazeApplicant.creditBureauData.blazeAccountDetailsArray satisfy(it.MOB is known)) then{
+	   if(ccCount=0) then {
 		aBlazeApplicant.N_CTR_L24M_CC = -1;
+	   }
 	}
-	
 	//Calculating PCT_LEVERAGE_A_ALL ----"SCORECARDVARIABLE"----
 	if(TOT_DA_A_ALL_IMDT>0 and TOT_BAL_A_ALL_IMDT>0)then{
 		aBlazeApplicant.PCT_LEVERAGE_A_ALL =(TOT_BAL_A_ALL_IMDT/TOT_DA_A_ALL_IMDT)*100;
 	}
 	
-	if(aBlazeApplicant.PCT_LEVERAGE_A_ALL = unknown or aBlazeApplicant.PCT_LEVERAGE_A_ALL =unavailable)then{
+	if(PCT_LEVERAGE_A_ALL_SPECIAL is known)then{
 		aBlazeApplicant.PCT_LEVERAGE_A_ALL =PCT_LEVERAGE_A_ALL_SPECIAL;
 	}
 	print("---->aBlazeApplicant.PCT_LEVERAGE_A_ALL ::"aBlazeApplicant.PCT_LEVERAGE_A_ALL);
@@ -481,15 +499,17 @@ try {
 	}
 	
 	//Calculating MAX_DELQ_L24M_SEC ----"SCORECARDVARIABLE"----
-	if(MAX_of_MAX_DELQ is known) then {
+	if(MS_REP_flag)then {
+	  if(MAX_of_MAX_DELQ is known) then {
 		aBlazeApplicant.MAX_DELQ_L24M_SEC = MAX_of_MAX_DELQ;
-	}else {
+	 }else {
 		aBlazeApplicant.MAX_DELQ_L24M_SEC = MIN_of_MAX_DELQ_special;
+	 }
 	}
 	//Calculating MIN_MOB_UNSEC ----"SCORECARDVARIABLE"----
-	if(MIN_MOB_UNSEC_App is known) then {
+	if(MIN_MOB_SPECIAL is unknown and MIN_MOB_UNSEC_App is known) then {
 		aBlazeApplicant.MIN_MOB_UNSEC = MIN_MOB_UNSEC_App;
-	}else {
+	}else if (MIN_MOB_SPECIAL is known)then{
 		aBlazeApplicant.MIN_MOB_UNSEC = MIN_MOB_SPECIAL;
 	}
 	//Calculating AVG_PCT_OTB_A_CARDS ----"SCORECARDVARIABLE"----
@@ -500,10 +520,12 @@ try {
 		aBlazeApplicant.AVG_PCT_OTB_A_CARDS = MIN_PCT_OTB_A_CARDS_special;
 	}
 	//Calculating MAX_DELQ_L6M_ALL ----"SCORECARDVARIABLE"-----
-	if(MAX_of_MAX_DELQ_L6M is unknown)then{
+	if(MS_REP_flag)then {
+	  if(MAX_of_MAX_DELQ_L6M is unknown)then{
 		aBlazeApplicant.MAX_DELQ_L6M_ALL =-777.79;
-	}else if(MAX_of_MAX_DELQ_L6M is known)then{
+	  }else if(MAX_of_MAX_DELQ_L6M is known)then{
 		aBlazeApplicant.MAX_DELQ_L6M_ALL =MAX_of_MAX_DELQ_L6M;
+	  }
 	}
 		
 	print("---->aBlazeApplicant.MIN_PCT_BAL_DA_A_ALL ::"aBlazeApplicant.MIN_PCT_BAL_DA_A_ALL);

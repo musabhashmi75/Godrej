@@ -137,7 +137,7 @@
         <value>41</value>
        </instance>
        <instance ref='value2'>
-        <value>75</value>
+        <value>70</value>
        </instance>
       </item>
      </instance-selection>
@@ -193,7 +193,7 @@
      <instance-selection ref='binding'>
       <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range' id='RWa6ru'>
        <instance ref='value1'>
-        <value>76</value>
+        <value>71</value>
        </instance>
        <instance ref='value2'>
         <value>100</value>

@@ -98,7 +98,7 @@ try {
 		print("----> Account.ACCOUNT_STATUS ::  " Account.ACCOUNT_STATUS);
 		
 		//MOB for CRIF
-		if(aBlazeApplicant.INQUIRY_DATE is known and Account.accountOpenDate is known)then{
+		if(aBlazeApplicant.INQUIRY_DATE is known and Account.DISBURSED_DATE is known)then{
 			Account.MOB =aBlazeApplicant.INQUIRY_DATE.subtractInMonths(Account.DISBURSED_DATE).months;
 		}
 		print("---->Account.MOB ::"Account.MOB);
@@ -193,6 +193,7 @@ try {
 		PaymentHistory  is  some  BlazePaymentHistory  initially  it  as  a  BlazePaymentHistory;
 	
 		//Declaring and initialsing Local variables for PaymentHistory 
+		localDPD is an integer initially PaymentHistory.daysPastDue;
 		initVar is an integer;
 		MIN_AST_NUM is an integer initially initVar;
 		MIN_AST_NUM_UPDATED is an integer initially initVar;
@@ -209,21 +210,28 @@ try {
 		print("---->PaymentHistory.MS_REP ::"PaymentHistory.MS_REP);
 		
 		//Calculating Date_Diff_Disb_Rep
-		PaymentHistory.Date_Diff_Disb_Rep =PaymentHistory.REP_DATE.subtractInDays(Account.DISBURSED_DATE).days;
+		if(Account.DISBURSED_DATE is known)then{
+		  PaymentHistory.Date_Diff_Disb_Rep =PaymentHistory.REP_DATE.subtractInDays(Account.DISBURSED_DATE).days;
+		}
 		print("PaymentHistory.Date_Diff_Disb_Rep ::"PaymentHistory.Date_Diff_Disb_Rep);
 		
 		//Calculating MIN_AST_NUM
 		if(PaymentHistory.assetClassification is known and PaymentHistory.assetClassification <>"")then{
 			if(PaymentHistory.assetClassification =(ignoring case)("STD" or "XXX"))then{
 				MIN_AST_NUM =0;
+				PaymentHistory.daysPastDue =initVar;
 			}else if(PaymentHistory.assetClassification =(ignoring case)"SMA")then{
 				MIN_AST_NUM =31;
+				PaymentHistory.daysPastDue =initVar;
 			}else if(PaymentHistory.assetClassification =(ignoring case)"SUB")then{
 				MIN_AST_NUM =91;
+				PaymentHistory.daysPastDue =initVar;
 			}else if(PaymentHistory.assetClassification =(ignoring case)"DBT")then{
 				MIN_AST_NUM =361;
+				PaymentHistory.daysPastDue =initVar;
 			}else if(PaymentHistory.assetClassification =(ignoring case)"LOS")then{
 				MIN_AST_NUM =721;
+				PaymentHistory.daysPastDue =initVar;
 			}//else{
 				//MIN_AST_NUM =0;
 			//}
@@ -241,7 +249,7 @@ try {
 			//Calculating DPD_UPDATED
 			print("---->PaymentHistory.daysPastDue ::"PaymentHistory.daysPastDue);
 			print("---->DPD_UPDATED ::"DPD_UPDATED);
-			if(PaymentHistory.daysPastDue<=PaymentHistory.Date_Diff_Disb_Rep)then{
+			if(PaymentHistory.daysPastDue is known and PaymentHistory.daysPastDue<=PaymentHistory.Date_Diff_Disb_Rep)then{
 				DPD_UPDATED =PaymentHistory.daysPastDue;
 			}
 			print("---->DPD_UPDATED ::"DPD_UPDATED);
@@ -249,7 +257,10 @@ try {
 		else{
 			print("PaymentHistory.Date_Diff_Disb_Rep is UNKNOWN");
 		}
-	
+		
+		//ReAssignent of the DefaultDPD
+		PaymentHistory.daysPastDue =localDPD;
+		
 	if(DPD_UPDATED is known and MIN_AST_NUM_UPDATED is known) then {
 		PaymentHistory.DELQ =math().max(DPD_UPDATED,MIN_AST_NUM_UPDATED);
 	}
@@ -302,7 +313,7 @@ try {
 					}
 				}
 				
-				if(monthsCounterLocal  <= 12) then {
+				if(monthsCounterLocal  <= 24) then {
 					if(PaymentHistory.daysPastDue  >= 60)then{
 						aBlazeApplicant.isDpdAb60everInL12M=true;
 						print("---->aBlazeApplicant.isDpdAb60everInL12M ::"aBlazeApplicant.isDpdAb60everInL12M);
@@ -338,37 +349,6 @@ try {
 		}else if(Account.NUM_UPDATES_24M is known and aBlazeApplicant.MAX_NUM_UPDATES_24M =known and aBlazeApplicant.MAX_NUM_UPDATES_24M <Account.NUM_UPDATES_24M)then{
 			aBlazeApplicant.MAX_NUM_UPDATES_24M =Account.NUM_UPDATES_24M;
 		}
-	
-	//if(Account.dateClosed = unknown) then {
-		//if(Account.currentDate.subtractInMonths(Account.lastPaymentDate).months <= 36) then {           
-		//monthsCounterLocal  is  a  integer  initially  0;           
-			//for  each  BlazePaymentHistory  in    Account.blazePaymentHistoryArray do {             
-			//PaymentHistory  is  some  BlazePaymentHistory  initially  it  as  a  BlazePaymentHistory;             
-			
-				//if(monthsCounterLocal  <= 36) then { 
-					//if(PaymentHistory.daysPastDue  >= 90)  then  {
-					//aBlazeApplicant.isDpdAb90everInL36M=true;
-					//}
-				//}
-				
-				//if(monthsCounterLocal  <= 12) then { 
-					//if(PaymentHistory.daysPastDue  >= 60)  then  {
-					//aBlazeApplicant.isDpdAb60everInL12M=true;
-					//}
-					//if(PaymentHistory.daysPastDue  >= 30)  then  {
-					//aBlazeApplicant.isDpdAb30everInL12M=true;
-					//}
-				//}
-				
-				//if(monthsCounterLocal  <= 6) then { 
-					//if(PaymentHistory.daysPastDue  < 30 and PaymentHistory.daysPastDue >0)  then  {
-					//aBlazeApplicant.isDpdAb30everInL6M=true;
-					//}
-				//}
-        //monthsCounterLocal  =  monthsCounterLocal+1;
-			//}
-        //}           
-    //}
 	//---------------------------------Exiting Payment History Loop-------------------------------------------
 
 		if(Account.DELQ_L3M is known and worstDelqCounter =0)then{

@@ -93,19 +93,22 @@ try {
 	  if(aBlazeApplicant.creditBureauData is known and aBlazeApplicant.creditBureauData.blazeAccountDetailsArray is known) then {
 		  accountCount = aBlazeApplicant.creditBureauData.blazeAccountDetailsArray.count;
 	  }
+	   
 		
 	  for  each  BlazeAccountDetails  in  aBlazeApplicant.creditBureauData.blazeAccountDetailsArray such that (it <> unknown)  do  {
           thirtyPlusCcDPD is a boolean initially false;
           thirtyPlusNonCcDPD is a boolean initially false;
 		  Account is some BlazeAccountDetails initially it as a BlazeAccountDetails;
-      //Count of Close accounts
+            //Count of Close accounts
         if(Account.dateClosed = known)then{
           noOfClosedAcc = noOfClosedAcc + 1
         }
+       
         
         //Account type CC
 		  if( Account.accountType = "10" )then{
 			//Calculating noOfActiveCCAcct 
+            Account.isCreditCard = true;
 			if(Account.dateClosed =unknown)then{
 				aBlazeApplicant.noOfActiveCCAcct =aBlazeApplicant.noOfActiveCCAcct+1;
 			}
@@ -153,7 +156,7 @@ try {
                 }
           
         }
-        else{
+        else {
 			// Calculated variables NoOfActiveNonCCAcct
 			if(Account.dateClosed = unknown )then{
 				aBlazeApplicant.noOfActiveNonCCAcct = aBlazeApplicant.noOfActiveNonCCAcct+1;
@@ -194,7 +197,7 @@ try {
               //No of NonCC account open in last 12 months
             if(Account.accountOpenDate = known and aBlazeApplicant.INQUIRY_DATE.subtractInMonths(Account.accountOpenDate).months  <=  12)  then  {
             aBlazeApplicant.acctOpenedLast12Months_NonCC  =  aBlazeApplicant.acctOpenedLast12Months_NonCC  +  1;
-          }
+			}
             
           
           //Number of non CC accounts opened in L12M and currently active
@@ -203,17 +206,15 @@ try {
           }
          
            //Avg. Current utilisation on live NonCC accounts
-          if((Account.currentBalance  <>  unknown  or  Account.currentBalance  >  0)  
-               and  (Account.maxModifiedLimit  <>  unknown  or  Account.maxModifiedLimit  >  0)  )  then  {
+          if((Account.currentBalance  <>  unknown  or  Account.currentBalance  >  0)  and  (Account.maxModifiedLimit  <>  unknown  or  Account.maxModifiedLimit  >  0))  then  {
                localAvgCurrUtilisationLiveAcct_NonCC  =  localAvgCurrUtilisationLiveAcct_NonCC  +  ((Account.currentBalance/Account.maxModifiedLimit)*100);
                utilizationCount = utilizationCount + 1;
-                }
-          
-		}            
-		
+            }
+		}   
+			
 			for each BlazePaymentHistory in Account.blazePaymentHistoryArray such that (it <> unknown)
 			do {
-              PaymentHistory  is  some  BlazePaymentHistory  initially  it  as  a  BlazePaymentHistory;    
+              PaymentHistory  is  some  BlazePaymentHistory  initially  it  as  a  BlazePaymentHistory;   
 				if(Account.accountType = "10" and PaymentHistory.paymentDate is known) then {
 					if(PaymentHistory.daysPastDue is known and PaymentHistory.daysPastDue  >  maxdpdCC_in24M) then {
                       // maxdpdCC_in24M
@@ -225,8 +226,8 @@ try {
 					}
 					
 				}
-				else if(PaymentHistory.daysPastDue is known and Account.accountType <> "10" and PaymentHistory.paymentDate is known) then {
-					if(PaymentHistory.daysPastDue  >  maxdpdNonCC_in24M) then {
+				else if(Account.accountType <> "10" and PaymentHistory.paymentDate is known) then {
+					if(PaymentHistory.daysPastDue is known and PaymentHistory.daysPastDue  >  maxdpdNonCC_in24M) then {
 						// maxdpdNonCC_in24M
 						if(it.MS_REP <= 24)  then  {
 							maxdpdNonCC_in24M=PaymentHistory.daysPastDue;
@@ -242,34 +243,36 @@ try {
 					}
 				}
 				if (it.MS_REP <= 24) then{
-                  
 				if(it.daysPastDue is known and Account.accountType = "10" and it.daysPastDue > 30) then{
 					thirtyPlusCcDPD = true;
 				}
 				else if(it.daysPastDue is known and Account.accountType <> "10" and it.daysPastDue > 30) then{
 					thirtyPlusNonCcDPD = true;
 				}
-			}
+				
+				}
             }
-          if(thirtyPlusCcDPD = true)then{
-         			 aBlazeApplicant.countOf30PlusCCAcctLast24m = aBlazeApplicant.countOf30PlusCCAcctLast24m +1;
-					 if(Account.currentBalance is known) then {
-						 aBlazeApplicant.sumOf30PlusCCAcctLast24m = aBlazeApplicant.sumOf30PlusCCAcctLast24m + Account.currentBalance;
-					 }
-          }
-          if(thirtyPlusNonCcDPD = true)then{
-          		aBlazeApplicant.countOf30PlusNonCCAcctLast24m = aBlazeApplicant.countOf30PlusNonCCAcctLast24m +1;
+		if(thirtyPlusCcDPD = true)then{
+            aBlazeApplicant.countOf30PlusCCAcctLast24m = aBlazeApplicant.countOf30PlusCCAcctLast24m +1;
+			    if(Account.currentBalance is known) then {
+				    aBlazeApplicant.sumOf30PlusCCAcctLast24m = aBlazeApplicant.sumOf30PlusCCAcctLast24m + Account.currentBalance;
+			    }
+		}
+	    if(thirtyPlusNonCcDPD = true)then{
+				if(aBlazeApplicant.countOf30PlusNonCCAcctLast24m is known) then{
+					aBlazeApplicant.countOf30PlusNonCCAcctLast24m = aBlazeApplicant.countOf30PlusNonCCAcctLast24m +1;
+				}
 				if(Account.currentBalance is known) then {
 					aBlazeApplicant.sumOf30PlusNonCCAcctLast24m = aBlazeApplicant.sumOf30PlusNonCCAcctLast24m + Account.currentBalance;
-				}	
-	}
+				}				
+			}
         
 	// Calculated variable No of Enq
 	for each EnquiryArray in aBlazeApplicant.creditBureauData.blazeEnquiryArray such  that  (it  <>  unknown)
 			do {
-				print("---->it.enquiryDate ::"it.enquiryDate);
-				print("---->aBlazeApplicant.INQUIRY_DATE ::"aBlazeApplicant.INQUIRY_DATE);
+				
 		if(it.enquiryDate = known) then{
+			
              if(Account.accountType = "10" )then{
 				if(aBlazeApplicant.INQUIRY_DATE.subtractInDays(it.enquiryDate).days  <=  7)  then  {
 					aBlazeApplicant.numCCEnqLast7Days = aBlazeApplicant.numCCEnqLast7Days + 1;
@@ -319,11 +322,12 @@ try {
 	// Current utilisation 
 		if(Account.dateClosed = unknown and Account.isCreditCard is  equal  to  true  and (Account.currentBalance  <>  unknown  or  Account.currentBalance  >  0)  
                and  (Account.maxModifiedLimit  <>  unknown  or  Account.maxModifiedLimit  >  0)  )  then  {
-			   noOfLiveAcc = noOfLiveAcc+1;
+			//   noOfLiveAcc = noOfLiveAcc+1;
 			   totalOSOnLive  =  totalOSOnLive  +  Account.currentBalance;
                totalLoanAmtOnLive  =  totalLoanAmtOnLive  +  Account.maxModifiedLimit;
 			   
         }
+      
 	
   }
 			// Calculated variable OverAll
@@ -340,7 +344,10 @@ try {
 			aBlazeApplicant.totalSumOf30PlusLast24m = aBlazeApplicant.sumOf30PlusCCAcctLast24m + aBlazeApplicant.sumOf30PlusNonCCAcctLast24m;
       		aBlazeApplicant.totalCountwrittenOff_Settled = aBlazeApplicant.countOfwrittenOff_SettledCC + aBlazeApplicant.countOfwrittenOff_SettledNonCC;
       		aBlazeApplicant.BlcOfwrittenOff_Settled = aBlazeApplicant.blcOfwrittenOff_SettledCC + aBlazeApplicant.blcOfwrittenOff_SettledNonCC;
-      
+			
+      //Count of live accounts
+        noOfLiveAcc =  accountCount - noOfClosedAcc;
+		
       // Find totalMaxDelinquencyInlife
       if(maxdpdCC > maxdpdNonCC) then {
         aBlazeApplicant.totalMaxDelinquencyInlife = maxdpdCC;
@@ -348,19 +355,16 @@ try {
       else {
         aBlazeApplicant.totalMaxDelinquencyInlife = maxdpdNonCC;
       }
-      
 	  // totalAvgCurrUtilisationLiveAcct 
-		if((totalOSOnLive  <>  unknown  and  totalOSOnLive  >  0)  
-           and  (totalLoanAmtOnLive  <>  unknown  and  totalLoanAmtOnLive  >  0))  then  {
+		if((totalOSOnLive is known and  totalOSOnLive  >  0)  
+           and  (totalLoanAmtOnLive is known  and  totalLoanAmtOnLive  >  0))  then  {
           currUtilizationOnLive  =  (totalOSOnLive  /  totalLoanAmtOnLive)  *  100;
-        }        
+        } 
 		if(currUtilizationOnLive is known) then {
 			aBlazeApplicant.totalAvgCurrUtilisationLiveAcct = (currUtilizationOnLive / noOfLiveAcc) * 100;
 		}
-	  
-      //Count of live accounts
-        liveAcc =  accountCount - noOfClosedAcc;
-  
+
+
       // maxDPD24Months_CC
 			if(maxdpdCC_in24M is known) then {
 				aBlazeApplicant.maxDPD24Months_CC = maxdpdCC_in24M;
@@ -385,6 +389,8 @@ try {
       		else{
               aBlazeApplicant.totalMaxDelinquencyInlife_Color = "Green";
             }
+	  
+	  
 	  
 			// totalAvgCurrUtilisationLiveAcct_Color
 			if(aBlazeApplicant.totalAvgCurrUtilisationLiveAcct > 50) then {
@@ -442,21 +448,21 @@ try {
 			}
       		
 			//  writtenOffSettledWithin24MonthsCC_Color
-			if(aBlazeApplicant.writtenOffSettledWithin24Months_CC >= 1) then {
+			if(aBlazeApplicant.writtenOffSettledWithin24Months_CC >= 2 or (aBlazeApplicant.writtenOffSettledWithin24Months_CC >= 1 and aBlazeApplicant.totalCCOverdueAmt >= 30000)) then {
 				aBlazeApplicant.writtenOffSettledWithin24MonthsCC_Color = "Red";
 			}
-			else if(aBlazeApplicant.writtenOffSettledWithin24Months_CC > 1 and aBlazeApplicant.writtenOffSettledWithin24Months_CC <= 30000) then {
+			else if(aBlazeApplicant.writtenOffSettledWithin24Months_CC >= 1 and aBlazeApplicant.totalCCOverdueAmt < 30000) then {
 				aBlazeApplicant.writtenOffSettledWithin24MonthsCC_Color = "Yellow";
 			}
 			else if(aBlazeApplicant.writtenOffSettledWithin24Months_CC = 0) then {
 				aBlazeApplicant.writtenOffSettledWithin24MonthsCC_Color = "Green";
 			}
-			
+
 			// writtenOffSettledWithin24MonthsNonCC_Color
-			if(aBlazeApplicant.writtenOffSettledWithin24Months_NonCC >= 1) then {
+			if(aBlazeApplicant.writtenOffSettledWithin24Months_NonCC >= 2 or (aBlazeApplicant.writtenOffSettledWithin24Months_NonCC >= 1 and aBlazeApplicant.totalNonCCOverdueAmt >= 30000)) then {
 				aBlazeApplicant.writtenOffSettledWithin24MonthsNonCC_Color = "Red";
 			}
-			else if(aBlazeApplicant.writtenOffSettledWithin24Months_NonCC > 1 and aBlazeApplicant.writtenOffSettledWithin24Months_NonCC <= 30000) then {
+			else if(aBlazeApplicant.writtenOffSettledWithin24Months_NonCC >= 1 and aBlazeApplicant.totalNonCCOverdueAmt < 30000) then {
 				aBlazeApplicant.writtenOffSettledWithin24MonthsNonCC_Color = "Yellow";
 			}
 			else if(aBlazeApplicant.writtenOffSettledWithin24Months_NonCC = 0) then {
@@ -495,8 +501,11 @@ try {
       }
       
       //-----------------------------Avg. Current utilisation on live NonCC accounts-----------------------------------------------------------//
-       aBlazeApplicant.avgCurrUtilisationLiveAcct_NonCC  = localAvgCurrUtilisationLiveAcct_NonCC/utilizationCount;
-      
+	  
+	  if((localAvgCurrUtilisationLiveAcct_NonCC is known and utilizationCount is known) and localAvgCurrUtilisationLiveAcct_NonCC >0)then{
+       aBlazeApplicant.avgCurrUtilisationLiveAcct_NonCC  = (localAvgCurrUtilisationLiveAcct_NonCC/utilizationCount);
+      }
+	  
       // avgCurrUtilisationLiveAcctNonCC_Color flag
       if(aBlazeApplicant.avgCurrUtilisationLiveAcct_NonCC >= 45)then{
         aBlazeApplicant.avgCurrUtilisationLiveAcctNonCC_Color = "Red"
@@ -560,7 +569,7 @@ try {
           else if(aBlazeApplicant.noOfEnqInL6m = 0)then{
             aBlazeApplicant.totalNumEnqLast6Months_Color = "Green"
           }
-           // totalNumEnqLast6Months_Color Flag
+           // totalNumEnqLast12Months_Color Flag
           if(aBlazeApplicant.totalNumEnqLast12Months >= 3)then{
            aBlazeApplicant.totalNumEnqLast12Months_Color = "Red" 
           }
@@ -574,63 +583,63 @@ try {
 
       
 			 
-fn_AppendCalculatedVariable(message,"noOfActiveCCAcct", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.noOfActiveCCAcct as a string);
-fn_AppendCalculatedVariable(message,"noOfActiveNonCCAcct", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.noOfActiveNonCCAcct as a string);
-fn_AppendCalculatedVariable(message,"totalNoOfActiveAcct", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.totalNoOfActiveAcct as a string);
-fn_AppendCalculatedVariable(message,"noOfClosedCCAcct", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.noOfClosedCCAcct as a string);
-fn_AppendCalculatedVariable(message,"noOfClosedNonCCAcct", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.noOfClosedNonCCAcct as a string);
-fn_AppendCalculatedVariable(message,"totalNoOfClosedAcct", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.totalNoOfClosedAcct as a string);
-fn_AppendCalculatedVariable(message,"totalCCOutstanding", "real", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.totalCCOutstanding as a string);
-fn_AppendCalculatedVariable(message,"totalNonCCOutstanding", "real", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.totalNonCCOutstanding as a string);
-fn_AppendCalculatedVariable(message,"totalOutstanding", "real", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.totalOutstanding as a string);
-fn_AppendCalculatedVariable(message,"totalCCOverdueAmt", "real", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.totalCCOverdueAmt as a string);
-fn_AppendCalculatedVariable(message,"totalNonCCOverdueAmt", "real", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.totalNonCCOverdueAmt as a string);
-fn_AppendCalculatedVariable(message,"totalOverdueAmt", "real", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.totalOverdueAmt as a string);
-fn_AppendCalculatedVariable(message,"numCCEnqLast7Days", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.numCCEnqLast7Days as a string);
-fn_AppendCalculatedVariable(message,"numNonCCEnqLast7Days", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.numNonCCEnqLast7Days as a string);
-fn_AppendCalculatedVariable(message,"totalNumEnqLast7Days", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.totalNumEnqLast7Days as a string);
-fn_AppendCalculatedVariable(message,"numCCEnqLast30Days", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.numCCEnqLast30Days as a string);
-fn_AppendCalculatedVariable(message,"numNonCCEnqLast30Days", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.numNonCCEnqLast30Days as a string);
-fn_AppendCalculatedVariable(message,"totalNumEnqLast30Days", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.totalNumEnqLast30Days as a string);
-fn_AppendCalculatedVariable(message,"numCCEnqLast90Days", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.numCCEnqLast90Days as a string);
-fn_AppendCalculatedVariable(message,"numNonCCEnqLast90Days", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.numNonCCEnqLast90Days as a string);
-fn_AppendCalculatedVariable(message,"totalNumEnqLast90Days", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.totalNumEnqLast90Days as a string);
-fn_AppendCalculatedVariable(message,"numCCEnqLast180Days", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.numCCEnqLast180Days as a string);
-fn_AppendCalculatedVariable(message,"numNonCCEnqLast180Days", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.numNonCCEnqLast180Days as a string);
-fn_AppendCalculatedVariable(message,"totalNumEnqLast180Days", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.totalNumEnqLast180Days as a string);
-fn_AppendCalculatedVariable(message,"numCCEnqLast360Days", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.numCCEnqLast360Days as a string);
-fn_AppendCalculatedVariable(message,"numNonCCEnqLast360Days", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.numNonCCEnqLast360Days as a string);
-fn_AppendCalculatedVariable(message,"totalNumEnqLast360Days", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.totalNumEnqLast360Days as a string);
-fn_AppendCalculatedVariable(message,"countOf30PlusCCAcctLast24m", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.countOf30PlusCCAcctLast24m as a string);
-fn_AppendCalculatedVariable(message,"countOf30PlusNonCCAcctLast24m", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.countOf30PlusNonCCAcctLast24m as a string);
-fn_AppendCalculatedVariable(message,"totalCountOf30PlusLast24m", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.totalCountOf30PlusLast24m as a string);
-fn_AppendCalculatedVariable(message,"sumOf30PlusCCAcctLast24m", "real", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.sumOf30PlusCCAcctLast24m as a string);
-fn_AppendCalculatedVariable(message,"sumOf30PlusNonCCAcctLast24m", "real", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.sumOf30PlusNonCCAcctLast24m as a string);
-fn_AppendCalculatedVariable(message,"totalSumOf30PlusLast24m", "real", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.totalSumOf30PlusLast24m as a string);
-fn_AppendCalculatedVariable(message,"countOfwrittenOff_SettledCC", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.countOfwrittenOff_SettledCC as a string);
-fn_AppendCalculatedVariable(message,"countOfwrittenOff_SettledNonCC", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.countOfwrittenOff_SettledNonCC as a string);
-fn_AppendCalculatedVariable(message,"totalCountwrittenOff_Settled", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.totalCountwrittenOff_Settled as a string);
-fn_AppendCalculatedVariable(message,"blcOfwrittenOff_SettledCC", "real", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.blcOfwrittenOff_SettledCC as a string);
-fn_AppendCalculatedVariable(message,"blcOfwrittenOff_SettledNonCC", "real", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.blcOfwrittenOff_SettledNonCC as a string);
-fn_AppendCalculatedVariable(message,"BlcOfwrittenOff_Settled", "real", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.BlcOfwrittenOff_Settled as a string);
-fn_AppendCalculatedVariable(message,"totalCCOverdueAmt", "real", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.totalCCOverdueAmt","aBlazeApplicant.overdueAmtCC_Color);
-fn_AppendCalculatedVariable(message,"maxDPD24Months_CC", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.maxDPD24Months_CC","aBlazeApplicant.maxDPD24MonthsCC_Color);
-fn_AppendCalculatedVariable(message,"maxDPD24Months_NonCC", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.maxDPD24Months_NonCC","aBlazeApplicant.maxDPD24MonthsNonCC_Color);
-fn_AppendCalculatedVariable(message,"maxDPDBeyond24Months_NonCC", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.maxDPDBeyond24Months_NonCC","aBlazeApplicant.maxDPDBeyond24MonthsNonCC_Color);
-fn_AppendCalculatedVariable(message,"writtenOffSettledWithin24Months_CC", "real", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.writtenOffSettledWithin24Months_CC","aBlazeApplicant.writtenOffSettledWithin24MonthsCC_Color);
-fn_AppendCalculatedVariable(message,"writtenOffSettledWithin24Months_NonCC", "real", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.writtenOffSettledWithin24Months_NonCC","aBlazeApplicant.writtenOffSettledWithin24MonthsNonCC_Color);
-fn_AppendCalculatedVariable(message,"writtenOffSettledBeyond24Months_CC", "real", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.writtenOffSettledBeyond24Months_CC","aBlazeApplicant.writtenOffSettledBeyond24MonthsCC_Color);
-fn_AppendCalculatedVariable(message,"writtenOffSettledBeyond24Months_NonCC", "real", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.writtenOffSettledBeyond24Months_NonCC","aBlazeApplicant.writtenOffSettledBeyond24MonthsNonCC_Color);
-fn_AppendCalculatedVariable(message,"currUtilisationLiveAcct_CC", "real", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.currUtilisationLiveAcct_CC","aBlazeApplicant.currUtilisationLiveAcctCC_Color);
-fn_AppendCalculatedVariable(message,"avgCurrUtilisationLiveAcct_NonCC", "real", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.avgCurrUtilisationLiveAcct_NonCC","aBlazeApplicant.avgCurrUtilisationLiveAcctNonCC_Color);
-fn_AppendCalculatedVariable(message,"acctOpenedLast12Months_CC", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.acctOpenedLast12Months_CC","aBlazeApplicant.acctOpenedLast12MonthsCC_Color);
-fn_AppendCalculatedVariable(message,"acctOpenedLast12Months_NonCC", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.acctOpenedLast12Months_NonCC","aBlazeApplicant.acctOpenedLast12MonthsNonCC_Color);
-fn_AppendCalculatedVariable(message,"noOfAcctOpenedinL12MonthsAndCurrActive_NonCC", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.noOfAcctOpenedinL12MonthsAndCurrActive_NonCC","aBlazeApplicant.noOfAcctOpenedinL12MonthsAndCurrActiveNonCC_Color);
-fn_AppendCalculatedVariable(message,"totalMaxDelinquencyInlife", "real", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.totalMaxDelinquencyInlife","aBlazeApplicant.totalMaxDelinquencyInlife_Color);
-fn_AppendCalculatedVariable(message,"totalCibilScore", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.totalCibilScore","aBlazeApplicant.totalCibilScore_Color);
-fn_AppendCalculatedVariable(message,"totalAvgCurrUtilisationLiveAcct", "real", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.totalAvgCurrUtilisationLiveAcct","aBlazeApplicant.totalAvgCurrUtilisationLiveAcct_Color);
-fn_AppendCalculatedVariable(message,"totalNumEnqLast6Months", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.totalNumEnqLast6Months","aBlazeApplicant.totalNumEnqLast6Months_Color);
-fn_AppendCalculatedVariable(message,"totalNumEnqLast12Months", "Integer", productCode, applicantId, applicantType, "Auto Populate", aBlazeApplicant.totalNumEnqLast12Months","aBlazeApplicant.totalNumEnqLast12Months_Color);
+fn_AppendCalculatedVariable(message,"noOfActiveCCAcct", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.noOfActiveCCAcct as a string);
+fn_AppendCalculatedVariable(message,"noOfActiveNonCCAcct", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.noOfActiveNonCCAcct as a string);
+fn_AppendCalculatedVariable(message,"totalNoOfActiveAcct", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.totalNoOfActiveAcct as a string);
+fn_AppendCalculatedVariable(message,"noOfClosedCCAcct", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.noOfClosedCCAcct as a string);
+fn_AppendCalculatedVariable(message,"noOfClosedNonCCAcct", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.noOfClosedNonCCAcct as a string);
+fn_AppendCalculatedVariable(message,"totalNoOfClosedAcct", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.totalNoOfClosedAcct as a string);
+fn_AppendCalculatedVariable(message,"totalCCOutstanding", "real", productCode, applicantId, applicantType, "AutoPopulate", math().round(aBlazeApplicant.totalCCOutstanding,-2) as a string);
+fn_AppendCalculatedVariable(message,"totalNonCCOutstanding", "real", productCode, applicantId, applicantType, "AutoPopulate", math().round(aBlazeApplicant.totalNonCCOutstanding,-2) as a string);
+fn_AppendCalculatedVariable(message,"totalOutstanding", "real", productCode, applicantId, applicantType, "AutoPopulate", math().round(aBlazeApplicant.totalOutstanding,-2) as a string);
+fn_AppendCalculatedVariable(message,"totalCCOverdueAmt", "real", productCode, applicantId, applicantType, "AutoPopulate", math().round(aBlazeApplicant.totalCCOverdueAmt,-2) as a string);
+fn_AppendCalculatedVariable(message,"totalNonCCOverdueAmt", "real", productCode, applicantId, applicantType, "AutoPopulate", math().round(aBlazeApplicant.totalNonCCOverdueAmt,-2) as a string);
+fn_AppendCalculatedVariable(message,"totalOverdueAmt", "real", productCode, applicantId, applicantType, "AutoPopulate", math().round(aBlazeApplicant.totalOverdueAmt,-2) as a string);
+fn_AppendCalculatedVariable(message,"numCCEnqLast7Days", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.numCCEnqLast7Days as a string);
+fn_AppendCalculatedVariable(message,"numNonCCEnqLast7Days", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.numNonCCEnqLast7Days as a string);
+fn_AppendCalculatedVariable(message,"totalNumEnqLast7Days", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.totalNumEnqLast7Days as a string);
+fn_AppendCalculatedVariable(message,"numCCEnqLast30Days", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.numCCEnqLast30Days as a string);
+fn_AppendCalculatedVariable(message,"numNonCCEnqLast30Days", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.numNonCCEnqLast30Days as a string);
+fn_AppendCalculatedVariable(message,"totalNumEnqLast30Days", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.totalNumEnqLast30Days as a string);
+fn_AppendCalculatedVariable(message,"numCCEnqLast90Days", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.numCCEnqLast90Days as a string);
+fn_AppendCalculatedVariable(message,"numNonCCEnqLast90Days", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.numNonCCEnqLast90Days as a string);
+fn_AppendCalculatedVariable(message,"totalNumEnqLast90Days", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.totalNumEnqLast90Days as a string);
+fn_AppendCalculatedVariable(message,"numCCEnqLast180Days", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.numCCEnqLast180Days as a string);
+fn_AppendCalculatedVariable(message,"numNonCCEnqLast180Days", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.numNonCCEnqLast180Days as a string);
+fn_AppendCalculatedVariable(message,"totalNumEnqLast180Days", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.totalNumEnqLast180Days as a string);
+fn_AppendCalculatedVariable(message,"numCCEnqLast360Days", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.numCCEnqLast360Days as a string);
+fn_AppendCalculatedVariable(message,"numNonCCEnqLast360Days", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.numNonCCEnqLast360Days as a string);
+fn_AppendCalculatedVariable(message,"totalNumEnqLast360Days", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.totalNumEnqLast360Days as a string);
+fn_AppendCalculatedVariable(message,"countOf30PlusCCAcctLast24m", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.countOf30PlusCCAcctLast24m as a string);
+fn_AppendCalculatedVariable(message,"countOf30PlusNonCCAcctLast24m", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.countOf30PlusNonCCAcctLast24m as a string);
+fn_AppendCalculatedVariable(message,"totalCountOf30PlusLast24m", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.totalCountOf30PlusLast24m as a string);
+fn_AppendCalculatedVariable(message,"sumOf30PlusCCAcctLast24m", "real", productCode, applicantId, applicantType, "AutoPopulate", math().round(aBlazeApplicant.sumOf30PlusCCAcctLast24m,-2) as a string);
+fn_AppendCalculatedVariable(message,"sumOf30PlusNonCCAcctLast24m", "real", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.sumOf30PlusNonCCAcctLast24m as a string);
+fn_AppendCalculatedVariable(message,"totalSumOf30PlusLast24m", "real", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.totalSumOf30PlusLast24m as a string);
+fn_AppendCalculatedVariable(message,"countOfwrittenOff_SettledCC", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.countOfwrittenOff_SettledCC as a string);
+fn_AppendCalculatedVariable(message,"countOfwrittenOff_SettledNonCC", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.countOfwrittenOff_SettledNonCC as a string);
+fn_AppendCalculatedVariable(message,"totalCountwrittenOff_Settled", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.totalCountwrittenOff_Settled as a string);
+fn_AppendCalculatedVariable(message,"blcOfwrittenOff_SettledCC", "real", productCode, applicantId, applicantType, "AutoPopulate", math().round(aBlazeApplicant.blcOfwrittenOff_SettledCC,-2) as a string);
+fn_AppendCalculatedVariable(message,"blcOfwrittenOff_SettledNonCC", "real", productCode, applicantId, applicantType, "AutoPopulate", math().round(aBlazeApplicant.blcOfwrittenOff_SettledNonCC,-2) as a string);
+fn_AppendCalculatedVariable(message,"BlcOfwrittenOff_Settled", "real", productCode, applicantId, applicantType, "AutoPopulate", math().round(aBlazeApplicant.BlcOfwrittenOff_Settled,-2) as a string);
+fn_AppendCalculatedVariable(message,"totalCCOverdueAmt", "real", productCode, applicantId, applicantType, "AutoPopulate", math().round(aBlazeApplicant.totalCCOverdueAmt,-2)","aBlazeApplicant.overdueAmtCC_Color);
+fn_AppendCalculatedVariable(message,"maxDPD24Months_CC", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.maxDPD24Months_CC","aBlazeApplicant.maxDPD24MonthsCC_Color);
+fn_AppendCalculatedVariable(message,"maxDPD24Months_NonCC", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.maxDPD24Months_NonCC","aBlazeApplicant.maxDPD24MonthsNonCC_Color);
+fn_AppendCalculatedVariable(message,"maxDPDBeyond24Months_NonCC", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.maxDPDBeyond24Months_NonCC","aBlazeApplicant.maxDPDBeyond24MonthsNonCC_Color);
+fn_AppendCalculatedVariable(message,"writtenOffSettledWithin24Months_CC", "real", productCode, applicantId, applicantType, "AutoPopulate", math().round(aBlazeApplicant.writtenOffSettledWithin24Months_CC,-2)","aBlazeApplicant.writtenOffSettledWithin24MonthsCC_Color);
+fn_AppendCalculatedVariable(message,"writtenOffSettledWithin24Months_NonCC", "real", productCode, applicantId, applicantType, "AutoPopulate", math().round(aBlazeApplicant.writtenOffSettledWithin24Months_NonCC,-2)","aBlazeApplicant.writtenOffSettledWithin24MonthsNonCC_Color);
+fn_AppendCalculatedVariable(message,"writtenOffSettledBeyond24Months_CC", "real", productCode, applicantId, applicantType, "AutoPopulate", math().round(aBlazeApplicant.writtenOffSettledBeyond24Months_CC,-2)","aBlazeApplicant.writtenOffSettledBeyond24MonthsCC_Color);
+fn_AppendCalculatedVariable(message,"writtenOffSettledBeyond24Months_NonCC", "real", productCode, applicantId, applicantType, "AutoPopulate", math().round(aBlazeApplicant.writtenOffSettledBeyond24Months_NonCC,-2)","aBlazeApplicant.writtenOffSettledBeyond24MonthsNonCC_Color);
+fn_AppendCalculatedVariable(message,"currUtilisationLiveAcct_CC", "real", productCode, applicantId, applicantType, "AutoPopulate", math().round(aBlazeApplicant.currUtilisationLiveAcct_CC,-2)","aBlazeApplicant.currUtilisationLiveAcctCC_Color);
+fn_AppendCalculatedVariable(message,"avgCurrUtilisationLiveAcct_NonCC", "real", productCode, applicantId, applicantType, "AutoPopulate", math().round(aBlazeApplicant.avgCurrUtilisationLiveAcct_NonCC,-2)","aBlazeApplicant.avgCurrUtilisationLiveAcctNonCC_Color);
+fn_AppendCalculatedVariable(message,"acctOpenedLast12Months_CC", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.acctOpenedLast12Months_CC","aBlazeApplicant.acctOpenedLast12MonthsCC_Color);
+fn_AppendCalculatedVariable(message,"acctOpenedLast12Months_NonCC", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.acctOpenedLast12Months_NonCC","aBlazeApplicant.acctOpenedLast12MonthsNonCC_Color);
+fn_AppendCalculatedVariable(message,"noOfAcctOpenedinL12MonthsAndCurrActive_NonCC", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.noOfAcctOpenedinL12MonthsAndCurrActive_NonCC","aBlazeApplicant.noOfAcctOpenedinL12MonthsAndCurrActiveNonCC_Color);
+fn_AppendCalculatedVariable(message,"totalMaxDelinquencyInlife", "real", productCode, applicantId, applicantType, "AutoPopulate", math().round(aBlazeApplicant.totalMaxDelinquencyInlife,-2)","aBlazeApplicant.totalMaxDelinquencyInlife_Color);
+fn_AppendCalculatedVariable(message,"totalCibilScore", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.totalCibilScore","aBlazeApplicant.totalCibilScore_Color);
+fn_AppendCalculatedVariable(message,"totalAvgCurrUtilisationLiveAcct", "real", productCode, applicantId, applicantType, "AutoPopulate", math().round(aBlazeApplicant.totalAvgCurrUtilisationLiveAcct,-2)","aBlazeApplicant.totalAvgCurrUtilisationLiveAcct_Color);
+fn_AppendCalculatedVariable(message,"totalNumEnqLast6Months", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.totalNumEnqLast6Months","aBlazeApplicant.totalNumEnqLast6Months_Color);
+fn_AppendCalculatedVariable(message,"totalNumEnqLast12Months", "Integer", productCode, applicantId, applicantType, "AutoPopulate", aBlazeApplicant.totalNumEnqLast12Months","aBlazeApplicant.totalNumEnqLast12Months_Color);
 
 //Print Statements for all calculated variables
       
@@ -640,12 +649,12 @@ fn_AppendCalculatedVariable(message,"totalNumEnqLast12Months", "Integer", produc
     print("-----> aBlazeApplicant.noOfClosedCCAcct ::"aBlazeApplicant.noOfClosedCCAcct);
     print("-----> aBlazeApplicant.noOfClosedNonCCAcct ::"aBlazeApplicant.noOfClosedNonCCAcct);
     print("-----> aBlazeApplicant.totalNoOfClosedAcct ::"aBlazeApplicant.totalNoOfClosedAcct);
-    print("-----> aBlazeApplicant.totalCCOutstanding ::"aBlazeApplicant.totalCCOutstanding);
-    print("-----> aBlazeApplicant.totalNonCCOutstanding ::"aBlazeApplicant.totalNonCCOutstanding);
-    print("-----> aBlazeApplicant.totalOutstanding ::"aBlazeApplicant.totalOutstanding);
-    print("-----> aBlazeApplicant.totalCCOverdueAmt ::"aBlazeApplicant.totalCCOverdueAmt);
-    print("-----> aBlazeApplicant.totalNonCCOverdueAmt ::"aBlazeApplicant.totalNonCCOverdueAmt);
-    print("-----> aBlazeApplicant.totalOverdueAmt ::"aBlazeApplicant.totalOverdueAmt);
+    print("-----> aBlazeApplicant.totalCCOutstanding ::"math().round(aBlazeApplicant.totalCCOutstanding,-2));
+    print("-----> aBlazeApplicant.totalNonCCOutstanding ::"math().round(aBlazeApplicant.totalNonCCOutstanding,-2));
+    print("-----> aBlazeApplicant.totalOutstanding ::"math().round(aBlazeApplicant.totalOutstanding,-2));
+    print("-----> aBlazeApplicant.totalCCOverdueAmt ::"math().round(aBlazeApplicant.totalCCOverdueAmt,-2));
+    print("-----> aBlazeApplicant.totalNonCCOverdueAmt ::"math().round(aBlazeApplicant.totalNonCCOverdueAmt,-2));
+    print("-----> aBlazeApplicant.totalOverdueAmt ::"math().round(aBlazeApplicant.totalOverdueAmt,-2));
     print("-----> aBlazeApplicant.numCCEnqLast7Days ::"aBlazeApplicant.numCCEnqLast7Days);
     print("-----> aBlazeApplicant.numNonCCEnqLast7Days ::"aBlazeApplicant.numNonCCEnqLast7Days);
     print("-----> aBlazeApplicant.totalNumEnqLast7Days ::"aBlazeApplicant.totalNumEnqLast7Days);
@@ -664,31 +673,31 @@ fn_AppendCalculatedVariable(message,"totalNumEnqLast12Months", "Integer", produc
     print("-----> aBlazeApplicant.countOf30PlusCCAcctLast24m ::"aBlazeApplicant.countOf30PlusCCAcctLast24m);
     print("-----> aBlazeApplicant.countOf30PlusNonCCAcctLast24m ::"aBlazeApplicant.countOf30PlusNonCCAcctLast24m);
     print("-----> aBlazeApplicant.totalCountOf30PlusLast24m ::"aBlazeApplicant.totalCountOf30PlusLast24m);
-    print("-----> aBlazeApplicant.sumOf30PlusCCAcctLast24m ::"aBlazeApplicant.sumOf30PlusCCAcctLast24m);
+    print("-----> aBlazeApplicant.sumOf30PlusCCAcctLast24m ::"math().round(aBlazeApplicant.sumOf30PlusCCAcctLast24m,-2));
     print("-----> aBlazeApplicant.sumOf30PlusNonCCAcctLast24m ::"aBlazeApplicant.sumOf30PlusNonCCAcctLast24m);
     print("-----> aBlazeApplicant.totalSumOf30PlusLast24m ::"aBlazeApplicant.totalSumOf30PlusLast24m);
     print("-----> aBlazeApplicant.countOfwrittenOff_SettledCC ::"aBlazeApplicant.countOfwrittenOff_SettledCC);
     print("-----> aBlazeApplicant.countOfwrittenOff_SettledNonCC ::"aBlazeApplicant.countOfwrittenOff_SettledNonCC);
     print("-----> aBlazeApplicant.totalCountwrittenOff_Settled ::"aBlazeApplicant.totalCountwrittenOff_Settled);
-    print("-----> aBlazeApplicant.blcOfwrittenOff_SettledCC ::"aBlazeApplicant.blcOfwrittenOff_SettledCC);
-    print("-----> aBlazeApplicant.blcOfwrittenOff_SettledNonCC ::"aBlazeApplicant.blcOfwrittenOff_SettledNonCC);
-    print("-----> aBlazeApplicant.BlcOfwrittenOff_Settled ::"aBlazeApplicant.BlcOfwrittenOff_Settled);
-    print("-----> aBlazeApplicant.totalCCOverdueAmt ::"aBlazeApplicant.totalCCOverdueAmt","aBlazeApplicant.overdueAmtCC_Color);
+    print("-----> aBlazeApplicant.blcOfwrittenOff_SettledCC ::"math().round(aBlazeApplicant.blcOfwrittenOff_SettledCC,-2));
+    print("-----> aBlazeApplicant.blcOfwrittenOff_SettledNonCC ::"math().round(aBlazeApplicant.blcOfwrittenOff_SettledNonCC,-2));
+    print("-----> aBlazeApplicant.BlcOfwrittenOff_Settled ::"math().round(aBlazeApplicant.BlcOfwrittenOff_Settled,-2));
+    print("-----> aBlazeApplicant.totalCCOverdueAmt ::"math().round(aBlazeApplicant.totalCCOverdueAmt,-2)","aBlazeApplicant.overdueAmtCC_Color);
     print("-----> aBlazeApplicant.maxDPD24Months_CC ::"aBlazeApplicant.maxDPD24Months_CC","aBlazeApplicant.maxDPD24MonthsCC_Color);
     print("-----> aBlazeApplicant.maxDPD24Months_NonCC ::"aBlazeApplicant.maxDPD24Months_NonCC","aBlazeApplicant.maxDPD24MonthsNonCC_Color);
     print("-----> aBlazeApplicant.maxDPDBeyond24Months_NonCC ::"aBlazeApplicant.maxDPDBeyond24Months_NonCC","aBlazeApplicant.maxDPDBeyond24MonthsNonCC_Color);
-    print("-----> aBlazeApplicant.writtenOffSettledWithin24Months_CC ::"aBlazeApplicant.writtenOffSettledWithin24Months_CC","aBlazeApplicant.writtenOffSettledWithin24MonthsCC_Color);
-    print("-----> aBlazeApplicant.writtenOffSettledWithin24Months_NonCC ::"aBlazeApplicant.writtenOffSettledWithin24Months_NonCC","aBlazeApplicant.writtenOffSettledWithin24MonthsNonCC_Color);
-    print("-----> aBlazeApplicant.writtenOffSettledBeyond24Months_CC ::"aBlazeApplicant.writtenOffSettledBeyond24Months_CC","aBlazeApplicant.writtenOffSettledBeyond24MonthsCC_Color);
-    print("-----> aBlazeApplicant.writtenOffSettledBeyond24Months_NonCC ::"aBlazeApplicant.writtenOffSettledBeyond24Months_NonCC","aBlazeApplicant.writtenOffSettledBeyond24MonthsNonCC_Color);
-    print("-----> aBlazeApplicant.currUtilisationLiveAcct_CC ::"aBlazeApplicant.currUtilisationLiveAcct_CC","aBlazeApplicant.currUtilisationLiveAcctCC_Color);
-    print("-----> aBlazeApplicant.avgCurrUtilisationLiveAcct_NonCC ::"aBlazeApplicant.avgCurrUtilisationLiveAcct_NonCC","aBlazeApplicant.avgCurrUtilisationLiveAcctNonCC_Color);
+    print("-----> aBlazeApplicant.writtenOffSettledWithin24Months_CC ::"math().round(aBlazeApplicant.writtenOffSettledWithin24Months_CC,-2)","aBlazeApplicant.writtenOffSettledWithin24MonthsCC_Color);
+    print("-----> aBlazeApplicant.writtenOffSettledWithin24Months_NonCC ::"math().round(aBlazeApplicant.writtenOffSettledWithin24Months_NonCC,-2)","aBlazeApplicant.writtenOffSettledWithin24MonthsNonCC_Color);
+    print("-----> aBlazeApplicant.writtenOffSettledBeyond24Months_CC ::"math().round(aBlazeApplicant.writtenOffSettledBeyond24Months_CC,-2)","aBlazeApplicant.writtenOffSettledBeyond24MonthsCC_Color);
+    print("-----> aBlazeApplicant.writtenOffSettledBeyond24Months_NonCC ::"math().round(aBlazeApplicant.writtenOffSettledBeyond24Months_NonCC,-2)","aBlazeApplicant.writtenOffSettledBeyond24MonthsNonCC_Color);
+    print("-----> aBlazeApplicant.currUtilisationLiveAcct_CC ::"math().round(aBlazeApplicant.currUtilisationLiveAcct_CC,-2)","aBlazeApplicant.currUtilisationLiveAcctCC_Color);
+    print("-----> aBlazeApplicant.avgCurrUtilisationLiveAcct_NonCC ::"math().round(aBlazeApplicant.avgCurrUtilisationLiveAcct_NonCC,-2)","aBlazeApplicant.avgCurrUtilisationLiveAcctNonCC_Color);
     print("-----> aBlazeApplicant.acctOpenedLast12Months_CC ::"aBlazeApplicant.acctOpenedLast12Months_CC","aBlazeApplicant.acctOpenedLast12MonthsCC_Color);
 	print("-----> aBlazeApplicant.acctOpenedLast12Months_NonCC ::"aBlazeApplicant.acctOpenedLast12Months_NonCC","aBlazeApplicant.acctOpenedLast12MonthsNonCC_Color);
 	print("-----> aBlazeApplicant.noOfAcctOpenedinL12MonthsAndCurrActive_NonCC ::"aBlazeApplicant.noOfAcctOpenedinL12MonthsAndCurrActive_NonCC","aBlazeApplicant.noOfAcctOpenedinL12MonthsAndCurrActiveNonCC_Color);
-	print("-----> aBlazeApplicant.totalMaxDelinquencyInlife ::"aBlazeApplicant.totalMaxDelinquencyInlife","aBlazeApplicant.totalMaxDelinquencyInlife_Color);
+	print("-----> aBlazeApplicant.totalMaxDelinquencyInlife ::"math().round(aBlazeApplicant.totalMaxDelinquencyInlife,-2)","aBlazeApplicant.totalMaxDelinquencyInlife_Color);
 	print("-----> aBlazeApplicant.totalCibilScore ::"aBlazeApplicant.totalCibilScore","aBlazeApplicant.totalCibilScore_Color);
-	print("-----> aBlazeApplicant.totalAvgCurrUtilisationLiveAcct ::"aBlazeApplicant.totalAvgCurrUtilisationLiveAcct","aBlazeApplicant.totalAvgCurrUtilisationLiveAcct_Color);
+	print("-----> aBlazeApplicant.totalAvgCurrUtilisationLiveAcct ::"math().round(aBlazeApplicant.totalAvgCurrUtilisationLiveAcct,-2)","aBlazeApplicant.totalAvgCurrUtilisationLiveAcct_Color);
 	print("-----> aBlazeApplicant.totalNumEnqLast6Months ::"aBlazeApplicant.totalNumEnqLast6Months","aBlazeApplicant.totalNumEnqLast6Months_Color);
 	print("-----> aBlazeApplicant.totalNumEnqLast12Months ::"aBlazeApplicant.totalNumEnqLast12Months","aBlazeApplicant.totalNumEnqLast12Months_Color);
       
